@@ -9,29 +9,29 @@
     3.1. Viewing help : [help](#viewing-help)
 
     3.2. Listing all items: [list](#)
-    
+
     3.3. Adding an item: [add](#)
-    
+
     3.4. Editing an item: [edit](#)
-    
+
     3.5. Locating items by name: [find](#)
-    
+
     3.6. Deleting an item: [delete](#)
-    
+
     3.7. Viewing items in a resume: [rview](#)
-    
+
     3.8. Previewing a resume: [rpreview](#)
-    
+
     3.9. Editing a resume: [redit](#redit)
-    
+
     3.10. Generating a resume: [rgen](#rgen)
-    
+
     3.11. Exiting the program : [exit](#exit)
-    
+
     3.12. Saving the [data](#)
-    
+
     3.13. Encrypting data files [coming in [v2.0](#)]
-    
+
 4. [FAQ](#faq)
 
 5. [Command Summary](#5command-summary)
@@ -56,15 +56,24 @@ Attributes
 | 6   | res   | resumes          | id, name, description, tag                                  |
 | 7   | tag   | tags             | id, name, tag                                       |
 
-As you may have noticed from number 7, we are able to manage different resumes as well. Items from number 1 to 6 can be shared across different resumes. 
+As you may have noticed from number 7, we are able to manage different resumes as well. 
+Items from number 1 to 6 can be shared across different resumes. 
 
 The following is the GUI for our application:
 
-
-
 # 2. Quick Start
 
-
+1.  Ensure that you have Java 11 or above installed in your Computer
+2.  Download the latest resume.jar here.
+3. Copy the file to the folder you want to use as the home folder for your resume.
+4.  Double-click the file to start the app. The GUI should appear in a few seconds.
+5.  Type the command in the command box and press Enter to execute it.
+	e.g. Typing `help` and pressing Enter will open the help window.
+6.  Some example commands you can try:
++ `add -ski n/Java`: Adds a skill with the name Java to the address book.
++ `delete -edu 3`: Deletes the third education item shown in the list of education items.
++ `exit`: Exits the app.
+7.  Refer to Section 3, “Features” for details of each command.
 
 # 3. Features
 
@@ -77,7 +86,6 @@ The following is the GUI for our application:
  > e.g. `[#/TAG]...​` can be used as   (i.e. 0 times), `#/UX`, `#/software`, `#/java` etc.
 + Parameters can be in any order 
 > e.g. if the command specifies `n/NAME [p/PHONE_NUMBER]`, `p/PHONE_NUMBER] n/NAME` is also acceptable.
-
 
 #### 3.1. Viewing help : `help`
 
@@ -97,7 +105,6 @@ Format `list [-TYPE]`
 * List items that have type matches the `TYPE` argument. If no `TYPE` is given, all items will be listed.
 
 * Listed items are in short form, only showing their name and `ID`. To view items in full, use `view`.
-
 
 #### 3.3. Adding an item: `add`
 ```sh
@@ -175,7 +182,6 @@ Format: `find -TYPE KEYWORD [MORE_KEYWORDS]`
 + The search is **case insensitive**. 
     > e.g. orbital will match Orbital
 
-
 + The **order** of the keywords does **not** matter. 
     > e.g. Orbital CP2106 will match CP2106 Orbital
 
@@ -193,7 +199,6 @@ Format: `find -TYPE KEYWORD [MORE_KEYWORDS]`
     <br> Returns **_all_** items with `NUS`. 
 
     > e.g. `NUS Valedictorian, NUS`
-
 
 #### 3.6. Deleting an item: `delete`
 
