@@ -1,4 +1,4 @@
-= AddressBook Level 3 - User Guide
+= ResuMe - User Guide
 :site-section: UserGuide
 :toc:
 :toc-title:
