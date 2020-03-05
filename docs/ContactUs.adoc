@@ -4,4 +4,9 @@
 
 * *Bug reports, Suggestions* : Post in our https://github.com/se-edu/addressbook-level3/issues[issue tracker] if you noticed bugs or have suggestions on how to improve.
 * *Contributing* : We welcome pull requests. Follow the process described https://github.com/oss-generic/process[here]
-* *Email us* : You can also reach us at `damith [at] comp.nus.edu.sg`
+* *Email us* : You can also reach us at
+`cjwelly [at] u.nus.edu` or
+`hoang_nguyen [at] u.nus.edu` or
+`e0323236 [at] u.nus.edu` or
+
+
