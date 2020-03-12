@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import seedu.address.commons.core.GuiSettings;
@@ -15,6 +16,13 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
     private Path addressBookFilePath = Paths.get("data" , "addressbook.json");
+
+    private Path achievementFilePath = Paths.get("data", "achievement.json");
+    private Path educationFilePath = Paths.get("data", "education.json");
+    private Path internshipFilePath = Paths.get("data", "internship.json");
+    private Path personalDetailFilePath = Paths.get("data", "personaldetail.json");
+    private Path projectFilePath = Paths.get("data", "project.json");
+    private Path resumeFilePath = Paths.get("data", "resume.json");
 
     /**
      * Creates a {@code UserPrefs} with default values.
@@ -35,7 +43,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     public void resetData(ReadOnlyUserPrefs newUserPrefs) {
         requireNonNull(newUserPrefs);
         setGuiSettings(newUserPrefs.getGuiSettings());
-        setAddressBookFilePath(newUserPrefs.getAddressBookFilePath());
+        setResumeBookFilePath(newUserPrefs.getResumeBookFilePath());
     }
 
     public GuiSettings getGuiSettings() {
@@ -47,11 +55,27 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.guiSettings = guiSettings;
     }
 
-    public Path getAddressBookFilePath() {
+
+
+
+    public ArrayList<Path> getAllFilePaths() {
+        ArrayList<Path> paths = new ArrayList<>();
+        paths.add(addressBookFilePath);
+        paths.add(achievementFilePath);
+        paths.add(educationFilePath);
+        paths.add(internshipFilePath);
+        paths.add(personalDetailFilePath);
+        paths.add(projectFilePath);
+        paths.add(resumeFilePath);
+        return paths;
+    }
+
+    public Path getResumeBookFilePath() {
+
         return addressBookFilePath;
     }
 
-    public void setAddressBookFilePath(Path addressBookFilePath) {
+    public void setResumeBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         this.addressBookFilePath = addressBookFilePath;
     }

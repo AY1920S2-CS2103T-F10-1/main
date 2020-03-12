@@ -32,8 +32,8 @@ public class CommandResult {
      * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
      * and other fields set to their default value.
      */
-    public CommandResult(String dataToUser, String feedbackToUser) {
-        this(dataToUser, feedbackToUser, false, false);
+    public CommandResult(String feedbackToUser) {
+        this(feedbackToUser, feedbackToUser, false, false);
     }
 
     public String getFeedbackToUser() {

@@ -5,14 +5,14 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.person.Person;
+import seedu.address.model.item.Item;
 
 /**
  * The API of the Model component.
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Item> PREDICATE_SHOW_ALL_ITEMS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -35,53 +35,58 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' resume book file path.
      */
-    Path getAddressBookFilePath();
+    Path getResumeBookFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' resume book file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setResumeBookFilePath(Path addressBookFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces resume book data with the data in {@code resumeBook}.
      */
-    void setAddressBook(ReadOnlyAddressBook addressBook);
+    void setResumeBook(ReadOnlyResumeBook resumeBook);
 
     /** Returns the AddressBook */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyResumeBook getResumeBook();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if an item with the same identity as {@code pd} exists in the resume book.
      */
-    boolean hasPerson(Person person);
+    boolean hasItem(Item item);
 
     /**
-     * Deletes the given person.
-     * The person must exist in the address book.
+     * Deletes the given item.
+     * The item must exist in the resume book.
      */
-    void deletePerson(Person target);
+    void deleteItem(Item target);
 
     /**
-     * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * Adds the given item.
+     * {@code item} must not already exist in the resume book.
      */
-    void addPerson(Person person);
+    void addItem(Item item);
 
     /**
-     * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * Replaces the given item {@code target} with {@code editedItem}.
+     * {@code target} must exist in the resume book.
+     * The identity of {@code editedItem} must not be the same as another existing item in the resume book.
      */
-    void setPerson(Person target, Person editedPerson);
+    void setItem(Item target, Item editedItem);
 
-    /** Returns an unmodifiable view of the filtered person list */
-    ObservableList<Person> getFilteredPersonList();
+    /** Returns an unmodifiable view of the filtered item list */
+    ObservableList<Item> getFilteredItemList();
 
     /**
-     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * Updates the filter of the filtered item list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Person> predicate);
+    void updateFilteredItemList(Predicate<Item> predicate);
+
+    /**
+     * Updates the List as the list with specified type.
+     */
+    void setItemsToDisplay(String type);
 }

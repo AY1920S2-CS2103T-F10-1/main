@@ -9,10 +9,11 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
+import seedu.address.model.item.Item;
+import seedu.address.model.item.field.Address;
+import seedu.address.model.item.field.Email;
+import seedu.address.model.item.field.Name;
+import seedu.address.model.item.field.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -121,4 +122,20 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+    /**
+     * Parses a {@code String email} into an {@code Email}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code email} is invalid.
+     */
+    public static String parseItemType(String itemType) throws ParseException {
+        requireNonNull(itemType);
+        String trimmedItemType = itemType.trim();
+        if (!Item.isValidItemType(trimmedItemType)) {
+            throw new ParseException("Not a valid item type!");
+        }
+        return trimmedItemType;
+    }
+
 }
