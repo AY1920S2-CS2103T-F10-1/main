@@ -4,6 +4,6 @@
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane fx:id="placeHolder" styleClass="pane-with-border" xmlns="http://javafx.com/javafx/8"
-    xmlns:fx="http://javafx.com/fxml/1">
-  <TextArea fx:id="resultDisplay" editable="false" styleClass="result-display"/>
+      xmlns:fx="http://javafx.com/fxml/1">
+    <TextArea fx:id="resultDisplay" editable="false" styleClass="result-display"/>
 </StackPane>

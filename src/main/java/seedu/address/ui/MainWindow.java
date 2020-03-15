@@ -34,6 +34,7 @@ public class MainWindow extends UiPart<Stage> {
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private ItemDisplay itemDisplay;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -48,7 +49,11 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane resultDisplayPlaceholder;
 
     @FXML
+    private StackPane itemDisplayPlaceholder;
+
+    @FXML
     private StackPane statusbarPlaceholder;
+
 
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
@@ -107,8 +112,11 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
+        personListPanel = new PersonListPanel(logic.getFilteredItemList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+
+        itemDisplay = new ItemDisplay();
+        itemDisplayPlaceholder.getChildren().add(itemDisplay.getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -118,6 +126,7 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
     }
 
     /**
@@ -173,7 +182,10 @@ public class MainWindow extends UiPart<Stage> {
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
+            logger.info("Item Display: " + commandResult.getDataToUser());
+
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+            itemDisplay.setDataFeedbackToUser(commandResult.getDataToUser());
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
@@ -187,6 +199,7 @@ public class MainWindow extends UiPart<Stage> {
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());
+            itemDisplay.setDataFeedbackToUser(e.getMessage());
             throw e;
         }
     }
