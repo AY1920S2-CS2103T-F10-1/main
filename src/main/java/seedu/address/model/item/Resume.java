@@ -21,7 +21,7 @@ public class Resume extends Item {
 
     public Resume(Name name, Set<Tag> tags) {
         super(name, tags);
-        this.type = new Type("res");
+        this.type = Type.generate("res");
     }
 
     public ArrayList<Internship> getInternships() {

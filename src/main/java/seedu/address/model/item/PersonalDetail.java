@@ -31,7 +31,7 @@ public class PersonalDetail extends Item {
     public PersonalDetail(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         super(name, tags);
         requireAllNonNull(name, phone, email, address, tags);
-        this.type = new Type("pd");
+        this.type = Type.generate("pd");
         this.phone = phone;
         this.email = email;
         this.address = address;

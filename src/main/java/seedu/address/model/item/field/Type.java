@@ -6,8 +6,12 @@ package seedu.address.model.item.field;
 public class Type {
     private String alias;
 
-    public Type(String alias) {
+    private Type(String alias) {
         this.alias = alias;
+    }
+
+    public static Type generate(String alias) {
+        return new Type(alias);
     }
 
     public String getAlias() {

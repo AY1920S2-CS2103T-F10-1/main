@@ -23,7 +23,7 @@ public class Project extends Item {
     public Project(Name name, Time time, Website website, String description, Set<Tag> tags) {
         super(name, tags);
         requireAllNonNull(time, website, description);
-        this.type = new Type("proj");
+        this.type = Type.generate("proj");
         this.time = time;
         this.website = website;
         this.description = description;
