@@ -2,6 +2,9 @@ language: java
 matrix:
   include:
     - jdk: openjdk11
+    
+before_script:
+ - chmod +x gradlew
 
 script: >-
     ./config/travis/run-checks.sh &&
