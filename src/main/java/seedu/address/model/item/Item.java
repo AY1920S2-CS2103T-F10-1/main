@@ -19,8 +19,6 @@ public abstract class Item {
 
     public static final String MESSAGE_CONSTRAINTS = "You are required to specify an item type! For example: i/ res";
 
-    // Class-level fields
-    protected static int itemCount = 0;
 
     // Item-level fields
 
@@ -32,15 +30,18 @@ public abstract class Item {
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
 
+    public Item(Name name, int id, Set<Tag> tags) {
+        requireAllNonNull(name, tags);
+        this.id = id;
+        this.name = name;
+        this.tags.addAll(tags);
+    }
+
     /**
      * Every field must be present and not null.
      */
     public Item(Name name, Set<Tag> tags) {
-        requireAllNonNull(name, tags);
-        itemCount += 1;
-        this.id = itemCount;
-        this.name = name;
-        this.tags.addAll(tags);
+        this(name, 0, tags);
     }
 
     public Type getType() {
@@ -121,11 +122,11 @@ public abstract class Item {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(" Name: ")
+        builder.append("\n Name: ")
                 .append(getName())
-                .append(" ID: ")
+                .append("\n ID: ")
                 .append(getId())
-                .append(" Tags: ");
+                .append("\n Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }

@@ -15,12 +15,13 @@ import seedu.address.model.tag.Tag;
 public class Internship extends Item {
 
     // Data fields
+    // TODO: convert from and to back to Time
     private String role;
-    private Time from;
-    private Time to;
+    private String from;
+    private String to;
     private String description;
 
-    public Internship(Name name, String role, Time from, Time to, String description, Set<Tag> tags) {
+    public Internship(Name name, String role, String from, String to, String description, Set<Tag> tags) {
         super(name, tags);
         requireAllNonNull(role, from, to, description);
         this.type = Type.generate("int");
@@ -30,15 +31,26 @@ public class Internship extends Item {
         this.description = description;
     }
 
+    public Internship(Name name, String role, String from, String to,String description, Set<Tag> tags, int id) {
+        super(name, id, tags);
+        requireAllNonNull(role, from, to, description);
+        this.type = Type.generate("int");
+        this.role = role;
+        this.from = from;
+        this.to = to;
+        this.description = description;
+
+    }
+
     public String getRole() {
         return this.role;
     }
 
-    public Time getFrom() {
+    public String getFrom() {
         return this.from;
     }
 
-    public Time getTo() {
+    public String getTo() {
         return this.to;
     }
 

@@ -45,9 +45,10 @@ public class JsonAddressBookStorage implements AddressBookStorage {
     public Optional<ReadOnlyResumeBook> readAddressBook(Path filePath) throws DataConversionException {
         requireNonNull(filePath);
 
-        Optional<JsonSerializableAddressBook> jsonAddressBook = JsonUtil.readJsonFile(
-                filePath, JsonSerializableAddressBook.class);
+        Optional<JsonSerializableResumeBook> jsonAddressBook = JsonUtil.readJsonFile(
+                filePath, JsonSerializableResumeBook.class);
         if (!jsonAddressBook.isPresent()) {
+            logger.info("Fuck");
             return Optional.empty();
         }
 
@@ -74,7 +75,7 @@ public class JsonAddressBookStorage implements AddressBookStorage {
         requireNonNull(filePath);
 
         FileUtil.createIfMissing(filePath);
-        JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook), filePath);
+        JsonUtil.saveJsonFile(new JsonSerializableResumeBook(addressBook), filePath);
     }
 
 }

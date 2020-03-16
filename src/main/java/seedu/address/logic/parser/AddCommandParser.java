@@ -62,7 +62,7 @@ public class AddCommandParser implements Parser<AddCommand> {
 
             return new AddResumeCommand(resume);
         case ("int"):
-            if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_FROM, PREFIX_ROLE, PREFIX_ROLE, PREFIX_DESCRIPTION)
+            if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_FROM, PREFIX_TO, PREFIX_ROLE, PREFIX_DESCRIPTION)
                     || !argMultimap.getPreamble().isEmpty()) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
             }
@@ -74,7 +74,7 @@ public class AddCommandParser implements Parser<AddCommand> {
             description = argMultimap.getValue(PREFIX_DESCRIPTION).get().trim();
             tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-            Internship internship = new Internship(name, role, from, to, description, tagList);
+            Internship internship = new Internship(name, role, from.toString(), to.toString(), description, tagList);
             return new AddInternshipCommand(internship);
         default:
             // Should not have reached here
