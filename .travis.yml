@@ -3,10 +3,7 @@ matrix:
   include:
     - jdk: openjdk11
     
-before_script:
- - chmod +x gradlew
-
-script: >-
+install: >-
     ./config/travis/run-checks.sh &&
     ./gradlew clean checkstyleMain checkstyleTest test coverage coveralls asciidoctor
 
