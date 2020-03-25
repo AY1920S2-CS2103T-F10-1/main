@@ -153,13 +153,23 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1 i/ ski</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>delete 1 i/ ski</code> command</div>
+</div>
+<h4 id="how-the-architecture-components-interact-at-start-up" class="discrete">How the architecture components interact at start up</h4>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other at start up.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ArchitectureInitSequenceDiagram.png" alt="ArchitectureInitSequenceDiagram">
+</div>
+<div class="title">Figure 4. Component interactions for initialisation</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -171,7 +181,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the UI Component</div>
+<div class="title">Figure 5. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
@@ -205,7 +215,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -237,7 +247,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -258,7 +268,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -303,7 +313,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Resume Book</
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -456,27 +466,39 @@ Regardless of what the original content is, after running the command, the resum
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Currently, there are several objects which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>, etc.</p>
+<p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
+and <code>Project</code>.</p>
 </div>
 <div class="paragraph">
-<p>For every of the <code>XYZCommand</code>, we would have one that corresponds to the <code>Item</code>. For example, we have <code>AddInternshipCommand</code> and <code>AddSkillCommand</code>.</p>
+<p>Commands that are dependent on item <code>Type</code>, namely <code>EditCommand</code>, <code>AddCommand</code>, <code>DeleteCommand</code>, <code>FindCommand</code>,
+<code>ListCommand</code>, and <code>ViewCommand</code> are implemented as abstract classes that inherits from <code>Command</code> and would have a
+concrete classes that corresponds to each item <code>Type</code>. For example, <code>AddCommand</code> is an abstract class that
+<code>AddInternshipCommand</code> and <code>AddSkillCommand</code> inherits from.</p>
 </div>
 <div class="paragraph">
-<p>This implies that the number of classes that needs to be written is the number of different commands times the different number of items.</p>
+<p>Commands that are not dependent on item <code>Type</code> (eg. <code>EditUserCommand</code>, <code>HelpCommand</code>) are implemented as concrete
+classes that inherits from <code>Command</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandClassDiagram.png" alt="CommandClassDiagram">
+</div>
+<div class="title">Figure 10. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-whether-to-separate-the-code-xyzcommand-code-into-many-code-xyzitemcommand-code"><a class="link" href="#aspect-whether-to-separate-the-code-xyzcommand-code-into-many-code-xyzitemcommand-code">Aspect: Whether to separate the <code>XYZCommand</code> into many <code>XYZItemCommand</code></a></h5>
+<h5 id="aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code"><a class="link" href="#aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code">Aspect: Whether to separate the <code>ABCCommand</code> that is dependent on type into many <code>ABCItemCommand</code></a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong> Alternative 1 (current choice):</strong> <code>XYZCommand</code> is separated into many <code>XYZItemCommand</code></p>
+<p><strong> Alternative 1 (current choice):</strong> <code>ABCCommand</code> is separated into many <code>ABCItemCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: More OOP. The behaviour of an <code>XYZItemCommand</code> becomes more flexible and can be easily changed as required.</p>
+<p>Pros: More OOP. Flexible behaviour of <code>ABCItemCommand</code> and can be easily changed as required. No
+casing required. Each <code>ABCItemCommand</code> has it&#8217;s own and distinct functionality.</p>
 </li>
 <li>
 <p>Cons: Many classes have to be maintained.</p>
@@ -485,19 +507,33 @@ Regardless of what the original content is, after running the command, the resum
 </div>
 </li>
 <li>
-<p><strong> Alternative 2: </strong> Do not separate <code>XYZCommand</code></p>
+<p><strong> Alternative 2: </strong> Do not separate <code>ABCCommand</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Only one command is required, regardless of number of items.</p>
+<p>Pros: Only one command is required, regardless of number of items. Low overhead.</p>
 </li>
 <li>
-<p>Cons: The <code>execute</code> method inside this class can potentially be very long due to the need for handling the different item types.</p>
+<p>Cons: Long <code>execute</code> method due to the need for handling the different item types. Item <code>Type</code> would also need to be stored.
+Undesirable variable functionality of <code>execute</code> command depending on the <code>Type</code> field despite it being from the same class.
+ie. <code>AddItem</code> can add <code>Internship</code> to the <code>Internship</code> list, or add <code>Skill</code> to <code>Skill</code> list.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> We went with our current design because it allows for each command type to only have one distinct job which
+is more in line with the object oriented programming paradigm of Single Responsibility Principle. Instead of having one single
+class that that would need to change if implementation of any of the <code>Type</code> changes, our implementation ensures that
+our many command classes would only have a single reason to change. Moreover, our current implementation also
+reduces double work as <code>Parser</code> will not have to parse <code>Type</code> in the user input to create the <code>ABCCommand</code>, then only to
+be switch-cased again in <code>ABCCommand</code>.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1525,4 +1561,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 16:51:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 17:10:09 UTC</div></div></div></body></html>
