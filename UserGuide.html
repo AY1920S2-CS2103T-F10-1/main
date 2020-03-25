@@ -21,11 +21,13 @@
 <li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
 <li><a href="#viewing-an-item-in-details-code-view-code">3.7. Viewing an item in details: <code>view</code></a></li>
 <li><a href="#editing-a-resume-code-redit-code">3.8. Editing a resume: <code>redit</code></a></li>
-<li><a href="#previewing-a-resume-code-rpreview-code">3.9. Previewing a resume: <code>rpreview</code></a></li>
-<li><a href="#generating-a-resume-rgen">3.10. Generating a resume: rgen</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.12. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#undo-a-command-code-undo-code">3.9. Undo a command: <code>undo</code></a></li>
+<li><a href="#redo-a-command-code-redo-code">3.10. Redo a command: <code>redo</code></a></li>
+<li><a href="#previewing-a-resume-code-rpreview-code">3.11. Previewing a resume: <code>rpreview</code></a></li>
+<li><a href="#generating-a-resume-rgen">3.12. Generating a resume: rgen</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.14. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -556,7 +558,52 @@ Content of other item types in the resume remain unchanged.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">3.9. Previewing a resume: <code>rpreview</code></a></h3>
+<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">3.9. Undo a command: <code>undo</code></a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
+</li>
+<li>
+<p>Successive undo commands will bring the application state further back.</p>
+</li>
+<li>
+<p>Do note that commands that make no change to the application state, like <code>list</code> or <code>view</code>, cannot be undone.</p>
+</li>
+<li>
+<p>You cannot undo if there is no previous state to return to.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">3.10. Redo a command: <code>redo</code></a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Redoes the immediately previous undone command and brings the application state to after the performing of that
+command.</p>
+</li>
+<li>
+<p>If a new command is performed after <code>undo</code>, then all redo states will be deleted and you will not be able to go
+to these states.</p>
+</li>
+<li>
+<p>You cannot redo if there is no forward state to go to.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">3.11. Previewing a resume: <code>rpreview</code></a></h3>
 <div class="listingblock">
 <div class="content">
 <pre>Previews the resume in string format.</pre>
@@ -578,7 +625,7 @@ Shows the text format of the resume with <code>RESUME_ID</code> 135.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-resume-rgen"><a class="link" href="#generating-a-resume-rgen">3.10. Generating a resume: rgen</a></h3>
+<h3 id="generating-a-resume-rgen"><a class="link" href="#generating-a-resume-rgen">3.12. Generating a resume: rgen</a></h3>
 <div class="listingblock">
 <div class="content">
 <pre>Generates a .pdf file from an existing resume object.</pre>
@@ -614,7 +661,7 @@ Generates a <code>.pdf</code> file from resume object with <code>RESUME_ID</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
 <div class="listingblock">
 <div class="content">
 <pre>Exits the program.</pre>
@@ -625,14 +672,14 @@ Generates a <code>.pdf</code> file from resume object with <code>RESUME_ID</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.12. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
 <div class="paragraph">
 <p>ResuMe data is saved in the hard disk automatically after any command
 that changes the data. There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -700,6 +747,12 @@ e.g. <code>delete 3 i/res</code></p>
 e.g. <code>redit 135 proj/ 9823 int/ 102 201</code><br></p>
 </li>
 <li>
+<p><strong>Undo</strong> : <code>undo</code><br></p>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code><br></p>
+</li>
+<li>
 <p><strong>Preview Resume</strong> : <code>rpreview RESUME_ID</code><br>
 e.g. <code>rpreview 234</code></p>
 </li>
@@ -710,4 +763,4 @@ e.g. <code>rgen 21</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 15:43:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 15:55:29 UTC</div></div></div></body></html>
