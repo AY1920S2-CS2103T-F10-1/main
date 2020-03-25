@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">ResuMe</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>ResuMe - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team F10-1</code>      Since: <code>Jan 2020</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -25,10 +25,11 @@
 <li><a href="#proposed-resume-edit-feature">3.1. [Proposed] Resume Edit feature</a></li>
 <li><a href="#implementation-of-code-command-code-classes">3.2. Implementation of <code>Command</code> classes</a></li>
 <li><a href="#me-feature">3.3. Me Feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.4. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#proposed-export-resume-feature">3.4. [Proposed] Export Resume feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -271,10 +272,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the Resume Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Item&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -288,7 +289,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>Resume Book</code>, which <code>Item</code> can reference. This would allow <code>Resume Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Item</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -551,9 +552,186 @@ with the app.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.4. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-export-resume-feature"><a class="link" href="#proposed-export-resume-feature">3.4. [Proposed] Export Resume feature</a></h3>
+<div class="paragraph">
+<p>The Export Resume feature supports two main actions: previewing the content of a <code>Resume</code> item, and
+then exporting it as a .pdf file.</p>
+</div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.4.1. Implementation</a></h4>
+<h4 id="rpreview-preview-a-code-resume-code"><a class="link" href="#rpreview-preview-a-code-resume-code">3.4.1. rpreview: preview a <code>Resume</code></a></h4>
+<div class="sect4">
+<h5 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">Proposed Implementation</a></h5>
+<div class="paragraph">
+<p><code>rpreview</code> is supported by the new <code>Command</code>, <code>ResumePreviewCommand</code> and the additional method <code>Resume#getPreview()</code>
+which return the content of the <code>Resume</code> in textual format.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches ResuMé. After loading data from storage to the application memory, the list of resumes in the
+ResumeBook could either contain some resumes, or is empty.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>rpreview INDEX</code>. If the specified resume index is out of bound, ResuMé throws an error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The application retrieves the correct <code>Resume</code> item and call <code>getPreview()</code> on that resume.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises what happens when a user executes <code>rpreview</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportPreviewActivityDiagram.png" alt="ExportPreviewActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="aspect-where-code-rpreview-code-is-displayed"><a class="link" href="#aspect-where-code-rpreview-code-is-displayed">Aspect: Where <code>rpreview</code> is displayed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Display in the same panel as <code>view</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No significant change to UI component.</p>
+</li>
+<li>
+<p>Cons: Multiple commands needed if user finds out about a typo in an item, wants to view the item in details,
+fix the typo and then check the preview again to ensure there is no more error.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create a separate UI panel to display the resume preview. Additionally, this panel could be implemented
+such that it automatically updates when the content of the <code>Resume</code> item is edited.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can see the resume preview and the item detail panels at the same time, hence saving time switching between views.</p>
+</li>
+<li>
+<p>Cons: Too many panels could be confusing for the user to navigate. The space is also often wasted since user does not
+need to use <code>rpreview</code> regularly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rgen-generate-a-pdf-file-from-a-code-resume-code"><a class="link" href="#rgen-generate-a-pdf-file-from-a-code-resume-code">3.4.2. rgen: generate a .pdf file from a <code>Resume</code></a></h4>
+<div class="sect4">
+<h5 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">Proposed Implementation</a></h5>
+<div class="paragraph">
+<p>This feature utilises the external <strong>iText</strong> library. When using <code>rgen</code>, the user could specify the desired name of
+the generated file, which will be saved in the root directory of the project.</p>
+</div>
+<div class="paragraph">
+<p><code>rgen</code> implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create(String)</code> and <code>create()</code> - initialises the .pdf file, either with the input <code>String</code> name specified by the user,
+or with the same name as the <code>Resume</code> name if the file name is not specified.</p>
+</li>
+<li>
+<p><code>addSection(String)</code> - starts a new section with the <code>String</code> name (e.g. "Internship").</p>
+</li>
+<li>
+<p><code>populateSection(UniqueItemList)</code> and <code>insertItem(Item)</code> - populates the section with items in the same order as they
+are in the <code>UniqueItemList</code>. When an <code>Item</code> is inserted, it is correctly formatted depending on the item type.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches ResuMé. After loading data from storage to the application memory, the list of resumes in the
+ResumeBook could either contain some resumes, or is empty.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>rgen INDEX n/ FILE_NAME</code>. If the specified resume index is out of bound,
+ResuMé throws an error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The application retrieves the correct <code>Resume</code> item, create a new .pdf file and populates it with the corresponding
+items inside the <code>Resume</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises what happens when a user executes <code>rgen</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportActivityDiagram.png" alt="ExportActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Detailed steps are shown in the sequence diagram below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportSequenceDiagram.png" alt="ExportSequenceDiagram" width="1000">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-code-rgen-code-executes"><a class="link" href="#aspect-how-code-rgen-code-executes">Aspect: How <code>rgen</code> executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Generate .pdf file by iteratively reading and inserting details of <code>Item</code> from inside the <code>Resume</code> itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better control of the output layout, as the position and formatting of each section could be set individually.
+Additionaly, <code>rgen</code> is dynamic, in the sense that even without calling <code>rpreview</code> every time, the generated file will be
+consistent with any item update.</p>
+</li>
+<li>
+<p>Cons: Coupled with <code>rpreview</code>, the content of a <code>Resume</code> must be read twice every time the user wishes to export.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Generate .pdf file directly from the previewed text output by <code>rpreview</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Faster <code>rgen</code></p>
+</li>
+<li>
+<p>Cons: Limited formatting options (font and font size at most) since the whole document is input as one long string.
+<code>rgen</code> implemented this way is also static, and might not reflect the most updated content if there are item changes
+after <code>rpreview</code> is called.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedResumeBook</code>.
 It extends <code>ResumeBook</code> with an undo/redo history, stored internally as an <code>ResumeBookStateList</code> and <code>currentStatePointer</code>.
@@ -695,7 +873,7 @@ If the <code>currentStatePointer</code> is at index <code>resumeBookStateList.si
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -770,20 +948,20 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -814,7 +992,7 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1327,4 +1505,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 15:42:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 15:43:57 UTC</div></div></div></body></html>
