@@ -347,31 +347,55 @@ It is not to be confused with the <code>edit</code> command, which simply modifi
 <p>The <code>redit</code> command is facilitated by <code>ResumeEditCommand</code>, which extends <code>Command</code>.
 Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
 </div>
+<div class="sect4">
+<h5 id="adding-into-the-resume"><a class="link" href="#adding-into-the-resume">Adding into the resume</a></h5>
 <div class="paragraph">
 <p>The following screenshot illustrates what happens when we use <code>redit</code> to add item into the resume. The numbers in the command represent the index of the item in the list. After the end of the command, the number of item in the resume would have increased.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditAddIntoResume.png" alt="ReditAddIntoResume">
+<img src="images/ReditAddIntoResume.png" alt="][AddIntoResume" width="442" height="337">
 </div>
 </div>
 <div class="paragraph">
 <p>For modifications and removal of item from the resume, all we have to do is to run the same command again, specifying which item we want to <strong>retain</strong> in the resume.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="removing-all-from-the-resume"><a class="link" href="#removing-all-from-the-resume">Removing all from the resume</a></h5>
 <div class="paragraph">
-<p>The following screenshot illustrates what happens if you want to remove all the items in the resume, starting from a an already-filled resume:</p>
+<p>The following sreenshot illustrates what happens if you want to remove all the items in the resume, starting from a an already-filled resume:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditRemoveEverything.png" alt="ReditRemoveEverything">
+<img src="images/ReditRemoveEverything.png" alt="][RemoveEverything" width="442" height="337">
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="removing-some-from-the-resume"><a class="link" href="#removing-some-from-the-resume">Removing some from the resume</a></h5>
 <div class="paragraph">
 <p>And the following screenshot illustrates what happens if you want to remove some items:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditWantSomeThings.png" alt="ReditWantSomeThings">
+<img src="images/ReditWantSomeThings.png" alt="][WantSomeThings" width="442" height="337">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="changing-content-using-tags"><a class="link" href="#changing-content-using-tags">Changing content using tags</a></h5>
+<div class="paragraph">
+<p>On top of these methods to change the content of the resume, <code>redit</code> can also make changes to the resume by making use of tags.
+Regardless of what the original content is, after running the command, the resume will then only have items with the desired tags.</p>
+</div>
+<div class="paragraph">
+<p>An example is shown in the following screenshot:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditTags.png" alt="][ReditWithTags" width="442" height="337">
+</div>
 </div>
 </div>
 </div>
@@ -394,6 +418,15 @@ Therefore, like any other <code>Command</code> classes, it will have an <code>ex
 </ul>
 </div>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ResumeEditCommandAlt1.png" alt="ResumeEditCommandAlt1">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong> Alternative 2:</strong> <code>ResumeEditCommand</code> extends <code>EditCommand</code></p>
 <div class="ulist">
@@ -408,6 +441,11 @@ Therefore, like any other <code>Command</code> classes, it will have an <code>ex
 </div>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ResumeEditCommandAlt2.png" alt="ResumeEditCommandAlt2">
+</div>
 </div>
 </div>
 </div>
@@ -488,12 +526,10 @@ data stored.</p>
 object currently stored in Model as well as Storage.</p>
 </li>
 <li>
-<p>The Ui User Data table will be updated accordingly.</p>
+<p>The Ui User Data table will be updated accordingly.
+The following sequence diagram shows how the <code>me</code> feature allows user to edit the user profile.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>me</code> feature allows user to edit the user profile.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1291,4 +1327,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 15:41:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 15:42:58 UTC</div></div></div></body></html>
