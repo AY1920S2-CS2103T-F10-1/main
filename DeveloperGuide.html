@@ -569,11 +569,11 @@ which return the content of the <code>Resume</code> in textual format.</p>
 <p>Given below is an example usage scenario:</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches ResuMé. After loading data from storage to the application memory, the list of resumes in the
-ResumeBook could either contain some resumes, or is empty.</p>
+<p>Step 1. The user launches the ResuMe application. After loading data from storage to the application memory, the list of
+resumes in the ResumeBook could either contain some resumes, or is empty.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>rpreview INDEX</code>. If the specified resume index is out of bound, ResuMé throws an error message.</p>
+<p>Step 2. The user executes <code>rpreview INDEX</code>. If the specified resume index is out of bound, ResuMe throws an error message.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The application retrieves the correct <code>Resume</code> item and call <code>getPreview()</code> on that resume.</p>
@@ -626,6 +626,16 @@ need to use <code>rpreview</code> regularly.</p>
 </li>
 </ul>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> Given that the application already has quite a number of panels (User Profile, Command Input,
+Command Result, Item Detail and List View), alternative 1 is chosen to minimise the layout and improve on user experience.
+The Command Result panel will display a confirmation message for any successful item edit, hence the user will not need
+to call <code>rpreview</code> after each edit, reducing the number of switches between views.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -658,12 +668,12 @@ are in the <code>UniqueItemList</code>. When an <code>Item</code> is inserted, i
 <p>Given below is an example usage scenario:</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches ResuMé. After loading data from storage to the application memory, the list of resumes in the
+<p>Step 1. The user launches ResuMe. After loading data from storage to the application memory, the list of resumes in the
 ResumeBook could either contain some resumes, or is empty.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>rgen INDEX n/ FILE_NAME</code>. If the specified resume index is out of bound,
-ResuMé throws an error message.</p>
+ResuMe throws an error message.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The application retrieves the correct <code>Resume</code> item, create a new .pdf file and populates it with the corresponding
@@ -724,6 +734,16 @@ after <code>rpreview</code> is called.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> Alternative 1 is chosen because each resume is not likely to hold more than 20 items, hence the cost
+of reading its content twice (once during <code>rpreview</code> and once during <code>rgen</code>) is relatively small. Choosing alternative 1
+will further allows the application to have more control when formatting the output file, and leaving room for potential
+extended features (e.g. allow user to choose from a variety of pre-defined resume templates).</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1505,4 +1525,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 15:55:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 16:51:45 UTC</div></div></div></body></html>
