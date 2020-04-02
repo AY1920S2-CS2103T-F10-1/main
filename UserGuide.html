@@ -18,7 +18,7 @@
 <li><a href="#adding-an-item-code-add-code">3.3. Adding an item: <code>add</code></a></li>
 <li><a href="#editing-an-item-code-edit-code">3.4. Editing an item : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
+<li><a href="#deleting-an-item-code-delete-code">3.6. Deleting an item : <code>delete</code></a></li>
 <li><a href="#viewing-an-item-in-details-code-view-code">3.7. Viewing an item in details: <code>view</code></a></li>
 <li><a href="#editing-a-resume-code-redit-code">3.8. Editing a resume: <code>redit</code></a></li>
 <li><a href="#undo-a-command-code-undo-code">3.9. Undo a command: <code>undo</code></a></li>
@@ -105,6 +105,37 @@ Items from number 1 to 3 can be shared across different resumes.</p>
 </div>
 <div class="paragraph">
 <p>The following is the GUI for our application:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>The GUI includes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Command box: where you enter your commands.</p>
+</li>
+<li>
+<p>Result box: where the result of a command is shown. It can show a success message or a failure
+message if something wrong happens.</p>
+</li>
+<li>
+<p>View box: where the detailed information is shown if needed. For instance, if you are viewing an
+internship item, this box shows in full the item&#8217;s name, timing, description, and other pieces of information.</p>
+</li>
+<li>
+<p>List box: where all items of a type are listed. Only a type is displayed at a time. You can change
+the view of this list. Also, when a command results in the change of one or more items of an item type,
+the list box will be set to displaying that type.</p>
+</li>
+<li>
+<p>User box: where you can view your information like name, email address, or phone number. If you make any update
+that change will be reflected.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -253,7 +284,7 @@ Lists all project items.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even a <code>resume</code> itself.
+An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even <code>resume</code> itself.
 </td>
 </tr>
 </table>
@@ -506,30 +537,52 @@ Returns any items having names <code>Shopee</code> or <code>Front-end</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
-<div class="listingblock">
-<div class="content">
-<pre>Deletes an existing item in the ResuMe application</pre>
-</div>
-</div>
+<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">3.6. Deleting an item : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>delete INDEX i/ TYPE</code></p>
+<p>Deletes an item from the ResuMe application.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the item of type <code>TYPE</code> with the specified <code>INDEX</code>. The <code>INDEX</code>
-refers to the index of the item in the respective item list. <code>INDEX</code> must be a valid index of the list.</p>
-</li>
-<li>
-<p>Once the item with the specified <code>INDEX</code> is deleted,
-the list will automatically update to show the new indices of its items.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Format: <code>delete INDEX i/ TYPE</code></p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p><code>INDEX</code> : the positional index of the item. Use <code>list TYPE</code> with the same item type to view this list.</p>
+</div>
+<div class="paragraph">
+<p><code>TYPE</code>  : the item type.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use <code>list</code> command to navigate to the correct list to ensure that 1) the item exists, and 2) you know the
+correct index for deletion. Or just fall back on <code>undo</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Deleting an item will set the list window to display items of its type.
+If the item is an internship, a project, or a skill, all resumes that contain it will also be updated to
+reflect the change.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -541,6 +594,15 @@ the list will automatically update to show the new indices of its items.</p>
 Deletes the 2nd resume in the resume book.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>&lt;Photo for good case&gt;</p>
+</div>
+<div class="paragraph">
+<p>&lt;Photo for failed case&gt;</p>
+</div>
+<div class="paragraph">
+<p>&lt;Photo to show cascading&gt;</p>
 </div>
 </div>
 <div class="sect2">
@@ -694,39 +756,83 @@ This command modifies the resume at index 1. It changes the resume to contain in
 </div>
 <div class="sect2">
 <h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">3.9. Undo a command: <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p>Format: undo</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, and <code>me</code>.</p>
+</div>
+<div class="paragraph">
+<p>Successive undo commands will bring the application further back, until there is no more change to undo.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
+<p>An undo is done per command and not change.</p>
 </li>
 <li>
-<p>Successive undo commands will bring the application state further back.</p>
-</li>
-<li>
-<p>Do note that commands that make no change to the application state, like <code>list</code> or <code>view</code>, cannot be undone.</p>
+<p>Commands that make no change to the application state, like <code>list</code> or <code>view</code>, cannot be undone.</p>
 </li>
 <li>
 <p>You cannot undo if there is no previous state to return to.</p>
 </li>
 </ul>
 </div>
+</td>
+</tr>
+</table>
 </div>
+<div class="paragraph">
+<p>&lt;PHOTO OF SUCCESSIVE CASE&gt;</p>
+</div>
+<div class="paragraph">
+<p>&lt;PHOTO OF NO UNDO AT THE BEGINNING&gt;</p>
+</div>
+<div class="paragraph">
+<p>&lt;PHOTO OF FAILED UNDO&gt;</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">3.10. Redo a command: <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Reverts the most recent undone command and brings the application state to after the (re)execution
+of that command.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p>Format: redo</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Redoes the immediately previous undone command and brings the application state to after the performing of that
-command.</p>
+<p>A redo is done per command and not change.</p>
 </li>
 <li>
-<p>If a new command is performed after <code>undo</code>, then all redo states will be deleted and you will not be able to go
+<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, or <code>me</code> command is performed after an undo, then all redo states will be deleted and you will not be able to go
 to these states.</p>
 </li>
 <li>
@@ -734,7 +840,12 @@ to these states.</p>
 </li>
 </ul>
 </div>
+</td>
+</tr>
+</table>
 </div>
+<div class="paragraph">
+<p>&lt;PHOTOS&gt;</p>
 </div>
 </div>
 <div class="sect2">
@@ -1067,4 +1178,4 @@ Address Book folder.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 13:07:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:27:41 UTC</div></div></div></body></html>
