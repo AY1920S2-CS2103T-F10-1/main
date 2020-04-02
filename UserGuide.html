@@ -14,21 +14,22 @@
 <li><a href="#features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#listing-all-items-code-list-code">3.2. Listing all items : <code>list</code></a></li>
-<li><a href="#adding-an-item-code-add-code">3.3. Adding an item: <code>add</code></a></li>
-<li><a href="#editing-an-item-code-edit-code">3.4. Editing an item : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-an-item-code-delete-code">3.6. Deleting an item : <code>delete</code></a></li>
-<li><a href="#viewing-an-item-in-details-code-view-code">3.7. Viewing an item in details: <code>view</code></a></li>
-<li><a href="#editing-a-resume-code-redit-code">3.8. Editing a resume: <code>redit</code></a></li>
-<li><a href="#undo-a-command-code-undo-code">3.9. Undo a command: <code>undo</code></a></li>
-<li><a href="#redo-a-command-code-redo-code">3.10. Redo a command: <code>redo</code></a></li>
-<li><a href="#previewing-a-resume-code-rpreview-code">3.11. Previewing a resume: <code>rpreview</code></a></li>
-<li><a href="#generating-a-resume-code-rgen-code">3.12. Generating a resume: <code>rgen</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">3.13. Clearing all data: <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.15. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#edit-user-profile-code-me-code">3.2. Edit user profile: <code>me</code></a></li>
+<li><a href="#listing-all-items-code-list-code">3.3. Listing all items : <code>list</code></a></li>
+<li><a href="#adding-an-item-code-add-code">3.4. Adding an item: <code>add</code></a></li>
+<li><a href="#editing-an-item-code-edit-code">3.5. Editing an item : <code>edit</code></a></li>
+<li><a href="#finding-items-by-name-code-find-code">3.6. Finding items by name: <code>find</code></a></li>
+<li><a href="#deleting-an-item-code-delete-code">3.7. Deleting an item : <code>delete</code></a></li>
+<li><a href="#viewing-an-item-in-details-code-view-code">3.8. Viewing an item in details: <code>view</code></a></li>
+<li><a href="#editing-a-resume-code-redit-code">3.9. Editing a resume: <code>redit</code></a></li>
+<li><a href="#undo-a-command-code-undo-code">3.10. Undo a command: <code>undo</code></a></li>
+<li><a href="#redo-a-command-code-redo-code">3.11. Redo a command: <code>redo</code></a></li>
+<li><a href="#previewing-a-resume-code-rpreview-code">3.12. Previewing a resume: <code>rpreview</code></a></li>
+<li><a href="#generating-a-resume-code-rgen-code">3.13. Generating a resume: <code>rgen</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">3.14. Clearing all data: <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -232,7 +233,119 @@ can be used as (i.e. 0 times), <code>#/ friend</code>, <code>#/ friend</code>, <
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">3.2. Listing all items : <code>list</code></a></h3>
+<h3 id="edit-user-profile-code-me-code"><a class="link" href="#edit-user-profile-code-me-code">3.2. Edit user profile: <code>me</code></a></h3>
+<div class="paragraph">
+<p>Edits and updates user&#8217;s display information.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A user profile contains the following fields: <code>Display Picture</code>, <code>Name</code>, <code>Phone</code>, <code>Email</code>, <code>Github</code>, <code>University</code>, <code>Major</code>, <code>From</code>, <code>To</code>, <code>CAP</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Format: <code>me dp/ FILEPATH n/ NAME p/ PHONE [ATTRIBUTE/ VALUE]&#8230;&#8203;</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The specific command syntax could be found in the table below:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 12%;">
+<col style="width: 88%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>me dp/ FILEPATH n/ NAME p/ PHONE e/ EMAIL g/ GITHUB u/ UNIVERSITY m/ MAJOR f/ FROM t/ TO c/ CAP</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example 1:</strong> Try typing in the command box this command!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>me n/ My Name p/ 12345678 e/ <a href="mailto:test@gmail.com">test@gmail.com</a> g/ mygithub u/ NUS m/ CS f/ 08-2018 t/ 05-2022 c/ 5.0</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user profile panel is updated accordingly as below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/user_profile.png" alt="user profile" width="790">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Example 2:</strong> Edit user profile image</p>
+</div>
+<div class="paragraph">
+<p>Follow the steps in one of these two links to copy a file path according to your respective Operating System.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Mac: <a href="https://osxdaily.com/2013/06/19/copy-file-folder-path-mac-os-x/" class="bare">https://osxdaily.com/2013/06/19/copy-file-folder-path-mac-os-x/</a></p>
+</li>
+<li>
+<p>Windows: <a href="https://www.laptopmag.com/articles/show-full-folder-path-file-explorer" class="bare">https://www.laptopmag.com/articles/show-full-folder-path-file-explorer</a></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Afterwards, try a command similar to the one below!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>me dp//Users/nhamquochung/Desktop/test.png</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user profile picture is updated accordingly as below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/user_profile1.png" alt="user profile1" width="790">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">3.3. Listing all items : <code>list</code></a></h3>
 <div class="paragraph">
 <p>List items in the storage.</p>
 </div>
@@ -273,7 +386,7 @@ Lists all project items.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-item-code-add-code"><a class="link" href="#adding-an-item-code-add-code">3.3. Adding an item: <code>add</code></a></h3>
+<h3 id="adding-an-item-code-add-code"><a class="link" href="#adding-an-item-code-add-code">3.4. Adding an item: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an item to the ResuMe application.</p>
 </div>
@@ -379,7 +492,7 @@ An item could have any number of tags <em>(including 0)</em>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-item-code-edit-code"><a class="link" href="#editing-an-item-code-edit-code">3.4. Editing an item : <code>edit</code></a></h3>
+<h3 id="editing-an-item-code-edit-code"><a class="link" href="#editing-an-item-code-edit-code">3.5. Editing an item : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing item in the ResuMe application.</p>
 </div>
@@ -485,59 +598,96 @@ Edits the level of the 2nd skill to be <code>ADVANCED</code> and clears all exis
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
-<div class="listingblock">
-<div class="content">
-<pre>Finds items in the ResuMe application whose names contain the specified keyword(s).</pre>
-</div>
-</div>
+<h3 id="finding-items-by-name-code-find-code"><a class="link" href="#finding-items-by-name-code-find-code">3.6. Finding items by name: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds items in the ResuMe application whose names contain the specified keyword(s).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even a <code>resume</code> itself.
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>At least one keyword must be provided.</p>
-</li>
-<li>
-<p>The search is <strong>case insensitive</strong>. &gt; e.g. orbital will match Orbital</p>
-</li>
-<li>
-<p>The <strong>order</strong> of the keywords does <strong>not</strong> matter. &gt; e.g. Orbital CP2106
-will match CP2106 Orbital</p>
-</li>
-<li>
-<p>If the <code>TYPE</code> is not specified. The program will search across <strong><em>all</em></strong>
-items.</p>
-</li>
-<li>
-<p>Only <strong><em>full</em></strong> words will be matched. &gt; e.g. CP210 will not match
-CP2106*</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>The specific command syntax could be found in the table below:</p>
 </div>
-<div class="ulist">
-<ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 12%;">
+<col style="width: 88%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ int</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ proj</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ ski</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/res</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Examples:</strong> Try typing in the command box these two commands one by one!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>find Software</code><br>
-Returns <code>software</code> and <code>Software</code></p>
+<p><code>list i/ proj</code></p>
 </li>
 <li>
-<p><code>find Shopee Front-end</code><br>
-Returns any items having names <code>Shopee</code> or <code>Front-end</code></p>
+<p><code>add i/ proj n/ Duke t/ 06-2020 w/ abc.github.io d/ For a little module named CS2103T. #/ java #/ tech</code></p>
 </li>
-</ul>
+<li>
+<p><code>find Duke i/ proj</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Projects with matching name with keywords are listed in the list panel.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/find_command.png" alt="find command" width="790">
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">3.6. Deleting an item : <code>delete</code></a></h3>
+<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">3.7. Deleting an item : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes an item from the ResuMe application.</p>
 </div>
@@ -606,7 +756,7 @@ Deletes the 2nd resume in the resume book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">3.7. Viewing an item in details: <code>view</code></a></h3>
+<h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">3.8. Viewing an item in details: <code>view</code></a></h3>
 <div class="paragraph">
 <p>Shows the details of an item.</p>
 </div>
@@ -667,7 +817,7 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-resume-code-redit-code"><a class="link" href="#editing-a-resume-code-redit-code">3.8. Editing a resume: <code>redit</code></a></h3>
+<h3 id="editing-a-resume-code-redit-code"><a class="link" href="#editing-a-resume-code-redit-code">3.9. Editing a resume: <code>redit</code></a></h3>
 <div class="paragraph">
 <p>Edits the resume to contain the items specified in the command.</p>
 </div>
@@ -755,7 +905,7 @@ This command modifies the resume at index 1. It changes the resume to contain in
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">3.9. Undo a command: <code>undo</code></a></h3>
+<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">3.10. Undo a command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
@@ -807,7 +957,7 @@ This command modifies the resume at index 1. It changes the resume to contain in
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">3.10. Redo a command: <code>redo</code></a></h3>
+<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">3.11. Redo a command: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverts the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
@@ -849,7 +999,7 @@ to these states.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">3.11. Previewing a resume: <code>rpreview</code></a></h3>
+<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">3.12. Previewing a resume: <code>rpreview</code></a></h3>
 <div class="paragraph">
 <p>Previews a resume in text format in a different window.</p>
 </div>
@@ -885,7 +1035,7 @@ Shows preview of the resume with at index 2.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">3.12. Generating a resume: <code>rgen</code></a></h3>
+<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">3.13. Generating a resume: <code>rgen</code></a></h3>
 <div class="paragraph">
 <p>Generates a .pdf file from an existing resume stored inside the application at the specified index.</p>
 </div>
@@ -964,7 +1114,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.13. Clearing all data: <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.14. Clearing all data: <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all data from ResuMe.</p>
 </div>
@@ -989,25 +1139,27 @@ This command cannot be undone. Please be careful when exercising this power.
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
-<div class="listingblock">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.</p>
+</div>
+<div class="sidebarblock">
 <div class="content">
-<pre>Exits the program.</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>Format: <code>exit</code></p>
 </div>
 </div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>ResuMe data is saved in the hard disk automatically after any command
 that changes the data. There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1102,6 +1254,10 @@ Address Book folder.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list i/ TYPE</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Me</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>me dp/ FILEPATH n/ NAME [ATTRIBUTE/ VALUE]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Preview Resume</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>rpreview RESUME_INDEX</code></p></td>
 </tr>
@@ -1178,4 +1334,4 @@ Address Book folder.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:27:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:45:14 UTC</div></div></div></body></html>
