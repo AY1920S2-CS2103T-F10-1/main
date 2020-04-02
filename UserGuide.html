@@ -225,16 +225,11 @@ To view items in full details, use <code>view</code>.</p>
 <div class="paragraph">
 <p>Adds an item to the ResuMe application.</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>Format: `add i/ TYPE n/ NAME [ATTRIBUTE/ VALUE]... [#/ TAG]...`</pre>
-</div>
-</div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even a <code>resume</code> itself.
@@ -242,6 +237,13 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 </tr>
 </table>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Format: <code>add i/ TYPE n/ NAME [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
+</div>
+</div>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -249,8 +251,7 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Any item could have any number of tags <em>(including
-0)</em>.
+An item could have any number of tags <em>(including 0)</em>.
 </td>
 </tr>
 </table>
@@ -302,7 +303,7 @@ Any item could have any number of tags <em>(including
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Outcomes:</strong></p>
+<p><strong>Outcome:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -653,38 +654,81 @@ Shows the text format of the resume with <code>RESUME_ID</code> 135.</p>
 </div>
 <div class="sect2">
 <h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">3.12. Generating a resume: <code>rgen</code></a></h3>
-<div class="listingblock">
-<div class="content">
-<pre>Generates a .pdf file from an existing resume object.</pre>
-</div>
-</div>
 <div class="paragraph">
-<p>Format: <code>rgen RESUME_ID</code></p>
+<p>Generates a .pdf file from an existing resume stored inside the application at the specified index.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A valid <code>INDEX</code> is a positive integer that identifies an existing resume.
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Generates a <code>.pdf</code> file from resume object with id <code>RESUME_ID</code>.</p>
-</li>
-<li>
-<p>The <code>RESUME_ID</code> must be a positive integer that identifies an existing item.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Format: <code>rgen INDEX [n/ FILENAME]</code></p>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+It is optional to specify a <code>FILENAME</code> for the .pdf file.
+If no name is specified, the filename will be set, by default, to the name of the generated <code>Resume</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><strong>Example:</strong> Let&#8217;s try out the following commands!</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>rgen 1234</code><br>
-Generates a <code>.pdf</code> file from resume object with <code>RESUME_ID</code> 1234.</p>
+<p><code>list i/ res</code></p>
 </li>
-</ul>
+<li>
+<p><code>rgen 2 n/ My Resume</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all resumes. Assuming that you want to generate the first resume in the list.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListResume.png" alt="ListResume" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>The second command generate a <code>My Resume.pdf</code> file from the specified resume. The screenshots of the generated file is as below:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/GenerateResume.png" alt="GenerateResume" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PdfFile.png" alt="PdfFile" width="790">
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -790,4 +834,4 @@ e.g. <code>rgen 21</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 08:42:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 08:58:00 UTC</div></div></div></body></html>
