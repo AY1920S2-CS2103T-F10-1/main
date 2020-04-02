@@ -16,7 +16,7 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#listing-all-items-code-list-code">3.2. Listing all items : <code>list</code></a></li>
 <li><a href="#adding-an-item-code-add-code">3.3. Adding an item: <code>add</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
+<li><a href="#editing-an-item-code-edit-code">3.4. Editing an item : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
 <li><a href="#viewing-an-item-in-details-code-view-code">3.7. Viewing an item in details: <code>view</code></a></li>
@@ -348,14 +348,26 @@ An item could have any number of tags <em>(including 0)</em>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-an-item-code-edit-code"><a class="link" href="#editing-an-item-code-edit-code">3.4. Editing an item : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing item in the ResuMe application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>edit</code> is a different command from <code>redit</code>. Please visit <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> for more information.
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre>Edits an existing item in the ResuMe application.</pre>
+<pre>Format: `edit INDEX i/ TYPE [ATTRIBUTE/ VALUE]... [#/ TAG]...`</pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Format: <code>edit INDEX i/ TYPE [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -387,33 +399,41 @@ An item could have any number of tags <em>(including 0)</em>.
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
+<div class="paragraph">
+<p><strong>Example:</strong> Try typing in the command box these two commands one by one!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ res</code></p>
+</li>
+<li>
+<p><code>edit 2 i/ res n/ Software Engineering Resume</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All resume items are listed in the list panel.</p>
+<div class="imageblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the item of type <code>TYPE</code> with the specified <code>ID</code>. The <code>ID</code> refers
-to the unique identification number given to the item when it was first
-added. The <code>ID</code> must be a <strong>positive integer</strong> that identifies an existing
-item.</p>
-</li>
-<li>
-<p>At least <strong>one</strong> of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, existing tags of the person will be removed. i.e
-adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove <strong>all</strong> the person’s tags by typing <code>#/</code> without
-specifying any tags after it.</p>
-</li>
-</ul>
+<img src="images/ListResume2.png" alt="ListResume2" width="790">
 </div>
 </div>
+</li>
+<li>
+<p>The Resume at index 2 has its name changed from "Resume 2" to "Software Engineering Resume".</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditResumeExample.png" alt="EditResumeExample" width="790">
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -919,4 +939,4 @@ e.g. <code>rgen 21</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 10:18:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 10:19:47 UTC</div></div></div></body></html>
