@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>ResuMe - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>ResuMe - User Guide</title><link rel="stylesheet" href="./gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">ResuMe</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>ResuMe - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">ResuMe</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>ResuMe - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
+<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 <div class="paragraph">
 <p>By: <code>Team F10-1</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
 </div>
@@ -9,31 +10,42 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#features">3. Features</a>
+<li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#edit-user-profile-code-me-code">3.2. Edit user profile: <code>me</code></a></li>
-<li><a href="#listing-all-items-code-list-code">3.3. Listing all items : <code>list</code></a></li>
-<li><a href="#adding-an-item-code-add-code">3.4. Adding an item: <code>add</code></a></li>
-<li><a href="#editing-an-item-code-edit-code">3.5. Editing an item : <code>edit</code></a></li>
-<li><a href="#finding-items-by-name-code-find-code">3.6. Finding items by name: <code>find</code></a></li>
-<li><a href="#deleting-an-item-code-delete-code">3.7. Deleting an item : <code>delete</code></a></li>
-<li><a href="#viewing-an-item-in-details-code-view-code">3.8. Viewing an item in details: <code>view</code></a></li>
-<li><a href="#editing-a-resume-code-redit-code">3.9. Editing a resume: <code>redit</code></a></li>
-<li><a href="#undo-a-command-code-undo-code">3.10. Undo a command: <code>undo</code></a></li>
-<li><a href="#redo-a-command-code-redo-code">3.11. Redo a command: <code>redo</code></a></li>
-<li><a href="#previewing-a-resume-code-rpreview-code">3.12. Previewing a resume: <code>rpreview</code></a></li>
-<li><a href="#generating-a-resume-code-rgen-code">3.13. Generating a resume: <code>rgen</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">3.14. Clearing all data: <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.16. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#overview">1.1. Overview</a></li>
+<li><a href="#preview">1.2. Preview</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#about-this-guide">2. About this guide</a>
+<ul class="sectlevel2">
+<li><a href="#symbols-and-formatting">2.1. Symbols and Formatting</a></li>
+<li><a href="#key-terms">2.2. Key terms</a></li>
+</ul>
+</li>
+<li><a href="#quick-start">3. Quick Start</a></li>
+<li><a href="#features">4. Features</a>
+<ul class="sectlevel2">
+<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
+<li><a href="#edit-user-profile-code-me-code">4.2. Edit user profile: <code>me</code></a></li>
+<li><a href="#listing-all-items-code-list-code">4.3. Listing all items : <code>list</code></a></li>
+<li><a href="#adding-an-item-code-add-code">4.4. Adding an item: <code>add</code></a></li>
+<li><a href="#editing-an-item-code-edit-code">4.5. Editing an item : <code>edit</code></a></li>
+<li><a href="#finding-items-by-name-code-find-code">4.6. Finding items by name: <code>find</code></a></li>
+<li><a href="#deleting-an-item-code-delete-code">4.7. Deleting an item : <code>delete</code></a></li>
+<li><a href="#viewing-an-item-in-details-code-view-code">4.8. Viewing an item in details: <code>view</code></a></li>
+<li><a href="#editing-a-resume-code-redit-code">4.9. Editing a resume: <code>redit</code></a></li>
+<li><a href="#undo-a-command-code-undo-code">4.10. Undo a command: <code>undo</code></a></li>
+<li><a href="#redo-a-command-code-redo-code">4.11. Redo a command: <code>redo</code></a></li>
+<li><a href="#previewing-a-resume-code-rpreview-code">4.12. Previewing a resume: <code>rpreview</code></a></li>
+<li><a href="#generating-a-resume-code-rgen-code">4.13. Generating a resume: <code>rgen</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">4.14. Clearing all data: <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.16. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.17. Encrypting data files <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -51,12 +63,12 @@ application that can match your efficiency and typing prowess?</p>
 <p>If this sounds like you, <strong>ResuMe</strong> is <em>the</em> resume managing application for you!
 Made by University students for University students with <em>looovee</em>, this wonder
 understands your struggle and strives to cater to your specific resume needs
-and job application woes. Interested? Jump to the Section 2, <code>Quick Start</code> to
-get started. Enjoy!</p>
+and job application woes.</p>
 </div>
+<div class="sect2">
+<h3 id="overview"><a class="link" href="#overview">1.1. Overview</a></h3>
 <div class="paragraph">
-<p>ResuMe allows management of different items and they must be one of the
-4 item types:</p>
+<p><strong>ResuMe</strong> allows the management of four different item types:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -68,45 +80,141 @@ get started. Enjoy!</p>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">No.</th>
-<th class="tableblock halign-left valign-top">Alias</th>
 <th class="tableblock halign-left valign-top">Item type</th>
+<th class="tableblock halign-left valign-top">Alias</th>
 <th class="tableblock halign-left valign-top">Attributes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">internship</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id, name, position, from, to, description, tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name, role, from, to, description, tag</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">proj</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id, name, from, to, description, tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">proj</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name, time, website, description, tag</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ski</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">skill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id, name, level, tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ski</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name, level, tag</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">res</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id, name, description, tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">res</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name, description, tag</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>As you may have noticed from number 4, we are able to manage different resumes as well.
+<p>As you may have noticed from number 4, we are able to manage different resumes as well!
+(As if this is not the whole reason why we decided to build this app :))
 Items from number 1 to 3 can be shared across different resumes.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="preview"><a class="link" href="#preview">1.2. Preview</a></h3>
 <div class="paragraph">
 <p>The following is the GUI for our application:</p>
 </div>
+<div class="paragraph">
+<p>Interested? Jump to the Section 3, <code>Quick Start</code> to get started. Enjoy!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="about-this-guide"><a class="link" href="#about-this-guide">2. About this guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Our aim when writing this document is to help you - a new user - get started with <strong>ResuMe</strong> as quickly as possible.
+The guide features all the available commands, their syntax, as well as specific examples for illustration.</p>
+</div>
+<div class="paragraph">
+<p>This section is, well&#8230;&#8203; a guide on how to use this guide :) We will be explaining some of the symbols and formatting used, key terms,
+as well notes and tips for a better user experience.</p>
+</div>
+<div class="sect2">
+<h3 id="symbols-and-formatting"><a class="link" href="#symbols-and-formatting">2.1. Symbols and Formatting</a></h3>
+<div class="paragraph">
+<p>Most of us are visual learners, and we figured, what is a better way to present information than using some shapes and colours?</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol / Format</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NOTE:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Important information to take note</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TIP:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tips</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WARNING:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Warnings on potential misuse</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>consola font</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keywords you could type in the command box and could be be executed by the application</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="key-terms"><a class="link" href="#key-terms">2.2. Key terms</a></h3>
+<div class="paragraph">
+<p>You will come across these little guys a lot in this document, so let&#8217;s get to know them first!</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consisting of four different types: <code>internship</code>, <code>project</code>, <code>skill</code> or <code>resume</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>item</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An item stored in the application, which could be any one of the four types above</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>command</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A line of text that you could type into the command box and execute</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parameter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specific information about an <code>item</code> supplied by you</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>index</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The position of the <code>item</code> in the currently displayed list</p></td>
+</tr>
+</tbody>
+</table>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -140,8 +248,9 @@ that change will be reflected.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<h2 id="quick-start"><a class="link" href="#quick-start">3. Quick Start</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -186,14 +295,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p>Refer to <a href="#features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#features">Section 4, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="features"><a class="link" href="#features">3. Features</a></h2>
+<h2 id="features"><a class="link" href="#features">4. Features</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -222,18 +331,20 @@ can be used as (i.e. 0 times), <code>#/ friend</code>, <code>#/ friend</code>, <
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
-<div class="listingblock">
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Lists out the function and usage of each command.</p>
+</div>
+<div class="sidebarblock">
 <div class="content">
-<pre>Lists out the function and usage of each command.</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
 </div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="edit-user-profile-code-me-code"><a class="link" href="#edit-user-profile-code-me-code">3.2. Edit user profile: <code>me</code></a></h3>
+<h3 id="edit-user-profile-code-me-code"><a class="link" href="#edit-user-profile-code-me-code">4.2. Edit user profile: <code>me</code></a></h3>
 <div class="paragraph">
 <p>Edits and updates user&#8217;s display information.</p>
 </div>
@@ -241,7 +352,7 @@ can be used as (i.e. 0 times), <code>#/ friend</code>, <code>#/ friend</code>, <
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 A user profile contains the following fields: <code>Display Picture</code>, <code>Name</code>, <code>Phone</code>, <code>Email</code>, <code>Github</code>, <code>University</code>, <code>Major</code>, <code>From</code>, <code>To</code>, <code>CAP</code>.
@@ -345,7 +456,7 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">3.3. Listing all items : <code>list</code></a></h3>
+<h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">4.3. Listing all items : <code>list</code></a></h3>
 <div class="paragraph">
 <p>List items in the storage.</p>
 </div>
@@ -360,7 +471,7 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 Listed items are in short form, only showing their name, index, <code>tags</code> and a short summary.
@@ -386,7 +497,7 @@ Lists all project items.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-item-code-add-code"><a class="link" href="#adding-an-item-code-add-code">3.4. Adding an item: <code>add</code></a></h3>
+<h3 id="adding-an-item-code-add-code"><a class="link" href="#adding-an-item-code-add-code">4.4. Adding an item: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an item to the ResuMe application.</p>
 </div>
@@ -394,7 +505,7 @@ Lists all project items.</p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even <code>resume</code> itself.
@@ -413,7 +524,7 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<img src="./images/icons/font.png" alt="Tip">
 </td>
 <td class="content">
 An item could have any number of tags <em>(including 0)</em>.
@@ -492,7 +603,7 @@ An item could have any number of tags <em>(including 0)</em>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-item-code-edit-code"><a class="link" href="#editing-an-item-code-edit-code">3.5. Editing an item : <code>edit</code></a></h3>
+<h3 id="editing-an-item-code-edit-code"><a class="link" href="#editing-an-item-code-edit-code">4.5. Editing an item : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing item in the ResuMe application.</p>
 </div>
@@ -500,10 +611,10 @@ An item could have any number of tags <em>(including 0)</em>.
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
-<code>edit</code> is a different command from <code>redit</code>. Please visit <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> for more information.
+<code>edit</code> is a different command from <code>redit</code>. Please visit <a href="#faq">Section 5, &#8220;FAQ&#8221;</a> for more information.
 </td>
 </tr>
 </table>
@@ -598,7 +709,7 @@ Edits the level of the 2nd skill to be <code>ADVANCED</code> and clears all exis
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-items-by-name-code-find-code"><a class="link" href="#finding-items-by-name-code-find-code">3.6. Finding items by name: <code>find</code></a></h3>
+<h3 id="finding-items-by-name-code-find-code"><a class="link" href="#finding-items-by-name-code-find-code">4.6. Finding items by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds items in the ResuMe application whose names contain the specified keyword(s).</p>
 </div>
@@ -606,7 +717,7 @@ Edits the level of the 2nd skill to be <code>ADVANCED</code> and clears all exis
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even a <code>resume</code> itself.
@@ -687,7 +798,7 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">3.7. Deleting an item : <code>delete</code></a></h3>
+<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">4.7. Deleting an item : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes an item from the ResuMe application.</p>
 </div>
@@ -708,7 +819,7 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
@@ -720,7 +831,7 @@ The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<img src="./images/icons/font.png" alt="Tip">
 </td>
 <td class="content">
 Use <code>list</code> command to navigate to the correct list to ensure that 1) the item exists, and 2) you know the
@@ -756,7 +867,7 @@ Deletes the 2nd resume in the resume book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">3.8. Viewing an item in details: <code>view</code></a></h3>
+<h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">4.8. Viewing an item in details: <code>view</code></a></h3>
 <div class="paragraph">
 <p>Shows the details of an item.</p>
 </div>
@@ -771,7 +882,7 @@ Deletes the 2nd resume in the resume book.</p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<img src="./images/icons/font.png" alt="Tip">
 </td>
 <td class="content">
 The details of some item types like <code>proj</code> can only be viewed by using this command.
@@ -817,7 +928,7 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-resume-code-redit-code"><a class="link" href="#editing-a-resume-code-redit-code">3.9. Editing a resume: <code>redit</code></a></h3>
+<h3 id="editing-a-resume-code-redit-code"><a class="link" href="#editing-a-resume-code-redit-code">4.9. Editing a resume: <code>redit</code></a></h3>
 <div class="paragraph">
 <p>Edits the resume to contain the items specified in the command.</p>
 </div>
@@ -825,10 +936,10 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
-<code>redit</code> is a different command from <code>edit</code>. Please visit <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> for more information.
+<code>redit</code> is a different command from <code>edit</code>. Please visit <a href="#faq">Section 5, &#8220;FAQ&#8221;</a> for more information.
 </td>
 </tr>
 </table>
@@ -905,7 +1016,7 @@ This command modifies the resume at index 1. It changes the resume to contain in
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">3.10. Undo a command: <code>undo</code></a></h3>
+<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">4.10. Undo a command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
@@ -926,7 +1037,7 @@ This command modifies the resume at index 1. It changes the resume to contain in
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 <div class="ulist">
@@ -957,7 +1068,7 @@ This command modifies the resume at index 1. It changes the resume to contain in
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">3.11. Redo a command: <code>redo</code></a></h3>
+<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">4.11. Redo a command: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverts the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
@@ -973,7 +1084,7 @@ of that command.</p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 <div class="ulist">
@@ -999,7 +1110,7 @@ to these states.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">3.12. Previewing a resume: <code>rpreview</code></a></h3>
+<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.12. Previewing a resume: <code>rpreview</code></a></h3>
 <div class="paragraph">
 <p>Previews a resume in text format in a different window.</p>
 </div>
@@ -1014,7 +1125,7 @@ to these states.</p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 <code>INDEX</code> is with respect to the index seen when <code>list i/res</code> is called.
@@ -1035,15 +1146,19 @@ Shows preview of the resume with at index 2.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">3.13. Generating a resume: <code>rgen</code></a></h3>
+<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">4.13. Generating a resume: <code>rgen</code></a></h3>
 <div class="paragraph">
 <p>Generates a .pdf file from an existing resume stored inside the application at the specified index.</p>
+</div>
+<div class="paragraph">
+<p>The exported <code>.pdf</code> file
+will be located in the same folder as the application <code>.jar</code> file.</p>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<img src="./images/icons/font.png" alt="Note">
 </td>
 <td class="content">
 A valid <code>INDEX</code> is a positive integer that identifies an existing resume.
@@ -1062,7 +1177,7 @@ A valid <code>INDEX</code> is a positive integer that identifies an existing res
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<img src="./images/icons/font.png" alt="Tip">
 </td>
 <td class="content">
 It is optional to specify a <code>FILENAME</code> for the .pdf file.
@@ -1093,7 +1208,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 <p>The first command lists out all resumes. Assuming that you want to generate the first resume in the list.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListResume.png" alt="ListResume" width="790">
+<img src="images/ListResume.PNG" alt="ListResume" width="790">
 </div>
 </div>
 </li>
@@ -1101,12 +1216,12 @@ If no name is specified, the filename will be set, by default, to the name of th
 <p>The second command generate a <code>My Resume.pdf</code> file from the specified resume. The screenshots of the generated file is as below:</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/GenerateResume.png" alt="GenerateResume" width="790">
+<img src="images/GenerateResume.PNG" alt="GenerateResume" width="790">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/PdfFile.png" alt="PdfFile" width="790">
+<img src="images/PdfFile.PNG" alt="PdfFile" width="790">
 </div>
 </div>
 </li>
@@ -1114,7 +1229,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.14. Clearing all data: <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">4.14. Clearing all data: <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all data from ResuMe.</p>
 </div>
@@ -1129,7 +1244,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<img src="./images/icons/font.png" alt="">
 </td>
 <td class="content">
 This command cannot be undone. Please be careful when exercising this power.
@@ -1139,7 +1254,7 @@ This command cannot be undone. Please be careful when exercising this power.
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.</p>
 </div>
@@ -1152,14 +1267,14 @@ This command cannot be undone. Please be careful when exercising this power.
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>ResuMe data is saved in the hard disk automatically after any command
 that changes the data. There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.17. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.17. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1167,7 +1282,7 @@ that changes the data. There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="quoteblock">
 <blockquote>
@@ -1196,7 +1311,7 @@ Address Book folder.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This is a summary of all commands for your convenience.</p>
@@ -1334,4 +1449,4 @@ Address Book folder.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:45:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 14:49:20 UTC</div></div></div></body></html>
