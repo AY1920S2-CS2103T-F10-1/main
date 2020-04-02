@@ -364,9 +364,11 @@ An item could have any number of tags <em>(including 0)</em>.
 </tr>
 </table>
 </div>
-<div class="listingblock">
+<div class="sidebarblock">
 <div class="content">
-<pre>Format: `edit INDEX i/ TYPE [ATTRIBUTE/ VALUE]... [#/ TAG]...`</pre>
+<div class="paragraph">
+<p>Format: <code>edit INDEX i/ TYPE [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
+</div>
 </div>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -543,24 +545,63 @@ Deletes the 2nd resume in the resume book.</p>
 </div>
 <div class="sect2">
 <h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">3.7. Viewing an item in details: <code>view</code></a></h3>
-<div class="listingblock">
+<div class="paragraph">
+<p>Shows the details of an item.</p>
+</div>
+<div class="sidebarblock">
 <div class="content">
-<pre>Shows all items in an existing resume.</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>Format: <code>view INDEX i/ TYPE</code></p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The details of some item types like <code>proj</code> can only be viewed by using this command.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> Try typing in the command box these two commands one by one!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>view 2 i/ res</code><br>
-View the 2nd resume in the resume book.</p>
+<p><code>list i/ proj</code></p>
 </li>
-</ul>
+<li>
+<p><code>view 1 i/ proj</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All project items are listed in the list panel.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListProject2.png" alt="ListProject2" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>Using the <code>view</code> command, we can view the details of the project such as its website ("abc.github.io") and its description ("For a little module named CS2103T").</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ViewDukeProject.png" alt="ViewDukeProject" width="790">
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -939,4 +980,4 @@ e.g. <code>rgen 21</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 10:25:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 10:57:45 UTC</div></div></div></body></html>
