@@ -25,9 +25,10 @@
 <li><a href="#redo-a-command-code-redo-code">3.10. Redo a command: <code>redo</code></a></li>
 <li><a href="#previewing-a-resume-code-rpreview-code">3.11. Previewing a resume: <code>rpreview</code></a></li>
 <li><a href="#generating-a-resume-code-rgen-code">3.12. Generating a resume: <code>rgen</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.14. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">3.13. Clearing all data: <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.15. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -39,13 +40,18 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>ResuMe</strong> is for those who <strong>prefer to use a desktop app for managing
-resumes</strong>. More importantly, <strong>ResuMe</strong> is <strong>optimized for those who prefer
-to work with a Command Line Interface</strong> (CLI) while still having the
-benefits of a Graphical User Interface (GUI). If you can type fast,
-<strong>ResuMe</strong> can get your resume management tasks done faster than
-traditional GUI apps. Interested? Jump to the Section 2, <code>Quick Start</code>
-to get started. Enjoy!</p>
+<p>Hello fellow University friends! Have you ever found writing resumes
+for job and internship applications a hassle? Have you ever dreamt about
+an app that can help you manage different resumes for different companies?
+Have you ever wished for more streamlined a <strong>Command Line Interface</strong>
+application that can match your efficiency and typing prowess?</p>
+</div>
+<div class="paragraph">
+<p>If this sounds like you, <strong>ResuMe</strong> is <em>the</em> resume managing application for you!
+Made by University students for University students with <em>looovee</em>, this app
+understands your struggle and strives to cater to your specific resume needs
+and job application woes. Interested? Jump to the Section 2, <code>Quick Start</code> to
+get started. Enjoy!</p>
 </div>
 <div class="paragraph">
 <p>ResuMe allows management of different items and they must be one of the
@@ -196,28 +202,43 @@ can be used as (i.e. 0 times), <code>#/ friend</code>, <code>#/ friend</code>, <
 </div>
 <div class="sect2">
 <h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">3.2. Listing all items : <code>list</code></a></h3>
-<div class="listingblock">
-<div class="content">
-<pre>List items in the storage.</pre>
-</div>
-</div>
 <div class="paragraph">
-<p>Format: <code>list i/ TYPE</code></p>
+<p>List items in the storage.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p>Format: <code>list i/ TYPE</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Listed items are in short form, only showing their name, index, <code>tags</code> and a short summary.
+To view items in full details, use <code>view</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>List items that have type matches the <code>TYPE</code> argument.</p>
+<p><code>list i/ res</code>
+Lists all resume items.</p>
 </li>
 <li>
-<p>Listed items are in short form, only showing their name, <code>ID</code>, <code>tags</code> and a short summary.
-To view items in full details, use <code>view</code>.</p>
+<p><code>list i/ proj</code>
+Lists all project items.</p>
 </li>
 </ul>
-</div>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -657,13 +678,27 @@ to these states.</p>
 </div>
 <div class="sect2">
 <h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">3.11. Previewing a resume: <code>rpreview</code></a></h3>
-<div class="listingblock">
-<div class="content">
-<pre>Previews the resume in string format.</pre>
-</div>
-</div>
 <div class="paragraph">
-<p>Format: <code>rpreview RESUME_ID</code></p>
+<p>Previews a resume in text format in a different window.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Format: <code>rpreview INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>INDEX</code> is with respect to the index seen when <code>list i/res</code> is called.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -671,8 +706,8 @@ to these states.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>rpreview 135</code><br>
-Shows the text format of the resume with <code>RESUME_ID</code> 135.</p>
+<p><code>rpreview 2</code><br>
+Shows preview of the resume with at index 2.</p>
 </li>
 </ul>
 </div>
@@ -757,7 +792,32 @@ If no name is specified, the filename will be set, by default, to the name of th
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.13. Clearing all data: <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all data from ResuMe.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This command cannot be undone. Please be careful when exercising this power.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
 <div class="listingblock">
 <div class="content">
 <pre>Exits the program.</pre>
@@ -768,14 +828,14 @@ If no name is specified, the filename will be set, by default, to the name of th
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.15. Saving the data</a></h3>
 <div class="paragraph">
 <p>ResuMe data is saved in the hard disk automatically after any command
 that changes the data. There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.16. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -859,4 +919,4 @@ e.g. <code>rgen 21</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 10:17:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 10:18:36 UTC</div></div></div></body></html>
