@@ -524,44 +524,42 @@ View the 2nd resume in the resume book.</p>
 </div>
 <div class="sect2">
 <h3 id="editing-a-resume-code-redit-code"><a class="link" href="#editing-a-resume-code-redit-code">3.8. Editing a resume: <code>redit</code></a></h3>
-<div class="listingblock">
-<div class="content">
-<pre>Edits an existing resume in the ResuMe application</pre>
-</div>
-</div>
 <div class="paragraph">
-<p>Format:
-<code>redit RESUME_ID TYPE/ [ITEM_ID&#8230;&#8203;] [MORE_TYPE/ [ITEM_ID&#8230;&#8203;]]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
+<p>Edits the resume to contain the items specified in the command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>redit</code> is a different command from <code>edit</code>. Please visit <a href="#faq">Section 4, &#8220;FAQ&#8221;</a> for more information.
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p>Format: <code>redit RESUME_INDEX TYPE/ [ITEM_INDEX&#8230;&#8203;] [MORE_TYPE/ [ITEM_INDEX&#8230;&#8203;]]</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the resume with the specified <code>RESUME_ID</code>. The <code>RESUME_ID</code>
-refers to the unique identification number given to the item when it was
-first added. The <code>ITEM_ID</code> and <code>RESUME_ID</code> must be a positive integer
-that identifies an existing item of that type.</p>
-</li>
-<li>
-<p>The <code>TYPE</code> to be edited cannot be resume(<code>res</code>) and at least one
-<code>TYPE</code> must be provided.</p>
-</li>
-<li>
-<p>For each <code>TYPE</code>, existing values will be updated to the input values.</p>
+<p>For each <code>TYPE</code>, existing items will be updated to the input items.</p>
 </li>
 <li>
 <p>You can add multiple items of a certain type to a resume by chaining
-<code>ITEM_ID</code> after <code>TYPE/</code> e.g. <code>proj/ 123 109</code></p>
+<code>ITEM_INDEX</code> after <code>TYPE/</code>  e.g. <code>proj/ 3 6</code>, will add item of indices 3 and 6.</p>
 </li>
 <li>
-<p>You can remove all the resumes’ tags by typing <code>#/</code> without specifying
-any tags after it. Similarly, you can remove all items of type <code>TYPE</code> by
-typing <code>TYPE/</code> without specifying any <code>ITEM_ID</code> after it.</p>
+<p>You can remove all items of type <code>TYPE</code> by
+typing <code>TYPE/</code> without specifying any <code>ITEM_INDEX</code> after it.</p>
 </li>
 </ul>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -569,20 +567,47 @@ typing <code>TYPE/</code> without specifying any <code>ITEM_ID</code> after it.<
 <div class="ulist">
 <ul>
 <li>
-<p><code>redit 135 proj/ 9823 int/ 102 201</code><br>
-Edits the resume of
-<code>RESUME_ID</code> 135, overriding project content with project item of <code>ITEM_ID</code> 9823,
-internship content with internship items of <code>ITEM_ID</code> 102 and 201.
-Content of other item types in the resume remain unchanged.</p>
-</li>
-<li>
-<p><code>redit 148 int/ proj/ ski/</code><br>
-Edits the resume of <code>RESUME_ID</code> 135,
-overriding internship content, project content and skill content with empty string.
-This effectively deletes all internship, project and skill items from the resume.
-Content of other item types in the resume remain unchanged.</p>
+<p><code>redit res/ 1 int/ 1 proj/ 1 ski/ 1 2</code><br>
+This command modifies the resume at index 1. It changes the resume to contain the internship item at index 1, project item at index 1, and skill item at indices 1 and 2. The following screenshot illustrates what can happen:</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditAddIntoResume.png" alt="][AddIntoResume" width="442" height="337">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>redit res/ 1 int/ proj/ ski/</code><br>
+This command modifies the resume at index 1. It changes the resume to contain no internship, project, and skill items. The following screenshot illustrates what can happen:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditRemoveEverything.png" alt="][RemoveEverything" width="442" height="337">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>redit res/ 1 int/ 1 proj/ ski/ 2</code><br>
+This command modifies the resume at index 1. It changes the resume to contain internship item at index 1, no project items, and skill item at index 2. The following screenshot illustrates what can happen (take note that initially the resume may contain other set of items entirely):</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditWantSomeThings.png" alt="][WantSomeThings" width="442" height="337">
+</div>
+</div>
+<div class="sect4">
+<h5 id="tag-pull"><a class="link" href="#tag-pull">Tag Pull</a></h5>
+<div class="paragraph">
+<p>(To be implemented) Edits the resume specified at that index to contain all items of the specified tag.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -834,4 +859,4 @@ e.g. <code>rgen 21</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 08:58:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 09:54:47 UTC</div></div></div></body></html>
