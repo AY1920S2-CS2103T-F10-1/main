@@ -18,23 +18,25 @@ import seedu.address.model.item.Skill;
 public class PdfBuilder {
 
     private final PDDocument resume = new PDDocument();
-    private static PDPageContentStream contentStream;
-    private static final Color MAIN_COLOR = new Color(0, 0, 0);
-    private static final Color ACCENT_COLOR = new Color(153, 0, 51);
-    private static final int BODY_SIZE = 11;
-    private static final int HEADING_SIZE = 14;
-    private static final int TITLE_SIZE = 20;
-    private static final PDFont FONT_BOLD = PDType1Font.HELVETICA_BOLD;
-    private static final PDFont FONT_REGULAR = PDType1Font.HELVETICA;
-    private static final int marginX = 64;
-    private static final int marginY = 100;
-    private static final float spacing = 20;
-    private static final PDRectangle page = PDRectangle.A4;
+    private final Color MAIN_COLOR = new Color(0, 0, 0);
+    private final Color ACCENT_COLOR = new Color(153, 0, 51);
+    private final int BODY_SIZE = 11;
+    private final int HEADING_SIZE = 14;
+    private final int TITLE_SIZE = 20;
+    private final PDFont FONT_BOLD = PDType1Font.HELVETICA_BOLD;
+    private final PDFont FONT_REGULAR = PDType1Font.HELVETICA;
+    private final int marginX = 64;
+    private final int marginY = 100;
+    private final float spacing = 20;
+    private final PDRectangle page = PDRectangle.A4;
+    private final float pageHeight = page.getHeight();
+    private final float pageWidth = page.getWidth();
 
-    private static float curX = 0;
-    private static float curY = 0;
-    private static PDFont curFont;
-    private static int curSize;
+    private PDPageContentStream contentStream;
+    private float curX;
+    private float curY;
+    private PDFont curFont;
+    private int curSize;
 
     public PdfBuilder() {
 
@@ -42,16 +44,34 @@ public class PdfBuilder {
 
     //=========== Page set up ================================================================================
 
-    public void setUp() throws IOException {
-        final PDPage singlePage = new PDPage();
-        resume.addPage(singlePage);
-        contentStream = new PDPageContentStream(resume, singlePage);
+    /**
+     * Adds a new page.
+     * @throws IOException
+     */
+    public void addPage() throws IOException {
+        PDPage blank = new PDPage();
+        resume.addPage(blank);
+        contentStream = new PDPageContentStream(resume, blank);
+        contentStream.setFont(FONT_REGULAR, BODY_SIZE);
+        contentStream.setNonStrokingColor(MAIN_COLOR);
         contentStream.setLeading(spacing);
-        float pageHeight = page.getHeight();
-        curY = pageHeight - marginY;
-        curX = marginX;
         contentStream.beginText();
-        contentStream.newLineAtOffset(curX, curY);
+        curX = page.getLowerLeftX();
+        curY = page.getLowerLeftY();;
+        contentStream.newLineAtOffset(resetX(), resetY());
+    }
+
+    /**
+     * Ends the current page.
+     * @throws IOException
+     */
+    public void endPage() throws IOException {
+        contentStream.endText();
+        contentStream.close();
+    }
+
+    public boolean isEndOfPage() {
+        return curY + spacing <= marginY;
     }
 
     /**
@@ -60,17 +80,30 @@ public class PdfBuilder {
      */
     public void nextLine() throws IOException {
         contentStream.newLine();
-        curY += spacing;
+        curY -= spacing;
     }
 
     /**
-     * Resets x alignment to left align.
+     * Reset x alignment to left align.
+     * @return the value of x-coordinate offset.
      * @throws IOException
      */
-    public void resetX() throws IOException {
+    public float resetX() {
         float xOffSet = -curX + marginX;
-        contentStream.newLineAtOffset(xOffSet, 0);
+        System.out.println("reset x from " + curX + " with offset " + xOffSet);
         curX += xOffSet;
+        return xOffSet;
+    }
+
+    /**
+     * Reset y alignment to left align.
+     * @return the value of y-coordinate offset.
+     * @throws IOException
+     */
+    public float resetY() {
+        float yOffSet = -curY + pageHeight - marginY - spacing;
+        curY += yOffSet;
+        return yOffSet;
     }
 
     /**
@@ -80,7 +113,6 @@ public class PdfBuilder {
      */
     public void centerAlign(String content) throws IOException {
         float stringWidth = curFont.getStringWidth(content) * curSize / 1000f;
-        float pageWidth = page.getWidth();
         float xOffSet = -curX + (pageWidth - stringWidth) / 2f;
         contentStream.newLineAtOffset(xOffSet, 0);
         curX += xOffSet;
@@ -104,6 +136,10 @@ public class PdfBuilder {
      * @throws IOException
      */
     public void fitMultiLine(String content) throws IOException {
+        if (isEndOfPage()) {
+            endPage();
+            addPage();
+        }
         float limit = page.getWidth() - 2 * marginX;
         String[] words = content.split(" ");
         int i = 0;
@@ -126,7 +162,6 @@ public class PdfBuilder {
             }
             contentStream.showText(line);
             System.out.println(line);
-            System.out.println("width " + width + " fit in limit " + limit);
             isFirstLine = false;
             nextLine();
         }
@@ -138,6 +173,10 @@ public class PdfBuilder {
      * @throws IOException
      */
     public void addSectionTitle(String section) throws IOException {
+        if (isEndOfPage()) {
+            endPage();
+            addPage();
+        }
         setFont(FONT_BOLD, HEADING_SIZE);
         setColor(ACCENT_COLOR);
         contentStream.showText(section);
@@ -150,6 +189,10 @@ public class PdfBuilder {
      * @throws IOException
      */
     public void addItemTitle(String title) throws IOException {
+        if (isEndOfPage()) {
+            endPage();
+            addPage();
+        }
         setColor(MAIN_COLOR);
         contentStream.setFont(FONT_BOLD, BODY_SIZE);
         contentStream.showText(title);
@@ -185,7 +228,7 @@ public class PdfBuilder {
         String name = user.getName().toString();
         centerAlign(name);
         contentStream.showText(name.toUpperCase());
-        resetX();
+        contentStream.newLineAtOffset(resetX(), 0);
         nextLine();
     }
 
@@ -203,7 +246,7 @@ public class PdfBuilder {
         String contact = phone + "  |  " + email + "  |  " + git;
         centerAlign(contact);
         contentStream.showText(contact);
-        resetX();
+        contentStream.newLineAtOffset(resetX(), 0);
         nextLine();
         nextLine();
     }
@@ -277,9 +320,7 @@ public class PdfBuilder {
     }
 
     public PDDocument build() throws IOException {
-        contentStream.endText();
-        contentStream.close();
+        endPage();
         return this.resume;
     }
-
 }

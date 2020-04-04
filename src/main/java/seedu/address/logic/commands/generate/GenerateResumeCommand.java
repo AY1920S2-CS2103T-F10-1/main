@@ -85,7 +85,7 @@ public class GenerateResumeCommand extends Command {
         List<Integer> skillsToAdd = resumeToGenerate.getSkillIds();
 
         try {
-            builder.setUp();
+            builder.addPage();
             builder.addResumeTitle(user);
             builder.addContact(user);
 
