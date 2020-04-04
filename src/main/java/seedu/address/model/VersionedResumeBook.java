@@ -49,8 +49,8 @@ public class VersionedResumeBook extends ResumeBook {
         ResumeBook currentState = (ResumeBook) resumeBookStateList.get(currentStatePointer);
         currentStatePointer--;
         ResumeBook pastState = (ResumeBook) resumeBookStateList.get(currentStatePointer);
-        pastState.setItemsToDisplay(currentState.getDisplayType());
         resetData(pastState);
+        this.setItemsToDisplay(currentState.getDisplayType());
     }
 
     /**

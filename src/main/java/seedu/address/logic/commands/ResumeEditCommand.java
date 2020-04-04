@@ -92,7 +92,9 @@ public class ResumeEditCommand extends Command {
                     .collect(Collectors.toList());
         }
 
-        model.editResume(toEdit, internshipsId, projectsId, skillsId);
+        Resume editedResume = new Resume(toEdit.getName(), toEdit.getId(), toEdit.getTags());
+        model.editResume(editedResume, internshipsId, projectsId, skillsId);
+        model.setResume(toEdit, editedResume);
         model.setResumeToDisplay();
         model.updateFilteredItemList(PREDICATE_SHOW_ALL_ITEMS);
         model.commitResumeBook();
