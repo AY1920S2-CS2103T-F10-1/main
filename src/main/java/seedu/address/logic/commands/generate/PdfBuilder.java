@@ -1,6 +1,6 @@
 package seedu.address.logic.commands.generate;
 
-import java.awt.*;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +18,20 @@ import seedu.address.model.item.Project;
 import seedu.address.model.item.Skill;
 import seedu.address.model.item.field.Level;
 
+/**
+ * Builder class to format resume file.
+ */
 public class PdfBuilder {
 
+    private static final Color MAIN_COLOR = new Color(0, 0, 0);
+    private static final Color ACCENT_COLOR = new Color(153, 0, 51);
+    private static final int BODY_SIZE = 11;
+    private static final int HEADING_SIZE = 14;
+    private static final int TITLE_SIZE = 20;
+    private static final PDFont FONT_BOLD = PDType1Font.HELVETICA_BOLD;
+    private static final PDFont FONT_REGULAR = PDType1Font.HELVETICA;
+
     private final PDDocument resume = new PDDocument();
-    private final Color MAIN_COLOR = new Color(0, 0, 0);
-    private final Color ACCENT_COLOR = new Color(153, 0, 51);
-    private final int BODY_SIZE = 11;
-    private final int HEADING_SIZE = 14;
-    private final int TITLE_SIZE = 20;
-    private final PDFont FONT_BOLD = PDType1Font.HELVETICA_BOLD;
-    private final PDFont FONT_REGULAR = PDType1Font.HELVETICA;
     private final int marginX = 64;
     private final int marginY = 100;
     private final float spacing = 20;
@@ -40,10 +44,6 @@ public class PdfBuilder {
     private float curY;
     private PDFont curFont;
     private int curSize;
-
-    public PdfBuilder() {
-
-    }
 
     //=========== Page set up ================================================================================
 
@@ -323,17 +323,17 @@ public class PdfBuilder {
         for (Skill skill: skills) {
             Level level = skill.getLevel();
             switch (level) {
-                case BASIC:
-                    basic.add(skill);
-                    break;
-                case INTERMEDIATE:
-                    intermediate.add(skill);
-                    break;
-                case ADVANCED:
-                    advanced.add(skill);
-                    break;
-                default:
-                    //Should not reach here
+            case BASIC:
+                basic.add(skill);
+                break;
+            case INTERMEDIATE:
+                intermediate.add(skill);
+                break;
+            case ADVANCED:
+                advanced.add(skill);
+                break;
+            default:
+                //Should not reach here
             }
         }
 
@@ -348,6 +348,12 @@ public class PdfBuilder {
         }
     }
 
+    /**
+     * Formats and shows skills of a specific level.
+     * @param level the level title to be shown.
+     * @param skills list of skills with the specified level.
+     * @throws IOException
+     */
     public void addLeveledSkills(String level, List<Skill> skills) throws IOException {
         if (isEndOfPage()) {
             endPage();
@@ -364,6 +370,11 @@ public class PdfBuilder {
         fitMultiLine(line);
     }
 
+    /**
+     * Builds the completed resume file.
+     * @return the formatted document to be saved.
+     * @throws IOException
+     */
     public PDDocument build() throws IOException {
         endPage();
         return this.resume;

@@ -4,19 +4,12 @@ import static java.lang.System.err;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -44,13 +37,14 @@ public class GenerateResumeCommand extends Command {
             + "[" + PREFIX_NAME + "NAME]\n"
             + "Example: " + COMMAND_WORD + " 1 [" + PREFIX_NAME + "MyResume";
     public static final String MESSAGE_GENERATE_SUCCESS = "Generated %s from %s";
-
     private static final String rootPath = "";
+
+    protected String fileName;
+    protected final Index targetIndex;
 
     private final PdfBuilder builder = new PdfBuilder();
 
-    protected final Index targetIndex;
-    protected String fileName;
+
 
     public GenerateResumeCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
