@@ -2,6 +2,8 @@ package seedu.address.logic.commands.generate;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -14,6 +16,7 @@ import seedu.address.model.item.Internship;
 import seedu.address.model.item.Person;
 import seedu.address.model.item.Project;
 import seedu.address.model.item.Skill;
+import seedu.address.model.item.field.Level;
 
 public class PdfBuilder {
 
@@ -52,8 +55,8 @@ public class PdfBuilder {
         PDPage blank = new PDPage();
         resume.addPage(blank);
         contentStream = new PDPageContentStream(resume, blank);
-        contentStream.setFont(FONT_REGULAR, BODY_SIZE);
-        contentStream.setNonStrokingColor(MAIN_COLOR);
+        setFont(FONT_REGULAR, BODY_SIZE);
+        setColor(MAIN_COLOR);
         contentStream.setLeading(spacing);
         contentStream.beginText();
         curX = page.getLowerLeftX();
@@ -194,7 +197,7 @@ public class PdfBuilder {
             addPage();
         }
         setColor(MAIN_COLOR);
-        contentStream.setFont(FONT_BOLD, BODY_SIZE);
+        setFont(FONT_BOLD, BODY_SIZE);
         contentStream.showText(title);
         nextLine();
     }
@@ -308,15 +311,57 @@ public class PdfBuilder {
     }
 
     /**
-     * Adds a new {@code Skill} item to the output Resume file.
-     * @param skill {@code Skill} item to be added.
+     * Adds {@code Skill} items to the output Resume file.
+     * @param skills {@code Skill} item to be added.
      * @throws IOException
      */
-    public void addSkill(Skill skill) throws IOException {
-        String name = skill.getName().toString();
-        String level = skill.getLevel().toString();
-        String description = name + " | " + level;
-        addItemTitle(description);
+    public void addSkills(List<Skill> skills) throws IOException {
+        List<Skill> basic = new ArrayList<>();
+        List<Skill> intermediate = new ArrayList<>();
+        List<Skill> advanced = new ArrayList<>();
+
+        for (Skill skill: skills) {
+            Level level = skill.getLevel();
+            switch (level) {
+                case BASIC:
+                    basic.add(skill);
+                    break;
+                case INTERMEDIATE:
+                    intermediate.add(skill);
+                    break;
+                case ADVANCED:
+                    advanced.add(skill);
+                    break;
+                default:
+                    //Should not reach here
+            }
+        }
+
+        if (!advanced.isEmpty()) {
+            addLeveledSkills("Advanced: ", advanced);
+        }
+        if (!intermediate.isEmpty()) {
+            addLeveledSkills("Intermediate: ", intermediate);
+        }
+        if (!basic.isEmpty()) {
+            addLeveledSkills("Basic: ", basic);
+        }
+    }
+
+    public void addLeveledSkills(String level, List<Skill> skills) throws IOException {
+        if (isEndOfPage()) {
+            endPage();
+            addPage();
+        }
+        setColor(MAIN_COLOR);
+        setFont(FONT_BOLD, BODY_SIZE);
+        contentStream.showText(level);
+        String line = skills.get(0).getName().toString();
+        for (int i = 1; i < skills.size(); i++) {
+            line += ", " + skills.get(i).getName().toString();
+        }
+        setFont(FONT_REGULAR, BODY_SIZE);
+        fitMultiLine(line);
     }
 
     public PDDocument build() throws IOException {

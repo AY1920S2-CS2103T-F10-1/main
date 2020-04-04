@@ -7,6 +7,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -105,10 +108,11 @@ public class GenerateResumeCommand extends Command {
             }
 
             builder.addSectionTitle("SKILLS");
-            for (Integer id: skillsToAdd) {
-                Skill toAdd = model.getSkillById(id);
-                builder.addSkill(toAdd);
-            }
+            List<Skill> skills = resumeToGenerate.getSkillIds().stream()
+                    .map(x -> model.hasSkillId(x) ? model.getSkillById(x) : null)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+            builder.addSkills(skills);
 
             PDDocument resume = builder.build();
             resume.save(rootPath + fileName + ".pdf");
