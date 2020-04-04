@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -30,12 +32,12 @@
       </HBox>
       <FlowPane fx:id="tags">
             <VBox.margin>
-               <Insets top="5.0" left="22.0" />
+               <Insets left="22.0" top="5.0" />
             </VBox.margin>
       </FlowPane>
       <Label fx:id="summary" styleClass="cell_medium_label" text="\$summary" wrapText="true">
             <VBox.margin>
-               <Insets top="5.0" left="22.0"/>
+               <Insets left="22.0" top="5.0" />
             </VBox.margin>
       </Label>
     </VBox>

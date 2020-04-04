@@ -30,7 +30,7 @@ public class ViewSkillCommand extends ViewCommand {
         model.setSkillToDisplay();
 
         return new CommandResult(toView.toString(),
-                String.format(MESSAGE_VIEW_SUCCESS, toView));
+                String.format(MESSAGE_VIEW_SUCCESS, toView), model.getDisplayType());
     }
 
     @Override

@@ -19,6 +19,9 @@ public abstract class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
+    // TODO: Refactor this into a nice message centre
+    public static final String MESSAGE_DUPLICATE_ITEM = "Item with the same name already exists in the resume book.";
+
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the item identified "
             + "by the index number used in the displayed item list. "
             + "Existing values will be overwritten by the input values.\n"

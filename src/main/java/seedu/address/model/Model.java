@@ -292,6 +292,8 @@ public interface Model {
      */
     void updateFilteredItemList(Predicate<Item> predicate);
 
+    String getDisplayType();
+
     //================================ Undo/Redo =============================================================
     /**
      * Returns true if the model has previous resume book states to restore.

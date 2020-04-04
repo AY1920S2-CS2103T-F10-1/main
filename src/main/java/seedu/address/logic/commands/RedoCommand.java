@@ -25,7 +25,7 @@ public class RedoCommand extends Command {
 
         model.redoResumeBook();
         model.updateFilteredItemList(PREDICATE_SHOW_ALL_ITEMS);
-        return new CommandResult("", MESSAGE_SUCCESS);
+        return new CommandResult("", MESSAGE_SUCCESS, model.getDisplayType());
     }
 
 }

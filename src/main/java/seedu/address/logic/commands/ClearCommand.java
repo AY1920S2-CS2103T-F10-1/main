@@ -18,6 +18,6 @@ public class ClearCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.setResumeBook(new ResumeBook());
-        return new CommandResult("", MESSAGE_SUCCESS);
+        return new CommandResult("", MESSAGE_SUCCESS, model.getDisplayType());
     }
 }

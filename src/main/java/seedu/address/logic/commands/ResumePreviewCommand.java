@@ -47,7 +47,7 @@ public class ResumePreviewCommand extends Command {
         String data = getDataFromResume(toPreview, model);
 
         String feedback = "Previewing resume at index " + index.getOneBased();
-        return new CommandResult(data, feedback, true, false, false, false);
+        return new CommandResult(data, feedback, model.getDisplayType(), true, false, false, false);
     }
 
     private String getDataFromResume(Resume resume, Model model) {

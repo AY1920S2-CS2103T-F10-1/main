@@ -22,6 +22,7 @@ public class FindResumeCommand extends FindCommand {
         model.setResumeToDisplay();
         model.updateFilteredItemList(predicate);
         return new CommandResult("",
-                String.format(Messages.MESSAGE_ITEMS_LISTED, model.getFilteredItemList().size(), "Resumes"));
+                String.format(Messages.MESSAGE_ITEMS_LISTED, model.getFilteredItemList().size(), "Resumes"),
+                model.getDisplayType());
     }
 }

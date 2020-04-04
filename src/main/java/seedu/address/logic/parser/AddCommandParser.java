@@ -123,6 +123,7 @@ public class AddCommandParser implements Parser<AddCommand> {
             throw new ParseException("The item type is not detected! Something is wrong");
         }
     }
+
     /**
      * Returns true if none of the prefixes contains empty {@code Optional} values in the given
      * {@code ArgumentMultimap}.

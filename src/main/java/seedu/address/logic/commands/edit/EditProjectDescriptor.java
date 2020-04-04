@@ -80,7 +80,7 @@ public class EditProjectDescriptor extends EditItemDescriptor {
      */
     @Override
     public boolean isAnyFieldEdited() {
-        return CollectionUtil.isAnyNonNull(name, website, time, description);
+        return CollectionUtil.isAnyNonNull(name, website, time, description, tags);
     }
 
     @Override

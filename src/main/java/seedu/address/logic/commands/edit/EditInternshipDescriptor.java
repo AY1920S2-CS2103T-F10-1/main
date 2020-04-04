@@ -89,7 +89,7 @@ public class EditInternshipDescriptor extends EditItemDescriptor {
      */
     @Override
     public boolean isAnyFieldEdited() {
-        return CollectionUtil.isAnyNonNull(name, role, from, to, description);
+        return CollectionUtil.isAnyNonNull(name, role, from, to, description, tags);
     }
 
     @Override

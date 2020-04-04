@@ -22,6 +22,7 @@ public class FindSkillCommand extends FindCommand {
         model.setSkillToDisplay();
         model.updateFilteredItemList(predicate);
         return new CommandResult("",
-                String.format(Messages.MESSAGE_ITEMS_LISTED, model.getFilteredItemList().size(), "Skills"));
+                String.format(Messages.MESSAGE_ITEMS_LISTED, model.getFilteredItemList().size(), "Skills"),
+                model.getDisplayType());
     }
 }

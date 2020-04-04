@@ -11,7 +11,7 @@ public abstract class ViewCommand extends Command {
     public static final String COMMAND_WORD = "view";
 
     public static final String MESSAGE_VIEW_SUCCESS = "Viewing this item!";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + "INDEX i/ TYPE\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " INDEX i/ TYPE\n"
             + "Example: view 1 i/int";
 
     protected final Index targetIndex;

@@ -30,7 +30,7 @@ public class ViewInternshipCommand extends ViewCommand {
         model.setInternshipToDisplay();
 
         return new CommandResult(toView.toString(),
-                String.format(MESSAGE_VIEW_SUCCESS, toView));
+                String.format(MESSAGE_VIEW_SUCCESS, toView), model.getDisplayType());
     }
 
     @Override

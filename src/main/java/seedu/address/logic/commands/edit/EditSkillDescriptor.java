@@ -34,7 +34,7 @@ public class EditSkillDescriptor extends EditItemDescriptor {
      */
     @Override
     public boolean isAnyFieldEdited() {
-        return CollectionUtil.isAnyNonNull(name, tags);
+        return CollectionUtil.isAnyNonNull(name, level, tags);
     }
 
     public void setLevel(Level level) {

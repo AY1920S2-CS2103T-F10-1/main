@@ -37,6 +37,10 @@ public class ItemUtil {
      * @param value a non negative integer id value
      */
     public static void setBaseIdOfItemType(String itemType, int value) {
-        idGenerator.put(itemType, value);
+        if (value < 0) {
+            throw new IllegalArgumentException("The id value cannot be negative.");
+        } else {
+            idGenerator.put(itemType, value);
+        }
     }
 }

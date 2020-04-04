@@ -65,12 +65,17 @@ public class EditProjectCommand extends EditCommand {
 
         Project toEdit = model.getProjectByIndex(index);
 
-        Project editProject = createEditedProject(toEdit, editProjectDescriptor);
+        Project editedProject = createEditedProject(toEdit, editProjectDescriptor);
 
-        model.setProject(toEdit, editProject);
+        if (model.hasProject(editedProject)) {
+            throw new CommandException("A project with the same name and time already exists.");
+        }
+
+        model.setProject(toEdit, editedProject);
         model.setProjectToDisplay();
         model.commitResumeBook();
-        return new CommandResult(editProject.toString(), String.format(MESSAGE_EDIT_PROJECT_SUCCESS, editProject));
+        return new CommandResult(editedProject.toString(), String.format(MESSAGE_EDIT_PROJECT_SUCCESS, editedProject),
+                model.getDisplayType());
     }
 
     /**

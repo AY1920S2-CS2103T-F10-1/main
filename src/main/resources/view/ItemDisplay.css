@@ -1,0 +1,47 @@
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#68dbd1 0%, #18b5cf 25%, #0893c9 75%, #0093bf 100%);
+    -fx-text-fill: white;
+}
+
+.list-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #0093ff;
+    -fx-text-fill: white;
+}
+
+.list-cell {
+    -fx-background-color: blue;
+    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 13pt;
+    -fx-text-fill: white;
+}
+
+.list-view {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-background-color: #5a6872;
+}
+
+.list-cell {
+    -fx-label-padding: 0 0 0 0;
+    -fx-graphic-text-gap : 0;
+    -fx-padding: 0 0 0 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 2 2 2 2;
+}
+
+.list-cell:filled:even {
+    -fx-background-color: #5a6872;
+}
+
+.list-cell:filled:odd {
+    -fx-background-color: #4d5f72;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #163950;
+}
+

@@ -25,5 +25,5 @@ public abstract class AddCommand extends Command {
             + PREFIX_TAG + "tech";
 
     public static final String MESSAGE_SUCCESS = "New %1$s added";
-    public static final String MESSAGE_DUPLICATE_ITEM = "This item already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_ITEM = "This item already exists in the resume book";
 }

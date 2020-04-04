@@ -58,11 +58,16 @@ public class EditSkillCommand extends EditCommand {
 
         Skill editedSkill = createEditedSkill(toEdit, editSkillDescriptor);
 
+        if (model.hasSkill(editedSkill)) {
+            throw new CommandException(MESSAGE_DUPLICATE_ITEM);
+        }
+
         model.setSkill(toEdit, editedSkill);
         model.setSkillToDisplay();
         model.commitResumeBook();
 
-        return new CommandResult(editedSkill.toString(), String.format(MESSAGE_EDIT_SKILL_SUCCESS, editedSkill));
+        return new CommandResult(editedSkill.toString(), String.format(MESSAGE_EDIT_SKILL_SUCCESS, editedSkill),
+                model.getDisplayType());
     }
 
     /**

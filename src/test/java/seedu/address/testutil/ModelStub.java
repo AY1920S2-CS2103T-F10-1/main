@@ -253,6 +253,11 @@ public class ModelStub implements Model {
     }
 
     @Override
+    public String getDisplayType() {
+        return "";
+    }
+
+    @Override
     public boolean canUndoResumeBook() {
         return false;
     }

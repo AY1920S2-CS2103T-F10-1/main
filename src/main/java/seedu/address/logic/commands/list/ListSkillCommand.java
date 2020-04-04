@@ -15,6 +15,6 @@ public class ListSkillCommand extends ListCommand {
         requireNonNull(model);
         model.setSkillToDisplay();
         model.updateFilteredItemList(PREDICATE_SHOW_ALL_ITEMS);
-        return new CommandResult("", String.format(MESSAGE_SUCCESS, "Skill"));
+        return new CommandResult("", String.format(MESSAGE_SUCCESS, "Skill"), model.getDisplayType());
     }
 }

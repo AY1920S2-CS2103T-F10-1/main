@@ -76,7 +76,8 @@ public class EditUserCommand extends Command {
         model.setUser(editedUser);
         model.commitResumeBook();
 
-        return new CommandResult(editedUser.toString(), String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedUser));
+        return new CommandResult(editedUser.toString(), String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedUser),
+                model.getDisplayType());
     }
 
     /**

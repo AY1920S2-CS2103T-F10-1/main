@@ -69,6 +69,7 @@ public class ResumeEditCommand extends Command {
             internshipsId = internshipIndices
                     .get()
                     .stream()
+                    .distinct()
                     .map(x -> model.getInternshipByIndex(Index.fromOneBased(x)).getId())
                     .collect(Collectors.toList());
         }
@@ -77,6 +78,7 @@ public class ResumeEditCommand extends Command {
             projectsId = projectIndices
                     .get()
                     .stream()
+                    .distinct()
                     .map(x -> model.getProjectByIndex(Index.fromOneBased(x)).getId())
                     .collect(Collectors.toList());
         }
@@ -85,6 +87,7 @@ public class ResumeEditCommand extends Command {
             skillsId = skillIndices
                     .get()
                     .stream()
+                    .distinct()
                     .map(x -> model.getSkillByIndex(Index.fromOneBased(x)).getId())
                     .collect(Collectors.toList());
         }
@@ -93,7 +96,7 @@ public class ResumeEditCommand extends Command {
         model.setResumeToDisplay();
         model.updateFilteredItemList(PREDICATE_SHOW_ALL_ITEMS);
         model.commitResumeBook();
-        return new CommandResult(toEdit.toString(), "Resume is updated");
+        return new CommandResult(toEdit.toString(), "Resume is updated", model.getDisplayType());
     }
 
     /**

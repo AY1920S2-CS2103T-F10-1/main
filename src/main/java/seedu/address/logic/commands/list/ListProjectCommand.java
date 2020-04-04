@@ -15,6 +15,6 @@ public class ListProjectCommand extends ListCommand {
         requireNonNull(model);
         model.setProjectToDisplay();
         model.updateFilteredItemList(PREDICATE_SHOW_ALL_ITEMS);
-        return new CommandResult("", String.format(MESSAGE_SUCCESS, "Project"));
+        return new CommandResult("", String.format(MESSAGE_SUCCESS, "Project"), model.getDisplayType());
     }
 }
