@@ -33,14 +33,15 @@
 <li><a href="#deleting-an-item-code-delete-code">4.7. Deleting an item : <code>delete</code></a></li>
 <li><a href="#viewing-an-item-in-details-code-view-code">4.8. Viewing an item in details: <code>view</code></a></li>
 <li><a href="#editing-a-resume-code-redit-code">4.9. Editing a resume: <code>redit</code></a></li>
-<li><a href="#undo-a-command-code-undo-code">4.10. Undo a command: <code>undo</code></a></li>
-<li><a href="#redo-a-command-code-redo-code">4.11. Redo a command: <code>redo</code></a></li>
-<li><a href="#previewing-a-resume-code-rpreview-code">4.12. Previewing a resume: <code>rpreview</code></a></li>
-<li><a href="#generating-a-resume-code-rgen-code">4.13. Generating a resume: <code>rgen</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">4.14. Clearing all data: <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.16. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.17. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.10. Pulling tagged items into the resume: <code>tagpull</code></a></li>
+<li><a href="#undo-a-command-code-undo-code">4.11. Undo a command: <code>undo</code></a></li>
+<li><a href="#redo-a-command-code-redo-code">4.12. Redo a command: <code>redo</code></a></li>
+<li><a href="#previewing-a-resume-code-rpreview-code">4.13. Previewing a resume: <code>rpreview</code></a></li>
+<li><a href="#generating-a-resume-code-rgen-code">4.14. Generating a resume: <code>rgen</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">4.15. Clearing all data: <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.17. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -583,7 +584,7 @@ An item could have any number of tags <em>(including 0)</em>.
 <td class="content">
 The description of a <code>Resume</code> could be written one paragraph (with <strong>full stop</strong> and a <strong>space</strong> after each sentence).
 These sentences, when exported to .pdf format, will be automatically shown as individual bullet points!<br>
-<em>(refer to <a href="#generating-a-resume-code-rgen-code">Section 4.13, &#8220;Generating a resume: <code>rgen</code>&#8221;</a> for more details)</em>
+<em>(refer to <a href="#generating-a-resume-code-rgen-code">Section 4.14, &#8220;Generating a resume: <code>rgen</code>&#8221;</a> for more details)</em>
 </td>
 </tr>
 </table>
@@ -1002,6 +1003,18 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 </div>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you find it a hassle to manually enter items into the resume, you can consider using <a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">tagpull</a>!
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1059,15 +1072,43 @@ This command modifies the resume at index 1. It changes the resume to contain in
 <img src="images/ReditWantSomeThings.png" alt="][WantSomeThings" width="442" height="337">
 </div>
 </div>
-<div class="sect4">
-<h5 id="tag-pull"><a class="link" href="#tag-pull">Tag Pull</a></h5>
-<div class="paragraph">
-<p>(To be implemented) Edits the resume specified at that index to contain all items of the specified tag.</p>
 </div>
+<div class="sect2">
+<h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.10. Pulling tagged items into the resume: <code>tagpull</code></a></h3>
+<div class="paragraph">
+<p>Pull the internship, project and skill items with the specified tag(s) into a resume.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><code>tagpull INDEX [#/ TAG]</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This command does not remove items from the resume and will add items on top of existing items.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tagpull 1 #/ tech</code><br>
+This command modifies the resume at index 1. It will find all the internship, project, and skill items with the tag <code>tech</code> and adds it into the resume.</p>
+</li>
+<li>
+<p><code>tagpull 2 #/ tech frontend</code><br>
+This command modifies the resume at index 2. It will find all the internship, project, and skill items which has either the tag <code>tech</code> or <code>frontend</code> and adds it into the resume.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">4.10. Undo a command: <code>undo</code></a></h3>
+<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">4.11. Undo a command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
@@ -1143,7 +1184,7 @@ Voila, Java is back, and our list box now displays skills.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">4.11. Redo a command: <code>redo</code></a></h3>
+<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">4.12. Redo a command: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverts the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
@@ -1202,7 +1243,7 @@ once again removed from our life.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.12. Previewing a resume: <code>rpreview</code></a></h3>
+<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.13. Previewing a resume: <code>rpreview</code></a></h3>
 <div class="paragraph">
 <p>Previews a resume in text format in a different window.</p>
 </div>
@@ -1253,7 +1294,7 @@ the content of the resume named "Summer Internship".</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">4.13. Generating a resume: <code>rgen</code></a></h3>
+<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">4.14. Generating a resume: <code>rgen</code></a></h3>
 <div class="paragraph">
 <p>Generates a .pdf file from an existing resume stored inside the application at the specified index.</p>
 </div>
@@ -1339,7 +1380,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">4.14. Clearing all data: <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">4.15. Clearing all data: <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all data from ResuMe.</p>
 </div>
@@ -1364,7 +1405,7 @@ This command cannot be undone. Please be careful when exercising this power.
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.</p>
 </div>
@@ -1377,14 +1418,14 @@ This command cannot be undone. Please be careful when exercising this power.
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>ResuMe data is saved in the hard disk automatically after any command
 that changes the data. There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.17. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1559,4 +1600,4 @@ Address Book folder.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-05 10:29:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-05 15:57:58 UTC</div></div></div></body></html>
