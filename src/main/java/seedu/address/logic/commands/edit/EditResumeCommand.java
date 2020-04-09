@@ -33,7 +33,7 @@ public class EditResumeCommand extends EditCommand {
             + PREFIX_NAME + " Resume 1 "
             + PREFIX_TAG + " frontend ";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.\n" + FIELDS + EXAMPLE;
-    private static final String MESSAGE_EDIT_RESUME_SUCCESS = "Edited Resume: %1$s";
+    public static final String MESSAGE_EDIT_RESUME_SUCCESS = "Edited Resume: %1$s";
     private EditResumeDescriptor editResumeDescriptor;
     /**
      * @param index                of the resume in the filtered resume list to edit

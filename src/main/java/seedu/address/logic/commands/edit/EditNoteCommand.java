@@ -40,7 +40,7 @@ public class EditNoteCommand extends EditCommand {
             + FIELDS
             + EXAMPLE;
 
-    private static final String MESSAGE_EDIT_NOTE_SUCCESS = "Edited This Note!";
+    public static final String MESSAGE_EDIT_NOTE_SUCCESS = "Edited This Note!";
 
     private EditNoteDescriptor editNoteDescriptor;
 

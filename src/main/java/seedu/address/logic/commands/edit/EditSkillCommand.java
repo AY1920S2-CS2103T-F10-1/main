@@ -36,7 +36,7 @@ public class EditSkillCommand extends EditCommand {
             + PREFIX_ITEM + " ski "
             + PREFIX_NAME + " Software Engineering";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.\n" + FIELDS + EXAMPLE;
-    private static final String MESSAGE_EDIT_SKILL_SUCCESS = "Edited Skill: %1$s";
+    public static final String MESSAGE_EDIT_SKILL_SUCCESS = "Edited Skill: %1$s";
 
     private EditSkillDescriptor editSkillDescriptor;
     /**
@@ -79,7 +79,7 @@ public class EditSkillCommand extends EditCommand {
      * @param editSkillDescriptor Descriptor parsed from input of user
      * @return Edited Skill item.
      */
-    private static Skill createEditedSkill(Skill toEdit, EditSkillDescriptor editSkillDescriptor) {
+    protected static Skill createEditedSkill(Skill toEdit, EditSkillDescriptor editSkillDescriptor) {
         Name updatedName = editSkillDescriptor.getName().orElse(toEdit.getName());
         Level level = editSkillDescriptor.getLevel().orElse(toEdit.getLevel());
         Set<Tag> updatedTags = editSkillDescriptor.getTags().orElse(toEdit.getTags());
