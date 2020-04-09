@@ -102,6 +102,7 @@ public class CommandTestUtil {
     public static final String PREFIXED_TAG_FRONTEND = " " + PREFIX_TAG + " " + VALID_TAG_FRONTEND;
 
     // NOTES
+    public static final String VALID_NOTE_INDEX = " " + 1;
     public static final String ITEM_TYPE_NOTE = " " + PREFIX_ITEM + " note";
     public static final String PREFIXED_NAME_NOTE = " " + PREFIX_NAME + " Finish CS2103";
 
