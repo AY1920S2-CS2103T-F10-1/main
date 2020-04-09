@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Nguyen Chi Hai - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">ResuMe</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Nguyen Chi Hai - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-resume"><a class="link" href="#project-resume">PROJECT: ResuMe</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ResuMe is a resume managing application made specifically for University students by University Students to allow then
+to add and manage their different experiences, edit personal data, and create the resume of their dreams in just a few
+commands.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="code-contributed"><a class="link" href="#code-contributed">Code contributed:</a></h3>
+<div class="paragraph">
+<p>Link to my code [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=helloimhai&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">Code</a>]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contribution-to-team-based-tasks"><a class="link" href="#contribution-to-team-based-tasks">Contribution to team based tasks:</a></h3>
+<div class="sect3">
+<h4 id="morphed-commands-in-overall-architecture"><a class="link" href="#morphed-commands-in-overall-architecture">Morphed Commands in overall architecture</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>What it means: Commands that are item dependent are now separated to their own separate class according to the item
+type that they modify, to be created by parser and calls on changes in the model.</p>
+</li>
+<li>
+<p>Justification: This is to make sure that the logic of each excution of each command class is independent from the
+type that it is linked to. Eg. ListCommand is split into ListResumeCommand and ListSkillCommand&#8230;&#8203; ListXYZCommand will
+show all XYZ without having to check what Item type is passed into it.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-up-the-foundation-for-tests"><a class="link" href="#set-up-the-foundation-for-tests">Set up the foundation for tests</a></h4>
+<div class="paragraph">
+<p>Created typical classes, item builders, assert command success and failure to aid the team in the setting up of tests.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancements-implemented"><a class="link" href="#enhancements-implemented">Enhancements implemented:</a></h3>
+<div class="sect3">
+<h4 id="preview-a-resume-code-rpreview-code"><a class="link" href="#preview-a-resume-code-rpreview-code">Preview a resume: <code>rpreview</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows users to preview their fleshed out resume in the application before generating it.</p>
+</li>
+<li>
+<p>Justification: This was done to provide users with a ability to go check their resumes for any typos or make sure
+that all their relevant experiences have been added to the resume before actually making it into a PDF file. This will
+save users' time as generating the PDF does take some time, and decrease the clutter as users would not have to
+generate many files.</p>
+</li>
+<li>
+<p>Highlights: This feature wrote the framework to to pass data back to UI and allow the creation of the window with
+the text data. This feature made enhancing the <code>help</code> command much easier due to similar logic and styling.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-all-items-code-list-code"><a class="link" href="#list-all-items-code-list-code">List all items: <code>list</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows users to view all items of a certain type.</p>
+</li>
+<li>
+<p>Justification: This is done so that users know what items they have to pick and choose from to add into their resume.</p>
+</li>
+<li>
+<p>Highlights: Bigger rework on UI and CommandResult so that CommandResult passes up the type currently showing for UI
+to update and give visual feedback to users.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-data-code-clear-code"><a class="link" href="#clear-all-data-code-clear-code">Clear all data: <code>clear</code></a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows users clear all their data to start fresh.</p>
+</li>
+<li>
+<p>Highlights: This feature was morphed from AddressBook so that it can work with our data types, undo, and redo.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="wrote-tests-for-code-add-code-code-clear-code-code-done-code-code-list-code-code-rpreview-code-code-view-code"><a class="link" href="#wrote-tests-for-code-add-code-code-clear-code-code-done-code-code-list-code-code-rpreview-code-code-view-code">Wrote tests for <code>add</code>, <code>clear</code>, <code>done</code>, <code>list</code>, <code>rpreview</code>, <code>view</code></a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-review-mentoring-contributions-strong"><a class="link" href="#strong-review-mentoring-contributions-strong"><strong>Review/mentoring contributions</strong>:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Took part in reviewing of many PRs (Pull requests
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/234">#234</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/159">#159</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/238">#238</a> and more)</p>
+</li>
+<li>
+<p>Took part in fixing bugs in other teammates' contributions (Pull requests
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/252">#252</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/228">#228</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/148">#148</a> and more)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 09:26:23 UTC</div></div></div></body></html>
