@@ -101,4 +101,21 @@ public class EditUserCommand extends Command {
         double cap = editUserDescriptor.getCap().orElse(toEdit.getCap());
         return new Person(displayPicture, name, phone, email, github, university, major, from, to, cap);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof EditUserCommand)) {
+            return false;
+        }
+
+        // state check
+        EditUserCommand e = (EditUserCommand) other;
+        return editUserDescriptor.equals(e.editUserDescriptor);
+    }
 }

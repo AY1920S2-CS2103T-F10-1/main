@@ -1,211 +1,493 @@
 package seedu.address.logic.parser;
-//
-//import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-//import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-//import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-//import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
-//import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-//import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-//import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-//import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_PERSON;
 
-/*import org.junit.jupiter.api.Test;
+import static seedu.address.logic.commands.CommandTestUtil.ITEM_TYPE_INTERNSHIP;
+import static seedu.address.logic.commands.CommandTestUtil.ITEM_TYPE_PROJECT;
+import static seedu.address.logic.commands.CommandTestUtil.ITEM_TYPE_SKILL;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_BASIC;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_DESCRIPTION_DUKE;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_DESCRIPTION_ORBITAL;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_INTERMEDIATE;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_INTERNSHIP_DESCRIPTION;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_NAME_DUKE;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_NAME_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_NAME_ORBITAL;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_NAME_REACT;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_ROLE_BACKEND;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_ROLE_FRONTEND;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_TAG_FRONTEND;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_TAG_JAVA;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_TIME_FROM;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_TIME_FROM_2;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_TIME_ORBITAL;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_TIME_TO;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_TIME_TO_2;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_WEBSITE_DUKE;
+import static seedu.address.logic.commands.CommandTestUtil.PREFIXED_WEBSITE_ORBITAL;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INTERNSHIP_INDEX;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PROJECT_INDEX;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SKILL_INDEX;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRONTEND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_JAVA;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_ITEM;
+import static seedu.address.testutil.TypicalInternship.GOOGLE;
+import static seedu.address.testutil.TypicalProject.ORBITAL;
+import static seedu.address.testutil.TypicalSkill.REACT;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.edit.EditCommand;
-import seedu.address.logic.commands.edit.EditCommand.EditPersonDescriptor;
-import seedu.address.model.item.field.Address;
-import seedu.address.model.item.field.Email;
-import seedu.address.model.item.field.Name;
-import seedu.address.model.item.field.Phone;
-import seedu.address.model.tag.Tag;
-import seedu.address.testutil.EditPersonDescriptorBuilder;*/
+import org.junit.jupiter.api.Test;
+
+import seedu.address.logic.commands.edit.EditInternshipCommand;
+import seedu.address.logic.commands.edit.EditInternshipDescriptor;
+import seedu.address.logic.commands.edit.EditProjectCommand;
+import seedu.address.logic.commands.edit.EditProjectDescriptor;
+import seedu.address.logic.commands.edit.EditResumeDescriptor;
+import seedu.address.logic.commands.edit.EditSkillCommand;
+import seedu.address.logic.commands.edit.EditSkillDescriptor;
+import seedu.address.model.item.Internship;
+import seedu.address.model.item.Project;
+import seedu.address.model.item.Skill;
+import seedu.address.testutil.InternshipBuilder;
+import seedu.address.testutil.ProjectBuilder;
+import seedu.address.testutil.SkillBuilder;
 
 public class EditCommandParserTest {
-//
-//    private static final String TAG_EMPTY = " " + PREFIX_TAG;
-//
-//    private static final String MESSAGE_INVALID_FORMAT =
-//            String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
-//
-//    private EditCommandParser parser = new EditCommandParser();
-//
+    private EditCommandParser parser = new EditCommandParser();
+    private EditInternshipDescriptor editInternshipDescriptor = new EditInternshipDescriptor();
+    private EditProjectDescriptor editProjectDescriptor = new EditProjectDescriptor();
+    private EditSkillDescriptor editSkillDescriptor = new EditSkillDescriptor();
+    private EditResumeDescriptor editResumeDescriptor = new EditResumeDescriptor();
+
+    /**
+     * A method to set fields in the edit internship descriptor.
+     */
+    public void setEditInternshipDescriptor(Internship sampleEditedInternship) {
+        editInternshipDescriptor.setName(sampleEditedInternship.getName());
+        editInternshipDescriptor.setFrom(sampleEditedInternship.getFrom());
+        editInternshipDescriptor.setTo(sampleEditedInternship.getTo());
+        editInternshipDescriptor.setRole(sampleEditedInternship.getRole());
+        editInternshipDescriptor.setDescription(sampleEditedInternship.getDescription());
+        editInternshipDescriptor.setTags(sampleEditedInternship.getTags());
+    }
+
+    /**
+     * A method to set fields in the edit project descriptor.
+     */
+    public void setEditProjectDescriptor(Project sampleEditedProject) {
+        editProjectDescriptor.setName(sampleEditedProject.getName());
+        editProjectDescriptor.setWebsite(sampleEditedProject.getWebsite());
+        editProjectDescriptor.setTime(sampleEditedProject.getTime());
+        editProjectDescriptor.setDescription(sampleEditedProject.getDescription());
+        editProjectDescriptor.setTags(sampleEditedProject.getTags());
+    }
+
+    /**
+     * A method to set fields in the edit skill descriptor.
+     */
+    public void setEditSkillDescriptor(Skill sampleEditedSkill) {
+        editSkillDescriptor.setName(sampleEditedSkill.getName());
+        editSkillDescriptor.setLevel(sampleEditedSkill.getLevel());
+        editSkillDescriptor.setTags(sampleEditedSkill.getTags());
+    }
+
+    @Test
+    public void parse_editAllInternshipFieldsPresent_success() {
+        Internship expectedInternship = new InternshipBuilder(GOOGLE).withTags(VALID_TAG_FRONTEND).build();
+        setEditInternshipDescriptor(expectedInternship);
+
+        // Standard
+        assertParseSuccess(parser,
+                VALID_INTERNSHIP_INDEX + ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE
+                        + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+
+        // multiple item types - last item type accepted
+        assertParseSuccess(parser,
+                VALID_INTERNSHIP_INDEX + ITEM_TYPE_PROJECT + ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE
+                        + PREFIXED_ROLE_FRONTEND
+                        + PREFIXED_TIME_FROM + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION
+                        + PREFIXED_TAG_FRONTEND,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+
+        // multiple item names - last name accepted
+        assertParseSuccess(parser,
+                VALID_INTERNSHIP_INDEX +
+                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_REACT + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND
+                        + PREFIXED_TIME_FROM + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION
+                        + PREFIXED_TAG_FRONTEND,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+
+        // multiple item roles - last role accepted
+        assertParseSuccess(parser,
+                VALID_INTERNSHIP_INDEX +
+                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_BACKEND + PREFIXED_ROLE_FRONTEND
+                        + PREFIXED_TIME_FROM + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION
+                        + PREFIXED_TAG_FRONTEND,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+
+        // multiple item froms - last from accepted
+        assertParseSuccess(parser,
+                VALID_INTERNSHIP_INDEX +
+                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_BACKEND + PREFIXED_ROLE_FRONTEND
+                        + PREFIXED_TIME_FROM_2 + PREFIXED_TIME_FROM + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION
+                        + PREFIXED_TAG_FRONTEND,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+
+        // multiple item to - last to accepted
+        assertParseSuccess(parser,
+                VALID_INTERNSHIP_INDEX +
+                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_BACKEND + PREFIXED_ROLE_FRONTEND
+                        + PREFIXED_TIME_FROM + PREFIXED_TIME_TO_2 + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION
+                        + PREFIXED_TAG_FRONTEND,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+
+        // multiple item description - last description accepted
+        assertParseSuccess(parser,
+                        VALID_INTERNSHIP_INDEX +
+                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_BACKEND + PREFIXED_ROLE_FRONTEND
+                        + PREFIXED_TIME_FROM + PREFIXED_TIME_TO + PREFIXED_DESCRIPTION_ORBITAL
+                        + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+
+        // multiple item tags - all tags added
+        expectedInternship = new InternshipBuilder(GOOGLE).withTags(VALID_TAG_FRONTEND, VALID_TAG_JAVA).build();
+        setEditInternshipDescriptor(expectedInternship);
+        assertParseSuccess(parser,
+                        VALID_INTERNSHIP_INDEX +
+                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_BACKEND + PREFIXED_ROLE_FRONTEND
+                        + PREFIXED_TIME_FROM + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION
+                        + PREFIXED_TAG_FRONTEND + PREFIXED_TAG_JAVA,
+                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+    }
+
 //    @Test
-//    public void parse_missingParts_failure() {
-//        // no index specified
-//        assertParseFailure(parser, VALID_NAME_AMY, MESSAGE_INVALID_FORMAT);
+//    public void parse_allAddNoteFieldsPresent_success() {
+//        Note expectedNote = new NoteBuilder(FINISH_CS_2103).withTags(VALID_TAG_JAVA).build();
+//        // Standard
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_NOTE + PREFIXED_NAME_NOTE + PREFIXED_TIME_TO + PREFIXED_TAG_JAVA,
+//                new AddNoteCommand(expectedNote));
 //
-//        // no field specified
-//        assertParseFailure(parser, "1", EditCommand.MESSAGE_NOT_EDITED);
+//        // multiple item types - last type accepted
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_INTERNSHIP + ITEM_TYPE_NOTE + PREFIXED_NAME_NOTE + PREFIXED_TIME_TO + PREFIXED_TAG_JAVA,
+//                new AddNoteCommand(expectedNote));
 //
-//        // no index and no field specified
-//        assertParseFailure(parser, "", MESSAGE_INVALID_FORMAT);
+//
+//        // multiple item names - last name accepted
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_NOTE + PREFIXED_NAME_REACT + PREFIXED_NAME_NOTE + PREFIXED_TIME_TO + PREFIXED_TAG_JAVA,
+//                new AddNoteCommand(expectedNote));
+//
+//        // multiple item time - last time accepted
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_NOTE + PREFIXED_NAME_NOTE + " t/ 12-2021" + PREFIXED_TIME_TO + PREFIXED_TAG_JAVA,
+//                new AddNoteCommand(expectedNote));
+//
+//        // multiple item tags - all tags accepted
+//        expectedNote = new NoteBuilder(FINISH_CS_2103).withTags(VALID_TAG_JAVA, VALID_TAG_FRONTEND).build();
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_NOTE + PREFIXED_NAME_NOTE + PREFIXED_TIME_TO + PREFIXED_TAG_JAVA + PREFIXED_TAG_FRONTEND,
+//                new AddNoteCommand(expectedNote));
+//    }
+
+    @Test
+    public void parse_allAddProjectFieldsPresent_success() {
+        Project expectedProject = new ProjectBuilder(ORBITAL).withTags(VALID_TAG_JAVA).build();
+        setEditProjectDescriptor(expectedProject);
+
+        // Standard
+        assertParseSuccess(parser, VALID_PROJECT_INDEX +
+                ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL + PREFIXED_TIME_ORBITAL
+                + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL
+                + PREFIXED_TAG_JAVA, new EditProjectCommand(INDEX_FIRST_ITEM, editProjectDescriptor));
+
+        // multiple item types - last type accepted
+        assertParseSuccess(parser, VALID_PROJECT_INDEX +ITEM_TYPE_INTERNSHIP + ITEM_TYPE_PROJECT
+                + PREFIXED_NAME_ORBITAL
+                + PREFIXED_TIME_ORBITAL + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL
+                + PREFIXED_TAG_JAVA, new EditProjectCommand(INDEX_FIRST_ITEM, editProjectDescriptor));
+
+        // multiple item names - last name accepted
+        assertParseSuccess(parser,VALID_PROJECT_INDEX + ITEM_TYPE_PROJECT + PREFIXED_NAME_REACT
+                + PREFIXED_NAME_ORBITAL
+                + PREFIXED_TIME_ORBITAL + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL
+                + PREFIXED_TAG_JAVA, new EditProjectCommand(INDEX_FIRST_ITEM, editProjectDescriptor));
+
+        // multiple item time - last time accepted
+        assertParseSuccess(parser,VALID_PROJECT_INDEX + ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL
+                + PREFIXED_TIME_TO
+                + PREFIXED_TIME_ORBITAL + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL
+                + PREFIXED_TAG_JAVA, new EditProjectCommand(INDEX_FIRST_ITEM, editProjectDescriptor));
+
+        // multiple item website - last website accepted
+        assertParseSuccess(parser,VALID_PROJECT_INDEX + ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL
+                + PREFIXED_TIME_ORBITAL
+                + PREFIXED_WEBSITE_DUKE + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL
+                + PREFIXED_TAG_JAVA, new EditProjectCommand(INDEX_FIRST_ITEM, editProjectDescriptor));
+
+        // multiple item description - last description accepted
+        assertParseSuccess(parser, VALID_PROJECT_INDEX + ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL
+                + PREFIXED_TIME_ORBITAL
+                + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_DUKE + PREFIXED_DESCRIPTION_ORBITAL
+                + PREFIXED_TAG_JAVA, new EditProjectCommand(INDEX_FIRST_ITEM, editProjectDescriptor));
+
+        // multiple item tags - all tags accepted
+        expectedProject = new ProjectBuilder(ORBITAL).withTags(VALID_TAG_JAVA, VALID_TAG_FRONTEND).build();
+        setEditProjectDescriptor(expectedProject);
+        assertParseSuccess(parser,VALID_PROJECT_INDEX + ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL
+                + PREFIXED_TIME_ORBITAL
+                + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL
+                + PREFIXED_TAG_JAVA + PREFIXED_TAG_FRONTEND, new EditProjectCommand(INDEX_FIRST_ITEM,
+                editProjectDescriptor));
+    }
+
+//    @Test
+//    public void parse_addAllResumeFieldsPresent_success() {
+//        Resume expectedResume = new ResumeBuilder(ME_RESUME).withTags(VALID_TAG_FRONTEND).build();
+//
+//        // Standard
+//        assertParseSuccess(parser, VALID_RESUME_INDEX +
+//                ITEM_TYPE_RESUME + PREFIXED_NAME_ME + PREFIXED_TAG_FRONTEND,
+//                new EditResumeCommand(INDEX_FIRST_ITEM, editResumeDescriptor));
+//
+//        // multiple item types - last type accepted
+//        assertParseSuccess(parser, VALID_RESUME_INDEX +
+//                ITEM_TYPE_INTERNSHIP + ITEM_TYPE_RESUME + PREFIXED_NAME_ME + PREFIXED_TAG_FRONTEND,
+//                new EditResumeCommand(INDEX_FIRST_ITEM, editResumeDescriptor));
+//
+//        // multiple item names - last name accepted
+//        assertParseSuccess(parser, VALID_RESUME_INDEX +
+//                ITEM_TYPE_RESUME + PREFIXED_NAME_REACT + PREFIXED_NAME_ME + PREFIXED_TAG_FRONTEND,
+//                new EditResumeCommand(INDEX_FIRST_ITEM, editResumeDescriptor));
+//
+//        // multiple item tags - all tags accepted
+//        expectedResume = new ResumeBuilder(ME_RESUME).withTags(VALID_TAG_FRONTEND, VALID_TAG_JAVA).build();
+//        assertParseSuccess(parser, VALID_RESUME_INDEX +
+//                ITEM_TYPE_RESUME + PREFIXED_NAME_REACT + PREFIXED_NAME_ME + PREFIXED_TAG_FRONTEND + PREFIXED_TAG_JAVA,
+//                new EditResumeCommand(INDEX_FIRST_ITEM, editResumeDescriptor));
+//    }
+
+    @Test
+    public void parse_addAllSkillFieldsPresent_success() {
+        Skill expectedSkill = new SkillBuilder(REACT).withTags(VALID_TAG_FRONTEND).build();
+        setEditSkillDescriptor(expectedSkill);
+
+        // Standard
+        assertParseSuccess(parser, VALID_SKILL_INDEX +
+                ITEM_TYPE_SKILL + PREFIXED_NAME_REACT + PREFIXED_BASIC + PREFIXED_TAG_FRONTEND,
+                new EditSkillCommand(INDEX_FIRST_ITEM, editSkillDescriptor));
+
+        // multiple item types - last type accepted
+        assertParseSuccess(parser, VALID_SKILL_INDEX +
+                ITEM_TYPE_INTERNSHIP + ITEM_TYPE_SKILL + PREFIXED_NAME_REACT + PREFIXED_BASIC + PREFIXED_TAG_FRONTEND,
+                new EditSkillCommand(INDEX_FIRST_ITEM, editSkillDescriptor));
+
+        // multiple item names - last name accepted
+        assertParseSuccess(parser, VALID_SKILL_INDEX +
+                ITEM_TYPE_SKILL + PREFIXED_NAME_DUKE + PREFIXED_NAME_REACT + PREFIXED_BASIC + PREFIXED_TAG_FRONTEND,
+                new EditSkillCommand(INDEX_FIRST_ITEM, editSkillDescriptor));
+
+        // multiple item levels - last level accepted
+        assertParseSuccess(parser, VALID_SKILL_INDEX +
+                ITEM_TYPE_SKILL + PREFIXED_NAME_REACT + PREFIXED_INTERMEDIATE + PREFIXED_BASIC + PREFIXED_TAG_FRONTEND,
+                new EditSkillCommand(INDEX_FIRST_ITEM, editSkillDescriptor));
+
+        expectedSkill = new SkillBuilder(REACT).withTags(VALID_TAG_FRONTEND, VALID_TAG_JAVA).build();
+
+        // multiple item tags - all tags accepted
+        setEditSkillDescriptor(expectedSkill);
+        assertParseSuccess(parser, VALID_SKILL_INDEX +
+                ITEM_TYPE_SKILL + PREFIXED_NAME_REACT + PREFIXED_BASIC + PREFIXED_TAG_FRONTEND + PREFIXED_TAG_JAVA,
+                new EditSkillCommand(INDEX_FIRST_ITEM, editSkillDescriptor));
+    }
+
+//    @Test
+//    public void parse_optionalFieldsMissing_success() {
+//        Internship expectedInternship = new InternshipBuilder(GOOGLE).withTags().build();
+//        setEditInternshipDescriptor(expectedInternship);
+//
+//        // 0 tags
+//        assertParseSuccess(parser, VALID_INTERNSHIP_INDEX +
+//                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION,
+//                new EditInternshipCommand(INDEX_FIRST_ITEM, editInternshipDescriptor));
+//
+//        Note expectedNote = new NoteBuilder(FINISH_CS_2103).withTags().build();
+//
+//        // 0 tags
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_NOTE + PREFIXED_NAME_NOTE + PREFIXED_TIME_TO,
+//                new AddNoteCommand(expectedNote));
+//
+//
+//        Project expectedProject = new ProjectBuilder(ORBITAL).withTags().build();
+//
+//        // 0 tags
+//        assertParseSuccess(parser, ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL + PREFIXED_TIME_ORBITAL
+//                        + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL,
+//                new AddProjectCommand(expectedProject));
+//
+//        Resume expectedResume = new ResumeBuilder(ME_RESUME).withTags().build();
+//
+//        // 0 tags
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_RESUME + PREFIXED_NAME_ME,
+//                new AddResumeCommand(expectedResume));
+//
+//
+//        Skill expectedSkill = new SkillBuilder(REACT).withTags().build();
+//
+//        // 0 tags
+//        assertParseSuccess(parser,
+//                ITEM_TYPE_SKILL + PREFIXED_NAME_REACT + PREFIXED_BASIC,
+//                new AddSkillCommand(expectedSkill));
 //    }
 //
 //    @Test
-//    public void parse_invalidPreamble_failure() {
-//        // negative index
-//        assertParseFailure(parser, "-5" + NAME_DESC_AMY, MESSAGE_INVALID_FORMAT);
+//    public void parse_compulsoryItemTypeMissing_failure() {
+//        // missing item prefix
+//        assertParseFailure(parser, PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                Item.MESSAGE_CONSTRAINTS);
 //
-//        // zero index
-//        assertParseFailure(parser, "0" + NAME_DESC_AMY, MESSAGE_INVALID_FORMAT);
-//
-//        // invalid arguments being parsed as preamble
-//        assertParseFailure(parser, "1 some random string", MESSAGE_INVALID_FORMAT);
-//
-//        // invalid prefix being parsed as preamble
-//        assertParseFailure(parser, "1 i/ string", MESSAGE_INVALID_FORMAT);
+//        // invalid item prefix
+//        assertParseFailure(parser,
+//                INVALID_TYPE_DESC + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                "Not a valid item type!");
 //    }
+//
+//    @Test
+//    public void parseInternship_fromLaterThanTo_failure() {
+//        assertParseFailure(parser, ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND
+//                        + " f/02-2022 " + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                AddInternshipCommand.MESSAGE_FROM_TO_MISORDER);
+//    }
+//
+//    @Test
+//    public void parse_compulsoryFieldMissing_failure() {
+//        String expectedInternshipErrorMessage =
+//                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddInternshipCommand.MESSAGE_USAGE);
+//
+//        // missing name prefix
+//        assertParseFailure(parser, ITEM_TYPE_INTERNSHIP + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                expectedInternshipErrorMessage);
+//
+//        // missing role prefix
+//        assertParseFailure(parser, ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_TIME_FROM
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                expectedInternshipErrorMessage);
+//
+//        // missing from prefix
+//        assertParseFailure(parser, ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                expectedInternshipErrorMessage);
+//
+//        // missing to prefix
+//        assertParseFailure(parser, ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND
+//                        + PREFIXED_TIME_FROM + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                expectedInternshipErrorMessage);
+//
+//        // missing description prefix
+//        assertParseFailure(parser, ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND
+//                        + PREFIXED_TIME_FROM + PREFIXED_TIME_TO + PREFIXED_TAG_FRONTEND,
+//                expectedInternshipErrorMessage);
+//
+//        String expectedNoteErrorMessage =
+//                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddNoteCommand.MESSAGE_USAGE);
+//
+//        // missing name prefix
+//        assertParseFailure(parser,
+//                ITEM_TYPE_NOTE + PREFIXED_TIME_TO + PREFIXED_TAG_FRONTEND,
+//                expectedNoteErrorMessage);
+//
+//        // missing time prefix
+//        assertParseFailure(parser,
+//                ITEM_TYPE_NOTE + PREFIXED_NAME_NOTE + PREFIXED_TAG_FRONTEND,
+//                expectedNoteErrorMessage);
+//
+//        String expectedProjectErrorMessage =
+//                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddProjectCommand.MESSAGE_USAGE);
+//
+//        // missing name prefix
+//        assertParseFailure(parser, ITEM_TYPE_PROJECT + PREFIXED_TIME_ORBITAL
+//                        + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL
+//                        + PREFIXED_TAG_JAVA,
+//                expectedProjectErrorMessage);
+//
+//        // missing time prefix
+//        assertParseFailure(parser, ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL
+//                        + PREFIXED_WEBSITE_ORBITAL + PREFIXED_DESCRIPTION_ORBITAL + PREFIXED_TAG_JAVA,
+//                expectedProjectErrorMessage);
+//
+//        // missing website prefix
+//        assertParseFailure(parser, ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL + PREFIXED_TIME_ORBITAL
+//                        + PREFIXED_DESCRIPTION_ORBITAL + PREFIXED_TAG_JAVA,
+//                expectedProjectErrorMessage);
+//
+//        // missing description prefix
+//        assertParseFailure(parser, ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL + PREFIXED_TIME_ORBITAL
+//                        + PREFIXED_WEBSITE_ORBITAL + PREFIXED_TAG_JAVA,
+//                expectedProjectErrorMessage);
+//
+//        String expectedResumeErrorMessage =
+//                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddResumeCommand.MESSAGE_USAGE);
+//
+//        // missing name prefix
+//        assertParseFailure(parser, ITEM_TYPE_RESUME + PREFIXED_TAG_JAVA, expectedResumeErrorMessage);
+//
+//        String expectedSkillErrorMessage =
+//                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddSkillCommand.MESSAGE_USAGE);
+//
+//        // missing name prefix
+//        assertParseFailure(parser, ITEM_TYPE_SKILL + PREFIXED_BASIC,
+//                expectedSkillErrorMessage);
+//
+//        // missing level prefix
+//        assertParseFailure(parser, ITEM_TYPE_SKILL + PREFIXED_NAME_REACT,
+//                expectedSkillErrorMessage);
+//    }
+//
 //
 //    @Test
 //    public void parse_invalidValue_failure() {
-//        assertParseFailure(parser, "1" + INVALID_NAME_DESC, Name.MESSAGE_CONSTRAINTS); // invalid name
-//        assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
-//        assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
-//        assertParseFailure(parser, "1" + INVALID_ADDRESS_DESC, Address.MESSAGE_CONSTRAINTS); // invalid address
-//        assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
-//
-//        // invalid phone followed by valid email
-//        assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_AMY, Phone.MESSAGE_CONSTRAINTS);
-//
-//        // valid phone followed by invalid phone. The test case for invalid phone followed by valid phone
-//        // is tested at {@code parse_invalidValueFollowedByValidValue_success()}
-//        assertParseFailure(parser, "1" + PHONE_DESC_BOB + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS);
-//
-//        // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
-//        // parsing it together with a valid tag results in error
-//        assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_DESC_HUSBAND + TAG_EMPTY, Tag.MESSAGE_CONSTRAINTS);
-//        assertParseFailure(parser, "1" + TAG_DESC_FRIEND + TAG_EMPTY + TAG_DESC_HUSBAND, Tag.MESSAGE_CONSTRAINTS);
-//        assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_FRIEND + TAG_DESC_HUSBAND, Tag.MESSAGE_CONSTRAINTS);
-//
-//        // multiple invalid values, but only the first invalid value is captured
-//        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_ADDRESS_AMY + VALID_PHONE_AMY,
+//        // invalid name
+//        assertParseFailure(parser,
+//                ITEM_TYPE_INTERNSHIP + INVALID_NAME_DESC + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
 //                Name.MESSAGE_CONSTRAINTS);
+//
+//        // invalid from
+//        assertParseFailure(parser,
+//                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND + INVALID_FROM_DESC
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                Time.MESSAGE_CONSTRAINTS);
+//
+//        // invalid TO
+//        assertParseFailure(parser,
+//                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+//                        + INVALID_TO_DESC + PREFIXED_INTERNSHIP_DESCRIPTION + PREFIXED_TAG_FRONTEND,
+//                Time.MESSAGE_CONSTRAINTS);
+//
+//        // invalid tag
+//        assertParseFailure(parser,
+//                ITEM_TYPE_INTERNSHIP + PREFIXED_NAME_GOOGLE + PREFIXED_ROLE_FRONTEND + PREFIXED_TIME_FROM
+//                        + PREFIXED_TIME_TO + PREFIXED_INTERNSHIP_DESCRIPTION + INVALID_TAG_DESC,
+//                Tag.MESSAGE_CONSTRAINTS);
+//
+//        // invalid website
+//        assertParseFailure(parser,
+//                ITEM_TYPE_PROJECT + PREFIXED_NAME_ORBITAL + PREFIXED_TIME_TO
+//                        + INVALID_WEBSITE_DESC + PREFIXED_DESCRIPTION_ORBITAL,
+//                Website.MESSAGE_CONSTRAINTS);
+//
+//        // invalid level
+//        assertParseFailure(parser,
+//                ITEM_TYPE_SKILL + PREFIXED_NAME_REACT + INVALID_LEVEL_DESC + PREFIXED_TAG_FRONTEND,
+//                "Level of proficiency can only be one of these three types: basic, intermediate, "
+//                        + "advanced.");
 //    }
-//
-//    @Test
-//    public void parse_allFieldsSpecified_success() {
-//        Index targetIndex = INDEX_SECOND_PERSON;
-//        String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + TAG_DESC_HUSBAND
-//                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + NAME_DESC_AMY + TAG_DESC_FRIEND;
-//
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
-//                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-//                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
-//        EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
-//
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//    }
-//
-//    @Test
-//    public void parse_someFieldsSpecified_success() {
-//        Index targetIndex = INDEX_FIRST_PERSON;
-//        String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + EMAIL_DESC_AMY;
-//
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB)
-//                .withEmail(VALID_EMAIL_AMY).build();
-//        EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
-//
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//    }
-//
-//    @Test
-//    public void parse_oneFieldSpecified_success() {
-//        // name
-//        Index targetIndex = INDEX_THIRD_PERSON;
-//        String userInput = targetIndex.getOneBased() + NAME_DESC_AMY;
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY).build();
-//        EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//
-//        // phone
-//        userInput = targetIndex.getOneBased() + PHONE_DESC_AMY;
-//        descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_AMY).build();
-//        expectedCommand = new EditCommand(targetIndex, descriptor);
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//
-//        // email
-//        userInput = targetIndex.getOneBased() + EMAIL_DESC_AMY;
-//        descriptor = new EditPersonDescriptorBuilder().withEmail(VALID_EMAIL_AMY).build();
-//        expectedCommand = new EditCommand(targetIndex, descriptor);
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//
-//        // address
-//        userInput = targetIndex.getOneBased() + ADDRESS_DESC_AMY;
-//        descriptor = new EditPersonDescriptorBuilder().withAddress(VALID_ADDRESS_AMY).build();
-//        expectedCommand = new EditCommand(targetIndex, descriptor);
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//
-//        // tags
-//        userInput = targetIndex.getOneBased() + TAG_DESC_FRIEND;
-//        descriptor = new EditPersonDescriptorBuilder().withTags(VALID_TAG_FRIEND).build();
-//        expectedCommand = new EditCommand(targetIndex, descriptor);
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//    }
-//
-//    @Test
-//    public void parse_multipleRepeatedFields_acceptsLast() {
-//        Index targetIndex = INDEX_FIRST_PERSON;
-//        String userInput = targetIndex.getOneBased() + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY
-//                + TAG_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY + TAG_DESC_FRIEND
-//                + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + TAG_DESC_HUSBAND;
-//
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB)
-//                .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-//                .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND).build();
-//        EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
-//
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//    }
-//
-//    @Test
-//    public void parse_invalidValueFollowedByValidValue_success() {
-//        // no other valid values specified
-//        Index targetIndex = INDEX_FIRST_PERSON;
-//        String userInput = targetIndex.getOneBased() + INVALID_PHONE_DESC + PHONE_DESC_BOB;
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB).build();
-//        EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//
-//        // other valid values specified
-//        userInput = targetIndex.getOneBased() + EMAIL_DESC_BOB + INVALID_PHONE_DESC + ADDRESS_DESC_BOB
-//                + PHONE_DESC_BOB;
-//        descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-//                .withAddress(VALID_ADDRESS_BOB).build();
-//        expectedCommand = new EditCommand(targetIndex, descriptor);
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//    }
-//
-//    @Test
-//    public void parse_resetTags_success() {
-//        Index targetIndex = INDEX_THIRD_PERSON;
-//        String userInput = targetIndex.getOneBased() + TAG_EMPTY;
-//
-//        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withTags().build();
-//        EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
-//
-//        assertParseSuccess(parser, userInput, expectedCommand);
-//    }
+
 }

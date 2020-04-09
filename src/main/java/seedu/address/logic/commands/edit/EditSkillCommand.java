@@ -86,4 +86,22 @@ public class EditSkillCommand extends EditCommand {
         int id = toEdit.getId();
         return new Skill(updatedName, level, updatedTags, id);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof EditSkillCommand)) {
+            return false;
+        }
+
+        // state check
+        EditSkillCommand e = (EditSkillCommand) other;
+        return index.equals(e.index)
+                && editSkillDescriptor.equals(e.editSkillDescriptor);
+    }
 }

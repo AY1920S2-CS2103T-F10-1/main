@@ -84,4 +84,22 @@ public class EditNoteCommand extends EditCommand {
         int id = toEdit.getId();
         return new Note(updatedName, updatedTime, toEdit.isDone(), updateTags, id);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof EditNoteCommand)) {
+            return false;
+        }
+
+        // state check
+        EditNoteCommand e = (EditNoteCommand) other;
+        return index.equals(e.index)
+                && editNoteDescriptor.equals(e.editNoteDescriptor);
+    }
 }

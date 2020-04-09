@@ -98,4 +98,22 @@ public class EditProjectCommand extends EditCommand {
         int id = toEdit.getId();
         return new Project(updatedName, updatedTime, updatedWebsite, updatedDesc, updatedTags, id);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof EditProjectCommand)) {
+            return false;
+        }
+
+        // state check
+        EditProjectCommand e = (EditProjectCommand) other;
+        return index.equals(e.index)
+                && editProjectDescriptor.equals(e.editProjectDescriptor);
+    }
 }

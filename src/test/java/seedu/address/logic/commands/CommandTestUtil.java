@@ -37,6 +37,7 @@ public class CommandTestUtil {
     public static final String VALID_TAG_FRIEND = "friend";
 
     // RESUME
+    public static final String VALID_RESUME_INDEX = " " + 1;
     public static final String VALID_RESUME_NAME_SE = "Software Engineering Intern Resume";
     public static final String VALID_RESUME_NAME_ME = "Mechanical Engineering Intern Resume";
     public static final String PREFIXED_NAME_ME = " " + PREFIX_NAME + " " + VALID_RESUME_NAME_ME;
@@ -44,6 +45,7 @@ public class CommandTestUtil {
     public static final String VALID_RESUME_NAME_FILLED = "An already filled Resume";
 
     // SKILL
+    public static final String VALID_SKILL_INDEX = " " + 1;
     public static final String VALID_SKILL_NAME_GIT = "Git and Github";
     public static final String VALID_SKILL_NAME_REACT = "React";
     public static final String PREFIXED_NAME_REACT = " " + PREFIX_NAME + " " + VALID_SKILL_NAME_REACT;
@@ -55,6 +57,7 @@ public class CommandTestUtil {
 
     // PROJECT
     public static final String ITEM_TYPE_PROJECT = " " + PREFIX_ITEM + " proj";
+    public static final String VALID_PROJECT_INDEX = " " + 1;
     public static final String VALID_PROJECT_NAME_ORBITAL = "Orbital";
     public static final String VALID_PROJECT_NAME_DUKE = "Duke";
     public static final String PREFIXED_NAME_ORBITAL = " " + PREFIX_NAME + " " + VALID_PROJECT_NAME_ORBITAL;
@@ -77,6 +80,7 @@ public class CommandTestUtil {
 
     // INTERNSHIP
     public static final String ITEM_TYPE_INTERNSHIP = " " + PREFIX_ITEM + " int";
+    public static final String VALID_INTERNSHIP_INDEX = " " + 1;
     public static final String VALID_INTERNSHIP_NAME_GOOGLE = "Google";
     public static final String PREFIXED_NAME_GOOGLE = " " + PREFIX_NAME + " " + VALID_INTERNSHIP_NAME_GOOGLE;
     public static final String VALID_INTERNSHIP_ROLE_FRONTEND = "Frontend Web Engineer";
