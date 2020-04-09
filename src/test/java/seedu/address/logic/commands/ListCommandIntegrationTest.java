@@ -74,7 +74,7 @@ public class ListCommandIntegrationTest {
                 model,
                 new ListCommandResult("",
                         String.format(ListCommand.MESSAGE_SUCCESS, "Resume"),
-                        ItemUtil.INTERNSHIP_ALIAS),
+                        ItemUtil.RESUME_ALIAS),
                 expectedModel);
     }
 
