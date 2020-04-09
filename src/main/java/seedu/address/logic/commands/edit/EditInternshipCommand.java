@@ -27,6 +27,7 @@ import seedu.address.model.tag.Tag;
  * Edits an Internship Item in the resume book.
  */
 public class EditInternshipCommand extends EditCommand {
+    public static final String MESSAGE_FROM_TO_MISORDER = "\'from\' cannot be later than \'to\' field. ";
     private static final String FIELDS = "Examples: "
             + COMMAND_WORD + " "
             + PREFIX_ITEM + "int "
@@ -72,6 +73,10 @@ public class EditInternshipCommand extends EditCommand {
         Internship toEdit = model.getInternshipByIndex(index);
 
         Internship editedInternship = createEditedInternship(toEdit, editInternshipDescriptor);
+
+        if (editedInternship.getFrom().compareTo(editedInternship.getTo()) > 0) {
+            throw new CommandException(MESSAGE_FROM_TO_MISORDER);
+        }
 
         try {
             model.setInternship(toEdit, editedInternship);

@@ -46,9 +46,4 @@ public class DisplayPicture {
                 || (other instanceof DisplayPicture // instanceof handles nulls
                 && value.equals(((DisplayPicture) other).value)); // state check
     }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
-    }
 }

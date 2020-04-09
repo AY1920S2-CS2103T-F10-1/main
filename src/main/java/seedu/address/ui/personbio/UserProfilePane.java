@@ -22,11 +22,11 @@ public class UserProfilePane extends UiPart<Region> {
     @FXML
     private Label description;
 
-    public UserProfilePane(Image profilePic, String name, String description) {
+    public UserProfilePane(Image profilePic, String userName, String userDescription) {
         super(FXML);
         this.profilePicture.setImage(profilePic);
-        this.name.setText(name);
-        this.description.setText(description);
+        this.name.setText(userName);
+        this.description.setText(userDescription);
     }
 
 }

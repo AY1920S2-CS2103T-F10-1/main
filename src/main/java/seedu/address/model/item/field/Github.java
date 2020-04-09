@@ -15,7 +15,7 @@ public class Github {
             + "2. Cannot have multiple consecutive hyphens.\n"
             + "3. Cannot begin or end with a hyphen.\n"
             + "4. Maximum is 39 characters.";
-    public static final String VALIDATION_REGEX = "^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}$";
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9\\d](?:[a-zA-Z0-9\\d]|-(?=[a-zA-Z0-9\\d])){0,38}$";
     public final String value;
 
     /**
@@ -46,10 +46,5 @@ public class Github {
         return other == this // short circuit if same object
                 || (other instanceof Github // instanceof handles nulls
                 && value.equals(((Github) other).value)); // state check
-    }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
     }
 }

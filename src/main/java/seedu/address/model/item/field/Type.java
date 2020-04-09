@@ -1,5 +1,7 @@
 package seedu.address.model.item.field;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * Represents a Item's type in the address book.
  */
@@ -11,7 +13,7 @@ public class Type {
     }
 
     public static Type generate(String alias) {
-        return new Type(alias);
+        return new Type(requireNonNull(alias));
     }
 
     public String getAlias() {
@@ -22,12 +24,6 @@ public class Type {
         switch (alias) {
         case ("res"):
             return "Resume";
-        case ("acad"):
-            return "Academic";
-        case ("pd"):
-            return "Personal Detail";
-        case ("edu"):
-            return "Education";
         case ("ski"):
             return "Skill";
         case ("int"):
@@ -35,6 +31,7 @@ public class Type {
         case ("proj"):
             return "Project";
         default:
+            // TODO: better error handling
             return "Not a valid type";
         }
     }

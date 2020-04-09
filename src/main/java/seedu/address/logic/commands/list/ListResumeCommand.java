@@ -21,4 +21,9 @@ public class ListResumeCommand extends ListCommand {
                 String.format(MESSAGE_SUCCESS, "Resume"),
                 model.getDisplayType());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ListResumeCommand;
+    }
 }

@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INTERNSHIP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SKILL;
@@ -30,12 +29,7 @@ public class ResumeEditCommandParser implements Parser<ResumeEditCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_INTERNSHIP, PREFIX_SKILL, PREFIX_PROJECT);
         Index index;
 
-        try {
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
-        } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ResumeEditCommand.MESSAGE_USAGE),
-                    pe);
-        }
+        index = ParserUtil.parseIndex(argMultimap.getPreamble());
 
         // Optional.empty() denotes non-existence, "" denotes that no argument specified, else some arguments specified
         Optional<List<Integer>> internshipIndices = ParserUtil.parseReditItemIndices(

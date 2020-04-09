@@ -92,6 +92,7 @@ public class ResumeBookTest {
      */
     private static class ResumeBookStub implements ReadOnlyResumeBook {
         private Person person = new Person(new DisplayPicture("/images/Duke.png"), new Name("Default name"),
+                "Default description",
                 new Phone("000"), new Email("000@gmail.com"),
                 new Github("000"), "Default university", "Default major",
                 new Time("12-9999"), new Time("12-9999"), 5.0);

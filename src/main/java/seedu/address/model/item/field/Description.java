@@ -11,8 +11,8 @@ public class Description {
 
     // TODO: Utilise this class in main codes
 
-    public static final String MESSAGE_CONSTRAINTS = "Descriptions can take any values, should not exceed 50 "
-            + "characters and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Descriptions can take any values "
+            + " and it should not be blank.";
 
     /*
      * The first character of the description must not be a whitespace,

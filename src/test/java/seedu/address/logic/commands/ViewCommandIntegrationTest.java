@@ -13,6 +13,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.commands.results.CommandResult;
 import seedu.address.logic.commands.view.ViewCommand;
 import seedu.address.logic.commands.view.ViewInternshipCommand;
+import seedu.address.logic.commands.view.ViewNoteCommand;
 import seedu.address.logic.commands.view.ViewProjectCommand;
 import seedu.address.logic.commands.view.ViewResumeCommand;
 import seedu.address.logic.commands.view.ViewSkillCommand;
@@ -20,11 +21,13 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.item.Internship;
+import seedu.address.model.item.Note;
 import seedu.address.model.item.Project;
 import seedu.address.model.item.Resume;
 import seedu.address.model.item.Skill;
 import seedu.address.model.util.ItemUtil;
 import seedu.address.testutil.TypicalInternship;
+import seedu.address.testutil.TypicalNote;
 import seedu.address.testutil.TypicalProject;
 import seedu.address.testutil.TypicalResume;
 import seedu.address.testutil.TypicalResumeBook;
@@ -65,8 +68,31 @@ public class ViewCommandIntegrationTest {
     }
 
     @Test
+    public void execute_viewNote_success() {
+        Note validNote = TypicalNote.FINISH_CS_2103;
+
+        Model expectedModel = new ModelManager(TypicalResumeBook.TYPICAL_WITHOUT_GOOGLE_COPY, new UserPrefs());
+
+        assertCommandSuccess(new ViewNoteCommand(Index.fromOneBased(1)),
+                model,
+                new CommandResult(validNote.toString(),
+                        ViewNoteCommand.MESSAGE_VIEW_SUCCESS,
+                        ItemUtil.INTERNSHIP_ALIAS),
+                expectedModel);
+    }
+
+    @Test
+    public void execute_outOfBoundsNote_throwsCommandException() {
+        assertCommandFailure(new ViewNoteCommand(Index.fromOneBased(3)),
+                model,
+                new CommandException(Messages.MESSAGE_INVALID_INDEX));
+    }
+
+
+
+    @Test
     public void execute_viewProject_success() {
-        Project validProject = TypicalProject.DUKE;
+        Project validProject = TypicalProject.ORBITAL;
 
         Model expectedModel = new ModelManager(TypicalResumeBook.TYPICAL_WITHOUT_GOOGLE_COPY, new UserPrefs());
         expectedModel.setProjectToDisplay();
@@ -88,7 +114,7 @@ public class ViewCommandIntegrationTest {
 
     @Test
     public void execute_viewResume_success() {
-        Resume validResume = TypicalResume.SE_RESUME;
+        Resume validResume = TypicalResume.ME_RESUME;
 
         Model expectedModel = new ModelManager(TypicalResumeBook.TYPICAL_WITHOUT_GOOGLE_COPY, new UserPrefs());
         expectedModel.setResumeToDisplay();

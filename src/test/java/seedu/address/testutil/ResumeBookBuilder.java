@@ -2,6 +2,7 @@ package seedu.address.testutil;
 
 import seedu.address.model.ResumeBook;
 import seedu.address.model.item.Internship;
+import seedu.address.model.item.Note;
 import seedu.address.model.item.Person;
 import seedu.address.model.item.Project;
 import seedu.address.model.item.Resume;
@@ -49,6 +50,16 @@ public class ResumeBookBuilder {
      */
     public ResumeBookBuilder withProject(Project project) {
         resumeBook.addProject(project);
+        return this;
+    }
+
+    /**
+     * Adds a note to the resume book.
+     * @param note note to add.
+     * @return builder object with added note.
+     */
+    public ResumeBookBuilder withNote(Note note) {
+        resumeBook.addNote(note);
         return this;
     }
 

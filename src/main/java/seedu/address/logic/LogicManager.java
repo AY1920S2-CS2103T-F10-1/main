@@ -71,7 +71,7 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
+    public Path getResumeBookFilePath() {
         return model.getResumeBookFilePath();
     }
 

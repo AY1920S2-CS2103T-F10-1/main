@@ -3,6 +3,7 @@ package seedu.address.model.item;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -136,6 +137,15 @@ public class UniqueItemList<T extends Item> implements Iterable<T> {
     }
 
     /**
+     * Sorts the contents of this list using the provided {@code sortComparator}.
+     */
+    public void sort(Comparator<T> sortComparator) {
+        requireNonNull(sortComparator);
+        internalList.sort(sortComparator);
+        refreshIndex();
+    }
+
+    /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
     public ObservableList<T> asUnmodifiableObservableList() {
@@ -176,4 +186,5 @@ public class UniqueItemList<T extends Item> implements Iterable<T> {
         }
         return true;
     }
+
 }

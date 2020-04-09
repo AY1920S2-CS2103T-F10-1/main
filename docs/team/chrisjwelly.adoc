@@ -1,4 +1,4 @@
-= Christian James Welly- Project Portfolio
+= Christian James Welly - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
@@ -9,6 +9,65 @@
 
 == Overview
 
-ResuMe - A ResuMe management application.
+ResuMe is a desktop application for you to manage all of your resumes from a centralised location. It is easy to build, customise and export different resume versions using only Command Line Interface.
 
-Watch this space for more information in the future! +
+== Summary of contributions
+
+==== *Code contributed*:
+
+[https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&sort=variance&sortWithin=variance&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&since=2020-02-14&tabOpen=true&tabType=authorship&tabAuthor=chrisjwelly&tabRepo=AY1920S2-CS2103T-F10-1%2Fmain%5Bmaster%5D[Functional and Test code]] +
+
+==== Enhancement implemented
+
+* *Major enhancement*: added *the ability to modify items in the resume*
+** What it does: allows the user to selectively modify items in a specified resume.
+** Justification: This is a key feature in the application because a user would need to select existing items in the resume to be included before generating them.
+** Highlights: This enhancement is particularly tricky to implement due to the various possibilities of input that a user can give. Careful parsing of the input is required before the command is processed.
+
+* *Major enhancement*: added *the ability to add items in the resume based on tags*
+** What it does: allows the user to add items that have been given a particular tag.
+** Justification: This increases the convenience of modifying a resume, since items that have the same tags are likely to be included togehter in the resume.
+
+* *Minor enhancement*: modified the `add` command and its parser to suit the application.
+
+=== Contributions to team-based tasks:
+
+==== Morphed CommandResult in overall architecture
+* What it means: `CommandResult` has been separated to many different subclasses which correspond to the different `Command`.
+* Justification: Several `CommandResult` require a special boolean value to indicate that it is the result of a certain `Command`. With only one class, the constructor would have to take in many booleans in the constructor and this gets very messy.
+
+==== Project management
+Managed releases `v1.2` - `v1.4` (3 releases) on GitHub
+
+==== Reviewing contributions:
+*** PRs reviewed with non-trivial review comments (https://github.com/AY1920S2-CS2103T-F10-1/main/pull/135[#135],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/145[#145],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/159[#159],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/245[#245],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/204[#204])
+*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com/chrisjwelly/ped/issues/8[1],
+https://github.com/chrisjwelly/ped/issues/10[2], https://github.com/chrisjwelly/ped/issues/16[3])
+
+== Contributions to the User Guide
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+
+include::../UserGuide.adoc[tag=redit]
+
+include::../UserGuide.adoc[tag=tagpull]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc[tag=logic]
+
+include::../DeveloperGuide.adoc[tag=redit]
+
+
+
+---

@@ -100,6 +100,7 @@ The `UI` component,
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 * Responds to events raised by various commands and the UI can be updated accordingly.
 
+// tag::logic[]
 [[Design-Logic]]
 === Logic component
 
@@ -122,7 +123,9 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 image::DeleteSequenceDiagram.png[]
 
 NOTE: The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+// end::logic[]
 
+// tag::model[]
 [[Design-Model]]
 === Model component
 
@@ -143,6 +146,8 @@ The `Model`,
 As a more OOP model, we can store a `Tag` list in `Resume Book`, which `Item` can reference. This would allow `Resume Book` to only require one `Tag` object per unique `Tag`, instead of each `Item` needing their own `Tag` object. An example of how such a model may look like is given below. +
  +
 image:BetterModelClassDiagram.png[]
+
+// end::model[]
 
 [[Design-Storage]]
 === Storage component
@@ -166,7 +171,8 @@ Classes used by multiple components are in the `seedu.resumebook.commons` packag
 
 This section describes some noteworthy details on how certain features are implemented.
 
-=== [Proposed] Resume Edit feature
+// tag::redit[]
+=== Resume Edit feature
 ==== Proposed Implementation
 The Resume Edit feature or `redit` allows users to edit which `Item` belongs to the `Resume` (for example, adding a `Skill` item or removing an `Internship` item).
 It is not to be confused with the `edit` command, which simply modifies the fields of an `Item`.
@@ -254,7 +260,7 @@ our many command classes would only have a single reason to change. Moreover, ou
 reduces double work as `Parser` will not have to parse `Type` in the user input to create the `ABCCommand`, then only to
 be switch-cased again in `ABCCommand`.
 ****
-
+// end::redit[]
 === Me Feature
 This feature allows a user to make changes and updates his/her user profile which is reflected by the user profile panel.
 At the same time, it also allows user to personalise his/her experience using the app with certain sub-features. They are
@@ -351,13 +357,13 @@ with the app.
 ==== Change Background and Font Color
 This allows the user to change the background and font color using rgb or hex color codes.
 
-// tag::export[]
-=== [Proposed] Export Resume feature
+//tag::export[]
+=== Export Resume feature
 The Export Resume feature supports two main actions: previewing the content of a `Resume` item, and
 then exporting it as a .pdf file.
 
 ==== rpreview: preview a `Resume`
-===== Proposed Implementation
+===== Implementation
 `rpreview` is supported by the new `Command`, `ResumePreviewCommand` and the additional method `Resume#getPreview()`
 which return the content of the `Resume` in textual format.
 
@@ -397,7 +403,7 @@ to call `rpreview` after each edit, reducing the number of switches between view
 ****
 
 ==== rgen: generate a .pdf file from a `Resume`
-===== Proposed Implementation
+===== Implementation
 This feature utilises the external *iText* library. When using `rgen`, the user could specify the desired name of
 the generated file, which will be saved in the root directory of the project.
 
@@ -449,7 +455,7 @@ of reading its content twice (once during `rpreview` and once during `rgen`) is 
 will further allows the application to have more control when formatting the output file, and leaving room for potential
 extended features (e.g. allow user to choose from a variety of pre-defined resume templates).
 ****
-// end::export[]
+end::export[]
 
 // tag::undoredo[]
 === [Proposed] Undo/Redo feature

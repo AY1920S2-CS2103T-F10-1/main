@@ -254,18 +254,17 @@
  */
 .button {
     -fx-padding: 5 22 5 22;
-    -fx-border-color: #e2e2e2;
-    -fx-border-width: 2;
+    -fx-border-width: 0;
     -fx-background-radius: 0;
-    -fx-background-color: #1d1d1d;
-    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #212c34;
+    -fx-font-family: "Segoe UI Light", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
     -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
 .button:hover {
-    -fx-background-color: #3a3a3a;
+    -fx-background-color: #d7722c;
 }
 
 .button:pressed, .button:default:hover:pressed {
@@ -430,11 +429,16 @@
 .description {
     -fx-background-color: transparent;
     -fx-font-family: "Segoe UI light";
-    -fx-font-size: 12;
+    -fx-font-size: 13;
     -fx-text-fill: white;
 }
 
 .scroll-pane {
+    -fx-background: transparent !important;
+    -fx-background-color: transparent !important;
+}
+
+.user {
     -fx-background: transparent !important;
     -fx-background-color: transparent !important;
     -fx-border-color: rgb(255, 255, 255) !important;
@@ -446,17 +450,17 @@
     -fx-background-radius: 10 10 10 10;
 }
 
-#previewBox {
+.popUpBox {
     -fx-background-color: linear-gradient(to bottom right, #212c34, #434e56);
 }
 
-#previewHeader {
-     -fx-text-fill: white;
-     -fx-font-size: 22pt;
-     -fx-font-family: "Segoe UI Semibold";
+.popUpHeader {
+    -fx-text-fill: white;
+    -fx-font-size: 22pt;
+    -fx-font-family: "Segoe UI Semibold";
 }
 
-#previewText {
+.popUpText {
     -fx-control-inner-background: #434e56;
     -fx-font-family: "Segoe UI Light";
     -fx-font-size: 14pt;

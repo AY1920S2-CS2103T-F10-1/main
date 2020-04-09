@@ -18,4 +18,9 @@ public class ListNoteCommand extends ListCommand {
         model.updateFilteredNoteList(PREDICATE_SHOW_ALL_ITEMS);
         return new ListCommandResult("", String.format(MESSAGE_SUCCESS, "Note"), model.getDisplayType());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ListNoteCommand;
+    }
 }

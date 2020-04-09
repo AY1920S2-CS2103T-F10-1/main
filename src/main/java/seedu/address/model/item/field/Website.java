@@ -44,9 +44,4 @@ public class Website {
                 || (other instanceof Website // instanceof handles nulls
                 && value.equals(((Website) other).value)); // state check
     }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
-    }
 }

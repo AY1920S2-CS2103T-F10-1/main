@@ -6,7 +6,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" minWidth="250.0" minHeight="200.0" VBox.vgrow="ALWAYS" >
    <children>
-      <TableView fx:id="tableView" styleClass="scroll-pane" VBox.vgrow="ALWAYS" >
+      <TableView fx:id="tableView" VBox.vgrow="ALWAYS" >
         <columns>
           <TableColumn fx:id="field" maxWidth="150.0" minWidth="80.0" text="Field" reorderable="false"
                        sortable="false"/>

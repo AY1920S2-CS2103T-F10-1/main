@@ -33,10 +33,6 @@ public class Skill extends Item {
         return this.level;
     }
 
-    public void setLevel(String level) {
-        this.level = Level.valueOf(level);
-    }
-
     /**
      * Gets the string representation of Skill to preview.
      * @return String representation of Skill

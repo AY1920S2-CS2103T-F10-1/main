@@ -1,0 +1,64 @@
+= Nguyen Chi Hai - Project Portfolio
+:site-section: AboutUs
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== PROJECT: ResuMe
+
+---
+
+== Overview
+
+ResuMe is a resume managing application made specifically for University students by University Students to allow then
+to add and manage their different experiences, edit personal data, and create the resume of their dreams in just a few
+commands.
+
+== Summary of contributions
+
+=== Code contributed:
+Link to my code [https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=helloimhai&sort=groupTitle&sortWithin=title&since=2020-02-14&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false[Code]]
+
+=== Contribution to team based tasks:
+
+==== Morphed Commands in overall architecture
+* What it means: Commands that are item dependent are now separated to their own separate class according to the item
+type that they modify, to be created by parser and calls on changes in the model.
+* Justification: This is to make sure that the logic of each excution of each command class is independent from the
+type that it is linked to. Eg. ListCommand is split into ListResumeCommand and ListSkillCommand... ListXYZCommand will
+show all XYZ without having to check what Item type is passed into it.
+
+==== Set up the foundation for tests
+Created typical classes, item builders, assert command success and failure to aid the team in the setting up of tests.
+
+=== Enhancements implemented:
+==== Preview a resume: `rpreview`
+* What it does: Allows users to preview their fleshed out resume in the application before generating it.
+* Justification: This was done to provide users with a ability to go check their resumes for any typos or make sure
+that all their relevant experiences have been added to the resume before actually making it into a PDF file. This will
+save users' time as generating the PDF does take some time, and decrease the clutter as users would not have to
+generate many files.
+* Highlights: This feature wrote the framework to to pass data back to UI and allow the creation of the window with
+the text data. This feature made enhancing the `help` command much easier due to similar logic and styling.
+
+==== List all items: `list`
+* What it does: Allows users to view all items of a certain type.
+* Justification: This is done so that users know what items they have to pick and choose from to add into their resume.
+* Highlights: Bigger rework on UI and CommandResult so that CommandResult passes up the type currently showing for UI
+to update and give visual feedback to users.
+
+==== Clear all data: `clear`
+* What it does: Allows users clear all their data to start fresh.
+* Highlights: This feature was morphed from AddressBook so that it can work with our data types, undo, and redo.
+
+==== Wrote tests for `add`, `clear`, `done`, `list`, `rpreview`, `view`
+
+=== *Review/mentoring contributions*:
+** Took part in reviewing of many PRs (Pull requests
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/234[#234],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/159[#159],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/238[#238] and more)
+** Took part in fixing bugs in other teammates' contributions (Pull requests
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/252[#252],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/228[#228],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/148[#148] and more)
+

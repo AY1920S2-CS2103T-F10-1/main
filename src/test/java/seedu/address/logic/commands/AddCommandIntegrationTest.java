@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.add.AddCommand;
 import seedu.address.logic.commands.add.AddInternshipCommand;
+import seedu.address.logic.commands.add.AddNoteCommand;
 import seedu.address.logic.commands.add.AddProjectCommand;
 import seedu.address.logic.commands.add.AddResumeCommand;
 import seedu.address.logic.commands.add.AddSkillCommand;
@@ -19,11 +20,13 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.item.Internship;
+import seedu.address.model.item.Note;
 import seedu.address.model.item.Project;
 import seedu.address.model.item.Resume;
 import seedu.address.model.item.Skill;
 import seedu.address.model.util.ItemUtil;
 import seedu.address.testutil.TypicalInternship;
+import seedu.address.testutil.TypicalNote;
 import seedu.address.testutil.TypicalProject;
 import seedu.address.testutil.TypicalResume;
 import seedu.address.testutil.TypicalResumeBook;
@@ -64,6 +67,29 @@ public class AddCommandIntegrationTest {
         assertCommandFailure(new AddInternshipCommand(validInternship),
                 model,
                 new CommandException(AddCommand.MESSAGE_DUPLICATE_ITEM));
+    }
+
+    @Test
+    public void execute_newNote_success() {
+        Note validNote = TypicalNote.FINISH_HOMEWORK;
+
+        Model expectedModel = new ModelManager(TYPICAL_WITHOUT_GOOGLE_COPY, new UserPrefs());
+        expectedModel.addNote(validNote);
+
+        assertCommandSuccess(new AddNoteCommand(validNote),
+                model,
+                new AddCommandResult(validNote.toString(),
+                        AddNoteCommand.MESSAGE_SUCCESS, ItemUtil.INTERNSHIP_ALIAS),
+                expectedModel);
+    }
+
+    @Test
+    public void execute_duplicateNote_throwsCommandException() {
+        Note validNote = TypicalNote.FINISH_CS_2103;
+
+        assertCommandFailure(new AddNoteCommand(validNote),
+                model,
+                new CommandException(AddNoteCommand.MESSAGE_DUPLICATE_ERROR));
     }
 
     @Test
@@ -150,10 +176,15 @@ public class AddCommandIntegrationTest {
         AddCommand validProject = new AddProjectCommand(TypicalProject.ORBITAL);
         AddCommand validResume = new AddResumeCommand(TypicalResume.ME_RESUME);
         AddCommand validSkill = new AddSkillCommand(TypicalSkill.REACT);
+        AddCommand validNote = new AddNoteCommand(TypicalNote.FINISH_CS_2103);
 
+        assertNotEquals(validInternship, validNote);
         assertNotEquals(validInternship, validProject);
         assertNotEquals(validInternship, validResume);
         assertNotEquals(validInternship, validSkill);
+        assertNotEquals(validNote, validProject);
+        assertNotEquals(validNote, validResume);
+        assertNotEquals(validNote, validSkill);
         assertNotEquals(validProject, validResume);
         assertNotEquals(validProject, validSkill);
         assertNotEquals(validResume, validSkill);

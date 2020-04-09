@@ -38,7 +38,7 @@ public class GenerateResumeCommand extends Command {
             + "If no name is provided for the output .pdf file, default name is the same as resume name.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME]\n"
-            + "Example: " + COMMAND_WORD + " 1 [" + PREFIX_NAME + "MyResume";
+            + "Example: " + COMMAND_WORD + " 1 [" + PREFIX_NAME + "MyResume]";
     public static final String MESSAGE_GENERATE_SUCCESS = "Generated %s from %s";
     private static final String rootPath = "";
 
@@ -50,11 +50,13 @@ public class GenerateResumeCommand extends Command {
 
 
     public GenerateResumeCommand(Index targetIndex) {
+        requireNonNull(targetIndex);
         this.targetIndex = targetIndex;
         fileName = null;
     }
 
     public GenerateResumeCommand(Index targetIndex, Name resumeName) {
+        requireNonNull(targetIndex);
         this.targetIndex = targetIndex;
         this.fileName = resumeName.toString();
     }
@@ -131,5 +133,12 @@ public class GenerateResumeCommand extends Command {
         return new GenerateResumeCommandResult(resumeToGenerate.toString(),
                 String.format(MESSAGE_GENERATE_SUCCESS, fileName, resumeToGenerate.getName().toString()),
                 model.getDisplayType());
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof GenerateResumeCommand // instanceof handles nulls
+                && targetIndex.equals(((GenerateResumeCommand) other).targetIndex));
     }
 }

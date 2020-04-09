@@ -76,6 +76,8 @@ that change will be reflected.
 
 Interested? Jump to <<Quick Start>> to get started. Enjoy!
 
+// tag::guide[]
+
 == About this guide
 Our aim when writing this document is to help you - a new user - get started with *ResuMe* as quickly as possible.
 The guide features all the available commands, their syntax, as well as specific examples for illustration.
@@ -106,6 +108,8 @@ You will come across these little guys a lot in this document, so let's get to k
 |`parameter` | Specific information about an `item` supplied by you
 |`index` | The position of the `item` in the currently displayed list
 |=======================================================================
+
+// end::guide[]
 
 == Quick Start
 
@@ -141,12 +145,15 @@ can be used as (i.e. 0 times), `#/ friend`, `\#/ friend`, `#/ family` etc.
 `p/ PHONE_NUMBER n/ NAME` is also acceptable.
 ====
 
+// tag::help[]
 === Viewing help : `help`
 
 Lists out the function and usage of each command.
 ****
 Format: `help`
 ****
+
+// end::help[]
 
 === Edit user profile: `me`
 
@@ -214,6 +221,7 @@ Lists all resume items.
 * `list i/ proj`
 Lists all project items.
 
+// tag::add[]
 === Adding an item: `add`
 
 Adds an item to the ResuMe application.
@@ -263,6 +271,7 @@ image::ListProject.png[width="790"]
 +
 image::AddDukeProject.png[width="790"]
 
+// end::add[]
 
 === Editing an item : `edit`
 
@@ -352,6 +361,8 @@ The specific command syntax could be found in the table below:
 +
 image::find_command.png[width="790"]
 
+// tag::delete[]
+
 === Deleting an item : `delete`
 
 Deletes an item from the ResuMe application.
@@ -395,6 +406,9 @@ deletion to proceed.
 
 image::DeleteSkill3.png[width="790"]
 
+// end::delete[]
+
+// tag::view[]
 === Viewing an item in details: `view`
 
 Shows the details of an item.
@@ -421,6 +435,9 @@ image::ListProject2.png[width="790"]
 +
 image::ViewDukeProject.png[width="790"]
 
+// end::view[]
+
+// tag::redit[]
 === Editing a resume: `redit`
 Edits the resume to contain the items specified in the command.
 
@@ -459,6 +476,9 @@ This command modifies the resume at index 1. It changes the resume to contain in
 
 image::ReditWantSomeThings.png[][WantSomeThings,442,337]
 
+// end::redit[]
+
+// tag::tagpull[]
 === Pulling tagged items into the resume: `tagpull`
 
 Pull the internship, project and skill items with the specified tag(s) into a resume.
@@ -478,6 +498,10 @@ This command modifies the resume at index 1. It will find all the internship, pr
 
 * `tagpull 2 #/ tech frontend` +
 This command modifies the resume at index 2. It will find all the internship, project, and skill items which has either the tag `tech` or `frontend` and adds it into the resume.
+
+// end::tagpull[]
+
+// tag::undo[]
 
 === Undo a command: `undo`
 
@@ -519,6 +543,10 @@ Voila, Java is back, and our list box now displays skills.
 
 image::postUndo_JavaIsBack.png[width="790"]
 
+// end::undo[]
+
+// tag::redo[]
+
 === Redo a command: `redo`
 
 Reverts the most recent undone command and brings the application state to after the (re)execution
@@ -548,6 +576,8 @@ once again removed from our life.
 
 image::redo_success.png[width="790"]
 
+// end::redo[]
+
 === Previewing a resume: `rpreview`
 
 Previews a resume in text format in a different window.
@@ -572,6 +602,7 @@ the content of the resume named "Summer Internship".
 
 image::RPreviewSummerInternship.png[width = "790"]
 
+// tag::rgen[]
 
 === Generating a resume: `rgen`
 Generates a .pdf file from an existing resume stored inside the application at the specified index.
@@ -607,6 +638,8 @@ image::ListResume.PNG[width="790"]
 +
 image::GenerateResume.PNG[width="790"]
 image::PdfFile.PNG[width="790"]
+
+// end::rgen[]
 
 === Clearing all data: `clear`
 Clears all data from ResuMe.

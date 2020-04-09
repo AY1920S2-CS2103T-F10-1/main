@@ -20,4 +20,9 @@ public class ListProjectCommand extends ListCommand {
                 String.format(MESSAGE_SUCCESS, "Project"),
                 model.getDisplayType());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ListProjectCommand;
+    }
 }

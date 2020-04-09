@@ -14,8 +14,6 @@ import seedu.address.model.Model;
 public class RedoCommand extends Command {
 
     public static final String COMMAND_WORD = "redo";
-    // This is to trigger a view box refresh
-    public static final String DEFAULT_DATA_TO_USER = " ";
     public static final String MESSAGE_SUCCESS = "Redo successfully!";
     public static final String MESSAGE_FAILURE = "Cannot redo any further.";
 
@@ -29,6 +27,6 @@ public class RedoCommand extends Command {
 
         model.redoResumeBook();
         model.updateFilteredItemList(PREDICATE_SHOW_ALL_ITEMS);
-        return new RedoCommandResult(DEFAULT_DATA_TO_USER, MESSAGE_SUCCESS, model.getDisplayType());
+        return new RedoCommandResult(MESSAGE_SUCCESS, model.getDisplayType());
     }
 }

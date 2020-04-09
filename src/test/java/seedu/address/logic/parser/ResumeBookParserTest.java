@@ -15,11 +15,11 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.delete.DeleteCommand;
 import seedu.address.logic.commands.delete.DeleteResumeCommand;
 import seedu.address.logic.commands.find.FindCommand;
 import seedu.address.logic.commands.find.FindInternshipCommand;
+import seedu.address.logic.commands.help.HelpCommand;
 import seedu.address.logic.commands.list.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.item.field.NameContainsKeywordsPredicate;
@@ -87,8 +87,12 @@ public class ResumeBookParserTest {
 
     @Test
     public void parseCommand_help() throws Exception {
-        assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD) instanceof HelpCommand);
-        assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + " 3") instanceof HelpCommand);
+        assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + " " + HelpCommand.COMMAND_OPTION_SUMMARY)
+            instanceof HelpCommand);
+        assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD + " " + HelpCommand.COMMAND_OPTION_START)
+            instanceof HelpCommand);
+        assertThrows(ParseException.class, HelpCommand.MESSAGE_INVALID_OPTION, ()
+            -> parser.parseCommand(HelpCommand.COMMAND_WORD + " 3"));
     }
 
     @Test

@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_ITEM;
@@ -20,7 +21,8 @@ public class ResumePreviewParserTest {
 
     @Test
     public void parse_noIndex_throwsParseException() {
-        assertParseFailure(parser, "", ResumePreviewCommand.MESSAGE_USAGE);
+        assertParseFailure(parser, "",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, ResumePreviewCommand.MESSAGE_USAGE));
     }
 
     @Test

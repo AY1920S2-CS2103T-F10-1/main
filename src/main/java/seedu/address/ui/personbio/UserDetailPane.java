@@ -18,7 +18,7 @@ import seedu.address.ui.UiPart;
  */
 public class UserDetailPane extends UiPart<Region> {
     private static final String FXML = "UserDetailPane.fxml";
-    private static final List<String> LABELS = new ArrayList<String>(List.of("Name:", "Phone:", "Email:", "Github:",
+    private static final List<String> LABELS = new ArrayList<>(List.of("Name:", "Phone:", "Email:", "GitHub:",
             "University:", "Major:", "From:", "To:", "CAP:"));
 
     private ObservableList<FieldDataPair> list;
@@ -44,7 +44,7 @@ public class UserDetailPane extends UiPart<Region> {
      * @param to
      * @param cap
      */
-    public UserDetailPane(String dp, String name, String phone, String email, String github, String university,
+    public UserDetailPane(String name, String phone, String email, String github, String university,
                           String major, String time, String to, String cap) {
         super(FXML);
         field.setCellValueFactory(new PropertyValueFactory<String, String>("field"));

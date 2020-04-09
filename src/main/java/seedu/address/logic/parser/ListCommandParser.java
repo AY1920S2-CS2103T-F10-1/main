@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ITEM;
 
 import seedu.address.logic.commands.list.ListCommand;
@@ -9,7 +10,6 @@ import seedu.address.logic.commands.list.ListProjectCommand;
 import seedu.address.logic.commands.list.ListResumeCommand;
 import seedu.address.logic.commands.list.ListSkillCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.item.Item;
 import seedu.address.model.util.ItemUtil;
 
 
@@ -27,7 +27,7 @@ public class ListCommandParser implements Parser<ListCommand> {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_ITEM);
 
         if (!argMultimap.getValue(PREFIX_ITEM).isPresent() || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(Item.MESSAGE_CONSTRAINTS);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListCommand.MESSAGE_USAGE));
         }
 
         String itemType = ParserUtil.parseItemType(argMultimap.getValue(PREFIX_ITEM).get());

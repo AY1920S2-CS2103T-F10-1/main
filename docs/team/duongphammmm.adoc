@@ -9,7 +9,83 @@
 
 == Overview
 
-ResuMe is an application that helps users manage their resumés in a convenient and efficient way.
+*ResuMe* is a desktop application for you to manage all of your resumes from a centralised location.
+It is easy to build, customise and export different resume versions using only Command Line Interface.
 
 == Summary of contributions
-To be updated in the future... +
+==== *Code contributed*:
+[https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=duongphammmm&sort=groupTitle&sortWithin=title&since=2020-02-14&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=duongphammmm&tabRepo=AY1920S2-CS2103T-F10-1%2Fmain%5Bmaster%5D[Functional and test code]] +
+
+==== Enhancement implemented
+* *Major enhancement*: added the ability to generate a `.pdf` file from an existing resume
+** What it does: allows users to export their resume to a well-formatted and printable `.pdf` version, which could be
+directly submitted to their potential employer.
+** Justification: This feature improves the product significantly because users do not need to spend time on manually
+formatting the final product, making it much more efficient and convenient to create new usable resume using the application.
+** Highlights: This enhancement involves an external library that supports building a `.pdf` file  using Java. It was
+challenging as it requires a steep learning curve in order to integrate the library into our application, while keeping
+in mind of both our design consideration and existing architecture.
+** Credits: `Apache Pdf Box` (https://github.com/AY1920S2-CS2103T-F10-1/main/pull/142[#142])
+* *Minor enhancement*:
+
+_to add: view_ [https://github.com/AY1920S2-CS2103T-F10-1/main/pull/101[#101]] +
+
+* *Minor enhancement*: added more details to `help` command, where user can either view a summary of all commands,
+or a `Getting Started` guideline.
+
+==== Contributions to documentation:
+** Updated README (https://github.com/AY1920S2-CS2103T-F10-1/main/pull/161[#161])
+** Updated application screenshots for the User Guide (https://github.com/AY1920S2-CS2103T-F10-1/main/pull/186[#186],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/200[#200],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/202[#202])
+
+==== Contributions to the Developer Guide:
+_to add_
+
+==== Contributions to team-based tasks:
+** Refactored codebase for `Model` component from AddressBook Level 3 to support application's specific item types:
+`Internship`, `Project`, `Skill` and `Resume` with their respective fields, such as `Time`, `Website` or `Level`
+(https://github.com/AY1920S2-CS2103T-F10-1/main/pull/66[#66],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/73[#73],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/75[#75])
+** Wrote additional tests for existing features to increase coverage
+(https://github.com/AY1920S2-CS2103T-F10-1/main/pull/136[#136],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/187[#187],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/236[#236],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/253[#253],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/254[#254])
+
+==== Reviewing contributions:
+*** PRs reviewed with non-trivial review comments (https://github.com/AY1920S2-CS2103T-F10-1/main/pull/159[#159],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/25[#25],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/86[#86],
+https://github.com/AY1920S2-CS2103T-F10-1/main/pull/256[#256])
+*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com/duongphammmm/ped/issues/2[1],
+https://github.com/duongphammmm/ped/issues/7[2], https://github.com/duongphammmm/ped/issues/9[3])
+
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+include::../UserGuide.adoc[tag=guide]
+
+include::../UserGuide.adoc[tag=help]
+
+include::../UserGuide.adoc[tag=add]
+
+include::../UserGuide.adoc[tag=rgen]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc[tag=model]
+
+include::../DeveloperGuide.adoc[tag=export]
+
+

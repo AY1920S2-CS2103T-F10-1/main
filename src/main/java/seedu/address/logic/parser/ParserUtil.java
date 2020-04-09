@@ -15,7 +15,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.item.Item;
-import seedu.address.model.item.field.Address;
 import seedu.address.model.item.field.Description;
 import seedu.address.model.item.field.DisplayPicture;
 import seedu.address.model.item.field.Email;
@@ -33,6 +32,8 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_REDIT_ITEM_INDEX = "Index provided for one of the items is not"
+            + " a non-zero unsigned integer.";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -108,21 +109,6 @@ public class ParserUtil {
             throw new ParseException(Website.MESSAGE_CONSTRAINTS);
         }
         return new Website(trimmedWebsite);
-    }
-
-    /**
-     * Parses a {@code String address} into an {@code Address}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code address} is invalid.
-     */
-    public static Address parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Address.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Address.MESSAGE_CONSTRAINTS);
-        }
-        return new Address(trimmedAddress);
     }
 
     /**
@@ -223,10 +209,17 @@ public class ParserUtil {
             // TODO: Investigate how this can be combined with the else block
             return Optional.of(new ArrayList<>());
         } else {
-            List<Integer> mappedIndices = Arrays.stream(indices.split("\\s+"))
-                    .map(Integer::parseInt)
-                    .collect(Collectors.toList());
+            boolean isValidIndices = Arrays
+                    .stream(indices.split("\\s+"))
+                    .allMatch(StringUtil::isNonZeroUnsignedInteger);
 
+            if (!isValidIndices) {
+                throw new ParseException(MESSAGE_INVALID_REDIT_ITEM_INDEX);
+            }
+
+            List<Integer> mappedIndices = Arrays.stream(indices.split("\\s+"))
+                        .map(Integer::parseInt)
+                        .collect(Collectors.toList());
             return Optional.of(mappedIndices);
         }
     }
@@ -320,5 +313,20 @@ public class ParserUtil {
             return trimmedRole;
         }
         throw new ParseException(Verifier.ROLE_MESSAGE_CONSTRAINTS);
+    }
+
+    /**
+     * Parses a {@code String reverse} choice into a boolean option.
+     * A default value of false is returned if null is provided.
+     */
+    public static boolean parseReverse(String reverse) throws ParseException {
+        if (reverse == null || reverse.equalsIgnoreCase("false")) {
+            return false;
+        } else if (reverse.equalsIgnoreCase("true")) {
+            return true;
+        } else {
+            throw new ParseException("Reverse choice can only be true of false.");
+        }
+
     }
 }

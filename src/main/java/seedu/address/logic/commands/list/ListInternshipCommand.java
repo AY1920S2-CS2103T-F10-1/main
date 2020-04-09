@@ -21,4 +21,9 @@ public class ListInternshipCommand extends ListCommand {
                 String.format(MESSAGE_SUCCESS, "Internship"),
                 model.getDisplayType());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ListInternshipCommand;
+    }
 }

@@ -20,6 +20,7 @@ class JsonAdaptedPerson {
 
     private final String dp;
     private final String name;
+    private final String description;
     private final String phone;
     private final String email;
     private final String github;
@@ -34,12 +35,14 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("dp") String dp, @JsonProperty("name") String name,
+                             @JsonProperty("description") String description,
                              @JsonProperty("phone") String phone, @JsonProperty("email") String email,
                              @JsonProperty("github") String github, @JsonProperty("university") String university,
                              @JsonProperty("major") String major, @JsonProperty("from") String from,
                              @JsonProperty("to") String to, @JsonProperty("cap") String cap) {
         this.dp = dp;
         this.name = name;
+        this.description = description;
         this.phone = phone;
         this.email = email;
         this.github = github;
@@ -56,6 +59,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(Person source) {
         dp = source.getDisplayPicture().toString();
         name = source.getName().toString();
+        description = source.getDescription();
         phone = source.getPhone().toString();
         email = source.getEmail().toString();
         github = source.getGithub().toString();
@@ -70,7 +74,7 @@ class JsonAdaptedPerson {
      * Converts this Jackson-friendly adapted person object into the model's {@code Person} object.
      */
     public Person toModelType() {
-        return new Person(new DisplayPicture(dp), new Name(name), new Phone(phone), new Email(email),
+        return new Person(new DisplayPicture(dp), new Name(name), description, new Phone(phone), new Email(email),
                 new Github(github), university, major, new Time(from), new Time(to), cap);
     }
 }

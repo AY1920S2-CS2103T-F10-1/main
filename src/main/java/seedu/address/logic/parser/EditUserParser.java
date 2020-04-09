@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CAP;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FROM;
@@ -10,7 +11,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GITHUB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TO;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_UNIVERSITY;
 
@@ -36,8 +36,8 @@ public class EditUserParser implements Parser<EditUserCommand> {
     public EditUserCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_DP, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_GITHUB,
-                        PREFIX_UNIVERSITY, PREFIX_MAJOR, PREFIX_FROM, PREFIX_TO, PREFIX_CAP, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_DP, PREFIX_NAME, PREFIX_DESCRIPTION, PREFIX_PHONE, PREFIX_EMAIL,
+                        PREFIX_GITHUB, PREFIX_UNIVERSITY, PREFIX_MAJOR, PREFIX_FROM, PREFIX_TO, PREFIX_CAP);
 
         if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditUserCommand.MESSAGE_USAGE));
@@ -63,6 +63,10 @@ public class EditUserParser implements Parser<EditUserCommand> {
 
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editUserDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
+        }
+        if (argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
+            editUserDescriptor.setDescription(ParserUtil.parseDescription(argMultimap.getValue(
+                    PREFIX_DESCRIPTION).get()));
         }
         if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
             editUserDescriptor.setPhone(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));

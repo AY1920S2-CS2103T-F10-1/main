@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.geometry.Insets?>
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 
   <HBox>
     <Label fx:id="internshipLabel" styleClass="typeNotSelected" text="Internship">
@@ -14,7 +14,23 @@
         <Insets bottom="5" left="10" right="10" top="5" />
       </padding>
       <HBox.margin>
-        <Insets right="5"/>
+        <Insets right="5" />
+      </HBox.margin>
+    </Label>
+    <Label fx:id="skillLabel" styleClass="typeNotSelected" text="Skill">
+      <padding>
+        <Insets bottom="5" left="10" right="10" top="5" />
+      </padding>
+      <HBox.margin>
+        <Insets right="5" />
+      </HBox.margin>
+    </Label>
+    <Label fx:id="projectLabel" styleClass="typeNotSelected" text="Project">
+      <padding>
+        <Insets bottom="5" left="10" right="10" top="5" />
+      </padding>
+      <HBox.margin>
+        <Insets right="5" />
       </HBox.margin>
     </Label>
     <Label fx:id="resumeLabel" styleClass="typeNotSelected" text="Resume">
@@ -22,23 +38,7 @@
         <Insets bottom="5" left="10" right="10" top="5" />
       </padding>
       <HBox.margin>
-        <Insets right="5"/>
-      </HBox.margin>
-    </Label>
-    <Label fx:id="skillLabel" styleClass="typeNotSelected" text="Skill" >
-      <padding>
-        <Insets bottom="5" left="10" right="10" top="5" />
-      </padding>
-      <HBox.margin>
-        <Insets right="5"/>
-      </HBox.margin>
-    </Label>
-    <Label fx:id="projectLabel" styleClass="typeNotSelected" text="Project" >
-      <padding>
-        <Insets bottom="5" left="10" right="10" top="5" />
-      </padding>
-      <HBox.margin>
-        <Insets right="5"/>
+        <Insets right="5" />
       </HBox.margin>
     </Label>
     <VBox.margin>
@@ -46,5 +46,5 @@
     </VBox.margin>
   </HBox>
 
-  <ListView fx:id="itemListView" VBox.vgrow="ALWAYS" styleClass="pane-with-border"/>
+  <ListView fx:id="itemListView" styleClass="pane-with-border" VBox.vgrow="ALWAYS" />
 </VBox>

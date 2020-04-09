@@ -39,6 +39,8 @@ public class AddInternshipCommand extends AddCommand {
             + PREFIX_TAG + "frontend "
             + PREFIX_TAG + "tech";
 
+    public static final String MESSAGE_FROM_TO_MISORDER = "\'from\' cannot be later than \'to\' field. ";
+
     private final Internship toAdd;
 
     /**

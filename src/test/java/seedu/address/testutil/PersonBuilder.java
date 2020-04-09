@@ -14,6 +14,7 @@ import seedu.address.model.item.field.Time;
 public class PersonBuilder {
     public static final String DEFAULT_DP = "/images/Duke.png";
     public static final String DEFAULT_NAME = "Alice Pauline";
+    public static final String DEFAULT_DESCRIPTION = "I am an aspiring software engineer.";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_GITHUB = "alicepauline";
@@ -25,6 +26,7 @@ public class PersonBuilder {
 
     private DisplayPicture displayPicture;
     private Name name;
+    private String description;
     private Phone phone;
     private Email email;
     private Github github;
@@ -37,6 +39,7 @@ public class PersonBuilder {
     public PersonBuilder() {
         displayPicture = new DisplayPicture(DEFAULT_DP);
         name = new Name(DEFAULT_NAME);
+        description = DEFAULT_DESCRIPTION;
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         github = new Github(DEFAULT_GITHUB);
@@ -53,6 +56,7 @@ public class PersonBuilder {
     public PersonBuilder(Person personToCopy) {
         displayPicture = personToCopy.getDisplayPicture();
         name = personToCopy.getName();
+        description = personToCopy.getDescription();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         github = personToCopy.getGithub();
@@ -88,7 +92,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(displayPicture, name, phone, email, github, university, major, from, to, cap);
+        return new Person(displayPicture, name, description, phone, email, github, university, major, from, to, cap);
     }
 
 }

@@ -93,7 +93,6 @@ public class PdfBuilder {
      */
     public float resetX() {
         float xOffSet = -curX + marginX;
-        System.out.println("reset x from " + curX + " with offset " + xOffSet);
         curX += xOffSet;
         return xOffSet;
     }
@@ -164,7 +163,6 @@ public class PdfBuilder {
                 line = "  " + line;
             }
             contentStream.showText(line);
-            System.out.println(line);
             isFirstLine = false;
             nextLine();
         }

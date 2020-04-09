@@ -82,6 +82,11 @@ public class AddCommandParser implements Parser<AddCommand> {
             name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
             Time from = ParserUtil.parseTime(argMultimap.getValue(PREFIX_FROM).get());
             Time to = ParserUtil.parseTime(argMultimap.getValue(PREFIX_TO).get());
+
+            if (from.compareTo(to) > 0) {
+                throw new ParseException(AddInternshipCommand.MESSAGE_FROM_TO_MISORDER);
+            }
+
             String role = argMultimap.getValue(PREFIX_ROLE).get().trim();
             description = argMultimap.getValue(PREFIX_DESCRIPTION).get().trim();
             tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));

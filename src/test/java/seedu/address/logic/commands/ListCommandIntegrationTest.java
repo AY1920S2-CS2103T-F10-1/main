@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.list.ListCommand;
 import seedu.address.logic.commands.list.ListInternshipCommand;
+import seedu.address.logic.commands.list.ListNoteCommand;
 import seedu.address.logic.commands.list.ListProjectCommand;
 import seedu.address.logic.commands.list.ListResumeCommand;
 import seedu.address.logic.commands.list.ListSkillCommand;
@@ -36,6 +37,18 @@ public class ListCommandIntegrationTest {
                 new ListCommandResult("",
                         String.format(ListCommand.MESSAGE_SUCCESS, "Internship"),
                         ItemUtil.INTERNSHIP_ALIAS),
+                expectedModel);
+    }
+
+    @Test
+    public void execute_listNote_success() {
+        Model expectedModel = new ModelManager(TypicalResumeBook.TYPICAL_COPY, new UserPrefs());
+
+        assertCommandSuccess(new ListNoteCommand(),
+                model,
+                new ListCommandResult("",
+                        String.format(ListCommand.MESSAGE_SUCCESS, "Note"),
+                        expectedModel.getDisplayType()),
                 expectedModel);
     }
 
@@ -84,10 +97,15 @@ public class ListCommandIntegrationTest {
         ListCommand listProjects = new ListProjectCommand();
         ListCommand listResumes = new ListResumeCommand();
         ListCommand listSkills = new ListSkillCommand();
+        ListCommand listNotes = new ListNoteCommand();
 
+        assertNotEquals(listInternships, listNotes);
         assertNotEquals(listInternships, listProjects);
         assertNotEquals(listInternships, listResumes);
         assertNotEquals(listInternships, listSkills);
+        assertNotEquals(listNotes, listProjects);
+        assertNotEquals(listNotes, listResumes);
+        assertNotEquals(listNotes, listSkills);
         assertNotEquals(listProjects, listResumes);
         assertNotEquals(listProjects, listSkills);
         assertNotEquals(listResumes, listSkills);

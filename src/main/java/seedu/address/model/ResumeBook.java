@@ -3,6 +3,7 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,8 +53,9 @@ public class ResumeBook implements ReadOnlyResumeBook {
      */
     {
         Person defaultUser = new Person(new DisplayPicture("/images/Duke.png"), new Name("Default name"),
-                new Phone("000"), new Email("000@gmail.com"), new Github("000"), "Default university",
-                "Default major", new Time("12-9999"), new Time("12-9999"), 0.0);
+                "Default description", new Phone("000"), new Email("000@gmail.com"), new Github("000"),
+                "Default university", "Default major", new Time("12-9999"), new Time("12-9999"),
+                0.0);
         observableUser = new ObservablePerson(defaultUser);
         itemsToDisplay = new UniqueItemList<>();
         internships = new UniqueItemList<>();
@@ -275,7 +277,9 @@ public class ResumeBook implements ReadOnlyResumeBook {
             .collect(Collectors.toList());
     }
 
-
+    public void sortInternships(Comparator<Internship> sortComparator) {
+        internships.sort(sortComparator);
+    }
 
     @Override
     public boolean hasInternshipId(int id) {
@@ -361,6 +365,10 @@ public class ResumeBook implements ReadOnlyResumeBook {
             .filter(x -> x.hasTag(tag))
             .map(x -> (Project) x)
             .collect(Collectors.toList());
+    }
+
+    public void sortProjects(Comparator<Project> sortComparator) {
+        projects.sort(sortComparator);
     }
 
     @Override
@@ -449,6 +457,10 @@ public class ResumeBook implements ReadOnlyResumeBook {
             .collect(Collectors.toList());
     }
 
+    public void sortSkills(Comparator<Skill> sortComparator) {
+        skills.sort(sortComparator);
+    }
+
     @Override
     public boolean hasSkillId(int id) {
         for (Skill item : skills) {
@@ -518,6 +530,10 @@ public class ResumeBook implements ReadOnlyResumeBook {
     @Override
     public Resume getResumeByIndex(Index index) {
         return resumes.asUnmodifiableObservableList().get(index.getZeroBased());
+    }
+
+    public void sortResumes(Comparator<Resume> sortComparator) {
+        resumes.sort(sortComparator);
     }
 
     @Override
@@ -593,6 +609,14 @@ public class ResumeBook implements ReadOnlyResumeBook {
         return notes.getSize();
     }
 
+    /**
+     * Sorts the list of notes in the resume book using the provided {@code sortComparator}.
+     */
+    public void sortNotes(Comparator<Note> sortComparator) {
+        notes.sort(sortComparator);
+        setNotesToDisplay();
+    }
+
     @Override
     public Person getUser() {
         return this.observableUser.getInternalPerson();
@@ -600,12 +624,18 @@ public class ResumeBook implements ReadOnlyResumeBook {
 
     //=========== Util methods ================================================================================
 
+    /**
+     * Returns the String form the item list currently on display.
+     */
     @Override
     public String toString() {
         return itemsToDisplay.asUnmodifiableObservableList().size() + " items";
         // TODO: refine later
     }
 
+    /**
+     * Returns the current list of items for display as an {@code ObservableList<Item>}
+     */
     @Override
     public ObservableList<Item> getItemToDisplayList() {
         return itemsToDisplay.asUnmodifiableObservableList();
@@ -663,4 +693,5 @@ public class ResumeBook implements ReadOnlyResumeBook {
     public int hashCode() {
         return itemsToDisplay.hashCode();
     }
+
 }

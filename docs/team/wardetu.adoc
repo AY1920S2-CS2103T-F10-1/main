@@ -1,4 +1,4 @@
-= Nguyen Minh Hoang- Project Portfolio
+= Nguyen Minh Hoang - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
@@ -9,6 +9,63 @@
 
 == Overview
 
-ResuMe - A ResuMe management application.
+*ResuMe* is a desktop application for you to manage all of your resumes from a centralised location.
+It is easy to build, customise and export different resume versions using only Command Line Interface.
 
-Make your resume the easy way. +
+== Summary of contributions
+==== *Code contributed*:
+[https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=wardetu&sort=groupTitle&sortWithin=title&since=2020-02-14&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=wardetu&tabRepo=AY1920S2-CS2103T-F10-1%2Fmain%5Bmaster%5D[Functional and test code]] +
+
+==== Enhancements implemented
+* *Major enhancement*:
+** Added *the ability to undo/redo previous commands*
+*** What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
+*** Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
+*** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
+** Planned *data encryption and log-in functionality*
+*** These changes will come in a later version and will allow user better security when using ResuMe.
+* *Minor enhancement*:
+** Added *a sort function for items*
+*** What it does: allows the user to sort an item based criteria like name or time.
+*** Justification: This feature improves the product significantly because a user can quickly sort the items with a single command.
+*** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
+
+==== Contributions to documentation:
+** Updated README.
+** Updated application screenshots for the User Guide.
+
+==== Contributions to the Developer Guide:
+** Update the section that covers `Storage` component and for the enhancements that I have made.
+
+==== Contributions to team-based tasks:
+** Augmented codebase for `Storage` component from AddressBook Level 3 to accommodate substantially more item types.
+
+==== Reviewing contributions:
+*** PRs reviewed with non-trivial review comments.
+*** Reported bugs and suggestions for other teams in the class.
+
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+include::../UserGuide.adoc[tag=delete]
+
+include::../UserGuide.adoc[tag=undo]
+
+include::../UserGuide.adoc[tag=redo]
+
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc
+
+include::../DeveloperGuide.adoc
+
+

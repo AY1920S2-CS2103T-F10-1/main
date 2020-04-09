@@ -11,7 +11,7 @@ import seedu.address.model.item.field.Name;
 /**
  * Parses input arguments and creates a new GenerateResumeCommand object
  */
-public class GenerateResumeParser implements Parser<GenerateResumeCommand> {
+public class GenerateResumeCommandParser implements Parser<GenerateResumeCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the GenerateResumeCommand
@@ -19,21 +19,19 @@ public class GenerateResumeParser implements Parser<GenerateResumeCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public GenerateResumeCommand parse(String args) throws ParseException {
-        try {
-            ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME);
-            String preamble = argMultimap.getPreamble();
-            Index index = ParserUtil.parseIndex(preamble);
-
-            if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
-                Name outputName = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
-                return new GenerateResumeCommand(index, outputName);
-            }
-
-            return new GenerateResumeCommand(index);
-
-        } catch (ParseException e) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, GenerateResumeCommand.MESSAGE_USAGE), e);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME);
+        if (argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    GenerateResumeCommand.MESSAGE_USAGE));
         }
+        String preamble = argMultimap.getPreamble();
+        Index index = ParserUtil.parseIndex(preamble);
+
+        if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
+            Name outputName = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
+            return new GenerateResumeCommand(index, outputName);
+        }
+
+        return new GenerateResumeCommand(index);
     }
 }

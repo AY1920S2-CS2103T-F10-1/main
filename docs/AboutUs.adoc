@@ -13,7 +13,7 @@ We are a team based in the http://www.comp.nus.edu.sg[School of Computing, Natio
 
 === Christian James Welly
 image::chrisjwelly.png[width="150", align="left"]
-{empty}[http://github.com/chrisjwelly[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/chrisjwelly[github]] [<<chrisjwelly#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Parser
@@ -22,7 +22,7 @@ Responsibilities: Parser
 
 === Nguyen Minh Hoang
 image::wardetu.png[width="150", align="left"]
-{empty}[http://github.com/wardetu[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/wardetu[github]] [<<wardetu#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Storage
@@ -31,27 +31,28 @@ Responsibilities: Storage
 
 === Nguyen Chi Hai
 image::helloimhai.png[width="150", align="left"]
-{empty}[http://github.com/helloimhai[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/helloImHai[github]] [<<helloImHai#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Commands
 
 '''
 
+=== Nham Quoc Hung
+image::nhamhung.png[width="150", align="left"]
+{empty}[http://github.com/nhamhung[github]] [<<nhamhung#, portfolio>>]
+
+Role: Developer +
+Responsibilities: UI
+
+'''
+
 === Pham Thuy Duong
 image::duongphammmm.png[width="150", align="left"]
-{empty}[http://github.com/duongphammmm[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/duongphammmm[github]] [<<duongphammmm#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Model
 
 '''
 
-=== Nham Quoc Hung
-image::nhamhung.png[width="150", align="left"]
-{empty}[http://github.com/nhamhung[github]] [<<johndoe#, portfolio>>]
-
-Role: Developer +
-Responsibilities: UI
-
-'''

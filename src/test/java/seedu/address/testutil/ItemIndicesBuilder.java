@@ -3,6 +3,7 @@ package seedu.address.testutil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * A builder class to support testing of ResumeEditCommand and TagPullCommand.
@@ -42,5 +43,14 @@ public class ItemIndicesBuilder {
 
     public Optional<List<Integer>> build() {
         return Optional.of(itemIndices);
+    }
+
+    @Override
+    public String toString() {
+        return itemIndices
+                .stream()
+                .distinct()
+                .map(Object::toString)
+                .collect(Collectors.joining(" "));
     }
 }

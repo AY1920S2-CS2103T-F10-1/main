@@ -19,7 +19,7 @@ public class ClearCommandTest {
         Model expectedModel = new ModelManager(new ResumeBook(), new UserPrefs());
         assertCommandSuccess(new ClearCommand(),
                 model,
-                new ClearCommandResult("",
+                new ClearCommandResult(" ",
                         ClearCommand.MESSAGE_SUCCESS, model.getDisplayType()),
                 expectedModel);
     }
@@ -31,7 +31,7 @@ public class ClearCommandTest {
         Model expectedModel = new ModelManager(new ResumeBook(), new UserPrefs());
         assertCommandSuccess(new ClearCommand(),
                 model,
-                new ClearCommandResult("",
+                new ClearCommandResult(" ",
                         ClearCommand.MESSAGE_SUCCESS, model.getDisplayType()),
                 expectedModel);
     }

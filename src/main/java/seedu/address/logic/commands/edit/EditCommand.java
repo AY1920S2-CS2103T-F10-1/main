@@ -13,7 +13,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.Command;
 
 /**
- * Edits the details of an existing item in the address book.
+ * Edits the details of an existing item in the resume book.
  */
 public abstract class EditCommand extends Command {
 

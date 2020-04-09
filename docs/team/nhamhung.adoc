@@ -9,6 +9,63 @@
 
 == Overview
 
-ResuMe - A ResuMe management application.
+*ResuMe* is a desktop application that helps you craft and manage all your resume versions in a centralised location.
+Using only Command Line Interface, it aims to revolutionise the way you record your personal data, education, skills,
+projects and internships and use these components to construct and export a fully formatted resume with ease.
 
-Make your resume the easy way. +
+== Summary of contributions
+==== *Code contributed*:
+[https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=nhamhung&sort=totalCommits%20dsc&sortWithin=totalCommits%20dsc&since=2020-02-14&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=nhamhung&tabRepo=AY1920S2-CS2103T-F10-1%2Fmain%5Bmaster%5D[Functional and test code]] +
+
+==== Enhancement implemented
+* *Major enhancement*: added a user profile panel to display all user details.
+** What it does: allows user to customise and display all their essential details as a university student which
+can be automatically inserted into each version of their resumes upon its PDF export. This function serves only a
+single user of the application.
+** Justification: This feature improves the product significantly because user details is an essential component in
+each resume and thus it should be made clearly visible and easily edited by the user. That is why one separate section
+of the application is reserved for consistent display of this feature and user details are included in every PDF resume
+version.
+** Highlights: This enhancement involves a key consideration which had to be made with regards to the user. Ultimately,
+the team decided to manage a single user profile details only as our application envisions to support only a single user
+in managing his/her resumes. At the same time, it is relatively UI intensive which took some time to get used to.
+** Credits: `https://o7planning.org/en/11009/javafx` (https://github.com/AY1920S2-CS2103T-F10-1/main/pull/80[#80])
+
+* *Major enhancement*: added a note taking feature for user to record notes or set simple reminders when working on
+their resume.
+** What it does: allows user to create simple notes which will be displayed on start-up. Each note has a status of
+`done` or `not done` so user can decide when to remove it.
+** Justification: This feature improves the product as it enhances user experience overall. As crafting their resumes
+and summarising their skills, projects or internship experiences can take time, or sometimes requires brainstorming,
+the note taking feature allows user to set simple reminders so they can be more organised when pausing or resuming their
+work. This is in line with our vision of the application through which we want to make the process of managing and
+creating resume more of a personal learning journey.
+** Highlights: This feature, though appearing simple, requires a look through of the entire application code structure
+as it involves most components including Ui, Logic, Model and Storage.
+** https://github.com/AY1920S2-CS2103T-F10-1/main/pull/159[#159]
+
+* *Minor enhancement*: added Ui updates for the application structure.
+
+==== Contributions to documentation:
+** Updated README (https://github.com/AY1920S2-CS2103T-F10-1/main/pull/173[#173])
+** Updated application screenshots for the User Guide
+
+==== Contributions to the Developer Guide:
+_to add_
+
+==== Contributions to team-based tasks:
+
+
+==== Reviewing contributions:
+
+== Contributions to the User Guide
+
+|===
+|===
+
+== Contributions to the Developer Guide
+
+|===
+|===
+
+

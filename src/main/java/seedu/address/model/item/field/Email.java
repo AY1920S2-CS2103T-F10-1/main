@@ -58,10 +58,4 @@ public class Email {
                 || (other instanceof Email // instanceof handles nulls
                 && value.equals(((Email) other).value)); // state check
     }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
-    }
-
 }

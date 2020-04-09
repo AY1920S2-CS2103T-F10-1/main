@@ -47,6 +47,7 @@ public class UserOverallPane extends UiPart<Region> implements Observer {
 
         String dp = this.user.getDisplayPicture().toString();
         String name = this.user.getName().toString();
+        String description = this.user.getDescription();
         String phone = this.user.getPhone().toString();
         String email = this.user.getEmail().toString();
         String github = this.user.getGithub().toString();
@@ -63,11 +64,10 @@ public class UserOverallPane extends UiPart<Region> implements Observer {
             profilePic = new Image(MainApp.class.getResourceAsStream(defaultProfilePicPath));
         }
 
-        userProfile = new UserProfilePane(profilePic, name,
-                "What if Newton discovered gravity from a durian?");
+        userProfile = new UserProfilePane(profilePic, name, description);
         userProfilePlaceholder.getChildren().add(userProfile.getRoot());
 
-        userDetail = new UserDetailPane(dp, name, phone, email, github, university, major, from, to, cap);
+        userDetail = new UserDetailPane(name, phone, email, github, university, major, from, to, cap);
         userDetailPlaceholder.getChildren().add(userDetail.getRoot());
     }
 
@@ -80,6 +80,7 @@ public class UserOverallPane extends UiPart<Region> implements Observer {
         userProfilePlaceholder.getChildren().clear();
         String dp = updatedUser.getDisplayPicture().toString();
         String name = updatedUser.getName().toString();
+        String description = updatedUser.getDescription();
         String phone = updatedUser.getPhone().toString();
         String email = updatedUser.getEmail().toString();
         String github = updatedUser.getGithub().toString();
@@ -98,10 +99,9 @@ public class UserOverallPane extends UiPart<Region> implements Observer {
             profilePic = new Image(profilePicPath);
         }
 
-        userDetailPlaceholder.getChildren().add(new UserDetailPane(dp, name, phone, email, github, university,
+        userDetailPlaceholder.getChildren().add(new UserDetailPane(name, phone, email, github, university,
                 major, from, to, cap).getRoot());
-        UserProfilePane userProfilePane = new UserProfilePane(profilePic, name,
-                "What if Newton discovered gravity from a durian?");
+        UserProfilePane userProfilePane = new UserProfilePane(profilePic, name, description);
         userProfilePlaceholder.getChildren().add(userProfilePane.getRoot());
     }
 

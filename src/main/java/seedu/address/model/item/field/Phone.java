@@ -43,10 +43,4 @@ public class Phone {
                 || (other instanceof Phone // instanceof handles nulls
                 && value.equals(((Phone) other).value)); // state check
     }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
-    }
-
 }

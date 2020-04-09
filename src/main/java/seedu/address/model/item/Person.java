@@ -1,7 +1,5 @@
 package seedu.address.model.item;
 
-import java.util.Objects;
-
 import seedu.address.model.item.field.DisplayPicture;
 import seedu.address.model.item.field.Email;
 import seedu.address.model.item.field.Github;
@@ -17,6 +15,7 @@ public class Person {
     // Identity fields
     private final DisplayPicture displayPicture;
     private final Name name;
+    private final String description;
     private final Phone phone;
     private final Email email;
     private final Github github;
@@ -31,10 +30,11 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(DisplayPicture displayPicture, Name name, Phone phone, Email email, Github github, String university,
-                  String major, Time from, Time to, double cap) {
+    public Person(DisplayPicture displayPicture, Name name, String description, Phone phone, Email email,
+                  Github github, String university, String major, Time from, Time to, double cap) {
         this.displayPicture = displayPicture;
         this.name = name;
+        this.description = description;
         this.phone = phone;
         this.email = email;
         this.github = github;
@@ -51,6 +51,10 @@ public class Person {
 
     public Name getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public Phone getPhone() {
@@ -92,6 +96,7 @@ public class Person {
     public String toPreview() {
         final StringBuilder builder = new StringBuilder();
         builder.append("Name: ").append(getName()).append("\n")
+                .append("Description: ").append(getDescription()).append("\n")
                 .append("Phone: ").append(getPhone()).append(" | ")
                 .append("Email: ").append(getEmail()).append(" | ")
                 .append("Github: ").append(getGithub()).append("\n")
@@ -103,22 +108,17 @@ public class Person {
     }
 
     @Override
-    public int hashCode() {
-        // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(displayPicture, name, phone, email, github, university, major, from, to, cap);
-    }
-
-    @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getDisplayPicture()).append("\n")
-                .append(getName()).append("\n")
-                .append(getPhone()).append(" | ")
-                .append(getEmail()).append(" | ")
-                .append(getGithub()).append("\n")
-                .append(getUniversity()).append(" | ")
-                .append(getFrom()).append(" - ")
-                .append(getTo()).append("\n")
+        builder.append("DP: " + getDisplayPicture()).append("\n")
+                .append("Name: " + getName()).append("\n")
+                .append("Description: " + getDescription()).append("\n")
+                .append("Phone: " + getPhone()).append(" | ")
+                .append("Email: " + getEmail()).append(" | ")
+                .append("GitHub: " + getGithub()).append("\n")
+                .append("University: " + getUniversity()).append(" | ")
+                .append("From: " + getFrom()).append(" - ")
+                .append("To: " + getTo()).append("\n")
                 .append("Major: ").append(getMajor()).append(" | ")
                 .append("CAP: ").append(getCap());
         return builder.toString();
@@ -129,6 +129,7 @@ public class Person {
         return other == this // short circuit if same object
                 || (other instanceof Person // instanceof handles nulls
                 && name.equals(((Person) other).name)
+                && description.equals(((Person) other).description)
                 && phone.equals(((Person) other).phone)
                 && email.equals(((Person) other).email)
                 && github.equals(((Person) other).github)

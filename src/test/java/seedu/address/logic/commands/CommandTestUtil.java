@@ -101,6 +101,13 @@ public class CommandTestUtil {
     public static final String VALID_TAG_FRONTEND = "Frontend";
     public static final String PREFIXED_TAG_FRONTEND = " " + PREFIX_TAG + " " + VALID_TAG_FRONTEND;
 
+    // NOTES
+    public static final String ITEM_TYPE_NOTE = " " + PREFIX_ITEM + " note";
+    public static final String PREFIXED_NAME_NOTE = " " + PREFIX_NAME + " Finish CS2103";
+
+    // INVALID ITEM
+    public static final String ITEM_TYPE_INVALID = " " + PREFIX_ITEM + " notee";
+
     // TAGS
     public static final String VALID_TAG_TECH = "tech";
     public static final String VALID_TAG_BACKEND = "backend";
@@ -158,7 +165,7 @@ public class CommandTestUtil {
             Model expectedModel) {
         try {
             CommandResult result = command.execute(actualModel);
-
+            assertEquals(expectedCommandResult.getDataToUser(), result.getDataToUser());
             assertEquals(expectedCommandResult.getFeedbackToUser(), result.getFeedbackToUser());
             assertEquals(expectedModel.getStatelessResumeBook(), actualModel.getStatelessResumeBook());
         } catch (CommandException ce) {

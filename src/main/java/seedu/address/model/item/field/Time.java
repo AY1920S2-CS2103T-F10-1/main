@@ -11,7 +11,7 @@ import java.util.Date;
  * Represents an Item's time (start/end date) in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidTime(String)}
  */
-public class Time {
+public class Time implements Comparable<Time> {
 
     public static final String MESSAGE_CONSTRAINTS = "Time should be in the format MM-yyyy";
     public static final String VALIDATION_REGEX = "^(1[0-2]|0[1-9])-[0-9]{4}$";
@@ -48,7 +48,6 @@ public class Time {
         } catch (ParseException e) {
             return this.value;
         }
-
     }
 
     @Override
@@ -63,9 +62,22 @@ public class Time {
                 && value.equals(((Time) other).value)); // state check
     }
 
+    /**
+     * Compares this Time object with another Time object.
+     */
+    public int compareTo(Time other) {
+        SimpleDateFormat parser = new SimpleDateFormat("MM-yyyy");
+        try {
+            Date thisTime = parser.parse(this.value);
+            Date otherTime = parser.parse(other.toString());
+            return thisTime.compareTo(otherTime);
+        } catch (ParseException e) {
+            return 0;
+        }
+    }
+
     @Override
     public int hashCode() {
         return value.hashCode();
     }
-
 }

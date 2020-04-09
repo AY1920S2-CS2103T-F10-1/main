@@ -17,6 +17,7 @@ public class DoneCommand extends Command {
     public static final String COMMAND_WORD = "done";
 
     public static final String MESSAGE_DONE_SUCCESS = "Marked this note as done!";
+    public static final String MESSAGE_DONE_FAILURE = "This note is alread marked as done!";
     public static final String MESSAGE_USAGE = COMMAND_WORD + " INDEX \n"
             + "Example: done 1 ";
 
@@ -36,6 +37,11 @@ public class DoneCommand extends Command {
         }
 
         Note toSetDone = model.getNote(targetIndex);
+
+        if (toSetDone.isDone()) {
+            throw new CommandException(MESSAGE_DONE_FAILURE);
+        }
+
         Note done = toSetDone.toCopy();
         done.markAsDone();
         model.setNote(toSetDone, done);

@@ -47,6 +47,10 @@ public class CliSyntax {
     public static final Prefix PREFIX_MAJOR = new Prefix("m/");
     public static final Prefix PREFIX_CAP = new Prefix("c/");
 
+    /* Sort keywords */
+    public static final Prefix PREFIX_SORT_ORDER = new Prefix("order/");
+    public static final Prefix PREFIX_REVERSE = new Prefix("reverse/");
+
     /* Note */
     public static final Prefix PREFIX_DONE = new Prefix("d/");
 }

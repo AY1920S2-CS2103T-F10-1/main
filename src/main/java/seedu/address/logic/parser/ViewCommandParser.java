@@ -17,7 +17,7 @@ import seedu.address.model.util.ItemUtil;
 /**
  * Parses input arguments and creates a new ViewCommand object
  */
-public class ViewCommandParser {
+public class ViewCommandParser implements Parser<ViewCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the ViewCommand
      * and returns a ViewCommand object for execution.

@@ -20,4 +20,9 @@ public class ListSkillCommand extends ListCommand {
                 String.format(MESSAGE_SUCCESS, "Skill"),
                 model.getDisplayType());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof ListSkillCommand;
+    }
 }
