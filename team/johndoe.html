@@ -136,6 +136,90 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">Deleting an item : <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Deletes an item from the ResuMe application.</p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><code>delete INDEX i/ TYPE</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><code>INDEX</code> : the positional index of the item. Use <code>list TYPE</code> with the same item type to view this list.</p>
+</div>
+<div class="paragraph">
+<p><code>TYPE</code>  : the item type.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use <code>list</code> command to navigate to the correct list to ensure that 1) the item exists, and 2) you know the
+correct index for deletion. Or just fall back on <code>undo</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Deleting an item will set the list window to display items of its type.
+If the item is an internship, a project, or a skill, all resumes that contain it will also be updated to
+reflect the change.</p>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suppose we start with the following original list of resumes, as seen using the command <code>list i/ res</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>Deletes the 2nd resume with <code>delete 2 i/ res</code> .</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ResumeDelete2.png" alt="ResumeDelete2" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>Deletes the 3rd skill with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display skills for
+deletion to proceed.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteSkill3.png" alt="DeleteSkill3" width="790">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -386,4 +470,4 @@ the old-versioned item to be stored as well so that it can be restored while <co
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 15:04:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 15:51:12 UTC</div></div></div></body></html>
