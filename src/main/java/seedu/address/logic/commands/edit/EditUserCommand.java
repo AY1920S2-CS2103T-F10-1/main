@@ -33,6 +33,8 @@ public class EditUserCommand extends Command {
 
     public static final String COMMAND_WORD = "me";
 
+    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited User Profile!";
+
     public static final String MESSAGE_FROM_TO_MISORDER = "\'from\' cannot be later than \'to\' field. ";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the user profile in our resuMeme. "
@@ -60,8 +62,6 @@ public class EditUserCommand extends Command {
             + PREFIX_FROM + "2018 "
             + PREFIX_TO + "2022 "
             + PREFIX_CAP + "5.0 ";
-
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited User Profile!";
 
     private EditUserDescriptor editUserDescriptor;
 
