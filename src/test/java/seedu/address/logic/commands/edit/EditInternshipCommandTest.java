@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_ITEM;
 import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_ITEM;
+import static seedu.address.testutil.TypicalInternship.GOOGLE;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,13 +21,12 @@ import seedu.address.logic.commands.results.CommandResult;
 import seedu.address.model.item.Internship;
 import seedu.address.testutil.InternshipBuilder;
 import seedu.address.testutil.ModelStub;
-import seedu.address.testutil.TypicalInternship;
 
 public class EditInternshipCommandTest {
 
-    private EditInternshipDescriptor editInternshipDescriptor = new EditInternshipDescriptor();
+    private Internship sampleEditedInternship = GOOGLE;
 
-    Internship sampleEditedInternship = TypicalInternship.GOOGLE;
+    private EditInternshipDescriptor editInternshipDescriptor = new EditInternshipDescriptor();
 
     @Test
     public void constructor_nullInternship_throwsNullPointerException() {
@@ -69,14 +69,14 @@ public class EditInternshipCommandTest {
                 new InternshipBuilder().build());
         modelStub.addInternship(sampleEditedInternship);
 
-//      I'm actually not sure how to test this.
-//      assertThrows(CommandException.class,
-//          EditInternshipCommand.MESSAGE_DUPLICATE_ITEM, () -> editCommand.execute(modelStub));
+        //      I'm actually not sure how to test this.
+        //      assertThrows(CommandException.class,
+        //          EditInternshipCommand.MESSAGE_DUPLICATE_ITEM, () -> editCommand.execute(modelStub));
     }
 
 
     @Test
-    public void create_withNullDescriptorField_EditedInternship() {
+    public void create_withNullDescriptorField_editedInternship() {
         editInternshipDescriptor.setTags(null);
         editInternshipDescriptor.setName(null);
         Index validIndex = INDEX_FIRST_ITEM;
@@ -184,4 +184,6 @@ public class EditInternshipCommandTest {
         }
     }
 }
+
+
 

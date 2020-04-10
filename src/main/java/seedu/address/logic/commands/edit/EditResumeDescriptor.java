@@ -34,6 +34,7 @@ public class EditResumeDescriptor extends EditItemDescriptor {
         return CollectionUtil.isAnyNonNull(name, tags);
     }
 
+
     /**
      * Sets {@code tags} to this object's {@code tags}.
      * A defensive copy of {@code tags} is used internally.

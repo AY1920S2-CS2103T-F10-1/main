@@ -25,6 +25,9 @@ import seedu.address.model.tag.Tag;
  * TODO: CONNECT LEVEL TO SKILL
  */
 public class EditSkillCommand extends EditCommand {
+
+    public static final String MESSAGE_EDIT_SKILL_SUCCESS = "Edited Skill: %1$s";
+
     private static final String FIELDS = COMMAND_WORD
             + " INDEX "
             + PREFIX_ITEM + "res "
@@ -36,7 +39,6 @@ public class EditSkillCommand extends EditCommand {
             + PREFIX_ITEM + " ski "
             + PREFIX_NAME + " Software Engineering";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.\n" + FIELDS + EXAMPLE;
-    public static final String MESSAGE_EDIT_SKILL_SUCCESS = "Edited Skill: %1$s";
 
     private EditSkillDescriptor editSkillDescriptor;
     /**

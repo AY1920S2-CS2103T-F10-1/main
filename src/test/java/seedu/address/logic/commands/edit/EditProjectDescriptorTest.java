@@ -9,7 +9,7 @@ import seedu.address.model.item.Project;
 import seedu.address.testutil.ProjectBuilder;
 
 public class EditProjectDescriptorTest {
-    Project sampleProject = new ProjectBuilder().build();
+    private Project sampleProject = new ProjectBuilder().build();
     private EditProjectDescriptor editProjectDescriptor = new EditProjectDescriptor();
 
     @Test
@@ -63,8 +63,9 @@ public class EditProjectDescriptorTest {
     }
 
     @Test
-    public void field_isAnyNonNull_FalseIfAllNull() {
+    public void field_isAnyNonNull_falseIfAllNull() {
         EditProjectDescriptor editProjectDescriptor = new EditProjectDescriptor();
         assertEquals(editProjectDescriptor.isAnyFieldEdited(), false);
     }
 }
+

@@ -24,9 +24,9 @@ import seedu.address.testutil.TypicalProject;
 
 public class EditProjectCommandTest {
 
-    private EditProjectDescriptor editProjectDescriptor = new EditProjectDescriptor();
+    private Project sampleEditedProject = TypicalProject.ORBITAL;
 
-    Project sampleEditedProject = TypicalProject.ORBITAL;
+    private EditProjectDescriptor editProjectDescriptor = new EditProjectDescriptor();
 
     @Test
     public void constructor_nullProject_throwsNullPointerException() {
@@ -61,7 +61,7 @@ public class EditProjectCommandTest {
     }
 
     @Test
-    public void create_withNullDescriptorField_EditedProject() {
+    public void create_withNullDescriptorField_editedProject() {
         editProjectDescriptor.setTags(null);
         editProjectDescriptor.setName(null);
         assertEquals(sampleEditedProject,

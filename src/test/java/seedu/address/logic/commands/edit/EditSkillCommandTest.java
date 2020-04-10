@@ -25,9 +25,9 @@ import seedu.address.testutil.TypicalSkill;
 
 public class EditSkillCommandTest {
 
-    private EditSkillDescriptor editSkillDescriptor = new EditSkillDescriptor();
+    private Skill sampleEditedSkill = TypicalSkill.GIT;
 
-    Skill sampleEditedSkill = TypicalSkill.GIT;
+    private EditSkillDescriptor editSkillDescriptor = new EditSkillDescriptor();
 
     @Test
     public void constructor_nullSkill_throwsNullPointerException() {
@@ -62,7 +62,7 @@ public class EditSkillCommandTest {
     }
 
     @Test
-    public void create_withNullDescriptorField_EditedSkill() {
+    public void create_withNullDescriptorField_editedSkill() {
         editSkillDescriptor.setTags(null);
         editSkillDescriptor.setName(null);
         Index validIndex = INDEX_FIRST_ITEM;

@@ -9,7 +9,9 @@ import seedu.address.model.item.Skill;
 import seedu.address.testutil.SkillBuilder;
 
 public class EditSkillDescriptorTest {
-    Skill sampleSkill = new SkillBuilder().build();
+
+    private Skill sampleSkill = new SkillBuilder().build();
+
     private EditSkillDescriptor editSkillDescriptor = new EditSkillDescriptor();
 
     @Test
@@ -47,8 +49,9 @@ public class EditSkillDescriptorTest {
     }
 
     @Test
-    public void field_isAnyNonNull_FalseIfAllNull() {
+    public void field_isAnyNonNull_falseIfAllNull() {
         EditSkillDescriptor editSkillDescriptor = new EditSkillDescriptor();
         assertEquals(editSkillDescriptor.isAnyFieldEdited(), false);
     }
 }
+

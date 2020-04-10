@@ -25,6 +25,8 @@ import seedu.address.model.tag.Tag;
  */
 public class EditNoteCommand extends EditCommand {
 
+    public static final String MESSAGE_EDIT_NOTE_SUCCESS = "Edited This Note!";
+
     private static final String FIELDS = "Example: "
             + COMMAND_WORD + " "
             + PREFIX_ITEM + " note "
@@ -39,8 +41,6 @@ public class EditNoteCommand extends EditCommand {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.\n"
             + FIELDS
             + EXAMPLE;
-
-    public static final String MESSAGE_EDIT_NOTE_SUCCESS = "Edited This Note!";
 
     private EditNoteDescriptor editNoteDescriptor;
 

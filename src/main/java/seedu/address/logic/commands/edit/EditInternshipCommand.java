@@ -28,6 +28,8 @@ import seedu.address.model.tag.Tag;
  */
 public class EditInternshipCommand extends EditCommand {
     public static final String MESSAGE_FROM_TO_MISORDER = "\'from\' cannot be later than \'to\' field. ";
+    public static final String MESSAGE_EDIT_INTERNSHIP_SUCCESS = "Edited Internship: %1$s";
+
     private static final String FIELDS = "Examples: "
             + COMMAND_WORD + " "
             + PREFIX_ITEM + "int "
@@ -49,7 +51,6 @@ public class EditInternshipCommand extends EditCommand {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.\n"
             + FIELDS
             + EXAMPLE;
-    public static final String MESSAGE_EDIT_INTERNSHIP_SUCCESS = "Edited Internship: %1$s";
 
     private EditInternshipDescriptor editInternshipDescriptor;
 

@@ -9,7 +9,7 @@ import seedu.address.model.item.Internship;
 import seedu.address.testutil.InternshipBuilder;
 
 public class EditInternshipDescriptorTest {
-    Internship sampleInternship = new InternshipBuilder().build();
+    private Internship sampleInternship = new InternshipBuilder().build();
     private EditInternshipDescriptor editInternshipDescriptor = new EditInternshipDescriptor();
 
     @Test
@@ -69,8 +69,10 @@ public class EditInternshipDescriptorTest {
     }
 
     @Test
-    public void field_isAnyNonNull_FalseIfAllNull() {
+    public void field_isAnyNonNull_falseIfAllNull() {
         EditInternshipDescriptor editInternshipDescriptor = new EditInternshipDescriptor();
         assertEquals(editInternshipDescriptor.isAnyFieldEdited(), false);
     }
 }
+
+
