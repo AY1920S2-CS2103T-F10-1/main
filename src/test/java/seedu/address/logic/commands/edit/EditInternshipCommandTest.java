@@ -69,7 +69,8 @@ public class EditInternshipCommandTest {
                 new InternshipBuilder().build());
         modelStub.addInternship(sampleEditedInternship);
 
-        //      I'm actually not sure how to test this.
+        //      I'm actually not sure how to test that if we edit it into an existing Internship with same name then
+        //      it throws Duplicate exception.
         //      assertThrows(CommandException.class,
         //          EditInternshipCommand.MESSAGE_DUPLICATE_ITEM, () -> editCommand.execute(modelStub));
     }
@@ -184,6 +185,4 @@ public class EditInternshipCommandTest {
         }
     }
 }
-
-
 
