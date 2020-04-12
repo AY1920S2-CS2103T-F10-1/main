@@ -151,23 +151,14 @@ It is easy to build, customise and export different resume versions using only C
 <div class="sect2">
 <h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">Deleting an item : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes an item from the ResuMe application.</p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
+<p>Deletes an item from the <strong>ResuMe</strong> application.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>delete INDEX i/ TYPE</code></p>
+<p><strong>Format:</strong> <code>delete INDEX i/ TYPE</code></p>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p><code>INDEX</code> : the positional index of the item. Use <code>list TYPE</code> with the same item type to view this list.</p>
-</div>
-<div class="paragraph">
-<p><code>TYPE</code>  : the item type.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -189,23 +180,23 @@ The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
 </td>
 <td class="content">
 Use <code>list</code> command to navigate to the correct list to ensure that 1) the item exists, and 2) you know the
-correct index for deletion. Or just fall back on <code>undo</code>.
+correct <code>index</code> for deletion. Or just fall back on <code>undo</code> if you accidentally delete the wrong item.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Deleting an item will set the list window to display items of its type.
-If the item is an internship, a project, or a skill, all resumes that contain it will also be updated to
+<p>Deleting an item will set the list box to display items of its type.
+If the item is an <code>internship</code>, a <code>project</code>, or a <code>skill</code>, all <code>resumes</code> that contain it will also be updated to
 reflect the change.</p>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Suppose we start with the following original list of resumes, as seen using the command <code>list i/ res</code>.</p>
+<p>Suppose we start with the following original list of <code>resumes</code>, as seen using the command <code>list i/ res</code>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="790">
@@ -213,7 +204,7 @@ reflect the change.</p>
 </div>
 </li>
 <li>
-<p>Deletes the 2nd resume with <code>delete 2 i/ res</code> .</p>
+<p>Delete the 2nd <code>resume</code> with <code>delete 2 i/ res</code> .</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ResumeDelete2.png" alt="ResumeDelete2" width="790">
@@ -221,7 +212,7 @@ reflect the change.</p>
 </div>
 </li>
 <li>
-<p>Deletes the 3rd skill with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display skills for
+<p>Delete the 3rd skill with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display skills for
 deletion to proceed.</p>
 <div class="imageblock">
 <div class="content">
@@ -237,21 +228,12 @@ deletion to proceed.</p>
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>undo</p>
+<p><strong>Format:</strong> <code>undo</code></p>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, and <code>me</code>.</p>
-</div>
-<div class="paragraph">
-<p>Successive undo commands will bring the application further back, until there is no more change to undo.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -263,13 +245,19 @@ deletion to proceed.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>An undo is done per command and not change.</p>
+<p>An <code>undo</code> is done per command and not change.</p>
 </li>
 <li>
-<p>Commands that make no change to the application state, like <code>list</code> or <code>view</code>, cannot be undone.</p>
+<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, <code>tagpull</code> and <code>me</code>.</p>
 </li>
 <li>
-<p>You cannot undo if there is no previous state to return to.</p>
+<p>Commands that make no change to the application state, like <code>list</code>, <code>view</code>, <code>find</code>, <code>rpreview</code> or <code>rgen</code>, cannot be undone.</p>
+</li>
+<li>
+<p>Successive <code>undo</code> commands will bring the application further back, until there is no more change to <code>undo</code>.</p>
+</li>
+<li>
+<p>You cannot <code>undo</code> if there is no previous state to return to.</p>
 </li>
 </ul>
 </div>
@@ -278,7 +266,7 @@ deletion to proceed.</p>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -314,13 +302,10 @@ Voila, Java is back, and our list box now displays skills.</p>
 <p>Reverts the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>redo</p>
+<p><strong>Format:</strong> <code>redo</code></p>
 </div>
 </div>
 </div>
@@ -337,11 +322,11 @@ of that command.</p>
 <p>A redo is done per command and not change.</p>
 </li>
 <li>
-<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, or <code>me</code> command is performed after an undo, then all redo states will be deleted and you will not be able to go
-to these states.</p>
+<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, <code>tagpull</code> or <code>me</code> command is performed after an <code>undo</code>,
+then all <code>redo</code> states will be deleted and you will not be able to go to these states.</p>
 </li>
 <li>
-<p>You cannot redo if there is no forward state to go to.</p>
+<p>You cannot <code>redo</code> if there is no forward state to go to.</p>
 </li>
 </ul>
 </div>
@@ -350,21 +335,17 @@ to these states.</p>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example:</strong></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
+<div class="paragraph">
 <p>After with the Java deletion incidence in the previous section (on <code>undo</code>), we decide that the merits of Java
 do not warrant the pain that comes along with it and so we want to use <code>redo</code> our original choice . Afterwards, Java is
 once again removed from our life.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/redo_success.png" alt="redo success" width="790">
 </div>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -389,4 +370,4 @@ once again removed from our life.</p>
 <p>include::../DeveloperGuide.adoc</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 02:40:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 02:54:21 UTC</div></div></div></body></html>

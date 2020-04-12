@@ -45,7 +45,13 @@
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#command-summary">6. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#general-commands">6.1. General commands</a></li>
+<li><a href="#item-specific-commands">6.2. Item-specific commands</a></li>
+<li><a href="#resume-commands">6.3. Resume commands</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -68,7 +74,7 @@ and job application woes.</p>
 <div class="sect2">
 <h3 id="overview"><a class="link" href="#overview">1.1. Overview</a></h3>
 <div class="paragraph">
-<p><strong>ResuMe</strong> allows the management of four different item types:</p>
+<p><strong>ResuMe</strong> allows the management of five different item types:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -79,43 +85,48 @@ and job application woes.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">No.</th>
-<th class="tableblock halign-left valign-top">Item type</th>
-<th class="tableblock halign-left valign-top">Alias</th>
-<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-center valign-middle">No.</th>
+<th class="tableblock halign-center valign-middle">Item type</th>
+<th class="tableblock halign-center valign-middle">Alias</th>
+<th class="tableblock halign-left valign-middle">Attributes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">internship</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name, role, from, to, description, tag</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">internship</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">name, role, from, to, description, tag</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">proj</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name, time, website, description, tag</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">2</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">project</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">proj</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">name, time, website, description, tag</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">skill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ski</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name, level, tag</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">3</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">skill</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">ski</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">name, level, tag</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">res</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name, description, tag</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">4</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">resume</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">res</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">name, description, tag</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">5</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">note</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">note</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">name, time</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>As you may have noticed from number 4, we are able to manage different resumes as well!
-(As if this is not the whole reason why we decided to build this app in the firs place :D)
-Items from number 1 to 3 can be shared across different resumes.</p>
+<p>As you may have noticed from number 4, we are able to manage different <code>resumes</code> as well!
+Items from number 1 to 3 can be shared across different <code>resumes</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -136,24 +147,24 @@ Items from number 1 to 3 can be shared across different resumes.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Command box: where you enter your commands.</p>
+<p><strong>Command box:</strong> where you enter your commands.</p>
 </li>
 <li>
-<p>Result box: where the result of a command is shown. It can show a success message or a failure
+<p><strong>Result box:</strong> where the result of a command is shown. It can show a success message or a failure
 message if something wrong happens.</p>
 </li>
 <li>
-<p>View box: where the detailed information is shown if needed. For instance, if you are viewing an
-internship item, this box shows in full the item&#8217;s name, timing, description, and other pieces of information.</p>
+<p><strong>View box:</strong> where the detailed information about an item is shown. For instance, if you are viewing an
+<code>internship</code> item, this box shows in full the <code>company name</code>, <code>role</code>, <code>from</code>, <code>to</code>, <code>description</code> and <code>tags</code>.</p>
 </li>
 <li>
-<p>List box: where all items of a type are listed. Only a type is displayed at a time. You can change
-the view of this list. Also, when a command results in the change of one or more items of an item type,
-the list box will be set to displaying that type.</p>
+<p><strong>List box:</strong> where all items of a type are listed. Only one type is displayed at a time. You can change
+the view of this list using <code>list</code> command. Additionally, when other commands change items of a type,
+the list box will be set to display that type.</p>
 </li>
 <li>
-<p>User box: where you can view your information like name, email address, or phone number. If you make any update
-that change will be reflected.</p>
+<p><strong>User box:</strong> where you can view your personal information like name, email address, or phone number. Any changes made
+to your user profile will be automatically reflected here.</p>
 </li>
 </ol>
 </div>
@@ -188,25 +199,25 @@ as well notes and tips for a better user experience.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Symbol / Format</th>
+<th class="tableblock halign-center valign-middle">Symbol / Format</th>
 <th class="tableblock halign-left valign-top">Explanation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:note-caption:</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="icon blue"><i class="fa fa-info-circle"></i></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Important information to take note</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:tip-caption:</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="icon yellow"><i class="fa fa-lightbulb-o"></i></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tips</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:warning-caption:</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><span class="icon red"><i class="fa fa-exclamation-triangle"></i></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Warnings on potential misuse</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>consola font</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>consola font</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Keywords you could type in the command box and could be be executed by the application</p></td>
 </tr>
 </tbody>
@@ -224,29 +235,29 @@ as well notes and tips for a better user experience.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-center valign-middle">Term</th>
 <th class="tableblock halign-left valign-top">Explanation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Consisting of four different types: <code>internship</code>, <code>project</code>, <code>skill</code> or <code>resume</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consisting of five different types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>resume</code> or <code>note</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>item</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An item stored in the application, which could be any one of the four types above</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>item</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An item stored in the application, which could be any one of the five types above</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>command</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>command</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A line of text that you could type into the command box and execute</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parameter</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>parameter</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Specific information about an <code>item</code> supplied by you</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>index</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>index</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The position of the <code>item</code> in the currently displayed list</p></td>
 </tr>
 </tbody>
@@ -266,7 +277,7 @@ as well notes and tips for a better user experience.</p>
 <p>Download the latest <code>resumebook.jar</code> <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Resume Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your <strong>ResuMe</strong> application.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -281,20 +292,20 @@ as well notes and tips for a better user experience.</p>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
+<p>Try out these example commands:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong><code>i/ res</code> : lists all resumes</p>
+<p><strong><code>list</code></strong><code>i/ res</code> : lists all <code>resumes</code>.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>i/ res n/ Software Engineering Resume #/SE #frontend</code>: adds a resume named <code>Software Engineering Resume</code>.</p>
+<p><strong><code>add</code></strong><code>i/ res n/ Software Engineering Resume #/SE #frontend</code>: adds a <code>resume</code> named <code>Software Engineering Resume</code>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>1 i/ res</code> : deletes the 1st resume shown in the current list</p>
+<p><strong><code>delete</code></strong><code>1 i/ res</code> : deletes the 1st <code>resume</code> shown in the current list.</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : exits the app</p>
+<p><strong><code>exit</code></strong> : exits the app.</p>
 </li>
 </ul>
 </div>
@@ -317,19 +328,33 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add i/ TYPE n/ NAME</code>,
-<code>TYPE</code> and <code>NAME</code> are parameters which can be used as <code>add i/ proj n/ Orbital</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the you.<br>
+For example in <code>add i/ TYPE n/ NAME</code>, <code>TYPE</code> and <code>NAME</code> are parameters which can be customised to be <code>add i/ proj n/ Orbital</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/ NAME [#/TAG]</code> can be used as <code>n/ Orbital #/ SE</code> or as <code>n/ Orbital</code>.</p>
+<p>Parameters in square brackets are optional.<br>
+For example, <code>n/ NAME [#/TAG]</code> can be used as <code>n/ Orbital #/ SE</code> or as <code>n/ Orbital</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code> after them can be used multiple times including zero times e.g. <code>[#/ TAG]&#8230;&#8203;</code>
-can be used as (i.e. 0 times), <code>#/ friend</code>, <code>#/ friend</code>, <code>#/ family</code> etc.</p>
+<p>Parameters with <code>…</code> after them can be used multiple times including zero times.<br>
+For example, <code>[#/ TAG]&#8230;&#8203;</code> can be used as:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(i.e. 0 times)</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/ NAME p/ PHONE</code>,
-<code>p/ PHONE_NUMBER n/ NAME</code> is also acceptable.</p>
+<p><code>#/ friend</code></p>
+</li>
+<li>
+<p><code>#/ friend #/ family</code> etc.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Parameters can be in any order.<br>
+For example, if the command specifies <code>n/ NAME p/ PHONE</code>, <code>p/ PHONE_NUMBER n/ NAME</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -343,8 +368,50 @@ can be used as (i.e. 0 times), <code>#/ friend</code>, <code>#/ friend</code>, <
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p><strong>Format:</strong> <code>help OPTION</code></p>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>There are two possible <code>help</code> options that you can choose from, as shown in the table below:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 25%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Option</th>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">command</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>help command</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens a pop-up window with a summary of available commands, their syntax and usages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">start</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>help start</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens a pop-up window with detailed guide on how to get started.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>These are screenshots of the two pop-up windows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/helpCommand.png" alt="helpCommand" width="790">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/helpStart.png" alt="helpStart" width="790">
 </div>
 </div>
 </div>
@@ -360,7 +427,7 @@ can be used as (i.e. 0 times), <code>#/ friend</code>, <code>#/ friend</code>, <
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A user profile contains the following fields: <code>Display Picture</code>, <code>Name</code>, <code>Phone</code>, <code>Email</code>, <code>Github</code>, <code>University</code>, <code>Major</code>, <code>From</code>, <code>To</code>, <code>CAP</code>.
+A user profile contains the following fields: <code>Display Picture</code>, <code>Name</code>, <code>Description</code>, <code>Phone</code>, <code>Email</code>, <code>Github</code>, <code>University</code>, <code>Major</code>, <code>From</code>, <code>To</code>, <code>CAP</code>.
 </td>
 </tr>
 </table>
@@ -368,58 +435,32 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Format: <code>me [ATTRIBUTE/ VALUE]&#8230;&#8203;</code></p>
+<p><strong>Format:</strong> <code>me [dp/ FILE_PATH] [n/ NAME] [d/ DESCRIPTION] [p/ PHONE] [e/ EMAIL] [g/ GITHUB] [u/ UNIVERSITY] [m/ MAJOR] [f/ FROM] [t/ TO] [c/ CURRENT_CAP MAX_CAP]</code></p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>The specific command syntax could be found in the table below:</p>
+<p><strong>Example 1:</strong> Update user profile details<br></p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 12%;">
-<col style="width: 88%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Format</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>me dp/ FILEPATH n/ NAME p/ PHONE e/ EMAIL g/ GITHUB u/ UNIVERSITY m/ MAJOR f/ FROM t/ TO c/ CAP</code></p></td>
-</tr>
-</tbody>
-</table>
 <div class="paragraph">
-<p><strong>Example 1:</strong> Try typing in the command box this command!</p>
+<p>Try typing in the command box this command:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>me n/ My Name p/ 12345678 e/ <a href="mailto:test@gmail.com">test@gmail.com</a> g/ mygithub u/ NUS m/ CS f/ 08-2018 t/ 05-2022 c/ 5.0</code></p>
-</li>
-</ol>
+<div class="paragraph">
+<p><code>me n/ My Name p/ 12345678 e/ <a href="mailto:test@gmail.com">test@gmail.com</a> d/ I like solving problems and creating things! g/ mygithub u/ NUS m/ CS f/ 08-2018 t/ 05-2022 c/ 5.0 5.0</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user profile panel is updated accordingly as below.</p>
+<div class="paragraph">
+<p>The user box is updated accordingly as below.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user_profile.png" alt="user profile" width="400">
 </div>
 </div>
-</li>
-</ol>
-</div>
 <div class="paragraph">
-<p><strong>Example 2:</strong> Edit user profile image</p>
+<p><strong>Example 2:</strong> Update user profile picture</p>
 </div>
 <div class="paragraph">
 <p>Follow the steps in one of these two links to copy a file path according to your respective Operating System.</p>
@@ -435,29 +476,21 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 </ol>
 </div>
 <div class="paragraph">
-<p>Afterwards, try a command similar to the one below!</p>
+<p>Afterwards, try a command similar to the one below:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>me dp//Users/nhamquochung/Desktop/test.png</code></p>
-</li>
-</ol>
+<div class="paragraph">
+<p><code>me dp/ /Users/nhamquochung/Desktop/test.png</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
+<div class="paragraph">
 <p>The user profile picture is updated accordingly as below.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/user_profile1.png" alt="user profile1" width="400">
 </div>
-</div>
-</li>
-</ol>
 </div>
 </div>
 <div class="sect2">
@@ -468,15 +501,15 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Format: <code>list i/ TYPE</code></p>
+<p><strong>Format:</strong> <code>list i/ TYPE</code></p>
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 Listed items are in short form, only showing their name, index, <code>tags</code> and a short summary.
@@ -486,13 +519,13 @@ To view items in full details, use <code>view</code>.
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><strong>Examples:</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>list i/ res</code>
-Lists all resume items.</p>
+Lists all <code>resume</code> items.</p>
 </li>
 <li>
 <p><code>list i/ proj</code>
@@ -504,7 +537,7 @@ Lists all project items.</p>
 <div class="sect2">
 <h3 id="adding-an-item-code-add-code"><a class="link" href="#adding-an-item-code-add-code">4.4. Adding an item: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds an item to the ResuMe application.</p>
+<p>Adds an item to the <strong>ResuMe</strong> application.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -513,20 +546,24 @@ Lists all project items.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even <code>resume</code> itself.
+<div class="ulist">
+<ul>
+<li>
+<p>An item could be one of the five item types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>note</code> or even <code>resume</code> itself.<br></p>
+</li>
+<li>
+<p>A newly added note will be automatically marked as <code>undone</code>.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>`add i/ TYPE n/ NAME [ATTRIBUTE/ VALUE]... [#/ TAG]...`</pre>
-</div>
+<div class="paragraph">
+<p><strong>Format:</strong> <code>add i/ TYPE n/ NAME [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
 </div>
 </div>
 </div>
@@ -552,29 +589,45 @@ An item could have any number of tags <em>(including 0)</em>.
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-center valign-top">Type</th>
 <th class="tableblock halign-left valign-top">Format</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ int n/ COMPANY NAME r/ ROLE f/ FROM t/ TO d/ DESCRIPTION [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ int n/ COMPANY_NAME r/ ROLE f/ FROM t/ TO d/ DESCRIPTION [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ proj n/ PROJECT NAME t/ TIME w/ WEBSITE d/ DESCRIPTION [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ proj n/ PROJECT_NAME t/ TIME w/ WEBSITE d/ DESCRIPTION [#/ TAG]&#8230;&#8203;.</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ ski n/ SKILL NAME l/ LEVEL [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ ski n/ SKILL_NAME l/ LEVEL [#/ TAG]&#8230;&#8203;.</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ res n/ NAME [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ res n/ RESUME_NAME [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ note n/ NOTE_NAME t/ TIME</code></p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are three possible levels for a <code>skill</code> item: <code>ADVANCED</code>, <code>INTERMEDIATE</code> and <code>BASIC</code>.
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -582,9 +635,9 @@ An item could have any number of tags <em>(including 0)</em>.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The description of a <code>Resume</code> could be written one paragraph (with <strong>full stop</strong> and a <strong>space</strong> after each sentence).
-These sentences, when exported to .pdf format, will be automatically shown as individual bullet points!<br>
-<em>(refer to <a href="#generating-a-resume-code-rgen-code">Section 4.14, &#8220;Generating a resume: <code>rgen</code>&#8221;</a> for more details)</em>
+The description of an item could be written in one paragraph (with <strong>full stop</strong> and a <strong>space</strong> after each sentence).
+These sentences, when exported to <code>.pdf</code> format, will be automatically shown as individual bullet points!
+<em>(refer to <a href="#generating-a-resume-code-rgen-code">rgen</a> for more details)</em>
 </td>
 </tr>
 </table>
@@ -608,7 +661,7 @@ These sentences, when exported to .pdf format, will be automatically shown as in
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All project items are listed in the list panel.</p>
+<p>All project items are listed in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListProject.png" alt="ListProject" width="790">
@@ -616,7 +669,7 @@ These sentences, when exported to .pdf format, will be automatically shown as in
 </div>
 </li>
 <li>
-<p>A new project item named <code>Duke</code> with the specified fields is added. This item is automatically reflected in the list panel.</p>
+<p>A new project item named <code>Duke</code> with the specified fields is added. This item is automatically reflected in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddDukeProject.png" alt="AddDukeProject" width="790">
@@ -629,7 +682,7 @@ These sentences, when exported to .pdf format, will be automatically shown as in
 <div class="sect2">
 <h3 id="editing-an-item-code-edit-code"><a class="link" href="#editing-an-item-code-edit-code">4.5. Editing an item : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing item in the ResuMe application.</p>
+<p>Edits an existing item in the <strong>ResuMe</strong> application.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -638,7 +691,7 @@ These sentences, when exported to .pdf format, will be automatically shown as in
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>edit</code> is a different command from <code>redit</code>. Please visit <a href="#faq">Section 5, &#8220;FAQ&#8221;</a> for more information.
+<code>edit</code> is a different command from <code>redit</code>. Please visit <a href="#faq">FAQ</a> for more information.
 </td>
 </tr>
 </table>
@@ -660,31 +713,35 @@ These sentences, when exported to .pdf format, will be automatically shown as in
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-center valign-middle">Type</th>
 <th class="tableblock halign-left valign-top">Format</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ int [n/ COMPANY NAME] [r/ ROLE] [f/ FROM] [t/ TO] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ int [n/ COMPANY_NAME] [r/ ROLE] [f/ FROM] [t/ TO] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ proj [n/ PROJECT NAME] [t/ TIME] [w/ WEBSITE] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ proj [n/ PROJECT_NAME] [t/ TIME] [w/ WEBSITE] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;.</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ ski [n/ SKILL NAME] [l/ LEVEL] [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ ski [n/ SKILL_NAME] [l/ LEVEL] [#/ TAG]&#8230;&#8203;.</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ res [n/ NAME] [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ res [n/ RESUME_NAME] [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ note [n/ NOTE_NAME] [t/ TIME] [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Example:</strong> Try typing in the command box these two commands one by one!</p>
+<p><strong>Example 1:</strong> Try typing in the command box these two commands one by one!</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -702,7 +759,7 @@ These sentences, when exported to .pdf format, will be automatically shown as in
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All resume items are listed in the list panel.</p>
+<p>All <code>resume</code> items are listed in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListResume2.png" alt="ListResume2" width="790">
@@ -710,7 +767,7 @@ These sentences, when exported to .pdf format, will be automatically shown as in
 </div>
 </li>
 <li>
-<p>The Resume at index 1 has its name changed from "Resume 2" to "Software Engineering Resume" and its
+<p>The <code>resume</code> at index 1 has its name changed from "Resume 2" to "Software Engineering Resume" and its
 tag set to "agile".</p>
 <div class="imageblock">
 <div class="content">
@@ -721,25 +778,36 @@ tag set to "agile".</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><strong>Example 2:</strong> Try typing in the command box these two commands one by one!</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>edit 1 i/ res n/ Resume 1</code><br>
-Edits the name of the 1st resume to be <code>Resume 1</code>.</p>
+<p><code>list i/ ski</code></p>
 </li>
 <li>
-<p><code>edit 2 i/ ski l/ ADVANCED #/</code><br>
-Edits the level of the 2nd skill to be <code>ADVANCED</code> and clears all existing tags.</p>
+<p><code>edit 2 i/ ski l/ ADVANCED #/</code></p>
 </li>
-</ul>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All skill items are listed in the list box.</p>
+</li>
+<li>
+<p>The <code>skill</code> at index 2 has its level changed to <code>ADVANCED</code> and all its existing tags cleared.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
 <h3 id="finding-items-by-name-code-find-code"><a class="link" href="#finding-items-by-name-code-find-code">4.6. Finding items by name: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds items in the ResuMe application whose names contain the specified keyword(s).</p>
+<p>Finds items of a specific <code>type</code> in the <strong>ResuMe</strong> application whose names contain the specified keyword(s).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -748,18 +816,15 @@ Edits the level of the 2nd skill to be <code>ADVANCED</code> and clears all exis
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-An item could be one of the four item types: <code>internship</code>, <code>project</code>, <code>skill</code> or even a <code>resume</code> itself.
+An item could be one of the five item types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>resume</code> or <code>note</code>.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p>
+<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p>
 </div>
 </div>
 </div>
@@ -773,31 +838,35 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-center valign-middle">Type</th>
 <th class="tableblock halign-left valign-top">Format</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Internship</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ int</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ proj</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Skill</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ ski</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/res</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ res</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ note</code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Examples:</strong> Try typing in the command box these two commands one by one!</p>
+<p><strong>Example:</strong> Try typing in the command box these commands one by one!</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -818,7 +887,13 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Projects with matching name with keywords are listed in the list panel.</p>
+<p>All <code>project</code> items are listed in the list box.</p>
+</li>
+<li>
+<p>A new <code>project</code> with the specified details is added.</p>
+</li>
+<li>
+<p><code>Projects</code> whose names match keywords are listed in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/find_command.png" alt="find command" width="790">
@@ -831,23 +906,14 @@ An item could be one of the four item types: <code>internship</code>, <code>proj
 <div class="sect2">
 <h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">4.7. Deleting an item : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes an item from the ResuMe application.</p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
+<p>Deletes an item from the <strong>ResuMe</strong> application.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>delete INDEX i/ TYPE</code></p>
+<p><strong>Format:</strong> <code>delete INDEX i/ TYPE</code></p>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p><code>INDEX</code> : the positional index of the item. Use <code>list TYPE</code> with the same item type to view this list.</p>
-</div>
-<div class="paragraph">
-<p><code>TYPE</code>  : the item type.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -869,23 +935,23 @@ The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
 </td>
 <td class="content">
 Use <code>list</code> command to navigate to the correct list to ensure that 1) the item exists, and 2) you know the
-correct index for deletion. Or just fall back on <code>undo</code>.
+correct <code>index</code> for deletion. Or just fall back on <code>undo</code> if you accidentally delete the wrong item.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Deleting an item will set the list window to display items of its type.
-If the item is an internship, a project, or a skill, all resumes that contain it will also be updated to
+<p>Deleting an item will set the list box to display items of its type.
+If the item is an <code>internship</code>, a <code>project</code>, or a <code>skill</code>, all <code>resumes</code> that contain it will also be updated to
 reflect the change.</p>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Suppose we start with the following original list of resumes, as seen using the command <code>list i/ res</code>.</p>
+<p>Suppose we start with the following original list of <code>resumes</code>, as seen using the command <code>list i/ res</code>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="790">
@@ -893,7 +959,7 @@ reflect the change.</p>
 </div>
 </li>
 <li>
-<p>Deletes the 2nd resume with <code>delete 2 i/ res</code> .</p>
+<p>Delete the 2nd <code>resume</code> with <code>delete 2 i/ res</code> .</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ResumeDelete2.png" alt="ResumeDelete2" width="790">
@@ -901,7 +967,7 @@ reflect the change.</p>
 </div>
 </li>
 <li>
-<p>Deletes the 3rd skill with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display skills for
+<p>Delete the 3rd skill with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display skills for
 deletion to proceed.</p>
 <div class="imageblock">
 <div class="content">
@@ -917,13 +983,10 @@ deletion to proceed.</p>
 <div class="paragraph">
 <p>Shows the details of an item.</p>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>view INDEX i/ TYPE</code></p>
+<p><strong>Format:</strong> <code>view INDEX i/ TYPE</code></p>
 </div>
 </div>
 </div>
@@ -934,7 +997,7 @@ deletion to proceed.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The details of some item types like <code>proj</code> can only be viewed by using this command.
+Certain details of specific items, for example the <code>website</code> and <code>description</code> of a <code>project</code> can only be viewed by using this command.
 </td>
 </tr>
 </table>
@@ -958,7 +1021,7 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All project items are listed in the list panel.</p>
+<p>All <code>project</code> items are listed in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListProject2.png" alt="ListProject2" width="790">
@@ -966,7 +1029,8 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 </div>
 </li>
 <li>
-<p>Using the <code>view</code> command, we can view the details of the project such as its website ("abc.github.io") and its description ("For a little module named CS2103T").</p>
+<p>Full details of the <code>project</code> at index 2 are displayed in the view box. These includes details that were not shown
+in the list box, such as its website (<em>"abc.github.io"</em>) and its description (<em>"For a little module named CS2103T"</em>).</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ViewDukeProject.png" alt="ViewDukeProject" width="790">
@@ -979,7 +1043,7 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 <div class="sect2">
 <h3 id="editing-a-resume-code-redit-code"><a class="link" href="#editing-a-resume-code-redit-code">4.9. Editing a resume: <code>redit</code></a></h3>
 <div class="paragraph">
-<p>Edits the resume to contain the items specified in the command.</p>
+<p>Edits the content of a <code>resume</code> to contain the items specified in the command.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -988,18 +1052,15 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>redit</code> is a different command from <code>edit</code>. Please visit <a href="#faq">Section 5, &#8220;FAQ&#8221;</a> for more information.
+<code>redit</code> is a different command from <code>edit</code>. Please visit <a href="#faq">FAQ</a> for more information.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>redit RESUME_INDEX TYPE/ [ITEM_INDEX&#8230;&#8203;] [MORE_TYPE/ [ITEM_INDEX&#8230;&#8203;]]</code></p>
+<p><strong>Format:</strong> <code>redit RESUME_INDEX TYPE/ [ITEM_INDEX&#8230;&#8203;] [MORE_TYPE/ [ITEM_INDEX&#8230;&#8203;]]</code></p>
 </div>
 </div>
 </div>
@@ -1010,7 +1071,7 @@ The details of some item types like <code>proj</code> can only be viewed by usin
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you find it a hassle to manually enter items into the resume, you can consider using <a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">tagpull</a>!
+If you find it a hassle to manually enter items into the <code>resume</code>, you can consider using <a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">tagpull</a>!
 </td>
 </tr>
 </table>
@@ -1021,90 +1082,122 @@ If you find it a hassle to manually enter items into the resume, you can conside
 <p>For each <code>TYPE</code>, existing items will be updated to the input items.</p>
 </li>
 <li>
-<p>You can add multiple items of a certain type to a resume by chaining
-<code>ITEM_INDEX</code> after <code>TYPE/</code>  e.g. <code>proj/ 3 6</code>, will add item of indices 3 and 6.</p>
+<p>You can add multiple items of a certain type to a <code>resume</code> by chaining
+<code>ITEM_INDEX</code> after <code>TYPE/</code>.<br>
+  For example <code>proj/ 3 6</code>, will add <code>project</code> item of indices 3 and 6 to the <code>resume</code>.</p>
 </li>
 <li>
-<p>You can remove all items of type <code>TYPE</code> by
-typing <code>TYPE/</code> without specifying any <code>ITEM_INDEX</code> after it.</p>
+<p>You can remove all items of type <code>TYPE</code> by typing <code>TYPE/</code> without specifying any <code>ITEM_INDEX</code> after it.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example 1:</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>redit 1 int/ 1 proj/ 1 ski/ 1 2</code><br>
-This command modifies the resume at index 1. It changes the resume to contain the internship item at index 1, project item at index 1, and skill item at indices 1 and 2. The following screenshot illustrates what can happen:</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><code>redit 1 int/ 1 proj/ 1 ski/ 1 2</code></p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ReditAddIntoResume.png" alt="][AddIntoResume" width="442" height="337">
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
 </div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>redit 1 int/ proj/ ski/</code><br>
-This command modifies the resume at index 1. It changes the resume to contain no internship, project, and skill items. The following screenshot illustrates what can happen:</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The content of the <code>resume</code> at index 1 is modified. The <code>resume</code> now contains the <code>internship</code> item at index 1,
+<code>project</code> item at index 1, and <code>skill</code> items at indices 1 and 2. The following screenshot illustrates what happens in the list box:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditRemoveEverything.png" alt="][RemoveEverything" width="442" height="337">
+<img src="images/ReditAddIntoResume.png" alt="AddIntoResume" width="442" height="337">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>redit 1 int/ 1 proj/ ski/ 2</code><br>
-This command modifies the resume at index 1. It changes the resume to contain internship item at index 1, no project items, and skill item at index 2. The following screenshot illustrates what can happen (take note that initially the resume may contain other set of items entirely):</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>Example 2:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>redit 1 int/ proj/ ski/</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="paragraph">
+<p>The content of the <code>resume</code> at index 1 is modified and now contains no <code>internship</code>, <code>project</code> or <code>skill</code> items.
+The following screenshot illustrates what happens to the list box:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditWantSomeThings.png" alt="][WantSomeThings" width="442" height="337">
+<img src="images/ReditRemoveEverything.png" alt="RemoveEverything" width="442" height="337">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 3:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>redit 1 int/ 1 proj/ ski/ 2</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="paragraph">
+<p>The content of the <code>resume</code> at index 1 is modified and now contains <code>internship</code> item at index 1, no <code>project</code> items,
+and <code>skill</code> item at index 2. The following screenshot illustrates what can happen.</p>
+</div>
+<div class="paragraph">
+<p><em>(take note that initially the <code>resume</code> may contain an entirely different set of items)</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditWantSomeThings.png" alt="WantSomeThings" width="442" height="337">
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.10. Pulling tagged items into the resume: <code>tagpull</code></a></h3>
 <div class="paragraph">
-<p>Pull the internship, project and skill items with the specified tag(s) into a resume.</p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
+<p>Pull the <code>internship</code>, <code>project</code> and <code>skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>tagpull INDEX [#/ TAG]</code></p>
+<p><strong>Format:</strong> <code>tagpull INDEX [#/ TAG]</code></p>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command does not remove items from the <code>resume</code> and will add items on top of the existing items.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>This command does not remove items from the resume and will add items on top of existing items.</p>
+<p><strong>Example 1:</strong></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><code>tagpull 1 #/ tech</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>tagpull 1 #/ tech</code><br>
-This command modifies the resume at index 1. It will find all the internship, project, and skill items with the tag <code>tech</code> and adds it into the resume.</p>
-</li>
-<li>
-<p><code>tagpull 2 #/ tech frontend</code><br>
-This command modifies the resume at index 2. It will find all the internship, project, and skill items which has either the tag <code>tech</code> or <code>frontend</code> and adds it into the resume.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="paragraph">
+<p>The <code>resume</code> at index 1 is modified. On top of the existing items, all <code>internship</code>, <code>project</code>, and <code>skill</code> items with
+the tag <code>tech</code> are added into the <code>resume</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 2:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>tagpull 2 #/ tech frontend</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="paragraph">
+<p>The <code>resume</code> at index 2 is modified. On top of the existing items, all <code>internship</code>, <code>project</code>, and <code>skill</code> items with
+either the tag <code>tech</code> or <code>frontend</code> are added into the <code>resume</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1112,21 +1205,12 @@ This command modifies the resume at index 2. It will find all the internship, pr
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>undo</p>
+<p><strong>Format:</strong> <code>undo</code></p>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, and <code>me</code>.</p>
-</div>
-<div class="paragraph">
-<p>Successive undo commands will bring the application further back, until there is no more change to undo.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1138,13 +1222,19 @@ This command modifies the resume at index 2. It will find all the internship, pr
 <div class="ulist">
 <ul>
 <li>
-<p>An undo is done per command and not change.</p>
+<p>An <code>undo</code> is done per command and not change.</p>
 </li>
 <li>
-<p>Commands that make no change to the application state, like <code>list</code> or <code>view</code>, cannot be undone.</p>
+<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, <code>tagpull</code> and <code>me</code>.</p>
 </li>
 <li>
-<p>You cannot undo if there is no previous state to return to.</p>
+<p>Commands that make no change to the application state, like <code>list</code>, <code>view</code>, <code>find</code>, <code>rpreview</code> or <code>rgen</code>, cannot be undone.</p>
+</li>
+<li>
+<p>Successive <code>undo</code> commands will bring the application further back, until there is no more change to <code>undo</code>.</p>
+</li>
+<li>
+<p>You cannot <code>undo</code> if there is no previous state to return to.</p>
 </li>
 </ul>
 </div>
@@ -1153,7 +1243,7 @@ This command modifies the resume at index 2. It will find all the internship, pr
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1189,13 +1279,10 @@ Voila, Java is back, and our list box now displays skills.</p>
 <p>Reverts the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>redo</p>
+<p><strong>Format:</strong> <code>redo</code></p>
 </div>
 </div>
 </div>
@@ -1212,11 +1299,11 @@ of that command.</p>
 <p>A redo is done per command and not change.</p>
 </li>
 <li>
-<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, or <code>me</code> command is performed after an undo, then all redo states will be deleted and you will not be able to go
-to these states.</p>
+<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, <code>tagpull</code> or <code>me</code> command is performed after an <code>undo</code>,
+then all <code>redo</code> states will be deleted and you will not be able to go to these states.</p>
 </li>
 <li>
-<p>You cannot redo if there is no forward state to go to.</p>
+<p>You cannot <code>redo</code> if there is no forward state to go to.</p>
 </li>
 </ul>
 </div>
@@ -1225,35 +1312,28 @@ to these states.</p>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example:</strong></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
+<div class="paragraph">
 <p>After with the Java deletion incidence in the previous section (on <code>undo</code>), we decide that the merits of Java
 do not warrant the pain that comes along with it and so we want to use <code>redo</code> our original choice . Afterwards, Java is
 once again removed from our life.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/redo_success.png" alt="redo success" width="790">
 </div>
 </div>
-</li>
-</ol>
-</div>
 </div>
 <div class="sect2">
 <h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.13. Previewing a resume: <code>rpreview</code></a></h3>
 <div class="paragraph">
-<p>Previews a resume in text format in a different window.</p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
+<p>Previews a <code>resume</code> in text format in a pop-up window.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>rpreview INDEX</code></p>
+<p><strong>Format:</strong> <code>rpreview INDEX</code></p>
 </div>
 </div>
 </div>
@@ -1264,28 +1344,23 @@ once again removed from our life.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>INDEX</code> is with respect to the index seen when <code>list i/res</code> is called.
+<code>INDEX</code> is the index of the <code>resume</code> seen when <code>list i/res</code> is called.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong></p>
+<p><strong>Example:</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>rpreview 2</code><br>
-Shows preview of the resume with at index 2.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><code>rpreview 2</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
 <div class="paragraph">
-<p>Suppose we run the above command using the so far used example program. <code>rpreview 2</code> will provide a text-based view of
-the content of the resume named "Summer Internship".</p>
+<p>Suppose the <code>resume</code> at index 2 is named "Summer Internship". A pop-up window will be opened,
+featuring a text-based view of the content of "Summer Internship".</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1296,11 +1371,7 @@ the content of the resume named "Summer Internship".</p>
 <div class="sect2">
 <h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">4.14. Generating a resume: <code>rgen</code></a></h3>
 <div class="paragraph">
-<p>Generates a .pdf file from an existing resume stored inside the application at the specified index.</p>
-</div>
-<div class="paragraph">
-<p>The exported <code>.pdf</code> file
-will be located in the same folder as the application <code>.jar</code> file.</p>
+<p>Generates a <code>.pdf</code> file from an existing <code>resume</code> stored inside the application at the specified index.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1309,18 +1380,25 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A valid <code>INDEX</code> is a positive integer that identifies an existing resume.
+<div class="ulist">
+<ul>
+<li>
+<p>A valid <code>INDEX</code> is a positive integer that identifies an existing <code>resume</code>.</p>
+</li>
+<li>
+<p>The exported <code>.pdf</code> file
+will be located in the same folder as the application <code>.jar</code> file.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>rgen INDEX [n/ FILENAME]</code></p>
+<p><strong>Format:</strong> <code>rgen INDEX [n/ FILE_NAME]</code></p>
 </div>
 </div>
 </div>
@@ -1331,8 +1409,16 @@ A valid <code>INDEX</code> is a positive integer that identifies an existing res
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-It is optional to specify a <code>FILENAME</code> for the .pdf file.
-If no name is specified, the filename will be set, by default, to the name of the generated <code>Resume</code>.
+<div class="ulist">
+<ul>
+<li>
+<p>It is optional to specify a <code>FILE_NAME</code> for the .pdf file.</p>
+</li>
+<li>
+<p>If no name is specified, the filename will be set, by default, to the name of the generated <code>Resume</code>.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -1356,7 +1442,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The first command lists out all resumes. Assuming that you want to generate the first resume in the list.</p>
+<p>The first command lists out all <code>resumes</code>. Assuming that you want to generate the first <code>resume</code> in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListResume.PNG" alt="ListResume" width="790">
@@ -1364,7 +1450,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 </div>
 </li>
 <li>
-<p>The second command generate a <code>My Resume.pdf</code> file from the specified resume. The screenshots of the generated file is as below:</p>
+<p>The second command generate a <code>My Resume.pdf</code> file from the specified resume. The screenshots of what happened are as below:</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/GenerateResume.PNG" alt="GenerateResume" width="790">
@@ -1382,12 +1468,12 @@ If no name is specified, the filename will be set, by default, to the name of th
 <div class="sect2">
 <h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">4.15. Clearing all data: <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all data from ResuMe.</p>
+<p>Clears all data from <strong>ResuMe</strong>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Format: <code>clear</code></p>
+<p><strong>Format:</strong> <code>clear</code></p>
 </div>
 </div>
 </div>
@@ -1412,7 +1498,7 @@ This command cannot be undone. Please be careful when exercising this power.
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Format: <code>exit</code></p>
+<p><strong>Format:</strong> <code>exit</code></p>
 </div>
 </div>
 </div>
@@ -1420,7 +1506,7 @@ This command cannot be undone. Please be careful when exercising this power.
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
 <div class="paragraph">
-<p>ResuMe data is saved in the hard disk automatically after any command
+<p><strong>ResuMe</strong> data is saved in the hard disk automatically after any command
 that changes the data. There is no need to save manually.</p>
 </div>
 </div>
@@ -1441,9 +1527,8 @@ that changes the data. There is no need to save manually.</p>
 <p><strong>Q:</strong> What is the difference between <code>redit</code> and <code>edit i/res</code>?<br></p>
 </div>
 <div class="paragraph">
-<p><strong>A:</strong> <code>redit</code> is used when you want to add/remove certain items from your
-resume. Meanwhile, <code>edit i/res</code> is used when you want to edit attributes of the
-resume, like its name or tags.</p>
+<p><strong>A:</strong> <code>redit</code> is used when you want to edit the content of a <code>resume</code>, in other words, add or remove certain items
+from that <code>resume</code>. Meanwhile, <code>edit i/res</code> is used when you want to edit attributes of the <code>resume</code>, like its <code>name</code> or <code>tags</code>.</p>
 </div>
 </blockquote>
 </div>
@@ -1453,9 +1538,8 @@ resume, like its name or tags.</p>
 <p><strong>Q:</strong> How do I transfer my data to another Computer?<br></p>
 </div>
 <div class="paragraph">
-<p><strong>A:</strong> Install the app in the other computer and overwrite the empty data
-file it creates with the file that contains the data of your previous
-Address Book folder.</p>
+<p><strong>A:</strong> Install the app in the other Computer and overwrite the empty data
+file created with the data file of your <strong>ResuMe</strong> folder in the current Computer.</p>
 </div>
 </blockquote>
 </div>
@@ -1465,15 +1549,12 @@ Address Book folder.</p>
 <h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is a summary of all commands for your convenience.</p>
+<p>This is a summary of all available commands for your reference.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">General commands</dt>
-<dd>
-<p>Lists of all commands which has format that <strong>do not vary</strong> depending on item type.</p>
-</dd>
-</dl>
+<div class="sect2">
+<h3 id="general-commands"><a class="link" href="#general-commands">6.1. General commands</a></h3>
+<div class="paragraph">
+<p>These are commands that either do not affect any items, or can be applied to all item types.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1482,72 +1563,58 @@ Address Book folder.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-center valign-middle">Command</th>
+<th class="tableblock halign-left valign-middle">Format</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Help</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>help</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX i/ TYPE</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Me</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>me [dp/ FILE_PATH] [n/ NAME] [d/ DESCRIPTION] [p/ PHONE] [e/ EMAIL] [g/ GITHUB] [u/ UNIVERSITY] [m/ MAJOR] [f/ FROM] [t/ TO] [c/ CURRENT_CAP MAX_CAP]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>list i/ TYPE</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redit RESUME_INDEX TYPE/ [ITEM_ID&#8230;&#8203;] [MORE_TYPE/ [ITEM_ID&#8230;&#8203;]]</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">View</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>view INDEX i/ TYPE</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Find</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Generate Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rgen RESUME_INDEX</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Delete</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>delete INDEX i/ TYPE</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Help</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Undo</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>undo</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list i/ TYPE</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Redo</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>redo</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Me</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>me dp/ FILEPATH n/ NAME [ATTRIBUTE/ VALUE]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Clear</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>clear</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Preview Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rpreview RESUME_INDEX</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Undo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view INDEX i/ TYPE</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Exit</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>exit</code></p></td>
 </tr>
 </tbody>
 </table>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Item specific commands</dt>
-<dd>
-<p>Lists of all commands which has format that <strong>vary</strong> depending on item type.</p>
-</dd>
-</dl>
+</div>
+<div class="sect2">
+<h3 id="item-specific-commands"><a class="link" href="#item-specific-commands">6.2. Item-specific commands</a></h3>
+<div class="paragraph">
+<p>These are commands whose format varies depending on item type.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1557,47 +1624,88 @@ Address Book folder.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-center valign-middle">Command</th>
+<th class="tableblock halign-left valign-middle">Type</th>
 <th class="tableblock halign-left valign-top">Format</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Add</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ int n/ COMPANY NAME r/ ROLE f/ FROM t/ TO d/ DESCRIPTION [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-middle" rowspan="5"><p class="tableblock">Add</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ int n/ COMPANY_NAME r/ ROLE f/ FROM t/ TO d/ DESCRIPTION [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ proj n/ PROJECT NAME t/ TIME w/ WEBSITE d/ DESCRIPTION [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>add i/ proj n/ PROJECT_NAME t/ TIME w/ WEBSITE d/ DESCRIPTION [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ ski n/ SKILL NAME l/ LEVEL [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>add i/ ski n/ SKILL_NAME l/ LEVEL [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ res n/ NAME [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>add i/ res n/ RESUME_NAME [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Edit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ int [n/ COMPANY NAME] [r/ ROLE] [f/ FROM] [t/ TO] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>add i/ note n/ NOTE_NAME t/ TIME [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ proj [n/ PROJECT NAME] [t/ TIME] [w/ WEBSITE] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-middle" rowspan="5"><p class="tableblock">Edit</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ int [n/ COMPANY_NAME] [r/ ROLE] [f/ FROM] [t/ TO] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ ski [n/ SKILL NAME] [l/ LEVEL] [#/ TAG]&#8230;&#8203;.</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>edit i/ proj [n/ PROJECT_NAME] [t/ TIME] [w/ WEBSITE] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;.</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ res [n/ NAME] [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>edit i/ ski [n/ SKILL_NAME] [l/ LEVEL] [#/ TAG]&#8230;&#8203;.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>edit i/ res [n/ RESUME_NAME] [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>add i/ note [n/ NOTE_NAME] [t/ TIME] [#/ TAG]&#8230;&#8203;</code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 02:40:14 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="resume-commands"><a class="link" href="#resume-commands">6.3. Resume commands</a></h3>
+<div class="paragraph">
+<p>These are commands specific to <code>resume</code> items.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Command</th>
+<th class="tableblock halign-left valign-middle">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Edit Resume</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>redit RESUME_INDEX TYPE/ [ITEM_ID&#8230;&#8203;] [MORE_TYPE/ [ITEM_ID&#8230;&#8203;]]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Preview Resume</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>rpreview RESUME_INDEX</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Generate Resume</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>rgen RESUME_INDEX</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 02:54:21 UTC</div></div></div></body></html>
