@@ -153,7 +153,7 @@ It is easy to build, customise and export different resume versions using only C
 <div class="paragraph">
 <p>Deletes an item from the <strong>ResuMe</strong> application.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>delete INDEX i/ TYPE</code></p>
@@ -167,7 +167,19 @@ It is easy to build, customise and export different resume versions using only C
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.</p>
+</li>
+<li>
+<p>Deleting an item will set the list box to display items of that type.</p>
+</li>
+<li>
+<p>All <code>resumes</code> that contain the deleted item will also be updated to reflect the change.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -184,11 +196,6 @@ correct <code>index</code> for deletion. Or just fall back on <code>undo</code> 
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Deleting an item will set the list box to display items of its type.
-If the item is an <code>internship</code>, a <code>project</code>, or a <code>skill</code>, all <code>resumes</code> that contain it will also be updated to
-reflect the change.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example:</strong></p>
@@ -212,7 +219,7 @@ reflect the change.</p>
 </div>
 </li>
 <li>
-<p>Delete the 3rd skill with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display skills for
+<p>Delete the 3rd <code>skill</code> with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display <code>skills</code> for
 deletion to proceed.</p>
 <div class="imageblock">
 <div class="content">
@@ -228,7 +235,7 @@ deletion to proceed.</p>
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>undo</code></p>
@@ -302,7 +309,7 @@ Voila, Java is back, and our list box now displays skills.</p>
 <p>Reverts the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>redo</code></p>
@@ -370,4 +377,4 @@ once again removed from our life.</p>
 <p>include::../DeveloperGuide.adoc</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:44:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 15:08:46 UTC</div></div></div></body></html>

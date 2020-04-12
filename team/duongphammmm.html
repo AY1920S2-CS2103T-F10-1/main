@@ -187,7 +187,7 @@ as well notes and tips for a better user experience.</p>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><code>consola font</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Keywords you could type in the command box and could be be executed by the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keywords representing an <code>item type</code> or their <code>parameters</code>, or a <code>command</code> that could be executed</p></td>
 </tr>
 </tbody>
 </table>
@@ -211,7 +211,7 @@ as well notes and tips for a better user experience.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><code>type</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Consisting of five different types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>resume</code> or <code>note</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consisting of five different types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>resume</code> and <code>note</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><code>item</code></p></td>
@@ -237,7 +237,7 @@ as well notes and tips for a better user experience.</p>
 <div class="paragraph">
 <p>Lists out the function and usage of each command.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>help OPTION</code></p>
@@ -250,8 +250,8 @@ as well notes and tips for a better user experience.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 15%;">
-<col style="width: 25%;">
-<col style="width: 60%;">
+<col style="width: 15%;">
+<col style="width: 70%;">
 </colgroup>
 <thead>
 <tr>
@@ -292,45 +292,12 @@ as well notes and tips for a better user experience.</p>
 <div class="paragraph">
 <p>Adds an item to the <strong>ResuMe</strong> application.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>An item could be one of the five item types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>note</code> or even <code>resume</code> itself.<br></p>
-</li>
-<li>
-<p>A newly added note will be automatically marked as <code>undone</code>.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>add i/ TYPE n/ NAME [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
 </div>
 </div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-An item could have any number of tags <em>(including 0)</em>.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>The specific command syntax could be found in the table below:</p>
@@ -376,7 +343,19 @@ An item could have any number of tags <em>(including 0)</em>.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are three possible levels for a <code>skill</code> item: <code>ADVANCED</code>, <code>INTERMEDIATE</code> and <code>BASIC</code>.
+<div class="ulist">
+<ul>
+<li>
+<p>An item could have any number of tags <em>(including 0)</em>.</p>
+</li>
+<li>
+<p>There are three possible levels for a <code>skill</code> item: <code>ADVANCED</code>, <code>INTERMEDIATE</code> and <code>BASIC</code>.</p>
+</li>
+<li>
+<p>A newly added note will be automatically marked as <code>undone</code>.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -414,7 +393,7 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All project items are listed in the list box.</p>
+<p>All <code>project</code> items are listed in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ListProject.png" alt="ListProject" width="790">
@@ -422,7 +401,7 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 </div>
 </li>
 <li>
-<p>A new project item named <code>Duke</code> with the specified fields is added. This item is automatically reflected in the list box.</p>
+<p>A new <code>project</code> item named <code>Duke</code> with the specified fields is added. This item is automatically reflected in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddDukeProject.png" alt="AddDukeProject" width="790">
@@ -437,13 +416,13 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 <div class="paragraph">
 <p>Generates a <code>.pdf</code> file from an existing <code>resume</code> stored inside the application at the specified index.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>rgen INDEX [n/ FILE_NAME]</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -455,17 +434,6 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 </li>
 </ul>
 </div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Format:</strong> <code>rgen INDEX [n/ FILE_NAME]</code></p>
-</div>
-</div>
-</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -473,16 +441,8 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>It is optional to specify a <code>FILE_NAME</code> for the .pdf file.</p>
-</li>
-<li>
-<p>If no name is specified, the filename will be set, by default, to the name of the generated <code>Resume</code>.</p>
-</li>
-</ul>
-</div>
+It is optional to specify a <code>FILE_NAME</code> for the .pdf file.
+If no name is specified, the filename will be set, by default, to the name of the generated <code>Resume</code>.
 </td>
 </tr>
 </table>
@@ -514,7 +474,7 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 </div>
 </li>
 <li>
-<p>The second command generate a <code>My Resume.pdf</code> file from the specified resume. The screenshots of what happened are as below:</p>
+<p>The second command generates a <code>My Resume.pdf</code> file from the specified resume. The screenshots of what happened are as below:</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/GenerateResume.PNG" alt="GenerateResume" width="790">
@@ -787,4 +747,4 @@ extended features (e.g. allow user to choose from a variety of pre-defined resum
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:44:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 15:08:46 UTC</div></div></div></body></html>

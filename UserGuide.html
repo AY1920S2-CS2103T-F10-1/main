@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">ResuMe</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>ResuMe - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>CS2103T F10-1</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103T F10-1</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -25,7 +25,7 @@
 <li><a href="#features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#edit-user-profile-code-me-code">4.2. Edit user profile: <code>me</code></a></li>
+<li><a href="#editing-user-profile-code-me-code">4.2. Editing user profile: <code>me</code></a></li>
 <li><a href="#listing-all-items-code-list-code">4.3. Listing all items : <code>list</code></a></li>
 <li><a href="#adding-an-item-code-add-code">4.4. Adding an item: <code>add</code></a></li>
 <li><a href="#editing-an-item-code-edit-code">4.5. Editing an item : <code>edit</code></a></li>
@@ -94,31 +94,31 @@ and job application woes.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">1</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">internship</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Internship</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">int</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">name, role, from, to, description, tag</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">2</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">project</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Project</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">proj</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">name, time, website, description, tag</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">3</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">skill</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Skill</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">ski</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">name, level, tag</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">4</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">resume</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Resume</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">res</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">name, description, tag</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">name, tag</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">5</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">note</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Note</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">note</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">name, time</p></td>
 </tr>
@@ -139,31 +139,31 @@ Items from number 1 to 3 can be shared across different <code>resumes</code>.</p
 <img src="images/GUI.png" alt="GUI" width="790">
 </div>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>The GUI includes:</p>
+<p><strong>GUI Components:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Command box:</strong> where you enter your commands.</p>
+<p><strong><em>Command box:</em></strong> where you enter your commands.</p>
 </li>
 <li>
-<p><strong>Result box:</strong> where the result of a command is shown. It can show a success message or a failure
+<p><strong><em>Result box:</em></strong> where the result of a command is shown. It can show a success message or a failure
 message if something wrong happens.</p>
 </li>
 <li>
-<p><strong>View box:</strong> where the detailed information about an item is shown. For instance, if you are viewing an
+<p><strong><em>View box:</em></strong> where the detailed information about an item is shown. For instance, if you are viewing an
 <code>internship</code> item, this box shows in full the <code>company name</code>, <code>role</code>, <code>from</code>, <code>to</code>, <code>description</code> and <code>tags</code>.</p>
 </li>
 <li>
-<p><strong>List box:</strong> where all items of a type are listed. Only one type is displayed at a time. You can change
+<p><strong><em>List box:</em></strong> where all items of a type are listed. Only one type is displayed at a time. You can change
 the view of this list using <code>list</code> command. Additionally, when other commands change items of a type,
 the list box will be set to display that type.</p>
 </li>
 <li>
-<p><strong>User box:</strong> where you can view your personal information like name, email address, or phone number. Any changes made
+<p><strong><em>User box:</em></strong> where you can view your personal information like <code>name</code>, <code>email</code>, or <code>phone number</code>. Any changes made
 to your user profile will be automatically reflected here.</p>
 </li>
 </ol>
@@ -218,7 +218,7 @@ as well notes and tips for a better user experience.</p>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><code>consola font</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Keywords you could type in the command box and could be be executed by the application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keywords representing an <code>item type</code> or their <code>parameters</code>, or a <code>command</code> that could be executed</p></td>
 </tr>
 </tbody>
 </table>
@@ -242,7 +242,7 @@ as well notes and tips for a better user experience.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><code>type</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Consisting of five different types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>resume</code> or <code>note</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consisting of five different types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>resume</code> and <code>note</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><code>item</code></p></td>
@@ -288,8 +288,8 @@ as well notes and tips for a better user experience.</p>
 </div>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+<p>Type a command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help start</code></strong> and pressing <kbd>Enter</kbd> will open the help window for getting started.</p>
 </li>
 <li>
 <p>Try out these example commands:</p>
@@ -299,10 +299,11 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong><code>i/ res</code> : lists all <code>resumes</code>.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>i/ res n/ Software Engineering Resume #/SE #frontend</code>: adds a <code>resume</code> named <code>Software Engineering Resume</code>.</p>
+<p><strong><code>add</code></strong><code>i/ res n/ Software Engineering Resume #/ SE #/ frontend</code>: adds a <code>resume</code> named <code>Software Engineering Resume</code>
+with <code>tags</code> <em>"SE"</em> and <em>"frontend"</em>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>1 i/ res</code> : deletes the 1st <code>resume</code> shown in the current list.</p>
+<p><strong><code>delete</code></strong><code>1 i/ res</code> : deletes the 1st <code>resume</code> shown in the resume list.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app.</p>
@@ -328,8 +329,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the you.<br>
-For example in <code>add i/ TYPE n/ NAME</code>, <code>TYPE</code> and <code>NAME</code> are parameters which can be customised to be <code>add i/ proj n/ Orbital</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by you.<br>
+For example, in <code>add i/ TYPE n/ NAME</code>, <code>TYPE</code> and <code>NAME</code> are parameters which can be customised to be <code>add i/ proj n/ Orbital</code>.</p>
 </li>
 <li>
 <p>Parameters in square brackets are optional.<br>
@@ -344,17 +345,17 @@ For example, <code>[#/ TAG]&#8230;&#8203;</code> can be used as:</p>
 <p>(i.e. 0 times)</p>
 </li>
 <li>
-<p><code>#/ friend</code></p>
+<p><code>#/ SE</code></p>
 </li>
 <li>
-<p><code>#/ friend #/ family</code> etc.</p>
+<p><code>#/ SE #/ frontend</code> etc.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p>Parameters can be in any order.<br>
-For example, if the command specifies <code>n/ NAME p/ PHONE</code>, <code>p/ PHONE_NUMBER n/ NAME</code> is also acceptable.</p>
+For example, if the command specifies <code>n/ NAME p/ PHONE_NUMBER</code>, <code>p/ PHONE_NUMBER n/ NAME</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -365,7 +366,7 @@ For example, if the command specifies <code>n/ NAME p/ PHONE</code>, <code>p/ PH
 <div class="paragraph">
 <p>Lists out the function and usage of each command.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>help OPTION</code></p>
@@ -378,8 +379,8 @@ For example, if the command specifies <code>n/ NAME p/ PHONE</code>, <code>p/ PH
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 15%;">
-<col style="width: 25%;">
-<col style="width: 60%;">
+<col style="width: 15%;">
+<col style="width: 70%;">
 </colgroup>
 <thead>
 <tr>
@@ -416,9 +417,16 @@ For example, if the command specifies <code>n/ NAME p/ PHONE</code>, <code>p/ PH
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-user-profile-code-me-code"><a class="link" href="#edit-user-profile-code-me-code">4.2. Edit user profile: <code>me</code></a></h3>
+<h3 id="editing-user-profile-code-me-code"><a class="link" href="#editing-user-profile-code-me-code">4.2. Editing user profile: <code>me</code></a></h3>
 <div class="paragraph">
 <p>Edits and updates user&#8217;s display information.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>me [dp/ FILE_PATH] [n/ NAME] [d/ DESCRIPTION] [p/ PHONE_NUMBER] [e/ EMAIL] [g/ GITHUB] [u/ UNIVERSITY] [m/ MAJOR] [f/ FROM] [t/ TO] [c/ CURRENT_CAP MAX_CAP]</code></p>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -431,13 +439,6 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 </td>
 </tr>
 </table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Format:</strong> <code>me [dp/ FILE_PATH] [n/ NAME] [d/ DESCRIPTION] [p/ PHONE] [e/ EMAIL] [g/ GITHUB] [u/ UNIVERSITY] [m/ MAJOR] [f/ FROM] [t/ TO] [c/ CURRENT_CAP MAX_CAP]</code></p>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p><strong>Example 1:</strong> Update user profile details<br></p>
@@ -452,7 +453,7 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <p><strong>Outcome:</strong></p>
 </div>
 <div class="paragraph">
-<p>The user box is updated accordingly as below.</p>
+<p>The user box is updated accordingly as below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -485,7 +486,7 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <p><strong>Outcome:</strong></p>
 </div>
 <div class="paragraph">
-<p>The user profile picture is updated accordingly as below.</p>
+<p>The user profile picture is updated accordingly as below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -496,9 +497,9 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <div class="sect2">
 <h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">4.3. Listing all items : <code>list</code></a></h3>
 <div class="paragraph">
-<p>List items in the storage.</p>
+<p>Lists items in the storage.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>list i/ TYPE</code></p>
@@ -512,20 +513,17 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Listed items are in short form, only showing their name, index, <code>tags</code> and a short summary.
-To view items in full details, use <code>view</code>.
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Listed items are in short form, only showing their <code>index</code>, <code>name</code>, <code>tags</code> and a short summary.
+To view items in full details, use <a href="#viewing-an-item-in-details-code-view-code">view</a>.</p>
+</li>
+<li>
+<p>The type of items listed will light up in orange.</p>
+</li>
+</ul>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The type of items listed will light up in orange.
 </td>
 </tr>
 </table>
@@ -561,45 +559,12 @@ Lists all internship items.</p>
 <div class="paragraph">
 <p>Adds an item to the <strong>ResuMe</strong> application.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>An item could be one of the five item types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>note</code> or even <code>resume</code> itself.<br></p>
-</li>
-<li>
-<p>A newly added note will be automatically marked as <code>undone</code>.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>add i/ TYPE n/ NAME [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
 </div>
 </div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-An item could have any number of tags <em>(including 0)</em>.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>The specific command syntax could be found in the table below:</p>
@@ -645,7 +610,19 @@ An item could have any number of tags <em>(including 0)</em>.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are three possible levels for a <code>skill</code> item: <code>ADVANCED</code>, <code>INTERMEDIATE</code> and <code>BASIC</code>.
+<div class="ulist">
+<ul>
+<li>
+<p>An item could have any number of tags <em>(including 0)</em>.</p>
+</li>
+<li>
+<p>There are three possible levels for a <code>skill</code> item: <code>ADVANCED</code>, <code>INTERMEDIATE</code> and <code>BASIC</code>.</p>
+</li>
+<li>
+<p>A newly added note will be automatically marked as <code>undone</code>.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -683,7 +660,7 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All project items are listed in the list box.</p>
+<p>All <code>project</code> items are listed in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListProject.png" alt="ListProject" width="790">
@@ -691,7 +668,7 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 </div>
 </li>
 <li>
-<p>A new project item named <code>Duke</code> with the specified fields is added. This item is automatically reflected in the list box.</p>
+<p>A new <code>project</code> item named <code>Duke</code> with the specified fields is added. This item is automatically reflected in the list box.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddDukeProject.png" alt="AddDukeProject" width="790">
@@ -718,13 +695,10 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code>edit INDEX i/ TYPE [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
+<p><strong>Format:</strong> <code>edit INDEX i/ TYPE [ATTRIBUTE/ VALUE]&#8230;&#8203; [#/ TAG]&#8230;&#8203;</code></p>
 </div>
 </div>
 </div>
@@ -758,7 +732,7 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ note [n/ NOTE_NAME] [t/ TIME] [#/ TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX i/ note [n/ NOTE_NAME] [t/ TIME]</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -789,8 +763,8 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 </div>
 </li>
 <li>
-<p>The <code>resume</code> at index 1 has its name changed from "Resume 2" to "Software Engineering Resume" and its
-tag set to "agile".</p>
+<p>The <code>resume</code> at index 1 has its name changed from <em>"Resume 2"</em> to <em>"Software Engineering Resume"</em> and its
+tag set to <em>"agile"</em>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/EditResumeExample.png" alt="EditResumeExample" width="790">
@@ -818,7 +792,7 @@ tag set to "agile".</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All skill items are listed in the list box.</p>
+<p>All <code>skill</code> items are listed in the list box.</p>
 </li>
 <li>
 <p>The <code>skill</code> at index 2 has its level changed to <code>ADVANCED</code> and all its existing tags cleared.</p>
@@ -831,19 +805,7 @@ tag set to "agile".</p>
 <div class="paragraph">
 <p>Finds items of a specific <code>type</code> in the <strong>ResuMe</strong> application whose names contain the specified keyword(s).</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-An item could be one of the five item types: <code>internship</code>, <code>project</code>, <code>skill</code>, <code>resume</code> or <code>note</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p>
@@ -930,7 +892,7 @@ An item could be one of the five item types: <code>internship</code>, <code>proj
 <div class="paragraph">
 <p>Deletes an item from the <strong>ResuMe</strong> application.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>delete INDEX i/ TYPE</code></p>
@@ -944,7 +906,19 @@ An item could be one of the five item types: <code>internship</code>, <code>proj
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>INDEX</code> argument comes before the <code>TYPE</code> argument.</p>
+</li>
+<li>
+<p>Deleting an item will set the list box to display items of that type.</p>
+</li>
+<li>
+<p>All <code>resumes</code> that contain the deleted item will also be updated to reflect the change.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -961,11 +935,6 @@ correct <code>index</code> for deletion. Or just fall back on <code>undo</code> 
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Deleting an item will set the list box to display items of its type.
-If the item is an <code>internship</code>, a <code>project</code>, or a <code>skill</code>, all <code>resumes</code> that contain it will also be updated to
-reflect the change.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example:</strong></p>
@@ -989,7 +958,7 @@ reflect the change.</p>
 </div>
 </li>
 <li>
-<p>Delete the 3rd skill with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display skills for
+<p>Delete the 3rd <code>skill</code> with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display <code>skills</code> for
 deletion to proceed.</p>
 <div class="imageblock">
 <div class="content">
@@ -1003,9 +972,9 @@ deletion to proceed.</p>
 <div class="sect2">
 <h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">4.8. Viewing an item in details: <code>view</code></a></h3>
 <div class="paragraph">
-<p>Shows the details of an item.</p>
+<p>Shows the detailed view of an item.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>view INDEX i/ TYPE</code></p>
@@ -1079,7 +1048,7 @@ in the list box, such as its website (<em>"abc.github.io"</em>) and its descript
 </tr>
 </table>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>redit RESUME_INDEX TYPE/ [ITEM_INDEX&#8230;&#8203;] [MORE_TYPE/ [ITEM_INDEX&#8230;&#8203;]]</code></p>
@@ -1176,7 +1145,7 @@ and <code>skill</code> item at index 2. The following screenshot illustrates wha
 <div class="paragraph">
 <p>Pull the <code>internship</code>, <code>project</code> and <code>skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>tagpull INDEX [#/ TAG]</code></p>
@@ -1227,7 +1196,7 @@ either the tag <code>tech</code> or <code>frontend</code> are added into the <co
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>undo</code></p>
@@ -1301,7 +1270,7 @@ Voila, Java is back, and our list box now displays skills.</p>
 <p>Reverts the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>redo</code></p>
@@ -1352,7 +1321,7 @@ once again removed from our life.</p>
 <div class="paragraph">
 <p>Previews a <code>resume</code> in text format in a pop-up window.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>rpreview INDEX</code></p>
@@ -1366,19 +1335,16 @@ once again removed from our life.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>INDEX</code> is the index of the <code>resume</code> seen when <code>list i/res</code> is called.
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX</code> is the index of the <code>resume</code> seen when <code>list i/res</code> is called.</p>
+</li>
+<li>
+<p><code>description</code> of <code>internship</code> and <code>project</code> is automatically separated into bullet points when the program detects full sentences.</p>
+</li>
+</ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>description</code> of <code>internship</code> and <code>project</code> is automatically separated into bullet points when the program detects full sentences.
 </td>
 </tr>
 </table>
@@ -1431,13 +1397,13 @@ featuring a text-based view of the content of "Software Engineering". The screen
 <div class="paragraph">
 <p>Generates a <code>.pdf</code> file from an existing <code>resume</code> stored inside the application at the specified index.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>rgen INDEX [n/ FILE_NAME]</code></p>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1449,17 +1415,6 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 </li>
 </ul>
 </div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Format:</strong> <code>rgen INDEX [n/ FILE_NAME]</code></p>
-</div>
-</div>
-</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -1467,16 +1422,8 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>It is optional to specify a <code>FILE_NAME</code> for the .pdf file.</p>
-</li>
-<li>
-<p>If no name is specified, the filename will be set, by default, to the name of the generated <code>Resume</code>.</p>
-</li>
-</ul>
-</div>
+It is optional to specify a <code>FILE_NAME</code> for the .pdf file.
+If no name is specified, the filename will be set, by default, to the name of the generated <code>Resume</code>.
 </td>
 </tr>
 </table>
@@ -1508,7 +1455,7 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 </div>
 </li>
 <li>
-<p>The second command generate a <code>My Resume.pdf</code> file from the specified resume. The screenshots of what happened are as below:</p>
+<p>The second command generates a <code>My Resume.pdf</code> file from the specified resume. The screenshots of what happened are as below:</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/GenerateResume.PNG" alt="GenerateResume" width="790">
@@ -1528,6 +1475,13 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 <div class="paragraph">
 <p>Clears all data from <strong>ResuMe</strong>. Empties all data in the resume book, user information is replaced with default user information.</p>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>clear</code></p>
+</div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1540,20 +1494,13 @@ This command can be undone.
 </tr>
 </table>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Format:</strong> <code>clear</code></p>
-</div>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.</p>
 </div>
-<div class="sidebarblock">
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><strong>Format:</strong> <code>exit</code></p>
@@ -1632,7 +1579,7 @@ file created with the data file of your <strong>ResuMe</strong> folder in the cu
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">Me</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>me [dp/ FILE_PATH] [n/ NAME] [d/ DESCRIPTION] [p/ PHONE] [e/ EMAIL] [g/ GITHUB] [u/ UNIVERSITY] [m/ MAJOR] [f/ FROM] [t/ TO] [c/ CURRENT_CAP MAX_CAP]</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>me [dp/ FILE_PATH] [n/ NAME] [d/ DESCRIPTION] [p/ PHONE_NUMBER] [e/ EMAIL] [g/ GITHUB] [u/ UNIVERSITY] [m/ MAJOR] [f/ FROM] [t/ TO] [c/ CURRENT_CAP MAX_CAP]</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">List</p></td>
@@ -1766,4 +1713,4 @@ file created with the data file of your <strong>ResuMe</strong> folder in the cu
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:44:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 15:08:46 UTC</div></div></div></body></html>
