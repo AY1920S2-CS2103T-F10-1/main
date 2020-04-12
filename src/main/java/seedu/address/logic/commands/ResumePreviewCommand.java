@@ -35,6 +35,13 @@ public class ResumePreviewCommand extends Command {
         this.index = index;
     }
 
+    /**
+     * Previews resume at {@code targetIndex}.
+     *
+     * @param model {@code Model} where resume will be previewed.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     * @throws      CommandException if {@code targetIndex} is out of bounds.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -52,35 +59,16 @@ public class ResumePreviewCommand extends Command {
     }
 
     private String getDataFromResume(Resume resume, Model model) {
-        List<String> internshipList = resume.getInternshipIds()
-                .stream()
-                .map(x -> model.hasInternshipId(x) ? model.getInternshipById(x) : null)
-                .filter(Objects::nonNull)
-                .map(Internship::toPreview)
-                .collect(Collectors.toList());
-
-        List<String> projectList = resume.getProjectIds()
-                .stream()
-                .map(x -> model.hasProjectId(x) ? model.getProjectById(x) : null)
-                .filter(Objects::nonNull)
-                .map(Project::toPreview)
-                .collect(Collectors.toList());
-
-        List<String> skillsList = resume.getSkillIds()
-                .stream()
-                .map(x -> model.hasSkillId(x) ? model.getSkillById(x) : null)
-                .filter(Objects::nonNull)
-                .map(Skill::toPreview)
-                .collect(Collectors.toList());
+        List<String> internshipList = getStringListOfInternships(resume, model);
+        List<String> projectList = getStringListOfProjects(resume, model);
+        List<String> skillsList = getStringListOfSkills(resume, model);
 
         StringBuilder data = new StringBuilder(resume.getName() + "\n");
-
         data.append("=========================\n")
                 .append("PERSONAL DETAILS\n")
                 .append("=========================\n\n")
                 .append(model.getUser().toPreview())
                 .append("\n\n");
-
         data.append("=========================\n")
                 .append("INTERNSHIPS\n")
                 .append("=========================\n\n");
@@ -99,8 +87,34 @@ public class ResumePreviewCommand extends Command {
         for (String skill: skillsList) {
             data.append(skill).append("\n");
         }
-
         return data.toString();
+    }
+
+    private List<String> getStringListOfInternships(Resume resume, Model model) {
+        return resume.getInternshipIds()
+                .stream()
+                .map(x -> model.hasInternshipId(x) ? model.getInternshipById(x) : null)
+                .filter(Objects::nonNull)
+                .map(Internship::toPreview)
+                .collect(Collectors.toList());
+    }
+
+    private List<String> getStringListOfProjects(Resume resume, Model model) {
+        return resume.getProjectIds()
+                .stream()
+                .map(x -> model.hasProjectId(x) ? model.getProjectById(x) : null)
+                .filter(Objects::nonNull)
+                .map(Project::toPreview)
+                .collect(Collectors.toList());
+    }
+
+    private List<String> getStringListOfSkills(Resume resume, Model model) {
+        return resume.getSkillIds()
+                .stream()
+                .map(x -> model.hasSkillId(x) ? model.getSkillById(x) : null)
+                .filter(Objects::nonNull)
+                .map(Skill::toPreview)
+                .collect(Collectors.toList());
     }
 
     @Override

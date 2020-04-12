@@ -20,5 +20,5 @@ src/test/data/sandbox/
 # MacOS custom attributes files created by Finder
 .DS_Store
 
-# pdf file
-*.pdf
+# .pdf generated files
+/*.pdf

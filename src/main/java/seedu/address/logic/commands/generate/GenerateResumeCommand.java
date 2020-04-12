@@ -89,6 +89,7 @@ public class GenerateResumeCommand extends Command {
         try {
             builder.addPage();
             builder.addResumeTitle(user);
+            builder.addBio(user);
             builder.addContact(user);
 
             builder.addSectionTitle("EDUCATION");

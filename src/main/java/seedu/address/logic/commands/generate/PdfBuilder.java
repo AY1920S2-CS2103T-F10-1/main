@@ -30,6 +30,7 @@ public class PdfBuilder {
     private static final int TITLE_SIZE = 20;
     private static final PDFont FONT_BOLD = PDType1Font.HELVETICA_BOLD;
     private static final PDFont FONT_REGULAR = PDType1Font.HELVETICA;
+    private static final PDFont FONT_OBLIQUE = PDType1Font.HELVETICA_OBLIQUE;
 
     private final PDDocument resume = new PDDocument();
     private final int marginX = 64;
@@ -234,6 +235,21 @@ public class PdfBuilder {
     }
 
     /**
+     * Adds user's bio to the resume
+     * @param user user of the application.
+     * @throws IOException
+     */
+    public void addBio(Person user) throws IOException {
+        setFont(FONT_OBLIQUE, HEADING_SIZE);
+        setColor(ACCENT_COLOR);
+        String bio = user.getDescription().toString();
+        centerAlign(bio);
+        contentStream.showText(bio);
+        contentStream.newLineAtOffset(resetX(), 0);
+        nextLine();
+    }
+
+    /**
      * Adds user's contact to the resume.
      * @param user user of the application.
      * @throws IOException
@@ -269,7 +285,7 @@ public class PdfBuilder {
         String major = "- " + user.getMajor();
         contentStream.showText(major);
         nextLine();
-        String cap = "- Cumulative Average Point: " + user.getCap();
+        String cap = "- Cumulative Average Point: " + user.getCap().toString();
         contentStream.showText(cap);
         nextLine();
         nextLine();

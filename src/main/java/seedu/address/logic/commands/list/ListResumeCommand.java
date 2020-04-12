@@ -12,6 +12,12 @@ import seedu.address.model.Model;
  */
 public class ListResumeCommand extends ListCommand {
 
+    /**
+     * Lists all resumes in {@code model}.
+     *
+     * @param model {@code Model} to retrieve all resumes.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

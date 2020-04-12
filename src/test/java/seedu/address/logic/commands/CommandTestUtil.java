@@ -2,17 +2,22 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CAP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FROM;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GITHUB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ITEM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LEVEL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TO;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_UNIVERSITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEBSITE;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -24,8 +29,7 @@ import seedu.address.model.Model;
  * Contains helper methods for testing commands.
  */
 public class CommandTestUtil {
-
-    public static final String VALID_DP_AMY = "/images/amy.jpg";
+    public static final String VALID_DP_AMY = "/images/amy.png";
     public static final String VALID_DP_BOB = "/images/bob.png";
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
@@ -55,6 +59,30 @@ public class CommandTestUtil {
     public static final String VALID_TAG_FRIEND = "friend";
 
     public static final String VALID_ITEM_INDEX = " " + 1;
+
+    // Person with prefixes
+    public static final String PREFIXED_DP_AMY = " " + PREFIX_DP + " " + VALID_DP_AMY;
+    public static final String PREFIXED_NAME_AMY = " " + PREFIX_NAME + " " + VALID_NAME_AMY;
+    public static final String PREFIXED_DESCRIPTION_AMY = " " + PREFIX_DESCRIPTION + " " + VALID_DESCRIPTION_AMY;
+    public static final String PREFIXED_PHONE_AMY = " " + PREFIX_PHONE + " " + VALID_PHONE_AMY;
+    public static final String PREFIXED_EMAIL_AMY = " " + PREFIX_EMAIL + " " + VALID_EMAIL_AMY;
+    public static final String PREFIXED_GITHUB_AMY = " " + PREFIX_GITHUB + " " + VALID_GITHUB_AMY;
+    public static final String PREFIXED_UNIVERSITY_AMY = " " + PREFIX_UNIVERSITY + " " + VALID_UNIVERSITY_AMY;
+    public static final String PREFIXED_MAJOR_AMY = " " + PREFIX_MAJOR + " " + VALID_MAJOR_AMY;
+    public static final String PREFIXED_FROM_AMY = " " + PREFIX_FROM + " " + VALID_FROM_AMY;
+    public static final String PREFIXED_TO_AMY = " " + PREFIX_TO + " " + VALID_TO_AMY;
+    public static final String PREFIXED_CAP_AMY = " " + PREFIX_CAP + " " + VALID_CAP_AMY;
+    public static final String PREFIXED_DP_BOB = " " + PREFIX_DP + " " + VALID_DP_BOB;
+    public static final String PREFIXED_NAME_BOB = " " + PREFIX_NAME + " " + VALID_NAME_BOB;
+    public static final String PREFIXED_DESCRIPTION_BOB = " " + PREFIX_DESCRIPTION + " " + VALID_DESCRIPTION_BOB;
+    public static final String PREFIXED_PHONE_BOB = " " + PREFIX_PHONE + " " + VALID_PHONE_BOB;
+    public static final String PREFIXED_EMAIL_BOB = " " + PREFIX_EMAIL + " " + VALID_EMAIL_BOB;
+    public static final String PREFIXED_GITHUB_BOB = " " + PREFIX_GITHUB + " " + VALID_GITHUB_BOB;
+    public static final String PREFIXED_UNIVERSITY_BOB = " " + PREFIX_UNIVERSITY + " " + VALID_UNIVERSITY_BOB;
+    public static final String PREFIXED_MAJOR_BOB = " " + PREFIX_MAJOR + " " + VALID_MAJOR_BOB;
+    public static final String PREFIXED_FROM_BOB = " " + PREFIX_FROM + " " + VALID_FROM_BOB;
+    public static final String PREFIXED_TO_BOB = " " + PREFIX_TO + " " + VALID_TO_BOB;
+    public static final String PREFIXED_CAP_BOB = " " + PREFIX_CAP + " " + VALID_CAP_BOB;
 
     // RESUME
     public static final String VALID_RESUME_NAME_SE = "Software Engineering Intern Resume";
@@ -156,7 +184,7 @@ public class CommandTestUtil {
     public static final String INVALID_UNIVERSITY = "here is an invalid university name that should exceed 50 chars";
     public static final String INVALID_MAJOR = "computer@science"; // only alphanumeric in major
     public static final String INVALID_CURRENT_CAP = "6.5"; // CAP should be from 0.0 to 5.0
-    public static final String INVALID_CAP = "4.0 10.0";
+    public static final String INVALID_CAP = "11.0 10.0"; // CAP exceeds the maximum CAP
     public static final String INVALID_NEGATIVE_MAX_CAP = "-1.0";
 
     // USER

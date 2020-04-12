@@ -39,7 +39,7 @@ public class AddInternshipCommand extends AddCommand {
             + PREFIX_TAG + "frontend "
             + PREFIX_TAG + "tech";
 
-    public static final String MESSAGE_FROM_TO_MISORDER = "\'from\' cannot be later than \'to\' field. ";
+    public static final String MESSAGE_FROM_TO_MISORDER = "'from' cannot be later than 'to' field. ";
 
     private final Internship toAdd;
 
@@ -51,6 +51,13 @@ public class AddInternshipCommand extends AddCommand {
         toAdd = internship;
     }
 
+    /**
+     * Adds {@code toAdd} internship to model.
+     *
+     * @param model {@code Model} which internship will be added.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     * @throws      CommandException if adding the model results in duplicate internships.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

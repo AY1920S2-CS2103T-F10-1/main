@@ -44,7 +44,7 @@ public class EditUserParser implements Parser<EditUserCommand> {
         }
 
         if (args.split(" ").length == 1) {
-            throw new ParseException((String.format(MESSAGE_INVALID_COMMAND_FORMAT, "Me Command has no value!!")));
+            throw new ParseException((String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditUserCommand.MESSAGE_NO_ARGS)));
         }
 
         EditUserDescriptor editUserDescriptor = new EditUserDescriptor();

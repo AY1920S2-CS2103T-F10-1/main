@@ -36,8 +36,7 @@ public class AddNoteCommand extends AddCommand {
     private final Note toAdd;
 
     /**
-     * Constructor.
-     * @param note is a Note.
+     * Creates an AddNoteCommand to add the specified {@code note}.
      */
     public AddNoteCommand(Note note) {
         requireNonNull(note);
@@ -45,10 +44,11 @@ public class AddNoteCommand extends AddCommand {
     }
 
     /**
-     * Add a Note to the list.
-     * @param model {@code Model} which the command should operate on.
-     * @return Command Result.
-     * @throws CommandException
+     * Adds {@code toAdd} note to model.
+     *
+     * @param model {@code Model} which note will be added.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     * @throws      CommandException if adding the model results in duplicate notes.
      */
     @Override
     public CommandResult execute(Model model) throws CommandException {

@@ -7,13 +7,13 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import seedu.address.logic.commands.Command;
 
 /**
- * Adds an Item to the address book.
+ * Adds an Item to the resume book.
  */
 public abstract class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an Item to the address book.\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an Item to the resume book.\n"
             + COMMAND_WORD + " "
             + PREFIX_ITEM + "TYPE "
             + PREFIX_NAME + "NAME "

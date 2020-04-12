@@ -65,6 +65,7 @@ public class EditUserCommand extends Command {
             + PREFIX_TO + "2022 "
             + PREFIX_CAP + "5.0 ";
 
+    public static final String MESSAGE_NO_ARGS = "You did not specify any arguments!";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited User Profile!";
     public static final String USER_NOT_EDITED = "User and edited User is the same!";
 
@@ -120,5 +121,12 @@ public class EditUserCommand extends Command {
         Cap cap = editUserDescriptor.getCap().orElse(toEdit.getCap());
 
         return new Person(displayPicture, name, description, phone, email, github, university, major, from, to, cap);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof EditUserCommand // instanceof handles nulls
+                && editUserDescriptor.equals(((EditUserCommand) other).editUserDescriptor));
     }
 }

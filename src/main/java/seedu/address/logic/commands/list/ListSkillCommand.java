@@ -11,6 +11,13 @@ import seedu.address.model.Model;
  * Command to list all Skills.
  */
 public class ListSkillCommand extends ListCommand {
+
+    /**
+     * Lists all skills in {@code model}.
+     *
+     * @param model {@code Model} to retrieve all skills.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

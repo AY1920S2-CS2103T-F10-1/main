@@ -17,6 +17,12 @@ public class FindResumeCommand extends FindCommand {
         super(predicate);
     }
 
+    /**
+     * Finds resumes to model according to {@code predicate}.
+     *
+     * @param model {@code Model} which command will search filter.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

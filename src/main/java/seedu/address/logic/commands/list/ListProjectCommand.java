@@ -11,6 +11,13 @@ import seedu.address.model.Model;
  * Command to list all Projects.
  */
 public class ListProjectCommand extends ListCommand {
+
+    /**
+     * Lists all projects in {@code model}.
+     *
+     * @param model {@code Model} to retrieve all projects.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

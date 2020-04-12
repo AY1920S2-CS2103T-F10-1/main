@@ -13,6 +13,12 @@ public class ExitCommand extends Command {
 
     public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting Resume Book as requested ...";
 
+    /**
+     * Exits the program.
+     *
+     * @param model {@code Model} not practically relevant in this command.
+     * @return      {@code CommandResult} that describes delete command for UI to close.
+     */
     @Override
     public CommandResult execute(Model model) {
         return new ExitCommandResult("Exiting", MESSAGE_EXIT_ACKNOWLEDGEMENT, model.getDisplayType());

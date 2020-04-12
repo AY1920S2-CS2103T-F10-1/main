@@ -12,6 +12,12 @@ import seedu.address.model.Model;
  */
 public class ListNoteCommand extends ListCommand {
 
+    /**
+     * Lists all notes in {@code model}.
+     *
+     * @param model {@code Model} to retrieve all notes.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);

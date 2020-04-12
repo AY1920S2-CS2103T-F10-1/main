@@ -37,6 +37,13 @@ public class AddResumeCommand extends AddCommand {
         toAdd = resume;
     }
 
+    /**
+     * Adds {@code toAdd} resume to model.
+     *
+     * @param model {@code Model} which resume will be added.
+     * @return      {@code CommandResult} that describes changes made when command execute runs successfully.
+     * @throws      CommandException if adding the model results in duplicate resumes.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
