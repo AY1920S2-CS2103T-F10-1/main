@@ -3,38 +3,39 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">ResuMe</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F10-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>ResuMe - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team F10-1</code>      Since: <code>Jan 2020</code></p>
+<p>By: <code>CS2103T F10-1</code>      Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#resume-edit-feature">3.1. Resume Edit feature</a></li>
-<li><a href="#implementation-of-code-command-code-classes">3.2. Implementation of <code>Command</code> classes</a></li>
-<li><a href="#me-feature">3.3. Me Feature</a></li>
-<li><a href="#export-resume-feature">3.4. Export Resume feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#resume-edit-feature">4.1. Resume Edit feature</a></li>
+<li><a href="#implementation-of-code-command-code-classes">4.2. Implementation of <code>Command</code> classes</a></li>
+<li><a href="#me-feature">4.3. Me Feature</a></li>
+<li><a href="#export-feature">4.4. Export Feature</a></li>
+<li><a href="#proposed-undo-redo-feature">4.5. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
@@ -52,7 +53,17 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This developer guide documents the system design and implementation of <strong>ResuMe</strong>. We hope that it would be a useful reference
+for software developers who wish to contribute to the project, or to simply gain deeper insight into our development process
+and considerations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -60,10 +71,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -165,7 +176,7 @@ The following class plays an important role at the architecture level:</p>
 <p>The figure above explains quite clearly how the input of the user is passed into the system through <code>Ui</code> that calls
 <code>Logic</code> to make changes in the <code>Model</code> and saves to <code>Storage</code>. However, it may not be immediately clear how the <code>Ui</code> is
 then updated to give visual feedback to the User. The updating of the Ui is actually done through a combination
-of observables and data passing through <code>commandResult</code>. Head to <a href="#Design-Ui">Section 2.2, &#8220;UI component&#8221;</a> to read more.</p>
+of observables and data passing through <code>commandResult</code>. Head to <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</a> to read more.</p>
 </div>
 <h4 id="how-the-architecture-components-interact-at-start-up" class="discrete">How the architecture components interact at start up</h4>
 <div class="paragraph">
@@ -182,7 +193,7 @@ of observables and data passing through <code>commandResult</code>. Head to <a h
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -216,7 +227,7 @@ of observables and data passing through <code>commandResult</code>. Head to <a h
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -269,10 +280,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="1000">
 </div>
 <div class="title">Figure 8. Structure of the Model Component</div>
 </div>
@@ -291,7 +302,14 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores the Resume Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Item&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>stores the Resume Book state using <code>VersionedResumeBook</code> to facilitate <code>undo</code>/<code>redo</code>.</p>
+</li>
+<li>
+<p>exposes an <code>Observable</code> that contains an internal <code>Person</code> with user&#8217;s data, and two unmodifiable <code>ObservableList&lt;Item&gt;</code>,
+one for <code>Note</code> and one for <code>Internship</code>, <code>Project</code>, <code>Skill</code> and <code>Resume</code>.</p>
+</li>
+<li>
+<p>has the UI bound to its observables so that the UI automatically updates when the data change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -305,7 +323,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Resume Book</code>, which <code>Item</code> can reference. This would allow <code>Resume Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Item</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>ResumeBook</code>, which <code>Item</code> can reference. This would allow <code>ResumeBook</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Item</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -314,7 +332,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Resume Book</
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -339,7 +357,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Resume Book</
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.resumebook.commons</code> package.</p>
 </div>
@@ -347,15 +365,15 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Resume Book</
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="resume-edit-feature"><a class="link" href="#resume-edit-feature">3.1. Resume Edit feature</a></h3>
+<h3 id="resume-edit-feature"><a class="link" href="#resume-edit-feature">4.1. Resume Edit feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.1.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The Resume Edit feature or <code>redit</code> allows users to edit which <code>Item</code> belongs to the <code>Resume</code> (for example, adding a <code>Skill</code> item or removing an <code>Internship</code> item).
 It is not to be confused with the <code>edit</code> command, which simply modifies the fields of an <code>Item</code>.</p>
@@ -417,7 +435,7 @@ Regardless of what the original content is, after running the command, the resum
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-whether-code-resumeeditcommand-code-should-extend-code-editcommand-code"><a class="link" href="#aspect-whether-code-resumeeditcommand-code-should-extend-code-editcommand-code">Aspect: Whether <code>ResumeEditCommand</code> should extend <code>EditCommand</code></a></h5>
 <div class="ulist">
@@ -468,9 +486,9 @@ Regardless of what the original content is, after running the command, the resum
 </div>
 </div>
 <div class="sect2">
-<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">3.2. Implementation of <code>Command</code> classes</a></h3>
+<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">4.2. Implementation of <code>Command</code> classes</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
 and <code>Project</code>.</p>
@@ -499,7 +517,7 @@ classes that inherits directly from <code>Command</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code"><a class="link" href="#aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code">Aspect: Whether to separate the <code>ABCCommand</code> that is dependent on type into many <code>ABCItemCommand</code></a></h5>
 <div class="paragraph">
@@ -567,7 +585,7 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="me-feature"><a class="link" href="#me-feature">3.3. Me Feature</a></h3>
+<h3 id="me-feature"><a class="link" href="#me-feature">4.3. Me Feature</a></h3>
 <div class="paragraph">
 <p>This feature allows a user to make changes and updates his/her user profile which is reflected by the user profile panel.
 At the same time, it also allows user to personalise his/her experience using the app with certain sub-features. They are
@@ -593,13 +611,13 @@ elaborated below:</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="edit-user-profile-image"><a class="link" href="#edit-user-profile-image">3.3.1. Edit User Profile Image</a></h4>
+<h4 id="edit-user-profile-image"><a class="link" href="#edit-user-profile-image">4.3.1. Edit User Profile Image</a></h4>
 <div class="paragraph">
 <p>This allows the specific user to input and update his/her user profile picture.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-user-main-data"><a class="link" href="#edit-user-main-data">3.3.2. Edit User Main Data</a></h4>
+<h4 id="edit-user-main-data"><a class="link" href="#edit-user-main-data">4.3.2. Edit User Main Data</a></h4>
 <div class="paragraph">
 <p>This allows one specific user to modify and update user information that includes <code>name</code>, <code>phone</code>, <code>email1</code>, <code>github</code>,
 <code>university</code>, <code>major</code>, <code>from</code>, <code>to</code>, <code>cap</code>.</p>
@@ -753,51 +771,51 @@ existing one and update the Model and Ui accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="store-and-display-motivational-quotes"><a class="link" href="#store-and-display-motivational-quotes">3.3.3. Store and Display Motivational Quotes</a></h4>
+<h4 id="store-and-display-motivational-quotes"><a class="link" href="#store-and-display-motivational-quotes">4.3.3. Store and Display Motivational Quotes</a></h4>
 <div class="paragraph">
 <p>This allows the user to input and store motivational quotes. They are then able to display them at the user profile pane.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-personal-reminders-and-take-notes"><a class="link" href="#set-personal-reminders-and-take-notes">3.3.4. Set Personal Reminders and Take Notes</a></h4>
+<h4 id="set-personal-reminders-and-take-notes"><a class="link" href="#set-personal-reminders-and-take-notes">4.3.4. Set Personal Reminders and Take Notes</a></h4>
 <div class="paragraph">
 <p>This allows the user to set reminders as well as taking notes for him/herself to further customize his/her interaction
 with the app.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="change-background-and-font-color"><a class="link" href="#change-background-and-font-color">3.3.5. Change Background and Font Color</a></h4>
+<h4 id="change-background-and-font-color"><a class="link" href="#change-background-and-font-color">4.3.5. Change Background and Font Color</a></h4>
 <div class="paragraph">
 <p>This allows the user to change the background and font color using rgb or hex color codes.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-resume-feature"><a class="link" href="#export-resume-feature">3.4. Export Resume feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">4.4. Export Feature</a></h3>
 <div class="paragraph">
-<p>The Export Resume feature supports two main actions: previewing the content of a <code>Resume</code> item, and
-then exporting it as a .pdf file.</p>
+<p>The Export Feature supports two main actions: previewing the content of a <code>Resume</code> item, and
+then generating a <code>.pdf</code> file from it.</p>
 </div>
 <div class="sect3">
-<h4 id="rpreview-preview-a-code-resume-code"><a class="link" href="#rpreview-preview-a-code-resume-code">3.4.1. rpreview: preview a <code>Resume</code></a></h4>
+<h4 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.4.1. Previewing a resume: <code>rpreview</code></a></h4>
 <div class="sect4">
 <h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
 <div class="paragraph">
-<p><code>rpreview</code> is supported by the new <code>Command</code>, <code>ResumePreviewCommand</code> and the additional method <code>Resume#getPreview()</code>
-which return the content of the <code>Resume</code> in textual format.</p>
+<p><code>rpreview</code> is supported by the new <code>Command</code>, <code>ResumePreviewCommand</code> and the additional method <code>toPreview()</code> implemented
+in <code>Internship</code>, <code>Project</code> and <code>Skill</code>, which return the content of the item in textual format.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario:</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the ResuMe application. After loading data from storage to the application memory, the list of
-resumes in the ResumeBook could either contain some resumes, or is empty.</p>
+<p>Step 1. The user launches the <strong>ResuMe</strong> application. After loading data from storage to the application memory, the list of
+<code>resumes</code> in the <code>ResumeBook</code> could either contain some resumes, or is empty.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>rpreview INDEX</code>. If the specified resume index is out of bound, ResuMe throws an error message.</p>
+<p>Step 2. The user executes <code>rpreview INDEX</code>. If the specified resume <code>INDEX</code> is out of bound, <strong>ResuMe</strong> throws an error message.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The application retrieves the correct <code>Resume</code> item and call <code>getPreview()</code> on that resume.</p>
+<p>Step 3. The application retrieves the correct <code>Resume</code> item and calls <code>toPreview()</code> on the items contained in that resume.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarises what happens when a user executes <code>rpreview</code> command:</p>
@@ -817,7 +835,21 @@ resumes in the ResumeBook could either contain some resumes, or is empty.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Display in the same panel as <code>view</code></p>
+<p><strong>Alternative 1 (current choice):</strong> Displays in a separate preview pop-up window.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The preview is separated from the application and does not clutter the application view. It is also no longer
+confined to a small space and hence improves readability.</p>
+</li>
+<li>
+<p>Cons: Additional non-command-line action needed to close the pop-up window after previewing.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Display in the same panel as <code>view</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -831,12 +863,13 @@ fix the typo and then check the preview again to ensure there is no more error.<
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Create a separate UI panel to display the resume preview. Additionally, this panel could be implemented
+<p><strong>Alternative 3:</strong> Create a separate preview box to display the resume preview. Additionally, this box could be implemented
 such that it automatically updates when the content of the <code>Resume</code> item is edited.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: User can see the resume preview and the item detail panels at the same time, hence saving time switching between views.</p>
+<p>Pros: User can see the resume preview in the preview box, and the item details in the view box at the same time,
+hence saving time switching between views.</p>
 </li>
 <li>
 <p>Cons: Too many panels could be confusing for the user to navigate. The space is also often wasted since user does not
@@ -850,38 +883,42 @@ need to use <code>rpreview</code> regularly.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Conclusion:</strong> Given that the application already has quite a number of panels (User Profile, Command Input,
-Command Result, Item Detail and List View), alternative 1 is chosen to minimise the layout and improve on user experience.
-The Command Result panel will display a confirmation message for any successful item edit, hence the user will not need
-to call <code>rpreview</code> after each edit, reducing the number of switches between views.</p>
+<p><strong>Conclusion:</strong> Given that the application already has quite a number of panels (User Box, Command Box, Result Box,
+View Box and List Box), alternative 1 is chosen to minimise the layout and improve on user experience.</p>
+</div>
+<div class="paragraph">
+<p>Every time the user makes an edit, the Result Box will display a confirmation message, and the View Box will shows the
+edited details. Hence, user will not need to call <code>rpreview</code> after each edit just to confirm that the command is
+successfully executed and error-free. As such, <code>rpreview</code> will not be a command that is used often, and the benefits of
+a clean UI outweighs the compromise made when additional action to close the pop-up window is required.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="rgen-generate-a-pdf-file-from-a-code-resume-code"><a class="link" href="#rgen-generate-a-pdf-file-from-a-code-resume-code">3.4.2. rgen: generate a .pdf file from a <code>Resume</code></a></h4>
+<h4 id="generating-a-code-pdf-code-file-from-a-resume-code-rgen-code"><a class="link" href="#generating-a-code-pdf-code-file-from-a-resume-code-rgen-code">4.4.2. Generating a <code>.pdf</code> file from a resume: <code>rgen</code></a></h4>
 <div class="sect4">
 <h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
 <div class="paragraph">
-<p>This feature utilises the external <strong>iText</strong> library. When using <code>rgen</code>, the user could specify the desired name of
+<p>This feature utilises the external <strong>Apache Pdf Box</strong> library. When using <code>rgen</code>, the user could specify the desired name of
 the generated file, which will be saved in the root directory of the project.</p>
 </div>
 <div class="paragraph">
-<p><code>rgen</code> implements the following operations:</p>
+<p>The executing of <code>rgen</code> is facilitated by an addition <code>PdfBuilder</code> class, which implements the following main operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>create(String)</code> and <code>create()</code> - initialises the .pdf file, either with the input <code>String</code> name specified by the user,
-or with the same name as the <code>Resume</code> name if the file name is not specified.</p>
+<p><code>addPage()</code> - starts a new page in the <code>.pdf</code> file. This method is called dynamically to fit the content of the resume
+to be generated.</p>
 </li>
 <li>
-<p><code>addSection(String)</code> - starts a new section with the <code>String</code> name (e.g. "Internship").</p>
+<p><code>addPersonalDetails()</code> - adds the relevant resume and user details to the <code>.pdf</code> file.</p>
 </li>
 <li>
-<p><code>populateSection(UniqueItemList)</code> and <code>insertItem(Item)</code> - populates the section with items in the same order as they
-are in the <code>UniqueItemList</code>. When an <code>Item</code> is inserted, it is correctly formatted depending on the item type.</p>
+<p><code>addInternships()</code>, <code>addProjects()</code> and <code>addSkills()</code> - adds the resume content to the <code>.pdf</code> file in the same
+order that they appear in the resume. If a section is empty, it will not be added to the output file.</p>
 </li>
 </ul>
 </div>
@@ -889,15 +926,14 @@ are in the <code>UniqueItemList</code>. When an <code>Item</code> is inserted, i
 <p>Given below is an example usage scenario:</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches ResuMe. After loading data from storage to the application memory, the list of resumes in the
-ResumeBook could either contain some resumes, or is empty.</p>
+<p>Step 1. The user launches <strong>ResuMe</strong>. After loading data from storage to the application memory, the list of <code>resumes</code> in the
+<code>ResumeBook</code> could either contain some resumes, or is empty.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>rgen INDEX n/ FILE_NAME</code>. If the specified resume index is out of bound,
-ResuMe throws an error message.</p>
+<p>Step 2. The user executes <code>rgen INDEX n/ FILE_NAME</code>. If the specified resume <code>INDEX</code> is out of bound, <strong>ResuMe</strong> throws an error message.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The application retrieves the correct <code>Resume</code> item, create a new .pdf file and populates it with the corresponding
+<p>Step 3. The application retrieves the correct <code>Resume</code> item, create a new <code>.pdf</code> file and populates it with the corresponding
 items inside the <code>Resume</code>.</p>
 </div>
 <div class="paragraph">
@@ -919,13 +955,13 @@ items inside the <code>Resume</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.4.3. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.4.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-rgen-code-executes"><a class="link" href="#aspect-how-code-rgen-code-executes">Aspect: How <code>rgen</code> executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Generate .pdf file by iteratively reading and inserting details of <code>Item</code> from inside the <code>Resume</code> itself.</p>
+<p><strong>Alternative 1 (current choice):</strong> Generate <code>.pdf</code> file by iteratively adding <code>items</code> contained in <code>resume</code>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -940,16 +976,16 @@ consistent with any item update.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Generate .pdf file directly from the previewed text output by <code>rpreview</code></p>
+<p><strong>Alternative 2:</strong> Generate <code>.pdf</code> file directly from the previewed text output by <code>rpreview</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Faster <code>rgen</code></p>
+<p>Pros: Faster and simpler <code>rgen</code></p>
 </li>
 <li>
-<p>Cons: Limited formatting options (font and font size at most) since the whole document is input as one long string.
-<code>rgen</code> implemented this way is also static, and might not reflect the most updated content if there are item changes
-after <code>rpreview</code> is called.</p>
+<p>Cons: Limited formatting options (font type, font size and page layout) since the whole document is now input as one
+long string of text. <code>rgen</code> implemented this way is also static, and might not reflect the most updated content
+if there are item changes after <code>rpreview</code> is called.</p>
 </li>
 </ul>
 </div>
@@ -966,16 +1002,13 @@ extended features (e.g. allow user to choose from a variety of pre-defined resum
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>end::export[]</p>
-</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.5. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">4.5. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.5.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedResumeBook</code>.
 It extends <code>ResumeBook</code> with an undo/redo history, stored internally as an <code>ResumeBookStateList</code> and <code>currentStatePointer</code>.
@@ -1117,7 +1150,7 @@ If the <code>currentStatePointer</code> is at index <code>resumeBookStateList.si
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1192,20 +1225,20 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1236,7 +1269,7 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1244,7 +1277,7 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -1252,7 +1285,7 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -1260,7 +1293,7 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -1749,4 +1782,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 17:22:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 19:12:01 UTC</div></div></div></body></html>
