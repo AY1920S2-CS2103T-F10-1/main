@@ -518,6 +518,18 @@ To view items in full details, use <code>view</code>.
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The type of items listed will light up in orange.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>Examples:</strong></p>
 </div>
@@ -526,10 +538,20 @@ To view items in full details, use <code>view</code>.
 <li>
 <p><code>list i/ res</code>
 Lists all <code>resume</code> items.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListAllResumes.png" alt="ListAllResumes" width="450">
+</div>
+</div>
 </li>
 <li>
-<p><code>list i/ proj</code>
-Lists all project items.</p>
+<p><code>list i/ int</code>
+Lists all internship items.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListAllInternships.png" alt="ListAllInternships" width="450">
+</div>
+</div>
 </li>
 </ul>
 </div>
@@ -1349,23 +1371,59 @@ once again removed from our life.</p>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Example:</strong></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>description</code> of <code>internship</code> and <code>project</code> is automatically separated into bullet points when the program detects full sentences.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
+<p><strong>Example:</strong> Let&#8217;s try out the following commands!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ res</code></p>
+</li>
+<li>
 <p><code>rpreview 2</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
-<div class="paragraph">
-<p>Suppose the <code>resume</code> at index 2 is named "Summer Internship". A pop-up window will be opened,
-featuring a text-based view of the content of "Summer Internship".</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all <code>resumes</code>. Assuming that you want to preview the second <code>resume</code> in the list box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListResumeRPreview.png" alt="ListResumeRPreview" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>The second command will preview the <code>resume</code> at index 2 named "Software Engineering". A pop-up window will be opened,
+featuring a text-based view of the content of "Software Engineering". The screenshots of the results are as shown below:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/RPreview.png" alt="RPreview" width="790">
+</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/RPreviewSummerInternship.png" alt="RPreviewSummerInternship" width="790">
+<img src="images/RPreviewIndex2.png" alt="RPreviewIndex2" width="790">
 </div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -1468,7 +1526,19 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 <div class="sect2">
 <h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">4.15. Clearing all data: <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all data from <strong>ResuMe</strong>.</p>
+<p>Clears all data from <strong>ResuMe</strong>. Empties all data in the resume book, user information is replaced with default user information.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command can be undone.
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1476,18 +1546,6 @@ will be located in the same folder as the application <code>.jar</code> file.</p
 <p><strong>Format:</strong> <code>clear</code></p>
 </div>
 </div>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-This command cannot be undone. Please be careful when exercising this power.
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -1708,4 +1766,4 @@ file created with the data file of your <strong>ResuMe</strong> folder in the cu
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:24:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:44:34 UTC</div></div></div></body></html>

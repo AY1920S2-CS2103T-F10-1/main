@@ -153,13 +153,19 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1 i/ ski</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1 i/ ski</code>, delete skill at index 1.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
 <div class="title">Figure 3. Component interactions for <code>delete 1 i/ ski</code> command</div>
+</div>
+<div class="paragraph">
+<p>The figure above explains quite clearly how the input of the user is passed into the system through <code>Ui</code> that calls
+<code>Logic</code> to make changes in the <code>Model</code> and saves to <code>Storage</code>. However, it may not be immediately clear how the <code>Ui</code> is
+then updated to give visual feedback to the User. The updating of the Ui is actually done through a combination
+of observables and data passing through <code>commandResult</code>. Head to <a href="#Design-Ui">Section 2.2, &#8220;UI component&#8221;</a> to read more.</p>
 </div>
 <h4 id="how-the-architecture-components-interact-at-start-up" class="discrete">How the architecture components interact at start up</h4>
 <div class="paragraph">
@@ -470,14 +476,20 @@ Regardless of what the original content is, after running the command, the resum
 and <code>Project</code>.</p>
 </div>
 <div class="paragraph">
-<p>Commands that are dependent on item <code>Type</code>, namely <code>EditCommand</code>, <code>AddCommand</code>, <code>DeleteCommand</code>, <code>FindCommand</code>,
-<code>ListCommand</code>, and <code>ViewCommand</code> are implemented as abstract classes that inherits from <code>Command</code> and would have a
+<p>Commands that are dependent on item <code>Type</code>, namely <code>AddCommand</code>, <code>DeleteCommand</code>, <code>EditCommand</code>, <code>FindCommand</code>,
+<code>ListCommand</code>, <code>SortCommand</code>, and <code>ViewCommand</code> are implemented as abstract classes that inherits from <code>Command</code> and would have a
 concrete classes that corresponds to each item <code>Type</code>. For example, <code>AddCommand</code> is an abstract class that
 <code>AddInternshipCommand</code> and <code>AddSkillCommand</code> inherits from.</p>
 </div>
 <div class="paragraph">
-<p>Commands that are not dependent on item <code>Type</code> (eg. <code>EditUserCommand</code>, <code>HelpCommand</code>) are implemented as concrete
-classes that inherits from <code>Command</code>.</p>
+<p>Commands that are not dependent on item <code>Type</code> (eg. <code>EditUserCommand</code>, <code>ResumeEditCommand</code>) are implemented as concrete
+classes that inherits directly from <code>Command</code>.</p>
+</div>
+<div class="paragraph">
+<p>From this point onwards, for the sake of clarity in our discussion, commands that are dependent on type will be called <code>ABCCommand</code> whereas those who are independent of type will be called <code>XYZCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following is the class diagram for <code>Command</code> and its subclasses.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -490,24 +502,43 @@ classes that inherits from <code>Command</code>.</p>
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code"><a class="link" href="#aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code">Aspect: Whether to separate the <code>ABCCommand</code> that is dependent on type into many <code>ABCItemCommand</code></a></h5>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> <code>ABCCommand</code> is separated into many <code>ABCItemCommand</code>. Parser will parse user input and create the exact <code>ABCItemCommand</code>.
+The following is the activity diagram for execution of <code>AddResumeCommand</code> when the user adds a resume.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddResumeCommandActivityDiagram.png" alt="AddResumeCommandActivityDiagram">
+</div>
+<div class="title">Figure 11. Activity diagram for execution of <code>AddResumeCommand</code></div>
+</div>
+<div class="paragraph">
+<p>This leads to a cleaner execution method of each ABCItemCommand as each command class has a clear goal.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong> Alternative 1 (current choice):</strong> <code>ABCCommand</code> is separated into many <code>ABCItemCommand</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More OOP. Flexible behaviour of <code>ABCItemCommand</code> and can be easily changed as required. No
-casing required. Each <code>ABCItemCommand</code> has it&#8217;s own and distinct functionality.</p>
+<p>Pros: More OOP. Each <code>ABCItemCommand</code> has its own and distinct functionality. Each <code>ABCItemCommand</code> has more flexible behaviour and can be easily changed as required.</p>
 </li>
 <li>
 <p>Cons: Many classes have to be maintained.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong> Alternative 2: </strong> Do not separate <code>ABCCommand</code>.</p>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> <code>ABCCommand</code> is not separated into many <code>ABCItemCommand</code>.
+The following is the activity diagram for execution of <code>AddCommand</code> when the user adds a resume.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddCommandActivityDiagram.png" alt="AddCommandActivityDiagram">
+</div>
+<div class="title">Figure 12. Activity diagram for execution of <code>AddCommand</code></div>
+</div>
+<div class="paragraph">
+<p>Implementing <code>ABCCommand</code> this way forces execute to be switch-cased.
+Functionality of execute would vary depending on the item <code>Type</code>.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -517,9 +548,6 @@ casing required. Each <code>ABCItemCommand</code> has it&#8217;s own and distinc
 <p>Cons: Long <code>execute</code> method due to the need for handling the different item types. Item <code>Type</code> would also need to be stored.
 Undesirable variable functionality of <code>execute</code> command depending on the <code>Type</code> field despite it being from the same class.
 ie. <code>AddItem</code> can add <code>Internship</code> to the <code>Internship</code> list, or add <code>Skill</code> to <code>Skill</code> list.</p>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
@@ -1721,4 +1749,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 10:24:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:44:34 UTC</div></div></div></body></html>
