@@ -241,7 +241,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditListRes.png" alt="List" width="442" height="337">
+<img src="../images/ReditListRes.png" alt="ReditListRes" width="790">
 </div>
 </div>
 </li>
@@ -250,7 +250,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <code>project</code> item at index 1, and <code>skill</code> items at indices 1 and 2. The following screenshot illustrates what happens after this command:</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditAddIntoResume.png" alt="AddIntoResume" width="442" height="337">
+<img src="../images/ReditAddIntoResume.png" alt="ReditAddIntoResume" width="790">
 </div>
 </div>
 </li>
@@ -266,9 +266,17 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <p>Before you try this example, ensure you have added at least one <code>internship</code> and three <code>skill</code> items. You may verify for their presence by using the <code>list</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Type in these commands:
-. <code>list i/ res</code>
-. <code>redit 1 int/ 1 proj/ ski/ 3</code></p>
+<p>Type in these commands:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ res</code></p>
+</li>
+<li>
+<p><code>redit 1 int/ 1 proj/ ski/ 3</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
@@ -279,7 +287,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box. Since we are following from example 1, the "Winter 2019" <code>resume</code> would already have some items in it.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditListRes2.png" alt="List" width="442" height="337">
+<img src="../images/ReditListRes2.png" alt="ReditListRes2" width="790">
 </div>
 </div>
 </li>
@@ -287,7 +295,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <p>Before the second command, the <code>resume</code> contains the same set of items as the one in example 1. The command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> now still contains the <code>internship</code> item at index 1, no <code>project</code> items, and <code>skill</code> item at index 3. The following screenshot illustrates what happens after this command:</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditWantSomeThings.png" alt="WantSomeThings" width="442" height="337">
+<img src="../images/ReditWantSomeThings.png" alt="ReditWantSomeThings" width="790">
 </div>
 </div>
 </li>
@@ -306,9 +314,17 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <p>Before you try out this example, ensure you have at least two <code>project</code> items.</p>
 </div>
 <div class="paragraph">
-<p>Type in these commands:
-. <code>list i/ res</code>
-. <code>redit 1 proj/ 2</code></p>
+<p>Type in these commands:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ res</code></p>
+</li>
+<li>
+<p><code>redit 1 proj/ 2</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
@@ -319,7 +335,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box. Since we are following from example 2, the "Winter 2019" <code>resume</code> would already have some items in it.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditListRes3.png" alt="List" width="442" height="337">
+<img src="../images/ReditListRes3.png" alt="ReditListRes3" width="790">
 </div>
 </div>
 </li>
@@ -327,7 +343,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <p>Before the second command, the <code>resume</code> contains the same set of items as the one in example 2. The command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> will now contain the the <code>project</code> item at index 2. The <code>internship</code> and <code>skill</code> items remain unchanged. The following screenshot illustrates what happens after this command:</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditKeepSomeThings.png" alt="KeepSomeThings" width="442" height="337">
+<img src="../images/ReditKeepSomeThings.png" alt="ReditKeepSomeThings" width="790">
 </div>
 </div>
 </li>
@@ -346,7 +362,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 <div class="sect2">
 <h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">Pulling tagged items into the resume: <code>tagpull</code></a></h3>
 <div class="paragraph">
-<p>Pull the <code>Internship</code>, <code>Project</code> and <code>Skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
+<p>Pull all the <code>Internship</code>, <code>Project</code> and <code>Skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -368,30 +384,88 @@ This command does not remove items from the <code>resume</code> and will add ite
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Example 1:</strong></p>
+<p><strong>Example 1: Pulling items using one tag</strong></p>
 </div>
 <div class="paragraph">
-<p><code>tagpull 1 #/ tech</code></p>
+<p>Before you try this example, ensure you have added some items with the tag <code>SE</code>. You may verify for their presence by using the <code>list</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Type in these commands:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ res</code></p>
+</li>
+<li>
+<p><code>tagpull 1 #/ SE</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
-<div class="paragraph">
-<p>The <code>resume</code> at index 1 is modified. On top of the existing items, all <code>internship</code>, <code>project</code>, and <code>skill</code> items with
-the tag <code>tech</code> are added into the <code>resume</code>.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ReditListRes.png" alt="ReditListRes" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>The second command pulls all items which has <code>SE</code> as the tag into the <code>resume</code> at index 1, named "Winter 2019". The following screenshot illustrates the outcome of the command if we have 1 <code>internship</code> item and 2 <code>project</code> items tagged with <code>SE</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagPullOneTag.png" alt="TagPullOneTag" width="790">
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p><strong>Example 2:</strong></p>
+<p><strong>Example 2: Pulling items using multiple tags</strong></p>
 </div>
 <div class="paragraph">
-<p><code>tagpull 2 #/ tech #/ frontend</code></p>
+<p>Before you try this example, ensure you have added some items with the tag <code>SE</code> and/or <code>github</code>. You may verify for their presence by using the <code>list</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Type in these commands:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ res</code></p>
+</li>
+<li>
+<p><code>tagpull 1 #/ SE #/ github</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
-<div class="paragraph">
-<p>The <code>resume</code> at index 2 is modified. On top of the existing items, all <code>internship</code>, <code>project</code>, and <code>skill</code> items with
-either the tag <code>tech</code> or <code>frontend</code> are added into the <code>resume</code>.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ReditListRes.png" alt="ReditListRes" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>The second command pulls all items which has <code>SE</code> <em>or</em> <code>github</code> as the tag into the <code>resume</code> at index 1, named "Winter 2019". The following screenshot illustrates the outcome of the command if we have 1 <code>internship</code> item and 2 <code>project</code> items tagged with <code>SE</code>, and 1 <code>skill</code> item tagged with <code>github</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagPullMultiTags.png" alt="TagPullMultiTags" width="790">
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>{end of extract 2}</p>
@@ -767,4 +841,4 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:05:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:24:18 UTC</div></div></div></body></html>
