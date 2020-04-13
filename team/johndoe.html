@@ -164,7 +164,7 @@
 <p>Deleting an item will set the list box to display items of that type.</p>
 </li>
 <li>
-<p>All <code>resumes</code> that contain the deleted item will also be updated to reflect the change.</p>
+<p>All <code>resume</code> items that contain the deleted item will also be updated to reflect the change.</p>
 </li>
 </ul>
 </div>
@@ -191,7 +191,8 @@ correct <code>index</code> for deletion. Or just fall back on <code>undo</code> 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Suppose we start with the following original list of <code>resumes</code>, as seen using the command <code>list i/ res</code>.</p>
+<p>Suppose we start with the following original list of <code>resume</code> items, as seen using the command <code>list i/ res</code>. Pay attention
+to the second <code>resume</code> item.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="790">
@@ -207,8 +208,8 @@ correct <code>index</code> for deletion. Or just fall back on <code>undo</code> 
 </div>
 </li>
 <li>
-<p>Delete the 3rd <code>skill</code> with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display <code>skills</code> for
-deletion to proceed.</p>
+<p>Delete the 3rd <code>skill</code> with <code>delete 3 i/ ski</code> . Do note how it is not a must for the list box to display <code>skill</code> items for
+deletion to proceed. After the deletion the list box is set to show <code>skill</code> items.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DeleteSkill3.png" alt="DeleteSkill3" width="790">
@@ -263,8 +264,8 @@ Additionally, it implements the following operations:</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time. The <code>VersionedResumeBook</code> will be initialized with the initial resume book state, and the <code>currentStatePointer</code> pointing to that single resume book state.
-Do note that all resume books begin with an empty string set for display type. Display type of a resume book lets it know
-what item list to show.</p>
+Do note that all resume books begin with its display type set to an empty string. Display type of a resume book determines which item
+list will be selected for display (e.g. if the display type is "res" - an alias for resume, then the list of all resumes will be selected).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -377,7 +378,7 @@ while the resume book state pointed to by the <code>currentStatePointer</code> s
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>sort i/ ski order/ name</code>, which calls <code>Model#commitResumeBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>resumeBookStateList</code>, all resume book states after the <code>currentStatePointer</code> will be purged.
-We designed it this way because it no longer makes sense to redo the <code>add i/ ski &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+We designed it this way because it no longer makes sense to redo the <code>add i/ int &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -421,7 +422,7 @@ We designed it this way because it no longer makes sense to redo the <code>add i
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command is correct. It is further complicated by the fact that
-there is an <code>add</code>, <code>delete</code>, and <code>edit</code> command for each of item type. Also, Separation of Concerns Principle is violated as in essence, the <code>undo()</code> method of a command
+there is an <code>add</code>, <code>delete</code>, <code>edit</code>, and <code>sort</code> command for each item type. Also, Separation of Concerns Principle is violated as in essence, the <code>undo()</code> method of a command
 is doing more than what the command is responsible for, e.g. undoing a <code>delete</code> command is essentially performing an <code>add</code> command.</p>
 </li>
 </ul>
@@ -442,7 +443,8 @@ is doing more than what the command is responsible for, e.g. undoing a <code>del
 <p>Pros: Very straightforward. Developers, even the novice ones, can easily understand and pick up if they wish to improve upon our application.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedResumeBook</code>.</p>
+<p>Cons: We need handle the <code>currentStatePointer</code> accurately; this is further complicated as we also need to reach to the undone
+resume book state to retrieve the correct display type for the current resume book.</p>
 </li>
 </ul>
 </div>
@@ -531,4 +533,4 @@ is still present if we store the encryption key in the same machine.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:52:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:05:51 UTC</div></div></div></body></html>
