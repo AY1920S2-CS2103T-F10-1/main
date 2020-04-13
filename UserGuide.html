@@ -37,7 +37,7 @@
 <li><a href="#sorting-an-item-list-code-sort-code">4.8. Sorting an item list : <code>sort</code></a></li>
 <li><a href="#viewing-an-item-in-details-code-view-code">4.9. Viewing an item in details: <code>view</code></a></li>
 <li><a href="#modifying-the-content-a-resume-code-redit-code">4.10. Modifying the content a resume: <code>redit</code></a></li>
-<li><a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.11. Pulling tagged items into the resume: <code>tagpull</code></a></li>
+<li><a href="#pulling-tagged-items-into-a-resume-code-tagpull-code">4.11. Pulling tagged items into a resume: <code>tagpull</code></a></li>
 <li><a href="#undoing-a-command-code-undo-code">4.12. Undoing a command: <code>undo</code></a></li>
 <li><a href="#redoing-a-command-code-redo-code">4.13. Redoing a command: <code>redo</code></a></li>
 <li><a href="#previewing-a-resume-code-rpreview-code">4.14. Previewing a resume: <code>rpreview</code></a></li>
@@ -87,8 +87,8 @@ and job application woes.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
-<col style="width: 10%;">
 <col style="width: 20%;">
+<col style="width: 10%;">
 <col style="width: 60%;">
 </colgroup>
 <thead>
@@ -316,17 +316,17 @@ e.g. typing <strong><code>help start</code></strong> and pressing <kbd>Enter</kb
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong><code>i/ res</code> : lists all <code>resume</code> items.</p>
+<p><code>list i/ res</code> : lists all <code>resume</code> items.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>i/ res n/ Software Engineering Resume #/ SE #/ frontend</code>: adds a <code>resume</code> named <code>Software Engineering Resume</code>
+<p><code>add i/ res n/ Software Engineering Resume #/ SE #/ frontend</code>: adds a <code>resume</code> named <code>Software Engineering Resume</code>
 with <code>tags</code> <em>"SE"</em> and <em>"frontend"</em>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>1 i/ res</code> : deletes the 1st <code>resume</code> shown in the resume list.</p>
+<p><code>delete 1 i/ res</code> : deletes the 1st <code>resume</code> shown in the resume list.</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : exits the app.</p>
+<p><code>exit</code> : exits the app.</p>
 </li>
 </ul>
 </div>
@@ -1425,7 +1425,7 @@ Certain details of specific items, for example the <code>website</code> and <cod
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you find it a hassle to manually enter items into the <code>resume</code>, you can consider using <a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">tagpull</a>!
+If you find it a hassle to manually enter items into the <code>resume</code>, you can consider using <a href="#pulling-tagged-items-into-a-resume-code-tagpull-code">tagpull</a>!
 </td>
 </tr>
 </table>
@@ -1598,7 +1598,7 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 </div>
 </div>
 <div class="sect2">
-<h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.11. Pulling tagged items into the resume: <code>tagpull</code></a></h3>
+<h3 id="pulling-tagged-items-into-a-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-a-resume-code-tagpull-code">4.11. Pulling tagged items into a resume: <code>tagpull</code></a></h3>
 <div class="paragraph">
 <p>Pulls all the <code>internship</code>, <code>project</code> and <code>skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
 </div>
@@ -2390,4 +2390,4 @@ file created with the data file of your <strong>ResuMe</strong> folder in the cu
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:09:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:29:59 UTC</div></div></div></body></html>
