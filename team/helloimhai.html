@@ -143,9 +143,13 @@ to update and give visual feedback to users.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>{Start of extract 1: Introduction}
-== Introduction</p>
+<p>{Start of extract 1: Introduction}<br></p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Hello fellow University friends! Have you ever found writing resumes
 for job and internship applications a hassle? Have you ever dreamt about
@@ -163,9 +167,10 @@ and job application woes.</p>
 <p>{End of extract 1: Introduction}</p>
 </div>
 <div class="paragraph">
-<p>{Start of extract 2: List Command}
-=== Listing all items : <code>list</code></p>
+<p>{Start of extract 2: List Command}<br></p>
 </div>
+<div class="sect2">
+<h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">Listing all items : <code>list</code></a></h3>
 <div class="paragraph">
 <p>Lists items in the storage.</p>
 </div>
@@ -236,9 +241,11 @@ Lists all note items.</p>
 <p>{End of extract 2: List Command}</p>
 </div>
 <div class="paragraph">
-<p>{Start of extract 3: Resume Preview Command}
-=== Previewing a resume: <code>rpreview</code></p>
+<p>{Start of extract 3: Resume Preview Command}<br></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">Previewing a resume: <code>rpreview</code></a></h3>
 <div class="paragraph">
 <p>Previews a <code>resume</code> in text format in a pop-up window.</p>
 </div>
@@ -316,7 +323,8 @@ featuring a text-based view of the content of "Software Engineering". The screen
 <p>{End of extract 3: Resume Preview Command}</p>
 </div>
 <div class="paragraph">
-<p>{Start of extract 4: Clear Command}</p>
+<p>{Start of extract 4: Clear Command}<br></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">Clearing all data: <code>clear</code></a></h3>
@@ -346,12 +354,16 @@ This command can be undone.
 <p>{Start of extract 4: Clear Command}</p>
 </div>
 <div class="paragraph">
-<p>{Start of extract 5: Command Summary}
-== Command Summary</p>
+<p>{Start of extract 5: Command Summary}<br></p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This is a summary of all available commands for your reference.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="general-commands"><a class="link" href="#general-commands">General commands</a></h3>
@@ -540,96 +552,7 @@ This command can be undone.
 </tbody>
 </table>
 <div class="paragraph">
-<p>{Start of extract 1: Overall Architecture}</p>
-</div>
-<div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">Architecture</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
-</div>
-<div class="title">Figure 1. Architecture Diagram</div>
-</div>
-<div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="{repoURL}/docs/diagrams/">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><code>Main</code> has two classes called <a href="{repoURL}/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="{repoURL}/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
-</li>
-<li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
-The following class plays an important role at the architecture level:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The rest of the App consists of four components.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
-</li>
-<li>
-<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
-</li>
-<li>
-<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
-</li>
-<li>
-<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each of the four components</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
-</li>
-<li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
-</div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+<p>{Start of extract 1: Overall Architecture}<br></p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
@@ -639,13 +562,14 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="../images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1 i/ ski</code> command</div>
+<div class="title">Figure 1. Component interactions for <code>delete 1 i/ ski</code> command</div>
 </div>
 <div class="paragraph">
 <p>The figure above explains quite clearly how the input of the user is passed into the system through <code>Ui</code> that calls
 <code>Logic</code> to make changes in the <code>Model</code> and saves to <code>Storage</code>. However, it may not be immediately clear how the <code>Ui</code> is
 then updated to give visual feedback to the User. The updating of the Ui is actually done through a combination
-of observables and data passing through <code>commandResult</code>. Head to <a href="#UI component">[UI component]</a> to read more.</p>
+of observable items, lists, and updating of the Ui with data passed through <code>commandResult</code>.
+Head to <a href="#UI component">[UI component]</a> to read more.</p>
 </div>
 <h4 id="how-the-architecture-components-interact-at-start-up" class="discrete">How the architecture components interact at start up</h4>
 <div class="paragraph">
@@ -655,7 +579,7 @@ of observables and data passing through <code>commandResult</code>. Head to <a h
 <div class="content">
 <img src="../images/ArchitectureInitSequenceDiagram.png" alt="ArchitectureInitSequenceDiagram">
 </div>
-<div class="title">Figure 4. Component interactions for initialisation</div>
+<div class="title">Figure 2. Component interactions for initialisation</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -664,10 +588,14 @@ of observables and data passing through <code>commandResult</code>. Head to <a h
 <p>{End of extract 1: Overall Architecture}</p>
 </div>
 <div class="paragraph">
-<p>{Start of extract 2: Implementation of Command Classes}
-=== Implementation of <code>Command</code> classes
-==== Current Implementation
-Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
+<p>{Start of extract 2: Implementation of Command Classes}<br></p>
+</div>
+<div class="sect2">
+<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">Implementation of <code>Command</code> classes</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
 and <code>Project</code>.</p>
 </div>
 <div class="paragraph">
@@ -690,7 +618,8 @@ classes that inherits directly from <code>Command</code>.</p>
 <div class="content">
 <img src="../images/CommandClassDiagram.png" alt="CommandClassDiagram">
 </div>
-<div class="title">Figure 5. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
+<div class="title">Figure 3. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
@@ -704,7 +633,7 @@ The following is the activity diagram for execution of <code>AddResumeCommand</c
 <div class="content">
 <img src="../images/AddResumeCommandActivityDiagram.png" alt="AddResumeCommandActivityDiagram" width="450">
 </div>
-<div class="title">Figure 6. Activity diagram for execution of <code>AddResumeCommand</code></div>
+<div class="title">Figure 4. Activity diagram for execution of <code>AddResumeCommand</code></div>
 </div>
 <div class="paragraph">
 <p>This leads to a cleaner execution method of each ABCItemCommand as each command class has a clear goal.</p>
@@ -727,7 +656,7 @@ The following is the activity diagram for execution of <code>AddCommand</code> w
 <div class="content">
 <img src="../images/AddCommandActivityDiagram.png" alt="AddCommandActivityDiagram" width="350">
 </div>
-<div class="title">Figure 7. Activity diagram for execution of <code>AddCommand</code></div>
+<div class="title">Figure 5. Activity diagram for execution of <code>AddCommand</code></div>
 </div>
 <div class="paragraph">
 <p>Implementing <code>ABCCommand</code> this way forces execute to be switch-cased.
@@ -758,7 +687,7 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>{End of extract 2: Implementation of Command Classes}</p>
+<p>{End of extract 2: Implementation of Command Classes}<br></p>
 </div>
 <div class="paragraph">
 <p>{Start of extract 3: User Stories}</p>
@@ -871,7 +800,7 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 <p>{End of extract 3: User Stories}</p>
 </div>
 <div class="paragraph">
-<p>{Start of extract 3: User Stories}</p>
+<p>{Start of extract 3: User Stories}<br></p>
 </div>
 </div>
 </div>
@@ -912,7 +841,7 @@ Expected: You are supposed to see this GUI, with default values for user details
 <div class="content">
 <img src="../images/InitOpen.png" alt="InitOpen">
 </div>
-<div class="title">Figure 8. Initial view when jar file runs</div>
+<div class="title">Figure 6. Initial view when jar file runs</div>
 </div>
 </li>
 </ol>
@@ -921,7 +850,7 @@ Expected: You are supposed to see this GUI, with default values for user details
 <div class="content">
 <img src="../images/InitListResumes.png" alt="InitListResumes">
 </div>
-<div class="title">Figure 9. Expected view after running the command <code>list i/ res</code> to show all resumes</div>
+<div class="title">Figure 7. Expected view after running the command <code>list i/ res</code> to show all resumes</div>
 </div>
 </li>
 <li>
@@ -1043,14 +972,16 @@ Expected: Similar to previous.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Simlar to deleting skills above, please make sure that you follow our User Guide for the correct formatting of the
-commands if you are expecting a positive test case.
-{End of extract 3: User Stories}</p>
+commands if you are expecting a positive test case.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>{End of extract 3: User Stories}</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:29:28 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:55:07 UTC</div></div></div></body></html>
