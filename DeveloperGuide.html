@@ -24,13 +24,14 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#resume-edit-feature">4.1. Resume Edit feature</a></li>
-<li><a href="#implementation-of-code-command-code-classes">4.2. Implementation of <code>Command</code> classes</a></li>
-<li><a href="#me-feature">4.3. Me Feature</a></li>
-<li><a href="#export-feature">4.4. Export Feature</a></li>
-<li><a href="#proposed-undo-redo-feature">4.5. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+<li><a href="#tag-pull-feature">4.2. Tag Pull feature</a></li>
+<li><a href="#implementation-of-code-command-code-classes">4.3. Implementation of <code>Command</code> classes</a></li>
+<li><a href="#me-feature">4.4. Me Feature</a></li>
+<li><a href="#export-feature">4.5. Export Feature</a></li>
+<li><a href="#proposed-undo-redo-feature">4.6. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -372,65 +373,89 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>ResumeBook</c
 </div>
 <div class="sect2">
 <h3 id="resume-edit-feature"><a class="link" href="#resume-edit-feature">4.1. Resume Edit feature</a></h3>
+<div class="paragraph">
+<p>The Resume Edit feature or <code>redit</code> allows user to modify the <code>Item</code> contents of a <code>Resume</code> (for example, adding a <code>Skill</code> item or removing an <code>Internship</code> item). It is not to be confused with the <code>edit</code> command, which simply modifies the fields of an <code>Item</code>.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.1.1. Proposed Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Resume Edit feature or <code>redit</code> allows users to edit which <code>Item</code> belongs to the <code>Resume</code> (for example, adding a <code>Skill</code> item or removing an <code>Internship</code> item).
-It is not to be confused with the <code>edit</code> command, which simply modifies the fields of an <code>Item</code>.</p>
+<p>The <code>redit</code> command is facilitated by <code>ResumeEditCommand</code>, which extends <code>Command</code>. Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
 </div>
 <div class="paragraph">
-<p>The <code>redit</code> command is facilitated by <code>ResumeEditCommand</code>, which extends <code>Command</code>.
-Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
+<p>Given below is an example usage scenario and how the <code>redit</code> works at each step.</p>
 </div>
-<div class="sect4">
-<h5 id="adding-into-the-resume"><a class="link" href="#adding-into-the-resume">Adding into the resume</a></h5>
 <div class="paragraph">
-<p>The following screenshot illustrates what happens when we use <code>redit</code> to add item into the resume. The numbers in the command represent the index of the item in the list. After the end of the command, the number of item in the resume would have increased.</p>
+<p>Step 1. The user launches the application, and uses the <code>add</code> command to add several <code>Resume</code>, <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>redit 1 int/ 2</code> command to add the second <code>Internship</code> in the list of <code>Internship</code> items to the first <code>Resume</code> in the list of <code>Resume</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. This calls <code>ResumeBookParser#parseCommand()</code>, which would create a new <code>ResumeEditCommandParser</code> object and call the <code>ResumeEditCommandParser#parse()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. A new <code>ResumeEditCommand</code> object is created. It contains the index of the <code>Resume</code> that is to be modified, and three <code>Optional&lt;List&lt;Integer&gt;&gt;</code> representing the indices of <code>Internship</code>, <code>Project</code> and <code>Skill</code> to be modified into the <code>Resume</code>. In this example, the <code>Project</code> and <code>Skill</code> indices are represented by empty <code>Optional</code> because the user did not specify any project or skill indices.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>ResumeEditCommand#execute()</code> method is called with the current <code>model</code>. A copy of the <code>Resume</code> is created and its content is set to refer to the internships, projects and skills specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. A new <code>ResumeEditCommandResult</code> object, which contains the edited copy of the <code>Resume</code>, is created and returned.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how <code>redit</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditAddIntoResume.png" alt="][AddIntoResume" width="442" height="337">
+<img src="images/ResumeEditSequenceDiagram.png" alt="ResumeEditSequenceDiagram">
 </div>
-</div>
-<div class="paragraph">
-<p>For modifications and removal of item from the resume, all we have to do is to run the same command again, specifying which item we want to <strong>retain</strong> in the resume.</p>
-</div>
+<div class="title">Figure 10. Sequence diagram for ResumeEdit.</div>
 </div>
 <div class="sect4">
-<h5 id="removing-all-from-the-resume"><a class="link" href="#removing-all-from-the-resume">Removing all from the resume</a></h5>
+<h5 id="representation-of-indices-after-parsing"><a class="link" href="#representation-of-indices-after-parsing">Representation of indices after parsing</a></h5>
 <div class="paragraph">
-<p>The following sreenshot illustrates what happens if you want to remove all the items in the resume, starting from a an already-filled resume:</p>
+<p>In Step 4. above, it is mentioned that <code>Optional&lt;List&lt;Integer&gt;&gt;</code> is used to represent the indices of <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items. This section elaborates further on the representation.</p>
+</div>
+<div class="paragraph">
+<p>To explain the various representations, we will use the example of executing <code>redit 1 int/ 2 3 proj/</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A non-empty <code>List&lt;Integer&gt;</code> wrapped with <code>Optional</code> is used to represent the indices when the user specifies both the item prefix and the item indices. In the above example, indices of <code>Internship</code> items will be represented by a <code>List&lt;Integer&gt;</code> of <code>2</code> and <code>3</code>, wrapped with <code>Optional</code>.</p>
+</li>
+<li>
+<p>An empty <code>List&lt;Integer&gt;</code> wrapped with <code>Optional</code> is used to represent the indices when the user specifies the item prefix, but no item indices are given. In the above example, indices of <code>Project</code> items will be represented by an empty <code>List&lt;Integer&gt;</code> wrapped with <code>Optional</code>.</p>
+</li>
+<li>
+<p>An empty <code>Optional</code> is used to represent the indices when the user does not specify the item prefix. In the above example, indices of <code>Skill</code> items will be represented with an empty <code>Optional</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The three representations are used because <code>redit</code> facilitates the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the prefix and indices are both present, the resume will be modified to contain the items of that prefix at the specified indices. In the same example above, <code>Resume</code> at index 1 will be modified to contain <code>Internship</code> items at indices 2 and 3.</p>
+</li>
+<li>
+<p>If the prefix is specified but no indices are present, the resume will be modified to remove all the items of that prefix. In the example above, <code>Resume</code> at index 1 will be modified to have all its <code>Project</code> items removed.</p>
+</li>
+<li>
+<p>If the prefix is not specified, the resume will have the items of that prefix unmodified. In the example above, <code>Resume</code> at index 1 will not have its <code>Skill</code> items modified. If originally there were 4 <code>Skill</code> items, then after the command execution, it will still have 4 <code>Skill</code> items.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises the execution of <code>ResumeEditCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditRemoveEverything.png" alt="][RemoveEverything" width="442" height="337">
+<img src="images/ResumeEditActivityDiagram.png" alt="ResumeEditActivityDiagram">
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="removing-some-from-the-resume"><a class="link" href="#removing-some-from-the-resume">Removing some from the resume</a></h5>
-<div class="paragraph">
-<p>And the following screenshot illustrates what happens if you want to remove some items:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ReditWantSomeThings.png" alt="][WantSomeThings" width="442" height="337">
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="changing-content-using-tags"><a class="link" href="#changing-content-using-tags">Changing content using tags</a></h5>
-<div class="paragraph">
-<p>On top of these methods to change the content of the resume, <code>redit</code> can also make changes to the resume by making use of tags.
-Regardless of what the original content is, after running the command, the resume will then only have items with the desired tags.</p>
-</div>
-<div class="paragraph">
-<p>An example is shown in the following screenshot:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ReditTags.png" alt="][ReditWithTags" width="442" height="337">
-</div>
+<div class="title">Figure 11. Activity Diagram for ResumeEdit.</div>
 </div>
 </div>
 </div>
@@ -441,11 +466,11 @@ Regardless of what the original content is, after running the command, the resum
 <div class="ulist">
 <ul>
 <li>
-<p><strong> Alternative 1 (current choice):</strong> <code>ResumeEditCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>. This design is chosen because <code>redit</code> is sufficiently different from <code>edit</code>. An <code>edit</code> command is intended to change the details of the resume such as its name, while <code>redit</code> is supposed to change the content that the resume holds.</p>
+<p><strong> Alternative 1 (current choice):</strong> <code>ResumeEditCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduce the size of responsibility for <code>EditResumeCommand</code>. Each command class now does one and only one thing so Single Responsibility Pricniple is observed.</p>
+<p>Pros: Reduce the size of responsibility for <code>EditResumeCommand</code>. Each command class now does one and only one thing so Single Responsibility Principle is observed.</p>
 </li>
 <li>
 <p>Cons: Unable to exploit polymorphism if there is similarity with the <code>EditCommand</code>. From user&#8217;s point-of-view, it may be confusing to have both <code>redit</code> and <code>edit</code>.</p>
@@ -482,13 +507,156 @@ Regardless of what the original content is, after running the command, the resum
 <img src="images/ResumeEditCommandAlt2.png" alt="ResumeEditCommandAlt2">
 </div>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> The first design is chosen because <code>redit</code> is sufficiently different from <code>edit</code>. An <code>edit</code> command is intended to change the details of the resume such as its name, while <code>redit</code> is supposed to change the content that the resume holds.</p>
+</div>
+<div class="paragraph">
+<p>This also reduces bloating of code and increases the flexibility of <code>ResumeEditCommand</code> class if the behaviour of <code>redit</code> needs to be changed in the future.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-representation-of-indices-after-parsing"><a class="link" href="#aspect-representation-of-indices-after-parsing">Aspect: Representation of indices after parsing</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Usage of <code>Optional&lt;List&lt;Integer&gt;&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The 3 different cases is naturally represented when <code>List&lt;Integer&gt;</code> is wrapped with <code>Optional</code>. Enhanced safety, reducing risk of <code>NullPointerException</code>.</p>
+</li>
+<li>
+<p>Cons: More checks are required to ensure that the <code>Optional</code> is not empty before getting its value.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Usage of <code>null</code> and <code>List&lt;Integer&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Implementation is much simpler, and code becomes much more concise.</p>
+</li>
+<li>
+<p>Cons: High risk of getting a <code>NullPointerException</code> if <code>null</code> is not handled carefully.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> We went with <code>Optional</code> as it is more expressive than using <code>null</code>. It has a clearer semantic when checking whether the value of <code>Optional</code> is empty or not than to check whether the variable is a <code>null</code> value.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, using <code>Optional</code> provides much less risk to getting <code>NullPointerException</code>. The reduced risk allows the developers to potentially save some debugging time, and developers need not worry about handling the <code>NullPointerException</code>.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">4.2. Implementation of <code>Command</code> classes</a></h3>
+<h3 id="tag-pull-feature"><a class="link" href="#tag-pull-feature">4.2. Tag Pull feature</a></h3>
+<div class="paragraph">
+<p>The Tag Pull feature is similar to <a href="#Resume Edit Feature">Resume Edit Feature</a> in the sense that it modifies the content of the <code>Resume</code>. Unlike Resume Edit which modifies using item indices, the Tag Pull feature modifies the resume by <em>adding</em> items with the specified tags on top of existing items in the <code>Resume</code>.</p>
+</div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>tagpull</code> command is facilitated by <code>TagPullCommand</code>, which extends <code>Command</code>. Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>tagpull</code> works at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application, and uses the <code>add</code> command to add several <code>Resume</code>, <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>tagpull 1 #/ tech</code> command to add all items that have been tagged with <code>tech</code> to the first <code>Resume</code> in the list of <code>Resume</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. This calls <code>ResumeBookParser#parseCommand()</code>, which would create a new <code>TagPullCommandParser</code> object and call the <code>TagPullCommandParser#parse()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. A new <code>TagPullCommand</code> object is created. It contains the index of the <code>Resume</code> that is to be modified, and the tags of the items which the user wants to add. In this example, it will only have the <code>tech</code> tag.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>TagPullCommand#execute()</code> method is called with the current <code>model</code>. A copy of the <code>Resume</code> is created and all the items with matching tags are retrieved from <code>model</code>. The content of the copied <code>Resume</code> is updated to now contain all the items with matching tags, on top of existing ones.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. A new <code>TagPullCommand</code> object, which contains the edited copy of the <code>Resume</code>, is created and returned.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how <code>tagpull</code> works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagPullSequenceDiagram.png" alt="TagPullSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-integrating-tag-pull-to-resume-edit"><a class="link" href="#aspect-integrating-tag-pull-to-resume-edit">Aspect: Integrating Tag Pull to Resume Edit</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Separating <code>redit</code> and <code>tagpull</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Separation of concerns. <code>redit</code> handles updates of <code>Resume</code> using indices and <code>tagpull</code> handles updates of <code>Resume</code> using tags.</p>
+</li>
+<li>
+<p>Cons: There is some code duplication due to similarities in behaviour.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Combine <code>redit</code> with <code>tagpull</code>, making use of <code>#/</code> as prefix for <code>redit</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It may be intuitive for user to only have a single command that handles modification of <code>Resume</code></p>
+</li>
+<li>
+<p>Cons: The implementation of <code>redit</code> becomes much more complicated as various combinations of input has to be considered. For example, considerations of what the expected behaviour should be if indices and tags are given.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> We decided to separate the two commands in order to have a simpler implementation of the commands. By separating the two, there is a separation of concerns and there is no need to consider the behaviour when both indices and tags are given as arguments.</p>
+</div>
+<div class="paragraph">
+<p>It may also save the user some confusion since the <code>redit</code> feature specifically handles only updates using indices while the <code>tagpull</code> feature handles only updates using tags.</p>
+</div>
+<div class="paragraph">
+<p>As we have separated the two commands, we can then also vary the behaviour of the two commands slightly. Instead of both commands modifying the <code>Resume</code>, we have implemented <code>redit</code> to <em>modify</em> the <code>Resume</code> item, while <code>tagpull</code> <em>adds</em> onto existing items in the <code>Resume</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">4.3. Implementation of <code>Command</code> classes</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
 and <code>Project</code>.</p>
@@ -513,11 +681,11 @@ classes that inherits directly from <code>Command</code>.</p>
 <div class="content">
 <img src="images/CommandClassDiagram.png" alt="CommandClassDiagram">
 </div>
-<div class="title">Figure 10. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
+<div class="title">Figure 12. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code"><a class="link" href="#aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code">Aspect: Whether to separate the <code>ABCCommand</code> that is dependent on type into many <code>ABCItemCommand</code></a></h5>
 <div class="paragraph">
@@ -528,7 +696,7 @@ The following is the activity diagram for execution of <code>AddResumeCommand</c
 <div class="content">
 <img src="images/AddResumeCommandActivityDiagram.png" alt="AddResumeCommandActivityDiagram" width="450">
 </div>
-<div class="title">Figure 11. Activity diagram for execution of <code>AddResumeCommand</code></div>
+<div class="title">Figure 13. Activity diagram for execution of <code>AddResumeCommand</code></div>
 </div>
 <div class="paragraph">
 <p>This leads to a cleaner execution method of each ABCItemCommand as each command class has a clear goal.</p>
@@ -551,7 +719,7 @@ The following is the activity diagram for execution of <code>AddCommand</code> w
 <div class="content">
 <img src="images/AddCommandActivityDiagram.png" alt="AddCommandActivityDiagram" width="350">
 </div>
-<div class="title">Figure 12. Activity diagram for execution of <code>AddCommand</code></div>
+<div class="title">Figure 14. Activity diagram for execution of <code>AddCommand</code></div>
 </div>
 <div class="paragraph">
 <p>Implementing <code>ABCCommand</code> this way forces execute to be switch-cased.
@@ -585,7 +753,7 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="me-feature"><a class="link" href="#me-feature">4.3. Me Feature</a></h3>
+<h3 id="me-feature"><a class="link" href="#me-feature">4.4. Me Feature</a></h3>
 <div class="paragraph">
 <p>This feature allows a user to make changes and updates his/her user profile which is reflected by the user profile panel.
 At the same time, it also allows user to personalise his/her experience using the app with certain sub-features. They are
@@ -611,13 +779,13 @@ elaborated below:</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="edit-user-profile-image"><a class="link" href="#edit-user-profile-image">4.3.1. Edit User Profile Image</a></h4>
+<h4 id="edit-user-profile-image"><a class="link" href="#edit-user-profile-image">4.4.1. Edit User Profile Image</a></h4>
 <div class="paragraph">
 <p>This allows the specific user to input and update his/her user profile picture.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-user-main-data"><a class="link" href="#edit-user-main-data">4.3.2. Edit User Main Data</a></h4>
+<h4 id="edit-user-main-data"><a class="link" href="#edit-user-main-data">4.4.2. Edit User Main Data</a></h4>
 <div class="paragraph">
 <p>This allows one specific user to modify and update user information that includes <code>name</code>, <code>phone</code>, <code>email1</code>, <code>github</code>,
 <code>university</code>, <code>major</code>, <code>from</code>, <code>to</code>, <code>cap</code>.</p>
@@ -696,7 +864,7 @@ a <code>CommandResult</code> is returned to Logic with data and feedback to be d
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
 <div class="paragraph">
 <p><strong>Aspect: Whether <code>EditUserCommand</code> should extend <code>EditCommand</code></strong></p>
 </div>
@@ -771,33 +939,33 @@ existing one and update the Model and Ui accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="store-and-display-motivational-quotes"><a class="link" href="#store-and-display-motivational-quotes">4.3.3. Store and Display Motivational Quotes</a></h4>
+<h4 id="store-and-display-motivational-quotes"><a class="link" href="#store-and-display-motivational-quotes">4.4.3. Store and Display Motivational Quotes</a></h4>
 <div class="paragraph">
 <p>This allows the user to input and store motivational quotes. They are then able to display them at the user profile pane.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-personal-reminders-and-take-notes"><a class="link" href="#set-personal-reminders-and-take-notes">4.3.4. Set Personal Reminders and Take Notes</a></h4>
+<h4 id="set-personal-reminders-and-take-notes"><a class="link" href="#set-personal-reminders-and-take-notes">4.4.4. Set Personal Reminders and Take Notes</a></h4>
 <div class="paragraph">
 <p>This allows the user to set reminders as well as taking notes for him/herself to further customize his/her interaction
 with the app.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="change-background-and-font-color"><a class="link" href="#change-background-and-font-color">4.3.5. Change Background and Font Color</a></h4>
+<h4 id="change-background-and-font-color"><a class="link" href="#change-background-and-font-color">4.4.5. Change Background and Font Color</a></h4>
 <div class="paragraph">
 <p>This allows the user to change the background and font color using rgb or hex color codes.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-feature"><a class="link" href="#export-feature">4.4. Export Feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">4.5. Export Feature</a></h3>
 <div class="paragraph">
 <p>The Export Feature supports two main actions: previewing the content of a <code>Resume</code> item, and
 then generating a <code>.pdf</code> file from it.</p>
 </div>
 <div class="sect3">
-<h4 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.4.1. Previewing a resume: <code>rpreview</code></a></h4>
+<h4 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.5.1. Previewing a resume: <code>rpreview</code></a></h4>
 <div class="sect4">
 <h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
 <div class="paragraph">
@@ -827,7 +995,7 @@ in <code>Internship</code>, <code>Project</code> and <code>Skill</code>, which r
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
+<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
 
 </div>
 <div class="sect4">
@@ -897,7 +1065,7 @@ a clean UI outweighs the compromise made when additional action to close the pop
 </div>
 </div>
 <div class="sect3">
-<h4 id="generating-a-code-pdf-code-file-from-a-resume-code-rgen-code"><a class="link" href="#generating-a-code-pdf-code-file-from-a-resume-code-rgen-code">4.4.2. Generating a <code>.pdf</code> file from a resume: <code>rgen</code></a></h4>
+<h4 id="generating-a-code-pdf-code-file-from-a-resume-code-rgen-code"><a class="link" href="#generating-a-code-pdf-code-file-from-a-resume-code-rgen-code">4.5.2. Generating a <code>.pdf</code> file from a resume: <code>rgen</code></a></h4>
 <div class="sect4">
 <h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
 <div class="paragraph">
@@ -955,7 +1123,7 @@ items inside the <code>Resume</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.4.3. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-rgen-code-executes"><a class="link" href="#aspect-how-code-rgen-code-executes">Aspect: How <code>rgen</code> executes</a></h5>
 <div class="ulist">
@@ -1006,9 +1174,9 @@ extended features (e.g. allow user to choose from a variety of pre-defined resum
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">4.5. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">4.6. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.5.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedResumeBook</code>.
 It extends <code>ResumeBook</code> with an undo/redo history, stored internally as an <code>ResumeBookStateList</code> and <code>currentStatePointer</code>.
@@ -1150,7 +1318,7 @@ If the <code>currentStatePointer</code> is at index <code>resumeBookStateList.si
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1225,20 +1393,20 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.6. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1269,7 +1437,7 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1782,4 +1950,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:24:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:25:32 UTC</div></div></div></body></html>

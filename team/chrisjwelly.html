@@ -7,28 +7,42 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="1-overview"><a class="link" href="#1-overview">1. Overview</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="1-1-about-the-project"><a class="link" href="#1-1-about-the-project">1.1 About the Project</a></h3>
 <div class="paragraph">
-<p>ResuMe is a desktop application for you to manage all of your resumes from a centralised location. It is easy to build, customise and export different resume versions using only Command Line Interface.</p>
+<p>ResuMe is a desktop resume management application developed by a team of students from National University of Singapore (NUS). The application is aimed at university students, who may want to manage different resumes due to internship and job applications.</p>
+</div>
+<div class="paragraph">
+<p>The project builds upon the code from <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3">Address Book Level 3 (AB3)</a>, a desktop Address Book application. ResuMe retains the characteristics of AB3, and thus ResuMe has a Graphical User Interface (GUI) while most interactions happen through the Command Line Interface (CLI).</p>
+</div>
+<div class="paragraph">
+<p>The application is developed using Java, and within a short span of 6 weeks we have contributed a total of more than 25,000 lines of code to the application.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="1-2-about-the-team"><a class="link" href="#1-2-about-the-team">1.2 About the Team</a></h3>
+<div class="paragraph">
+<p>The team consists of 5 Year 2 Computer Science students from NUS, taking the Software Engineering module, CS2103T.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="2-summary-of-contributions"><a class="link" href="#2-summary-of-contributions">2. Summary of Contributions</a></h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="strong-code-contributed-strong"><a class="link" href="#strong-code-contributed-strong"><strong>Code contributed</strong>:</a></h4>
+<div class="sect2">
+<h3 id="2-1-individual-contributions"><a class="link" href="#2-1-individual-contributions">2.1 Individual Contributions</a></h3>
 <div class="paragraph">
-<p>[<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&amp;sort=variance&amp;sortWithin=variance&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;since=2020-02-14&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=chrisjwelly&amp;tabRepo=AY1920S2-CS2103T-F10-1%2Fmain%5Bmaster%5D">Functional and Test code</a>]<br></p>
-</div>
+<p>My code contributions can be found here: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&amp;sort=variance&amp;sortWithin=variance&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;since=2020-02-14&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=chrisjwelly&amp;tabRepo=AY1920S2-CS2103T-F10-1%2Fmain%5Bmaster%5D">Functional and Test code (via RepoSense)</a><br></p>
 </div>
 <div class="sect3">
-<h4 id="enhancement-implemented"><a class="link" href="#enhancement-implemented">Enhancement implemented</a></h4>
+<h4 id="2-1-1-enhancements-implemented"><a class="link" href="#2-1-1-enhancements-implemented">2.1.1 Enhancements Implemented</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to modify items in the resume</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to modify items in the resume</strong>: <code>redit</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -44,7 +58,7 @@
 </div>
 </li>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to add items in the resume based on tags</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to add items in the resume based on tags</strong>: <code>tagpull</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -57,15 +71,33 @@
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: modified the <code>add</code> command and its parser to suit the application.</p>
+<p><strong>Minor enhancement</strong>: modified the <code>edit</code> command and its parser to suit the application</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: ResuMe requires handling of various item types such as <code>Internship</code>, <code>Project</code> and <code>Skill</code> items. Therefore, it is necessary to morph the existing <code>Parser</code> from AB3 to suit our needs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: wrote the <code>view</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: Items such as <code>Internship</code> omit a lot of details in our list in the GUI. The <code>view</code> command helps include more details about the <code>Item</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="contributions-to-team-based-tasks"><a class="link" href="#contributions-to-team-based-tasks">Contributions to team-based tasks:</a></h3>
+<h3 id="2-2-contributions-to-team-based-tasks"><a class="link" href="#2-2-contributions-to-team-based-tasks">2.2 Contributions to team-based tasks:</a></h3>
 <div class="sect3">
-<h4 id="morphed-commandresult-in-overall-architecture"><a class="link" href="#morphed-commandresult-in-overall-architecture">Morphed CommandResult in overall architecture</a></h4>
+<h4 id="2-2-1-morphed-commandresult-in-overall-architecture"><a class="link" href="#2-2-1-morphed-commandresult-in-overall-architecture">2.2.1 Morphed CommandResult in overall architecture</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -78,13 +110,23 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="project-management"><a class="link" href="#project-management">Project management</a></h4>
-<div class="paragraph">
+<h4 id="2-2-2-project-management"><a class="link" href="#2-2-2-project-management">2.2.2 Project management</a></h4>
+<div class="ulist">
+<ul>
+<li>
 <p>Managed releases <code>v1.2</code> - <code>v1.4</code> (3 releases) on GitHub</p>
+</li>
+<li>
+<p>Managed GitHub issue tracker</p>
+</li>
+<li>
+<p>Set-up Travis and Coveralls</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="reviewing-contributions"><a class="link" href="#reviewing-contributions">Reviewing contributions:</a></h4>
+<h4 id="2-2-3-reviewing-contributions"><a class="link" href="#2-2-3-reviewing-contributions">2.2.3 Reviewing contributions:</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -105,7 +147,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="3-contributions-to-the-user-guide"><a class="link" href="#3-contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -117,10 +159,13 @@
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="editing-a-resume-code-redit-code"><a class="link" href="#editing-a-resume-code-redit-code">Editing a resume: <code>redit</code></a></h3>
 <div class="paragraph">
-<p>Edits the content of a <code>resume</code> to contain the items specified in the command.</p>
+<p>{start of extract 1: Resume Edit}</p>
+</div>
+<div class="sect2">
+<h3 id="modifying-the-content-a-resume-code-redit-code"><a class="link" href="#modifying-the-content-a-resume-code-redit-code">Modifying the content a resume: <code>redit</code></a></h3>
+<div class="paragraph">
+<p>Modifies the content of a <code>resume</code> to contain the items specified in the command.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -225,11 +270,17 @@ and <code>skill</code> item at index 2. The following screenshot illustrates wha
 <img src="../images/ReditWantSomeThings.png" alt="WantSomeThings" width="442" height="337">
 </div>
 </div>
+<div class="paragraph">
+<p>{end of extract 1}</p>
+</div>
+<div class="paragraph">
+<p>{start of extract 2: Tag Pull}</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">Pulling tagged items into the resume: <code>tagpull</code></a></h3>
 <div class="paragraph">
-<p>Pull the <code>internship</code>, <code>project</code> and <code>skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
+<p>Pull the <code>Internship</code>, <code>Project</code> and <code>Skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -276,11 +327,14 @@ the tag <code>tech</code> are added into the <code>resume</code>.</p>
 <p>The <code>resume</code> at index 2 is modified. On top of the existing items, all <code>internship</code>, <code>project</code>, and <code>skill</code> items with
 either the tag <code>tech</code> or <code>frontend</code> are added into the <code>resume</code>.</p>
 </div>
+<div class="paragraph">
+<p>{end of extract 2}</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="4-contributions-to-the-developer-guide"><a class="link" href="#4-contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -292,6 +346,9 @@ either the tag <code>tech</code> or <code>frontend</code> are added into the <co
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>{start of extract 1: Logic}</p>
+</div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
@@ -344,68 +401,98 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>{end of extract 1}</p>
+</div>
+<div class="paragraph">
+<p>{start of extract 2: Resume Edit}</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="resume-edit-feature"><a class="link" href="#resume-edit-feature">Resume Edit feature</a></h3>
+<div class="paragraph">
+<p>The Resume Edit feature or <code>redit</code> allows user to modify the <code>Item</code> contents of a <code>Resume</code> (for example, adding a <code>Skill</code> item or removing an <code>Internship</code> item). It is not to be confused with the <code>edit</code> command, which simply modifies the fields of an <code>Item</code>.</p>
+</div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Resume Edit feature or <code>redit</code> allows users to edit which <code>Item</code> belongs to the <code>Resume</code> (for example, adding a <code>Skill</code> item or removing an <code>Internship</code> item).
-It is not to be confused with the <code>edit</code> command, which simply modifies the fields of an <code>Item</code>.</p>
+<p>The <code>redit</code> command is facilitated by <code>ResumeEditCommand</code>, which extends <code>Command</code>. Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
 </div>
 <div class="paragraph">
-<p>The <code>redit</code> command is facilitated by <code>ResumeEditCommand</code>, which extends <code>Command</code>.
-Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
+<p>Given below is an example usage scenario and how the <code>redit</code> works at each step.</p>
 </div>
-<div class="sect4">
-<h5 id="adding-into-the-resume"><a class="link" href="#adding-into-the-resume">Adding into the resume</a></h5>
 <div class="paragraph">
-<p>The following screenshot illustrates what happens when we use <code>redit</code> to add item into the resume. The numbers in the command represent the index of the item in the list. After the end of the command, the number of item in the resume would have increased.</p>
+<p>Step 1. The user launches the application, and uses the <code>add</code> command to add several <code>Resume</code>, <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>redit 1 int/ 2</code> command to add the second <code>Internship</code> in the list of <code>Internship</code> items to the first <code>Resume</code> in the list of <code>Resume</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. This calls <code>ResumeBookParser#parseCommand()</code>, which would create a new <code>ResumeEditCommandParser</code> object and call the <code>ResumeEditCommandParser#parse()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. A new <code>ResumeEditCommand</code> object is created. It contains the index of the <code>Resume</code> that is to be modified, and three <code>Optional&lt;List&lt;Integer&gt;&gt;</code> representing the indices of <code>Internship</code>, <code>Project</code> and <code>Skill</code> to be modified into the <code>Resume</code>. In this example, the <code>Project</code> and <code>Skill</code> indices are represented by empty <code>Optional</code> because the user did not specify any project or skill indices.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>ResumeEditCommand#execute()</code> method is called with the current <code>model</code>. A copy of the <code>Resume</code> is created and its content is set to refer to the internships, projects and skills specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. A new <code>ResumeEditCommandResult</code> object, which contains the edited copy of the <code>Resume</code>, is created and returned.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how <code>redit</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditAddIntoResume.png" alt="][AddIntoResume" width="442" height="337">
+<img src="../images/ResumeEditSequenceDiagram.png" alt="ResumeEditSequenceDiagram">
 </div>
-</div>
-<div class="paragraph">
-<p>For modifications and removal of item from the resume, all we have to do is to run the same command again, specifying which item we want to <strong>retain</strong> in the resume.</p>
-</div>
+<div class="title">Figure 3. Sequence diagram for ResumeEdit.</div>
 </div>
 <div class="sect4">
-<h5 id="removing-all-from-the-resume"><a class="link" href="#removing-all-from-the-resume">Removing all from the resume</a></h5>
+<h5 id="representation-of-indices-after-parsing"><a class="link" href="#representation-of-indices-after-parsing">Representation of indices after parsing</a></h5>
 <div class="paragraph">
-<p>The following sreenshot illustrates what happens if you want to remove all the items in the resume, starting from a an already-filled resume:</p>
+<p>In Step 4. above, it is mentioned that <code>Optional&lt;List&lt;Integer&gt;&gt;</code> is used to represent the indices of <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items. This section elaborates further on the representation.</p>
+</div>
+<div class="paragraph">
+<p>To explain the various representations, we will use the example of executing <code>redit 1 int/ 2 3 proj/</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A non-empty <code>List&lt;Integer&gt;</code> wrapped with <code>Optional</code> is used to represent the indices when the user specifies both the item prefix and the item indices. In the above example, indices of <code>Internship</code> items will be represented by a <code>List&lt;Integer&gt;</code> of <code>2</code> and <code>3</code>, wrapped with <code>Optional</code>.</p>
+</li>
+<li>
+<p>An empty <code>List&lt;Integer&gt;</code> wrapped with <code>Optional</code> is used to represent the indices when the user specifies the item prefix, but no item indices are given. In the above example, indices of <code>Project</code> items will be represented by an empty <code>List&lt;Integer&gt;</code> wrapped with <code>Optional</code>.</p>
+</li>
+<li>
+<p>An empty <code>Optional</code> is used to represent the indices when the user does not specify the item prefix. In the above example, indices of <code>Skill</code> items will be represented with an empty <code>Optional</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The three representations are used because <code>redit</code> facilitates the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the prefix and indices are both present, the resume will be modified to contain the items of that prefix at the specified indices. In the same example above, <code>Resume</code> at index 1 will be modified to contain <code>Internship</code> items at indices 2 and 3.</p>
+</li>
+<li>
+<p>If the prefix is specified but no indices are present, the resume will be modified to remove all the items of that prefix. In the example above, <code>Resume</code> at index 1 will be modified to have all its <code>Project</code> items removed.</p>
+</li>
+<li>
+<p>If the prefix is not specified, the resume will have the items of that prefix unmodified. In the example above, <code>Resume</code> at index 1 will not have its <code>Skill</code> items modified. If originally there were 4 <code>Skill</code> items, then after the command execution, it will still have 4 <code>Skill</code> items.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises the execution of <code>ResumeEditCommand</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ReditRemoveEverything.png" alt="][RemoveEverything" width="442" height="337">
+<img src="../images/ResumeEditActivityDiagram.png" alt="ResumeEditActivityDiagram">
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="removing-some-from-the-resume"><a class="link" href="#removing-some-from-the-resume">Removing some from the resume</a></h5>
-<div class="paragraph">
-<p>And the following screenshot illustrates what happens if you want to remove some items:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditWantSomeThings.png" alt="][WantSomeThings" width="442" height="337">
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="changing-content-using-tags"><a class="link" href="#changing-content-using-tags">Changing content using tags</a></h5>
-<div class="paragraph">
-<p>On top of these methods to change the content of the resume, <code>redit</code> can also make changes to the resume by making use of tags.
-Regardless of what the original content is, after running the command, the resume will then only have items with the desired tags.</p>
-</div>
-<div class="paragraph">
-<p>An example is shown in the following screenshot:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditTags.png" alt="][ReditWithTags" width="442" height="337">
-</div>
+<div class="title">Figure 4. Activity Diagram for ResumeEdit.</div>
 </div>
 </div>
 </div>
@@ -416,11 +503,11 @@ Regardless of what the original content is, after running the command, the resum
 <div class="ulist">
 <ul>
 <li>
-<p><strong> Alternative 1 (current choice):</strong> <code>ResumeEditCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>. This design is chosen because <code>redit</code> is sufficiently different from <code>edit</code>. An <code>edit</code> command is intended to change the details of the resume such as its name, while <code>redit</code> is supposed to change the content that the resume holds.</p>
+<p><strong> Alternative 1 (current choice):</strong> <code>ResumeEditCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduce the size of responsibility for <code>EditResumeCommand</code>. Each command class now does one and only one thing so Single Responsibility Pricniple is observed.</p>
+<p>Pros: Reduce the size of responsibility for <code>EditResumeCommand</code>. Each command class now does one and only one thing so Single Responsibility Principle is observed.</p>
 </li>
 <li>
 <p>Cons: Unable to exploit polymorphism if there is similarity with the <code>EditCommand</code>. From user&#8217;s point-of-view, it may be confusing to have both <code>redit</code> and <code>edit</code>.</p>
@@ -457,9 +544,161 @@ Regardless of what the original content is, after running the command, the resum
 <img src="../images/ResumeEditCommandAlt2.png" alt="ResumeEditCommandAlt2">
 </div>
 </div>
-<hr>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> The first design is chosen because <code>redit</code> is sufficiently different from <code>edit</code>. An <code>edit</code> command is intended to change the details of the resume such as its name, while <code>redit</code> is supposed to change the content that the resume holds.</p>
+</div>
+<div class="paragraph">
+<p>This also reduces bloating of code and increases the flexibility of <code>ResumeEditCommand</code> class if the behaviour of <code>redit</code> needs to be changed in the future.</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:24:26 UTC</div></div></div></body></html>
+<div class="sect4">
+<h5 id="aspect-representation-of-indices-after-parsing"><a class="link" href="#aspect-representation-of-indices-after-parsing">Aspect: Representation of indices after parsing</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Usage of <code>Optional&lt;List&lt;Integer&gt;&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The 3 different cases is naturally represented when <code>List&lt;Integer&gt;</code> is wrapped with <code>Optional</code>. Enhanced safety, reducing risk of <code>NullPointerException</code>.</p>
+</li>
+<li>
+<p>Cons: More checks are required to ensure that the <code>Optional</code> is not empty before getting its value.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Usage of <code>null</code> and <code>List&lt;Integer&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Implementation is much simpler, and code becomes much more concise.</p>
+</li>
+<li>
+<p>Cons: High risk of getting a <code>NullPointerException</code> if <code>null</code> is not handled carefully.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> We went with <code>Optional</code> as it is more expressive than using <code>null</code>. It has a clearer semantic when checking whether the value of <code>Optional</code> is empty or not than to check whether the variable is a <code>null</code> value.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, using <code>Optional</code> provides much less risk to getting <code>NullPointerException</code>. The reduced risk allows the developers to potentially save some debugging time, and developers need not worry about handling the <code>NullPointerException</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>{end of extract 2}</p>
+</div>
+<div class="paragraph">
+<p>{start of extract 3: Tag Pull}</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tag-pull-feature"><a class="link" href="#tag-pull-feature">Tag Pull feature</a></h3>
+<div class="paragraph">
+<p>The Tag Pull feature is similar to <a href="#Resume Edit Feature">Resume Edit Feature</a> in the sense that it modifies the content of the <code>Resume</code>. Unlike Resume Edit which modifies using item indices, the Tag Pull feature modifies the resume by <em>adding</em> items with the specified tags on top of existing items in the <code>Resume</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>tagpull</code> command is facilitated by <code>TagPullCommand</code>, which extends <code>Command</code>. Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>tagpull</code> works at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application, and uses the <code>add</code> command to add several <code>Resume</code>, <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>tagpull 1 #/ tech</code> command to add all items that have been tagged with <code>tech</code> to the first <code>Resume</code> in the list of <code>Resume</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. This calls <code>ResumeBookParser#parseCommand()</code>, which would create a new <code>TagPullCommandParser</code> object and call the <code>TagPullCommandParser#parse()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. A new <code>TagPullCommand</code> object is created. It contains the index of the <code>Resume</code> that is to be modified, and the tags of the items which the user wants to add. In this example, it will only have the <code>tech</code> tag.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>TagPullCommand#execute()</code> method is called with the current <code>model</code>. A copy of the <code>Resume</code> is created and all the items with matching tags are retrieved from <code>model</code>. The content of the copied <code>Resume</code> is updated to now contain all the items with matching tags, on top of existing ones.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. A new <code>TagPullCommand</code> object, which contains the edited copy of the <code>Resume</code>, is created and returned.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how <code>tagpull</code> works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagPullSequenceDiagram.png" alt="TagPullSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-integrating-tag-pull-to-resume-edit"><a class="link" href="#aspect-integrating-tag-pull-to-resume-edit">Aspect: Integrating Tag Pull to Resume Edit</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Separating <code>redit</code> and <code>tagpull</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Separation of concerns. <code>redit</code> handles updates of <code>Resume</code> using indices and <code>tagpull</code> handles updates of <code>Resume</code> using tags.</p>
+</li>
+<li>
+<p>Cons: There is some code duplication due to similarities in behaviour.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Combine <code>redit</code> with <code>tagpull</code>, making use of <code>#/</code> as prefix for <code>redit</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It may be intuitive for user to only have a single command that handles modification of <code>Resume</code></p>
+</li>
+<li>
+<p>Cons: The implementation of <code>redit</code> becomes much more complicated as various combinations of input has to be considered. For example, considerations of what the expected behaviour should be if indices and tags are given.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> We decided to separate the two commands in order to have a simpler implementation of the commands. By separating the two, there is a separation of concerns and there is no need to consider the behaviour when both indices and tags are given as arguments.</p>
+</div>
+<div class="paragraph">
+<p>It may also save the user some confusion since the <code>redit</code> feature specifically handles only updates using indices while the <code>tagpull</code> feature handles only updates using tags.</p>
+</div>
+<div class="paragraph">
+<p>As we have separated the two commands, we can then also vary the behaviour of the two commands slightly. Instead of both commands modifying the <code>Resume</code>, we have implemented <code>redit</code> to <em>modify</em> the <code>Resume</code> item, while <code>tagpull</code> <em>adds</em> onto existing items in the <code>Resume</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>{end of extract 3}
+---</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:25:32 UTC</div></div></div></body></html>
