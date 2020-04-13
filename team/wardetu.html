@@ -267,11 +267,11 @@ deletion to proceed. After the deletion the list box is set to show <code>skill<
 <div class="ulist">
 <ul>
 <li>
-<p>An <code>undo</code> is done per command and not change. If you make multiple changes to your user profile,
+<p>An <code>undo</code> is done per command and not per change. If you make multiple changes to your user profile,
 for instance, using a single <code>me</code> command, then <code>undo</code> will revert all the changes.</p>
 </li>
 <li>
-<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>sort</code>, <code>redit</code>, <code>tagpull</code> and <code>me</code>.</p>
+<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>sort</code>, <code>redit</code>, <code>tagpull</code>, <code>done</code>, <code>clear</code> and <code>me</code>.</p>
 </li>
 <li>
 <p>Commands that make no change to the application state, namely <code>list</code>, <code>view</code>, <code>find</code>, <code>rpreview</code> and <code>rgen</code>, cannot be undone.</p>
@@ -345,11 +345,11 @@ of that command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A <code>redo</code> is done per command and not change. If you undo a command that can make multiple changes like
+<p>A <code>redo</code> is done per command and not per change. If you undo a command that can make multiple changes like
 <code>redit</code>, then redoing it will resurrect all the changes. Spooky!</p>
 </li>
 <li>
-<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>sort</code>, <code>redit</code>, <code>tagpull</code> or <code>me</code> command is performed after an <code>undo</code>,
+<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>sort</code>, <code>redit</code>, <code>tagpull</code>, <code>done</code>, <code>clear</code>, or <code>me</code> command is performed after an <code>undo</code>,
 then all states currently available for <code>redo</code> will be erased and you will not be able to go to these states
 anymore.</p>
 </li>
@@ -399,4 +399,4 @@ Java. Once again, Java is removed from our life.</p>
 <p>include::../DeveloperGuide.adoc</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:36:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:37:20 UTC</div></div></div></body></html>
