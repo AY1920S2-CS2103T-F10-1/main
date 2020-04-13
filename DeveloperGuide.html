@@ -502,7 +502,7 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Some methods in <code>EditCommand</code> may be able to inherited by <code>ResumeEditCommand</code>, reducing code duplication.</p>
+<p>Pros: Some methods in <code>EditCommand</code> may be able to be inherited by <code>ResumeEditCommand</code>, reducing code duplication.</p>
 </li>
 <li>
 <p>Cons: If the functionality of <code>ResumeEditCommand</code> is limited, it could have been combined with <code>EditCommand</code> entirely. If the intention of <code>EditCommand</code> is to change the <code>Item</code> <em>details</em> (such as name), and <code>ResumeEditCommand</code> only modifies the content items of the <code>Resume</code> (without changing any <em>details</em>), then this is also a violation of the Liskov Substitution Principle.</p>
@@ -2327,4 +2327,4 @@ commands if you are expecting a positive test case.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:36:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:53:56 UTC</div></div></div></body></html>
