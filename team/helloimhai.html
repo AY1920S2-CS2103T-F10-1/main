@@ -209,30 +209,30 @@ To view items in full details, use <a href="#Viewing an item in details: <code>v
 <div class="ulist">
 <ul>
 <li>
-<p><code>list i/ res</code>
-Lists all <code>resume</code> items.</p>
+<p><code>list i/ res</code>: Lists all <code>resume</code> items.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ListAllResumes.png" alt="ListAllResumes" width="450">
 </div>
+<div class="title">Figure 1. List of all resume items</div>
 </div>
 </li>
 <li>
-<p><code>list i/ int</code>
-Lists all internship items.</p>
+<p><code>list i/ int</code>: Lists all <code>internship</code> items.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ListAllInternships.png" alt="ListAllInternships" width="450">
 </div>
+<div class="title">Figure 2. List of all internship items</div>
 </div>
 </li>
 <li>
-<p><code>list i/ note</code>
-Lists all note items.</p>
+<p><code>list i/ note</code>: Lists all note items.</p>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ListAllNotes.png" alt="ListAllNotes" width="450">
 </div>
+<div class="title">Figure 3. List of all note items</div>
 </div>
 </li>
 </ul>
@@ -301,6 +301,7 @@ Lists all note items.</p>
 <div class="content">
 <img src="../images/ListResumeRPreview.png" alt="ListResumeRPreview" width="790">
 </div>
+<div class="title">Figure 4. List of all resume items</div>
 </div>
 </li>
 <li>
@@ -310,11 +311,13 @@ featuring a text-based view of the content of "Software Engineering". The screen
 <div class="content">
 <img src="../images/RPreview.png" alt="RPreview" width="790">
 </div>
+<div class="title">Figure 5. Application view after <code>rpreview</code> is executed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/RPreviewIndexTwo.png" alt="RPreviewIndexTwo" width="790">
 </div>
+<div class="title">Figure 6. Preview pop-up window</div>
 </div>
 </li>
 </ol>
@@ -562,7 +565,7 @@ This command can be undone.
 <div class="content">
 <img src="../images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 1. Component interactions for <code>delete 1 i/ ski</code> command</div>
+<div class="title">Figure 7. Component interactions for <code>delete 1 i/ ski</code> command</div>
 </div>
 <div class="paragraph">
 <p>The figure above explains quite clearly how the input of the user is passed into the system through <code>Ui</code> that calls
@@ -579,7 +582,7 @@ Head to <a href="#UI component">[UI component]</a> to read more.</p>
 <div class="content">
 <img src="../images/ArchitectureInitSequenceDiagram.png" alt="ArchitectureInitSequenceDiagram">
 </div>
-<div class="title">Figure 2. Component interactions for initialisation</div>
+<div class="title">Figure 8. Component interactions for initialisation</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -618,7 +621,7 @@ classes that inherits directly from <code>Command</code>.</p>
 <div class="content">
 <img src="../images/CommandClassDiagram.png" alt="CommandClassDiagram">
 </div>
-<div class="title">Figure 3. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
+<div class="title">Figure 9. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
 </div>
 </div>
 <div class="sect3">
@@ -633,7 +636,7 @@ The following is the activity diagram for execution of <code>AddResumeCommand</c
 <div class="content">
 <img src="../images/AddResumeCommandActivityDiagram.png" alt="AddResumeCommandActivityDiagram" width="450">
 </div>
-<div class="title">Figure 4. Activity diagram for execution of <code>AddResumeCommand</code></div>
+<div class="title">Figure 10. Activity diagram for execution of <code>AddResumeCommand</code></div>
 </div>
 <div class="paragraph">
 <p>This leads to a cleaner execution method of each ABCItemCommand as each command class has a clear goal.</p>
@@ -656,7 +659,7 @@ The following is the activity diagram for execution of <code>AddCommand</code> w
 <div class="content">
 <img src="../images/AddCommandActivityDiagram.png" alt="AddCommandActivityDiagram" width="350">
 </div>
-<div class="title">Figure 5. Activity diagram for execution of <code>AddCommand</code></div>
+<div class="title">Figure 11. Activity diagram for execution of <code>AddCommand</code></div>
 </div>
 <div class="paragraph">
 <p>Implementing <code>ABCCommand</code> this way forces execute to be switch-cased.
@@ -841,7 +844,7 @@ Expected: You are supposed to see this GUI, with default values for user details
 <div class="content">
 <img src="../images/InitOpen.png" alt="InitOpen">
 </div>
-<div class="title">Figure 6. Initial view when jar file runs</div>
+<div class="title">Figure 12. Initial view when jar file runs</div>
 </div>
 </li>
 </ol>
@@ -850,7 +853,7 @@ Expected: You are supposed to see this GUI, with default values for user details
 <div class="content">
 <img src="../images/InitListResumes.png" alt="InitListResumes">
 </div>
-<div class="title">Figure 7. Expected view after running the command <code>list i/ res</code> to show all resumes</div>
+<div class="title">Figure 13. Expected view after running the command <code>list i/ res</code> to show all resumes</div>
 </div>
 </li>
 <li>
@@ -984,4 +987,4 @@ commands if you are expecting a positive test case.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:37:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:42:30 UTC</div></div></div></body></html>
