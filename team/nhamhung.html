@@ -138,7 +138,7 @@ as it involves most components including Ui, Logic, Model and Storage.</p>
 <div class="sect2">
 <h3 id="editing-user-profile-code-me-code"><a class="link" href="#editing-user-profile-code-me-code">Editing user profile: <code>me</code></a></h3>
 <div class="paragraph">
-<p>Edits and updates user&#8217;s display information.</p>
+<p>Edits and updates user&#8217;s display profile.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -176,14 +176,14 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/user_profile.png" alt="user profile" width="400">
+<img src="../images/ug.png" alt="ug" width="450">
 </div>
 </div>
 <div class="paragraph">
 <p><strong>Example 2:</strong> Update user profile picture</p>
 </div>
 <div class="paragraph">
-<p>Follow the steps in one of these two links to copy a file path according to your respective Operating System.</p>
+<p>Follow the steps in one of these two links to copy an absolute file path according to your respective Operating System.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -209,8 +209,70 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/user_profile1.png" alt="user profile1" width="400">
+<img src="../images/ugu.png" alt="ugu" width="450">
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mark-a-note-as-done-code-done-code"><a class="link" href="#mark-a-note-as-done-code-done-code">Mark a note as done: <code>done</code></a></h3>
+<div class="paragraph">
+<p>Mark a <code>Note</code> at a specific index from the current note list as <code>done</code>.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>done INDEX</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A valid <code>INDEX</code> is a positive integer that identifies an existing <code>note</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong> Let&#8217;s try out the following commands!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ note</code></p>
+</li>
+<li>
+<p><code>done 1</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all <code>notes</code>. Assuming that you want to mark the first <code>note</code> in the list as <code>done</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListAllNotes.PNG" alt="ListAllNotes" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>The second command marks this <code>note</code> as done, by updating the tick box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/note-done.PNG" alt="note done" width="790">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits from <strong>ResuMe</strong>.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -288,7 +350,7 @@ so as to update the Person object currently stored in Model as well as Storage.<
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User type <code>me [dp/FILEPATH] [n/NAME] &#8230;&#8203;</code> command in the command box.</p>
+<p>User type <code>me [dp/ FILEPATH] [n/ NAME] &#8230;&#8203;</code> command in the command box.</p>
 </li>
 <li>
 <p>Command is executed by Logic Manager.</p>
@@ -460,7 +522,7 @@ be edited becomes another similar note in the list, a duplicate item error will 
 <p>Step 4. If no duplicate error is thrown, ResuMe will replace the note at this index with its edited version.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarises this process when user executes <code>edit i/note</code> command:</p>
+<p>The following activity diagram summarises this process when user executes <code>edit i/ note</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -573,4 +635,4 @@ and so this design suits our needs given the short time frame that we have.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:45:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:05:34 UTC</div></div></div></body></html>
