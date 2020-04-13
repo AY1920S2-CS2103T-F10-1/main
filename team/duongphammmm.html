@@ -76,45 +76,12 @@ and facilitate easy cross-reference.</p>
 <p>Updated README (<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/161">#161</a>)</p>
 </li>
 <li>
-<p>Updated the <a href="#contributions-to-the-user-guide-extracts">User Guide</a> to reflect my feature enhancements. Sections contributed includes:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>About this guide</p>
+<p>Updated the <a href="#contributions-to-the-user-guide-extracts">User Guide</a> for the following sections: About this guide,
+Viewing help: <code>help</code>, Adding an item: <code>add</code>, Generating a resume: <code>rgen</code></p>
 </li>
 <li>
-<p>Viewing help: <code>help</code></p>
-</li>
-<li>
-<p>Adding an item: <code>add</code></p>
-</li>
-<li>
-<p>Generating a resume: <code>rgen</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Updated the <a href="#contributions-to-the-developer-guide-extracts">Developer Guide</a> to reflect my feature enhancements. Sections contributed includes:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Model Component</p>
-</li>
-<li>
-<p>Export Feature</p>
-</li>
-<li>
-<p>Appendix A: Product Scope</p>
-</li>
-<li>
-<p>Appendix D: Non Functional Requirements</p>
-</li>
-<li>
-<p>Appendix E: Glossary</p>
-</li>
-</ul>
-</div>
+<p>Updated the <a href="#contributions-to-the-developer-guide-extracts">Developer Guide</a> for the following sections: Model Component,
+Export Feature, Appendix A: Product Scope, Appendix D: Non Functional Requirements, Appendix E: Glossary</p>
 </li>
 </ul>
 </div>
@@ -275,61 +242,6 @@ as well notes and tips for a better user experience.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">Viewing help : <code>help</code></a></h3>
-<div class="paragraph">
-<p>Lists out the function and usage of each command.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Format:</strong> <code>help OPTION</code></p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>There are two possible <code>help</code> options that you can choose from, as shown in the table below:</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 15%;">
-<col style="width: 70%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-middle">Option</th>
-<th class="tableblock halign-center valign-middle">Format</th>
-<th class="tableblock halign-left valign-top">Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">command</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>help command</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Opens a pop-up window with a summary of available commands, their syntax and usages.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">start</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><code>help start</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Opens a pop-up window with detailed guide on how to get started.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>These are screenshots of the two pop-up windows:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/helpCommand.png" alt="helpCommand" width="790">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/helpStart.png" alt="helpStart" width="790">
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="adding-an-item-code-add-code"><a class="link" href="#adding-an-item-code-add-code">Adding an item: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an item to the <strong>ResuMe</strong> application.</p>
@@ -438,7 +350,7 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 <p>All <code>project</code> items are listed in the list box.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ListProject.png" alt="ListProject" width="790">
+<img src="../images/ListProject.png" alt="ListProject" width="600">
 </div>
 </div>
 </li>
@@ -446,7 +358,7 @@ These sentences, when exported to <code>.pdf</code> format, will be automaticall
 <p>A new <code>project</code> item named <code>Duke</code> with the specified fields is added. This item is automatically reflected in the list box.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddDukeProject.png" alt="AddDukeProject" width="790">
+<img src="../images/AddDukeProject.png" alt="AddDukeProject" width="600">
 </div>
 </div>
 </li>
@@ -584,20 +496,6 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>ResumeBook</code>, which <code>Item</code> can reference. This would allow <code>ResumeBook</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Item</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="../images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="export-feature"><a class="link" href="#export-feature">Export Feature</a></h3>
@@ -631,7 +529,7 @@ in <code>Internship</code>, <code>Project</code> and <code>Skill</code>, which r
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportPreviewActivityDiagram.png" alt="ExportPreviewActivityDiagram">
+<img src="../images/ExportPreviewActivityDiagram.png" alt="ExportPreviewActivityDiagram" width="200">
 </div>
 </div>
 </div>
@@ -750,7 +648,7 @@ items inside the <code>Resume</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="400">
+<img src="../images/ExportActivityDiagram.png" alt="ExportActivityDiagram" width="250">
 </div>
 </div>
 <div class="paragraph">
@@ -815,89 +713,4 @@ extended features (e.g. allow user to choose from a variety of pre-defined resum
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Product Scope</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>is a University student looking for internship or job</p>
-</li>
-<li>
-<p>has a need to manage a significant number of personal experiences and resumes for different purposes</p>
-</li>
-<li>
-<p>prefer desktop apps over other types</p>
-</li>
-<li>
-<p>can type fast</p>
-</li>
-<li>
-<p>prefers typing over mouse input</p>
-</li>
-<li>
-<p>is reasonably comfortable using CLI apps</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Value proposition</strong>: build and manage resumes faster than a typical mouse/GUI driven app</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Non Functional Requirements</a></h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The system should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
-</li>
-<li>
-<p>The system should work on both 32-bit and 64-bit environments.</p>
-</li>
-<li>
-<p>The system should be able to support at least 10 resumes per user, 20 items per resume, and 200 resume items in total.</p>
-</li>
-<li>
-<p>Data should be stored locally such that users can access them (either through the application or by directly accessing
-the data file) without any network connection.</p>
-</li>
-<li>
-<p>The system should response within two seconds for a normal item query, and five seconds for a pdf generation request.</p>
-</li>
-<li>
-<p>The system should be usable by a novice who has never used a resume management application before.</p>
-</li>
-<li>
-<p>A user with some familiarity with Command Line Interface (CLI) should be able to accomplish most of the tasks faster
-using commands than using the mouse to navigate the Graphic User Interface (GUI).</p>
-</li>
-<li>
-<p>The product is not required to handle the printing of resumes.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Glossary</a></h2>
-<div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
-<dd>
-<p>Windows, Linux, Unix, OS-X</p>
-</dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
-<dd>
-<p>A contact detail that is not meant to be shared with others</p>
-</dd>
-</dl>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:03:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:19:07 UTC</div></div></div></body></html>
