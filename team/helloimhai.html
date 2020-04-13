@@ -142,11 +142,10 @@ to update and give visual feedback to users.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>{Start of extract 1: Introduction}
+== Introduction</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>Hello fellow University friends! Have you ever found writing resumes
 for job and internship applications a hassle? Have you ever dreamt about
@@ -160,8 +159,13 @@ Made by University students for University students with <em>looovee</em>, this 
 understands your struggle and strives to cater to your specific resume needs
 and job application woes.</p>
 </div>
-<div class="sect2">
-<h3 id="listing-all-items-code-list-code"><a class="link" href="#listing-all-items-code-list-code">Listing all items : <code>list</code></a></h3>
+<div class="paragraph">
+<p>{End of extract 1: Introduction}</p>
+</div>
+<div class="paragraph">
+<p>{Start of extract 2: List Command}
+=== Listing all items : <code>list</code></p>
+</div>
 <div class="paragraph">
 <p>Lists items in the storage.</p>
 </div>
@@ -228,9 +232,13 @@ Lists all note items.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>{End of extract 2: List Command}</p>
 </div>
-<div class="sect2">
-<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">Previewing a resume: <code>rpreview</code></a></h3>
+<div class="paragraph">
+<p>{Start of extract 3: Resume Preview Command}
+=== Previewing a resume: <code>rpreview</code></p>
+</div>
 <div class="paragraph">
 <p>Previews a <code>resume</code> in text format in a pop-up window.</p>
 </div>
@@ -304,6 +312,11 @@ featuring a text-based view of the content of "Software Engineering". The screen
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>{End of extract 3: Resume Preview Command}</p>
+</div>
+<div class="paragraph">
+<p>{Start of extract 4: Clear Command}</p>
 </div>
 <div class="sect2">
 <h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">Clearing all data: <code>clear</code></a></h3>
@@ -329,14 +342,16 @@ This command can be undone.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>{Start of extract 4: Clear Command}</p>
 </div>
+<div class="paragraph">
+<p>{Start of extract 5: Command Summary}
+== Command Summary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>This is a summary of all available commands for your reference.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="general-commands"><a class="link" href="#general-commands">General commands</a></h3>
@@ -505,6 +520,9 @@ This command can be undone.
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>{End of extract 5: Command Summary}</p>
+</div>
 </div>
 </div>
 </div>
@@ -521,6 +539,9 @@ This command can be undone.
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>{Start of extract 1: Overall Architecture}</p>
+</div>
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">Architecture</a></h3>
 <div class="imageblock">
@@ -639,13 +660,14 @@ of observables and data passing through <code>commandResult</code>. Head to <a h
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">Implementation of <code>Command</code> classes</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
+<p>{End of extract 1: Overall Architecture}</p>
+</div>
+<div class="paragraph">
+<p>{Start of extract 2: Implementation of Command Classes}
+=== Implementation of <code>Command</code> classes
+==== Current Implementation
+Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
 and <code>Project</code>.</p>
 </div>
 <div class="paragraph">
@@ -669,7 +691,6 @@ classes that inherits directly from <code>Command</code>.</p>
 <img src="../images/CommandClassDiagram.png" alt="CommandClassDiagram">
 </div>
 <div class="title">Figure 5. Component <code>XYZCommand</code> is independent of <code>Type</code> whereas <code>ABCCommand</code> is dependent on <code>Type</code>.</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
@@ -736,8 +757,300 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>{End of extract 2: Implementation of Command Classes}</p>
+</div>
+<div class="paragraph">
+<p>{Start of extract 3: User Stories}</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:38:08 UTC</div></div></div></body></html>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-stories"><a class="link" href="#user-stories">Appendix A: User Stories</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 22%;">
+<col style="width: 23%;">
+<col style="width: 25%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage and customise different resumes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use different resumes for different companies</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create a resume file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">print it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add to and remove 'items' from a certain resume</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add, edit, and remove 'items'</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">preview my resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check for mistakes in a resume before generating it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search for items containing certain keywords</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find items that are relevant to my current need</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all the 'items' I&#8217;ve added</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all my resumes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage them in a centralised location</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">categorise the 'items' I&#8217;ve added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to ensure my resume will have 'items' of different types</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view more information about various commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">learn to use new commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo my previous command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">skip the step of manually editing or deleting them.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto-format my resumes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>'items' refers to a resume field of type personal details, project, education, skills, internship, and achievement.</em></p>
+</div>
+<div class="paragraph">
+<p>{End of extract 3: User Stories}</p>
+</div>
+<div class="paragraph">
+<p>{Start of extract 3: User Stories}</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix B: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the jar file and copy into an empty folder</p>
+</li>
+<li>
+<p>Double-click the jar file<br>
+Expected: You are supposed to see this GUI, with default values for user details, and two empty resumes, enter
+<code>list i/ res</code> to check it out. The window size may not be optimum.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InitOpen.png" alt="InitOpen">
+</div>
+<div class="title">Figure 8. Initial view when jar file runs</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InitListResumes.png" alt="InitListResumes">
+</div>
+<div class="title">Figure 9. Expected view after running the command <code>list i/ res</code> to show all resumes</div>
+</div>
+</li>
+<li>
+<p>Saving window preferences</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+</li>
+<li>
+<p>Re-launch the app by double-clicking the jar file.<br>
+Expected: The most recent window size and location is retained.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Shutting down the program</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>To exit the program, you can enter the command <code>exit</code> or click the red close button, don&#8217;t worry
+all your data is already saved.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-items"><a class="link" href="#adding-items">Adding items</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an internship.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This test case assumes that the internship list is empty. It does not have to be, but there must not be a duplicate
+internship with the internship we&#8217;re about to add.</p>
+</li>
+<li>
+<p>Test case <strong>adding an internship</strong>: <code>add i/ int n/ Google r/ Frontend Web Engineer f/ 06-2020 t/ 12-2020 d/ I did work, made money. #/ frontend #/ tech</code><br>
+   Expected: An internship item is added to the list of internships and the list view changes to list of internships.
+Data box is filled with the data of the internship that you just added.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddingGoogleTest.png" alt="AddingGoogleTest">
+</div>
+</div>
+</li>
+<li>
+<p>Test case <strong>adding an duplicate internship</strong> (do this after part b): <code>add i/ int n/ Google r/ Frontend Web Engineer f/ 06-2020 t/ 12-2020 d/ I did work, made money. #/ frontend #/ tech</code><br>
+Expected: No internship is added is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case <strong>adding an internship with compulsory parameters missing</strong>: <code>add i/ int n/ Shopee f/ 06-2020 t/ 12-2020 d/ I did work, made money. #/ frontend #/tech</code><br>
+Expected: No internship is added is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect add internship commands to try: commands where other compulsory parameters such as <code>to</code>, <code>from</code>, and <code>description</code>
+are missing.<br>
+   Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding items of other types</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Simlar to adding internship above, please make sure that you follow our User Guide for the correct formatting of the
+commands if you are expecting a positive test case.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-items"><a class="link" href="#deleting-items">Deleting items</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a skill.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This test case assumes that there are skills already in the skill list. Run <code>list i/ ski</code> to check. If there aren&#8217;t any
+skills (shown below), follow G.2 above to add some skills.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListSkillBeforeDelete.png" alt="ListSkillBeforeDelete">
+</div>
+</div>
+</li>
+<li>
+<p>Test case <strong>deleting an internship</strong>: <code>delete 1 i/ ski</code><br>
+   Expected: An skill item is deleted from the skills and the data box is filled with the data of the skill that
+you just deleted.</p>
+</li>
+<li>
+<p>Test case <strong>delete a skill with wrong index</strong>: <code>delete 0 i/ ski</code><br>
+Expected: No skill is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect add skill commands to try: <code>delete 1 i/skill</code>, <code>delete -1 i/ski</code>, <code>delete abc i/ski</code>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting items of other types</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Simlar to deleting skills above, please make sure that you follow our User Guide for the correct formatting of the
+commands if you are expecting a positive test case.
+{End of extract 3: User Stories}</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:50:13 UTC</div></div></div></body></html>
