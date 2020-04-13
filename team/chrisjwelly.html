@@ -182,7 +182,7 @@
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Format:</strong> <code>redit RESUME_INDEX TYPE/ [ITEM_INDEX&#8230;&#8203;] [MORE_TYPE/ [ITEM_INDEX&#8230;&#8203;]]</code></p>
+<p><strong>Format:</strong> <code>redit RESUME_INDEX TYPE/ [ITEM_INDEX&#8230;&#8203;] [MORE_TYPE/ [ITEM_INDEX&#8230;&#8203;]]&#8230;&#8203;</code></p>
 </div>
 </div>
 </div>
@@ -285,7 +285,7 @@ and <code>skill</code> item at index 2. The following screenshot illustrates wha
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Format:</strong> <code>tagpull INDEX [#/ TAG]</code></p>
+<p><strong>Format:</strong> <code>tagpull RESUME_INDEX [#/ TAG]&#8230;&#8203;</code></p>
 </div>
 </div>
 </div>
@@ -318,7 +318,7 @@ the tag <code>tech</code> are added into the <code>resume</code>.</p>
 <p><strong>Example 2:</strong></p>
 </div>
 <div class="paragraph">
-<p><code>tagpull 2 #/ tech frontend</code></p>
+<p><code>tagpull 2 #/ tech #/ frontend</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
@@ -411,7 +411,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="sect2">
 <h3 id="resume-edit-feature"><a class="link" href="#resume-edit-feature">Resume Edit feature</a></h3>
 <div class="paragraph">
-<p>The Resume Edit feature or <code>redit</code> allows user to modify the <code>Item</code> contents of a <code>Resume</code> (for example, adding a <code>Skill</code> item or removing an <code>Internship</code> item). It is not to be confused with the <code>edit</code> command, which simply modifies the fields of an <code>Item</code>.</p>
+<p>The Resume Edit feature or <code>redit</code> allows user to modify the <a href="#content-item">content items</a> of the <code>Resume</code> (for example, adding a <code>Skill</code> item or removing an <code>Internship</code> item). It is not to be confused with the <code>edit</code> command, which simply modifies the fields of an <code>Item</code> (such as name).</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
@@ -431,10 +431,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>Step 3. This calls <code>ResumeBookParser#parseCommand()</code>, which would create a new <code>ResumeEditCommandParser</code> object and call the <code>ResumeEditCommandParser#parse()</code> method.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. A new <code>ResumeEditCommand</code> object is created. It contains the index of the <code>Resume</code> that is to be modified, and three <code>Optional&lt;List&lt;Integer&gt;&gt;</code> representing the indices of <code>Internship</code>, <code>Project</code> and <code>Skill</code> to be modified into the <code>Resume</code>. In this example, the <code>Project</code> and <code>Skill</code> indices are represented by empty <code>Optional</code> because the user did not specify any project or skill indices.</p>
+<p>Step 4. A new <code>ResumeEditCommand</code> object is created. It contains the index of the <code>Resume</code> that is to be modified, and three <code>Optional&lt;List&lt;Integer&gt;&gt;</code> representing the indices of <code>Internship</code>, <code>Project</code> and <code>Skill</code> to be modified into the <code>Resume</code>. In this example, the <code>Project</code> and <code>Skill</code> indices are represented by empty <code>Optional</code> because the user did not specify any project or skill indices. (This will be further elaborated in the next section)</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The <code>ResumeEditCommand#execute()</code> method is called with the current <code>model</code>. A copy of the <code>Resume</code> is created and its content is set to refer to the internships, projects and skills specified by the user.</p>
+<p>Step 5. The <code>ResumeEditCommand#execute()</code> method is called with the current <code>model</code>. A copy of the <code>Resume</code> is created and its content is set to refer to the <code>Internship</code>, <code>Project</code> and <code>Skill</code> items specified by the user.</p>
 </div>
 <div class="paragraph">
 <p>Step 6. A new <code>ResumeEditCommandResult</code> object, which contains the edited copy of the <code>Resume</code>, is created and returned.</p>
@@ -475,7 +475,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p>If the prefix and indices are both present, the resume will be modified to contain the items of that prefix at the specified indices. In the same example above, <code>Resume</code> at index 1 will be modified to contain <code>Internship</code> items at indices 2 and 3.</p>
+<p>If the prefix and indices are both present, the resume will be modified to contain the content items of that prefix at the specified indices. In the same example above, <code>Resume</code> at index 1 will be modified to contain <code>Internship</code> items at indices 2 and 3.</p>
 </li>
 <li>
 <p>If the prefix is specified but no indices are present, the resume will be modified to remove all the items of that prefix. In the example above, <code>Resume</code> at index 1 will be modified to have all its <code>Project</code> items removed.</p>
@@ -507,10 +507,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduce the size of responsibility for <code>EditResumeCommand</code>. Each command class now does one and only one thing so Single Responsibility Principle is observed.</p>
+<p>Pros: Since <code>redit</code> modifies the content items of the <code>Resume</code> and not the <code>Resume</code> details, this reduces the size of responsibility for <code>EditCommand</code>. Each command class now does one and only one thing so Single Responsibility Principle is observed.</p>
 </li>
 <li>
-<p>Cons: Unable to exploit polymorphism if there is similarity with the <code>EditCommand</code>. From user&#8217;s point-of-view, it may be confusing to have both <code>redit</code> and <code>edit</code>.</p>
+<p>Cons: Unable to exploit polymorphism if there is similarity with the <code>EditCommand</code>. From user&#8217;s point-of-view, it may also be confusing to have both <code>redit</code> and <code>edit</code>.</p>
 </li>
 </ul>
 </div>
@@ -532,7 +532,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>Pros: Some methods in <code>EditCommand</code> may be able to inherited by <code>ResumeEditCommand</code>, reducing code duplication.</p>
 </li>
 <li>
-<p>Cons: If the functionality of <code>ResumeEditCommand</code> is limited, it could have been combined with <code>EditCommand</code> entirely.</p>
+<p>Cons: If the functionality of <code>ResumeEditCommand</code> is limited, it could have been combined with <code>EditCommand</code> entirely. If the intention of <code>EditCommand</code> is to change the <code>Item</code> <em>details</em> (such as name), and <code>ResumeEditCommand</code> only modifies the content items of the <code>Resume</code> (without changing any <em>details</em>), then this is also a violation of the Liskov Substitution Principle.</p>
 </li>
 </ul>
 </div>
@@ -547,10 +547,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Conclusion:</strong> The first design is chosen because <code>redit</code> is sufficiently different from <code>edit</code>. An <code>edit</code> command is intended to change the details of the resume such as its name, while <code>redit</code> is supposed to change the content that the resume holds.</p>
+<p><strong>Conclusion:</strong> The first design is chosen because <code>redit</code> is sufficiently different from <code>edit</code>. An <code>edit</code> command is intended to change the details of the <code>Resume</code>, such as its name, while <code>redit</code> is supposed to change the content items that the <code>Resume</code> holds.</p>
 </div>
 <div class="paragraph">
-<p>This also reduces bloating of code and increases the flexibility of <code>ResumeEditCommand</code> class if the behaviour of <code>redit</code> needs to be changed in the future.</p>
+<p>This also reduces bloating of code and increases the flexibility of <code>ResumeEditCommand</code> class if the behaviour of <code>redit</code> needs to be changed or added on in the future.</p>
 </div>
 </div>
 </div>
@@ -564,7 +564,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: The 3 different cases is naturally represented when <code>List&lt;Integer&gt;</code> is wrapped with <code>Optional</code>. Enhanced safety, reducing risk of <code>NullPointerException</code>.</p>
+<p>Pros: The 3 different cases is naturally represented when <code>List&lt;Integer&gt;</code> is wrapped with <code>Optional</code>. There is also an enhanced safety, reducing risk of <code>NullPointerException</code>.</p>
 </li>
 <li>
 <p>Cons: More checks are required to ensure that the <code>Optional</code> is not empty before getting its value.</p>
@@ -590,10 +590,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Conclusion:</strong> We went with <code>Optional</code> as it is more expressive than using <code>null</code>. It has a clearer semantic when checking whether the value of <code>Optional</code> is empty or not than to check whether the variable is a <code>null</code> value.</p>
+<p><strong>Conclusion:</strong> We went with <code>Optional</code> as it is more expressive than using <code>null</code>: it has a clearer semantic when checking whether the value of <code>Optional</code> is empty or not than to check whether the variable is a <code>null</code> value.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, using <code>Optional</code> provides much less risk to getting <code>NullPointerException</code>. The reduced risk allows the developers to potentially save some debugging time, and developers need not worry about handling the <code>NullPointerException</code>.</p>
+<p>Additionally, using <code>Optional</code> provides much less risk to getting <code>NullPointerException</code>. The reduced risk allows the developers to potentially save some debugging time, and developers worry less about handling the <code>NullPointerException</code>.</p>
 </div>
 </div>
 </div>
@@ -609,7 +609,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="sect2">
 <h3 id="tag-pull-feature"><a class="link" href="#tag-pull-feature">Tag Pull feature</a></h3>
 <div class="paragraph">
-<p>The Tag Pull feature is similar to <a href="#Resume Edit Feature">Resume Edit Feature</a> in the sense that it modifies the content of the <code>Resume</code>. Unlike Resume Edit which modifies using item indices, the Tag Pull feature modifies the resume by <em>adding</em> items with the specified tags on top of existing items in the <code>Resume</code>.</p>
+<p>The Tag Pull feature is similar to <a href="#Resume Edit Feature">Resume Edit Feature</a> in the sense that it modifies the <a href="#content-item">content items</a> of the <code>Resume</code>. Unlike Resume Edit which modifies using the content item indices, the Tag Pull feature modifies the resume by <em>adding</em> items with the specified tags on top of existing items in the <code>Resume</code>.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
@@ -623,7 +623,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>Step 1. The user launches the application, and uses the <code>add</code> command to add several <code>Resume</code>, <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>tagpull 1 #/ tech</code> command to add all items that have been tagged with <code>tech</code> to the first <code>Resume</code> in the list of <code>Resume</code> items.</p>
+<p>Step 2. The user executes <code>tagpull 2 #/ tech</code> command to add all items that have been tagged with <code>tech</code> to the first <code>Resume</code> in the list of <code>Resume</code> items.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. This calls <code>ResumeBookParser#parseCommand()</code>, which would create a new <code>TagPullCommandParser</code> object and call the <code>TagPullCommandParser#parse()</code> method.</p>
@@ -673,7 +673,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>Pros: It may be intuitive for user to only have a single command that handles modification of <code>Resume</code></p>
 </li>
 <li>
-<p>Cons: The implementation of <code>redit</code> becomes much more complicated as various combinations of input has to be considered. For example, considerations of what the expected behaviour should be if indices and tags are given.</p>
+<p>Cons: The implementation of <code>redit</code> becomes much more complicated as various combinations of input has to be considered. For example, considerations of what the expected behaviour should be if both indices and tags are given as arguments.</p>
 </li>
 </ul>
 </div>
@@ -689,7 +689,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>It may also save the user some confusion since the <code>redit</code> feature specifically handles only updates using indices while the <code>tagpull</code> feature handles only updates using tags.</p>
 </div>
 <div class="paragraph">
-<p>As we have separated the two commands, we can then also vary the behaviour of the two commands slightly. Instead of both commands modifying the <code>Resume</code>, we have implemented <code>redit</code> to <em>modify</em> the <code>Resume</code> item, while <code>tagpull</code> <em>adds</em> onto existing items in the <code>Resume</code>.</p>
+<p>As we have separated the two commands, we can then also vary the behaviour of the two commands slightly. We have implemented <code>redit</code> to be able to <em>modify</em>  (adding, changing, and removing) the <code>Resume</code> item, while <code>tagpull</code> modifies only by <em>adding</em> onto existing content items in the <code>Resume</code>.</p>
 </div>
 </div>
 </div>
@@ -701,4 +701,4 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:19:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:53:34 UTC</div></div></div></body></html>
