@@ -879,9 +879,7 @@ our application and it is not recommendable to build it on top of something that
 is then reflected in the user&#8217;s profile panel.</p>
 </div>
 <div class="sect3">
-<h4 id="code-me-code-edit-user-profile"><a class="link" href="#code-me-code-edit-user-profile">4.5.1. <code>me</code>: Edit User Profile</a></h4>
-<div class="sect4">
-<h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p><code>me</code> is supported by the <code>EditUserCommand</code>, where it allows the main user to modify and update user information that
 includes <code>display picture</code>, <code>name</code>, <code>description</code>, <code>phone</code>, <code>email</code>, <code>github</code>, <code>university</code>, <code>major</code>, <code>from</code>, <code>to</code>, <code>cap</code>.</p>
@@ -948,17 +946,12 @@ every command.</p>
 <div class="title">Figure 19. Sequence Diagram for EditUserCommand</div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
+<h5 id="aspect-whether-code-resumeeditcommand-code-should-extend-code-editcommand-code-2"><a class="link" href="#aspect-whether-code-resumeeditcommand-code-should-extend-code-editcommand-code-2">Aspect: Whether <code>ResumeEditCommand</code> should extend <code>EditCommand</code></a></h5>
 <div class="paragraph">
-<p><strong>Aspect: Whether <code>EditUserCommand</code> should extend <code>EditCommand</code></strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong> Alternative 1 (current choice):</strong> <code>EditUserCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>.</p>
-</li>
-</ul>
+<p><strong>Alternative 1 (current choice):</strong> <code>EditUserCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>.</p>
 </div>
 <div class="paragraph">
 <p>This design is chosen because while <code>EditCommand</code> takes into account the item index as all items are stored in a list in Model, <code>EditUserCommand</code>
@@ -967,59 +960,75 @@ only concerns with a single <code>Person</code> who is the main user.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduces unnecessary overhead for <code>EditUserCommand</code>.</p>
+<p>Pros: Since user is a <code>Person</code> which is not an <code>Item</code>, it would be better to have a separate <code>EditUserCommand</code> as this is in line with the Liskov Substitution Principle
+where all <code>EditItemCommand</code> already extends <code>EditCommand</code> in order to handle the according <code>Item</code> without knowing it. So this does not force
+<code>EditCommand</code> to handle a <code>Person</code> as well.</p>
 </li>
 <li>
-<p>Cons: Unable to exploit polymorphism if there is similarity with the <code>EditCommand</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 2: <code>EditUserCommand</code> extends <code>EditCommand</code></strong></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Pros: Better utilise polymorphism and perhaps can be more intuitive as it is also a command to edit.</p>
-</li>
-<li>
-<p>Cons: Does not treat it as an entirely separate command with a distinct keyword <code>me</code> which is more intuitive for the user.</p>
+<p>Cons: Unable to exploit polymorphism even though there is similarity between <code>EditUserCommand</code> and <code>EditCommand</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Aspect: Whether to have both <code>AddUserCommand</code> and <code>EditUserCommand</code></strong></p>
+<p><strong>Alternative 2:</strong> <code>EditUserCommand</code> extends <code>EditCommand</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> A default user data is initialized and displayed at first start-up. User can update it afterwards.
-This design is chosen because <code>EditUserCommand</code> only concerns with a single <code>Person</code> object in the Model as the sole user. Hence
-there is no need for <code>AddUserCommand</code> as <code>EditUserCommand</code> when executed always creates a new <code>Person</code> object to replace the
-existing one and update the Model and Ui accordingly.</p>
+<p>Pros: If we intend to have multiple <code>Person</code> then perhaps we can extend <code>EditCommand</code> due to the presence of <code>Index</code> attribute.
+In this case, even though <code>Person</code> is not an <code>Item</code>, there are many shared similarity between the two edit commands.</p>
+</li>
+<li>
+<p>Cons: In terms of design, this is not a good practice as <code>Person</code> is not intended to be an <code>Item</code> with separate attributes
+and is not part of a <code>Resume</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> The first design is chosen because <code>EditUserCommand</code> is sufficiently different from any <code>EditItemCommand</code>.
+An <code>EditUserCommand</code> command is solely concerned with changing the details of a <code>Person</code> while <code>EditCommand</code> is intended to
+to <code>edit</code> any <code>Item</code> in their respective list.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-whether-to-have-both-code-addusercommand-code-and-code-editusercommand-code"><a class="link" href="#aspect-whether-to-have-both-code-addusercommand-code-and-code-editusercommand-code">4.5.3. Aspect: Whether to have both <code>AddUserCommand</code> and <code>EditUserCommand</code></a></h4>
+<div class="paragraph">
+<p><strong>Alternative 1 (current choice):</strong> A default user data is initialized and displayed at first start-up. User can update it afterwards.</p>
+</div>
+<div class="paragraph">
+<p>The main concern initially was how to automatically updating user profile after each changes is made. As such, we thought of
+storing the <code>Person</code> in an <code>ObservableList</code> so that <code>Ui</code> can be updated by adding and removing the <code>Person</code>. However, we now
+use <code>Javafx Observable</code> to create an <code>ObservablePerson</code> class that can observe changes to the <code>Person</code> so that related Ui components
+can be automatically reloaded after every command.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduces unnecessary code duplication with AddUserCommand is present.</p>
+<p>Pros: This design is chosen because <code>EditUserCommand</code> only concerns with a single <code>Person</code> object in the Model as the sole user.
+There is no need for <code>AddUserCommand</code> as <code>EditUserCommand</code> when executed will always create a new <code>Person</code> object to replace the
+existing one and update the Model and Ui accordingly with the use of <code>Observable</code>.</p>
 </li>
 <li>
 <p>Cons: User may expect to have <code>add</code> command intuitively.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Alternative 2: Have both <code>AddUserCommand</code> and <code>EditUserCommand</code></p>
+<div class="paragraph">
+<p><strong>Alternative 2:</strong> Have both <code>AddUserCommand</code> and <code>EditUserCommand</code></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: User can intuitively treat <code>add</code> as adding in a new <code>user</code> and <code>edit</code> as just modifying an existing <code>user</code>.</p>
 </li>
 <li>
-<p>Cons: There will be code duplication and the one single user logic is not fully utilised to reduce code.</p>
-</li>
-</ul>
-</div>
+<p>Cons: There will be code duplication and the one single user logic is not fully utilised to reduce code, especially given
+the use of <code>Observable</code>.</p>
 </li>
 </ul>
 </div>
@@ -1040,9 +1049,8 @@ and to be updated with a simple and powerful command.</p>
 <p>{ start of <code>note</code> section written by: Nham Quoc Hung }</p>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="note-taking-feature-take-simple-notes-or-reminders"><a class="link" href="#note-taking-feature-take-simple-notes-or-reminders">4.5.2. Note taking feature: take simple notes or reminders</a></h4>
+<h4 id="note-taking-feature-take-simple-notes-or-reminders"><a class="link" href="#note-taking-feature-take-simple-notes-or-reminders">4.5.4. Note taking feature: take simple notes or reminders</a></h4>
 <div class="sect4">
 <h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
 <div class="paragraph">
@@ -1164,10 +1172,10 @@ As such, by extending <code>Item</code>, <code>Note</code> can inherit attribute
 <ul>
 <li>
 <p>Pros: Reduce code duplication in achieving the same functionality between <code>Note</code> commands and other <code>Item</code> commands. <code>Note</code> can also inherit
-important attributes such as <code>index</code> and <code>tags</code> which it intends to have.</p>
+important attributes such as <code>index</code> and <code>tag</code> which it intends to have.</p>
 </li>
 <li>
-<p>Cons: Right now other subclasses of <code>Item</code> are <code>Internship</code>, <code>Project</code>, <code>Skill</code>, <code>Person</code> and <code>Resume</code> which are all relevant
+<p>Cons: Right now other subclasses of <code>Item</code> are <code>Internship</code>, <code>Project</code>, <code>Skill</code> and <code>Resume</code> which are all relevant
 to building a <code>Resume</code>. Details from these items will be included in the actual resume PDF generated. As such, <code>Note</code> as a subclass of
 <code>Item</code> can add confusion because it is not part of a resume.</p>
 </li>
@@ -1949,7 +1957,7 @@ is still present if we store the encryption key in the same machine.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>ResumeBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-edit-an-item" class="discrete">Use case: Edit an item</h3>
+<h3 id="use-case-edit-an-code-item-code" class="discrete">Use case: Edit an <code>item</code></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1962,7 +1970,7 @@ is still present if we store the encryption key in the same machine.</p>
 <p>ResuMe shows a list of corresponding items</p>
 </li>
 <li>
-<p>User checks for the <code>ID</code> of a specific item in the list to edit</p>
+<p>User checks for the <code>index</code> of a specific item in the list to edit</p>
 </li>
 <li>
 <p>User requests to edit a specific item in the list</p>
@@ -1981,7 +1989,7 @@ is still present if we store the encryption key in the same machine.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. The <code>ID</code> given by user does not match any item of type</p>
+<p>3a. The <code>index</code> given by user does not match any item of type</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2005,7 +2013,7 @@ is still present if we store the encryption key in the same machine.</p>
 <p>ResuMe displays all items whose names contain the <code>KEYWORD</code></p>
 </li>
 <li>
-<p>If user enters <code>find -TYPE KEYWORD</code></p>
+<p>If user enters <code>find KEYWORD i/TYPE</code></p>
 </li>
 <li>
 <p>ResuMe displays only items of the <code>TYPE</code> whose names contain the <code>KEYWORD</code></p>
@@ -2045,7 +2053,7 @@ is still present if we store the encryption key in the same machine.</p>
 <p>ResuMe shows a list of corresponding items</p>
 </li>
 <li>
-<p>User checks for the <code>ID</code> of a specific item in the list to delete</p>
+<p>User checks for the <code>index</code> of a specific item in the list to delete</p>
 </li>
 <li>
 <p>User requests to edit a specific item in the list</p>
@@ -2074,7 +2082,7 @@ is still present if we store the encryption key in the same machine.</p>
 </div>
 </li>
 <li>
-<p>3a. The given <code>ID</code> is invalid.</p>
+<p>3a. The given <code>index</code> is invalid.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2377,4 +2385,4 @@ commands if you are expecting a positive test case.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:29:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:36:22 UTC</div></div></div></body></html>
