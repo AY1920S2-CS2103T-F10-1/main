@@ -1123,7 +1123,7 @@ correct <code>index</code> for deletion. Or just fall back on <code>undo</code> 
 to the second <code>resume</code> item.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="790">
+<img src="images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="700">
 </div>
 <div class="title">Figure 18. List of all resume items</div>
 </div>
@@ -1132,7 +1132,7 @@ to the second <code>resume</code> item.</p>
 <p>We delete the 2nd <code>resume</code> with <code>delete 2 i/ res</code> .</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/ResumeDelete2.png" alt="ResumeDelete2" width="790">
+<img src="images/ResumeDelete2.png" alt="ResumeDelete2" width="700">
 </div>
 <div class="title">Figure 19. Application view after deleting the resume item at index 2</div>
 </div>
@@ -1142,9 +1142,9 @@ to the second <code>resume</code> item.</p>
 deletion to proceed. After the deletion the list box is set to show <code>skill</code> items.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteSkill3.png" alt="DeleteSkill3" width="790">
+<img src="images/DeleteSkill3.png" alt="DeleteSkill3" width="700">
 </div>
-<div class="title">Figure 20. Application view after deleting the skill item at index 3</div>
+<div class="title">Figure 20. Application view after deleteing the skill item at index 3</div>
 </div>
 </li>
 </ol>
@@ -1201,7 +1201,7 @@ just like to type.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#modifying-the-content-a-resume-code-redit-code"><code>redit</code></a> can be very potent when used in conjunction with
+<p><code>redit</code> can be very potent when used in conjunction with
 <code>sort</code>. Sort internships by latest, then call <code>redit</code> with <code>int/ 1 2 3</code> to add the three most
 recent internships to a resume. So easy!</p>
 </li>
@@ -1292,7 +1292,7 @@ recent internships to a resume. So easy!</p>
 <p>We sort all <code>resume</code> items by their name in ascending order with <code>sort i/ res order/ name</code>.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/SortResByName.png" alt="SortResByName" width="790">
+<img src="images/SortResByName.png" alt="SortResByName" width="700">
 </div>
 <div class="title">Figure 21. List of resume items sorted by name in ascending order</div>
 </div>
@@ -1301,7 +1301,7 @@ recent internships to a resume. So easy!</p>
 <p>We sort all <code>skill</code> items in descending level of proficiency with <code>sort i/ ski order/ level reverse/ true</code> .</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/SortSkiByLevelReverse.png" alt="SortSkiByLevelReverse" width="790">
+<img src="images/SortSkiByLevelReverse.png" alt="SortSkiByLevelReverse" width="700">
 </div>
 <div class="title">Figure 22. List of skill items sorted by level in descending order</div>
 </div>
@@ -1311,7 +1311,7 @@ recent internships to a resume. So easy!</p>
 <code>reverse/</code> this time because we really like to type.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/SortIntByTime.png" alt="SortIntByTime" width="790">
+<img src="images/SortIntByTime.png" alt="SortIntByTime" width="700">
 </div>
 <div class="title">Figure 23. List of all note items sorted by deadline in ascending order</div>
 </div>
@@ -1772,13 +1772,13 @@ for instance, using a single <code>me</code> command, then <code>undo</code> wil
 also do a <code>list i/ proj</code> to switch to viewing projects because that is how staging for an example works.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/deleteJava_beforeUndo.png" alt="deleteJava beforeUndo" width="790">
+<img src="images/deleteJava_beforeUndo.png" alt="deleteJava beforeUndo" width="700">
 </div>
 <div class="title">Figure 36. List of all skill items after deleting "Java"</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/beforeUndo_switchToProj.png" alt="beforeUndo switchToProj" width="790">
+<img src="images/beforeUndo_switchToProj.png" alt="beforeUndo switchToProj" width="700">
 </div>
 <div class="title">Figure 37. List of all project items</div>
 </div>
@@ -1788,7 +1788,7 @@ also do a <code>list i/ proj</code> to switch to viewing projects because that i
 Voila, Java is back, and our list box now displays <code>skill</code> items.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/postUndo_JavaIsBack.png" alt="postUndo JavaIsBack" width="790">
+<img src="images/postUndo_JavaIsBack.png" alt="postUndo JavaIsBack" width="700">
 </div>
 <div class="title">Figure 38. List of all skill items after undo</div>
 </div>
@@ -1846,13 +1846,13 @@ anymore.</p>
 <p><strong>Example:</strong></p>
 </div>
 <div class="paragraph">
-<p>After the Java deletion incidence in the previous example section (for <a href="#Undo a command: <code>undo</code>"><code>undo</code></a>), we
+<p>After the Java deletion incidence in the previous example section (for <code>undo</code>), we
 decide that the merits of Java do not warrant the pain it wreaks so we want to <code>redo</code> our original decision to delete
 Java. Once again, Java is removed from our life.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/redo_success.png" alt="redo success" width="790">
+<img src="images/redo_success.png" alt="redo success" width="700">
 </div>
 <div class="title">Figure 39. List of all skill items after redo</div>
 </div>
@@ -2390,4 +2390,4 @@ file created with the data file of your <strong>ResuMe</strong> folder in the cu
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:01:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:05:05 UTC</div></div></div></body></html>

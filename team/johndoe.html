@@ -195,7 +195,7 @@ correct <code>index</code> for deletion. Or just fall back on <code>undo</code> 
 to the second <code>resume</code> item.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="790">
+<img src="../images/BeforeDeleteResumeList.png" alt="BeforeDeleteResumeList" width="700">
 </div>
 <div class="title">Figure 1. List of all resume items</div>
 </div>
@@ -204,7 +204,7 @@ to the second <code>resume</code> item.</p>
 <p>We delete the 2nd <code>resume</code> with <code>delete 2 i/ res</code> .</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ResumeDelete2.png" alt="ResumeDelete2" width="790">
+<img src="../images/ResumeDelete2.png" alt="ResumeDelete2" width="700">
 </div>
 <div class="title">Figure 2. Application view after deleting the resume item at index 2</div>
 </div>
@@ -214,9 +214,9 @@ to the second <code>resume</code> item.</p>
 deletion to proceed. After the deletion the list box is set to show <code>skill</code> items.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DeleteSkill3.png" alt="DeleteSkill3" width="790">
+<img src="../images/DeleteSkill3.png" alt="DeleteSkill3" width="700">
 </div>
-<div class="title">Figure 3. Application view after deleting the skill item at index 3</div>
+<div class="title">Figure 3. Application view after deleteing the skill item at index 3</div>
 </div>
 </li>
 </ol>
@@ -237,297 +237,6 @@ deletion to proceed. After the deletion the list box is set to show <code>skill<
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
-<div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedResumeBook</code>.
-It extends <code>ResumeBook</code> with an undo/redo history, stored internally as an <code>ResumeBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedResumeBook#commit()</code>&#8201;&#8212;&#8201;Saves the current resume book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedResumeBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous resume book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedResumeBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone resume book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitResumeBook()</code>, <code>Model#undoResumeBook()</code> and <code>Model#redoResumeBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedResumeBook</code> will be initialized with the initial resume book state, and the <code>currentStatePointer</code> pointing to that single resume book state.
-Do note that all resume books begin with its display type set to an empty string. Display type of a resume book determines which item
-list will be selected for display (e.g. if the display type is "res" - an alias for resume, then the list of all resumes will be selected).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5 i/ res</code> command to delete the 5th resume in the resume book. The <code>delete</code> command calls <code>Model#commitResumeBook()</code>, causing the modified state of the resume book after the <code>delete 5 i/ res</code> command executes to be saved in the <code>resumeBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted resume book state.
-In addition, the display type of the current resume book will be set to resume.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add i/ int n/ RESUME Internship &#8230;&#8203;</code> to add a new internship. The <code>add</code> command also calls <code>Model#commitResumeBook()</code>, causing another modified resume book state to be saved into the <code>resumeBookStateList</code>. This resume
-book has its display type set to <code>int</code> - which is an alias for internship.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitResumeBook()</code>, so the resume book state will not be saved into the <code>resumeBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the internship was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoResumeBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous resume book state, and restores the resume book to that state.
-This resume book state, however, does not has the display type that we want. Thus, <code>VersionedResumeBook#setItemsToDisplay()</code> will be called to set the current resume book&#8217;s
-display type to that of the resume book state one to the right of the <code>currentStatePointer</code> - which corresponds to the command that just has been undone.</p>
-</div>
-<div class="paragraph">
-<p>Note: <code>resumeBookStateList</code> stores resume book states as <code>ReadOnlyResumeBook</code>, thereby allowing these states to stay unmodified throughout
-their life cycle. Operations like <code>Model#commitResumeBook()</code>, <code>Model#undoResumeBook()</code>, and <code>VersionedResumeBook#setItemsToDisplay()</code> will not
-change any of these state at all. Immutable state like this is desirable because it gives rise to fewer bugs and fewer unexpected behaviours.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial resume book state, then there are no previous resume book states to restore. The <code>undo</code> command uses <code>Model#canUndoResumeBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-<div class="title">Figure 4. Sequence Diagram for UndoCommand</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoResumeBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the resume book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>resumeBookStateList.size() - 1</code>, pointing to the latest resume book state, then there are no undone resume book states to restore. The <code>redo</code> command uses <code>Model#canRedoResumeBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list i/ ski</code>. Commands that do not modify the resume book, such as <code>list</code>, will usually not call <code>Model#commitResumeBook()</code>, <code>Model#undoResumeBook()</code> or <code>Model#redoResumeBook()</code>. Thus, the <code>resumeBookStateList</code> remains unchanged.</p>
-</div>
-<div class="paragraph">
-<p>Here we also see how the stored resume book states are immutable. <code>list i/ ski</code> causes the display type of the current resume book to switch to skill (whose alias is "ski"),
-while the resume book state pointed to by the <code>currentStatePointer</code> still maintains its display type (which is resume).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>sort i/ ski order/ name</code>, which calls <code>Model#commitResumeBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>resumeBookStateList</code>, all resume book states after the <code>currentStatePointer</code> will be purged.
-We designed it this way because it no longer makes sense to redo the <code>add i/ int &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-<div class="title">Figure 5. Activity Diagram when a user executes a new command</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire resume book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement. Easy to understand.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the item being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command is correct. It is further complicated by the fact that
-there is an <code>add</code>, <code>delete</code>, <code>edit</code>, and <code>sort</code> command for each item type. Also, Separation of Concerns Principle is violated as in essence, the <code>undo()</code> method of a command
-is doing more than what the command is responsible for, e.g. undoing a <code>delete</code> command is essentially performing an <code>add</code> command.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of resume book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Very straightforward. Developers, even the novice ones, can easily understand and pick up if they wish to improve upon our application.</p>
-</li>
-<li>
-<p>Cons: We need handle the <code>currentStatePointer</code> accurately; this is further complicated as we also need to reach to the undone
-resume book state to retrieve the correct display type for the current resume book.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo. <code>HistoryManager</code> will contain two stacks: <code>UndoStack</code> and <code>RedoStack</code>. We push a command into the former stack
-when it is executed; when an <code>undo</code> is performed, we pop the top of the <code>UndoStack</code> and store the command in the <code>RedoStack</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase. We also just need to store the history of commands as opposed to the entire
-resume book.</p>
-</li>
-<li>
-<p>Cons: Handling of the stacks can be confusing, especially since there are commands that make no change to the model and thus are not (and should not be) stored. <code>edit</code> and <code>delete</code> require
-the old-versioned item to be stored as well so that it can be restored while <code>add</code> does not, thereby affecting consistency.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="proposed-improvements-for-undo-redo"><a class="link" href="#proposed-improvements-for-undo-redo">[Proposed] Improvements for Undo/Redo</a></h4>
-<div class="paragraph">
-<p>A new function can be added that allows users to navigate resume book states. This is very possible because we
-can already store all these states and can map them to keys easily. This new function can let
-user traverse between resumes without needing to undo or redo too many times.</p>
-</div>
-<div class="paragraph">
-<p>A better data structure - like a search tree - can be used in place of a list. If the above proposed
-change is taken into consideration, then it is desirable to improve search time for a resume book state, from
-worst case linear to worst case logarithmic.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p>Data encryption can be implemented in the future versions.</p>
-</div>
-<div class="sect4">
-<h5 id="aspect-how-data-encryption-will-be-implemented"><a class="link" href="#aspect-how-data-encryption-will-be-implemented">Aspect: How data encryption will be implemented</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1</strong>: Encrypt and store data locally.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:  Easy to implement. There are many existing encryption libraries that can be used.</p>
-</li>
-<li>
-<p>Cons:  Performance issues may arise because every call to save to storage requires encrypting a lot of data. Security threat
-is still present if we store the encryption key in the same machine.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2</strong>: Store data outside the user&#8217;s machine and issue them access token.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Data is not bound to one machine and can be restored if the user forgets their credentials. If a DBMS is used then there are additional benefits to storage functionality as well.</p>
-</li>
-<li>
-<p>Cons: We need to generate access tokens and check them. We also need to change the current implementation to work with external storage.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -538,4 +247,4 @@ is still present if we store the encryption key in the same machine.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:01:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:05:05 UTC</div></div></div></body></html>

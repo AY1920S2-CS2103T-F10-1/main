@@ -343,6 +343,9 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 <div class="paragraph">
 <p>{ end of <code>model</code> section written by: Pham Thuy Duong }</p>
 </div>
+<div class="paragraph">
+<p>{ start of <code>storage</code> section written by: Nguyen Minh Hoang }</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
@@ -367,6 +370,9 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 <p>can save the <code>ResumeBook</code> data in json format and read it back.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>{ end of <code>storage</code> section written by: Nguyen Minh Hoang }</p>
 </div>
 </div>
 <div class="sect2">
@@ -791,6 +797,9 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 </div>
 </div>
 <div class="paragraph">
+<p>{ start of <code>observable-user</code> section written by: Nguyen Minh Hoang }</p>
+</div>
+<div class="paragraph">
 <p>{ end of Implementation of <code>Command</code> section written by: Nguyen Chi Hai }</p>
 </div>
 </div>
@@ -854,6 +863,9 @@ not likely to manifest considering the usage scenarios for our application (offl
 <div class="paragraph">
 <p>We would, however, make it a priority to change the implementation to Alternative 2, since we want to scale up
 our application and it is not recommendable to build it on top of something that is no longer supported.</p>
+</div>
+<div class="paragraph">
+<p>{ end of <code>observable-user</code> section written by: Nguyen Minh Hoang }</p>
 </div>
 <div class="paragraph">
 <p>{ start of <code>me</code> section written by: Nham Quoc Hung }</p>
@@ -1409,6 +1421,9 @@ extended features (e.g. allow user to choose from a variety of pre-defined resum
 <div class="paragraph">
 <p>{ end of <code>export</code> section written by: Pham Thuy Duong }</p>
 </div>
+<div class="paragraph">
+<p>{ start of <code>undo-redo</code> section written by: Nguyen Minh Hoang }</p>
+</div>
 </div>
 </div>
 </div>
@@ -1447,7 +1462,7 @@ list will be selected for display (e.g. if the display type is "res" - an alias 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
+<img src="images/UndoRedoState0.png" alt="UndoRedoState0" width="550">
 </div>
 </div>
 <div class="paragraph">
@@ -1456,7 +1471,7 @@ In addition, the display type of the current resume book will be set to resume.<
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
+<img src="images/UndoRedoState1.png" alt="UndoRedoState1" width="550">
 </div>
 </div>
 <div class="paragraph">
@@ -1465,7 +1480,7 @@ book has its display type set to <code>int</code> - which is an alias for intern
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
+<img src="images/UndoRedoState2.png" alt="UndoRedoState2" width="550">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1492,7 +1507,7 @@ change any of these state at all. Immutable state like this is desirable because
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
+<img src="images/UndoRedoState3.png" alt="UndoRedoState3" width="550">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1552,7 +1567,7 @@ while the resume book state pointed to by the <code>currentStatePointer</code> s
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
+<img src="images/UndoRedoState4.png" alt="UndoRedoState4" width="550">
 </div>
 </div>
 <div class="paragraph">
@@ -1561,7 +1576,7 @@ We designed it this way because it no longer makes sense to redo the <code>add i
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
+<img src="images/UndoRedoState5.png" alt="UndoRedoState5" width="550">
 </div>
 </div>
 <div class="paragraph">
@@ -1661,6 +1676,12 @@ user traverse between resumes without needing to undo or redo too many times.</p
 change is taken into consideration, then it is desirable to improve search time for a resume book state, from
 worst case linear to worst case logarithmic.</p>
 </div>
+<div class="paragraph">
+<p>{ end of <code>undo-redo</code> section written by: Nguyen Minh Hoang }</p>
+</div>
+<div class="paragraph">
+<p>{ start of <code>data-encryption</code> section written by: Nguyen Minh Hoang }</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1700,6 +1721,9 @@ is still present if we store the encryption key in the same machine.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>{ end of <code>data-encryption</code> section written by: Nguyen Minh Hoang }</p>
 </div>
 </div>
 </div>
@@ -2353,4 +2377,4 @@ commands if you are expecting a positive test case.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:01:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:05:05 UTC</div></div></div></body></html>
