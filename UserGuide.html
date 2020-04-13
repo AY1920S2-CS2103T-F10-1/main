@@ -31,17 +31,18 @@
 <li><a href="#editing-an-item-code-edit-code">4.5. Editing an item : <code>edit</code></a></li>
 <li><a href="#finding-items-by-name-code-find-code">4.6. Finding items by name: <code>find</code></a></li>
 <li><a href="#deleting-an-item-code-delete-code">4.7. Deleting an item : <code>delete</code></a></li>
-<li><a href="#viewing-an-item-in-details-code-view-code">4.8. Viewing an item in details: <code>view</code></a></li>
-<li><a href="#modifying-the-content-a-resume-code-redit-code">4.9. Modifying the content a resume: <code>redit</code></a></li>
-<li><a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.10. Pulling tagged items into the resume: <code>tagpull</code></a></li>
-<li><a href="#undo-a-command-code-undo-code">4.11. Undo a command: <code>undo</code></a></li>
-<li><a href="#redo-a-command-code-redo-code">4.12. Redo a command: <code>redo</code></a></li>
-<li><a href="#previewing-a-resume-code-rpreview-code">4.13. Previewing a resume: <code>rpreview</code></a></li>
-<li><a href="#generating-a-resume-code-rgen-code">4.14. Generating a resume: <code>rgen</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">4.15. Clearing all data: <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.17. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#sorting-an-item-list-code-sort-code">4.8. Sorting an item list : <code>sort</code></a></li>
+<li><a href="#viewing-an-item-in-details-code-view-code">4.9. Viewing an item in details: <code>view</code></a></li>
+<li><a href="#modifying-the-content-a-resume-code-redit-code">4.10. Modifying the content a resume: <code>redit</code></a></li>
+<li><a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.11. Pulling tagged items into the resume: <code>tagpull</code></a></li>
+<li><a href="#undo-a-command-code-undo-code">4.12. Undo a command: <code>undo</code></a></li>
+<li><a href="#redo-a-command-code-redo-code">4.13. Redo a command: <code>redo</code></a></li>
+<li><a href="#previewing-a-resume-code-rpreview-code">4.14. Previewing a resume: <code>rpreview</code></a></li>
+<li><a href="#generating-a-resume-code-rgen-code">4.15. Generating a resume: <code>rgen</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">4.16. Clearing all data: <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.18. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -890,7 +891,7 @@ tag set to <em>"agile"</em>.</p>
 <div class="sect2">
 <h3 id="deleting-an-item-code-delete-code"><a class="link" href="#deleting-an-item-code-delete-code">4.7. Deleting an item : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes an item from the <strong>ResuMe</strong> application.</p>
+<p>Deletes an existing item from the <strong>ResuMe</strong> application.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -970,7 +971,167 @@ deletion to proceed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">4.8. Viewing an item in details: <code>view</code></a></h3>
+<h3 id="sorting-an-item-list-code-sort-code"><a class="link" href="#sorting-an-item-list-code-sort-code">4.8. Sorting an item list : <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sorts an item list in the <strong>ResuMe</strong> application.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>sort i/ TYPE order/ SORT_ORDER [reverse/ TRUE_OR_FALSE]</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The default sort order is ascending. You can specify <code>reverse/</code> to reverse this ordering.
+So use <code>reverse/ true</code> if you want to sort in descending order, and <code>reverse/ false</code> if you
+just like to type.</p>
+</li>
+<li>
+<p>Sorting an item list will set the list box to display items of that type.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#modifying-the-content-a-resume-code-redit-code"><code>redit</code></a> can be very potent when used in conjunction with
+<code>sort</code>. Sort internships by latest, then call <code>redit</code> with <code>int/ 1 2 3</code> to add the three most
+recent internships to a resume. So easy!</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For the selected <code>TYPE</code>, the list of items of that type will be sorted according to
+<code>SORT_ORDER</code> (see the note above for what  <code>reverse/</code> does).</p>
+</li>
+<li>
+<p>Below is the list of criteria by which different item types can be sorted:</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Item type</th>
+<th class="tableblock halign-left valign-top"><code>SORT_ORDER</code></th>
+<th class="tableblock halign-left valign-top">Criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of internship</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start date of internship</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date of project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of skill</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>level</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level of proficiency of skill</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of resume</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of note</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deadline of note</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sort all resumes by their name in ascending order with <code>sort i/ res order/ name</code>.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">image</dt>
+</dl>
+</div>
+</li>
+<li>
+<p>Sort all skills in descending level of proficiency with <code>sort i/ ski order/ level reverse/ true</code> .</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">image</dt>
+</dl>
+</div>
+</li>
+<li>
+<p>Sort all notes by their deadline in ascending order with <code>sort i/ note order/ time reverse/ false</code>, specifying
+<code>reverse/</code> this time because we really like to type.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">image</dt>
+</dl>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-an-item-in-details-code-view-code"><a class="link" href="#viewing-an-item-in-details-code-view-code">4.9. Viewing an item in details: <code>view</code></a></h3>
 <div class="paragraph">
 <p>Shows the detailed view of an item.</p>
 </div>
@@ -1032,7 +1193,7 @@ in the list box, such as its website (<em>"abc.github.io"</em>) and its descript
 </div>
 </div>
 <div class="sect2">
-<h3 id="modifying-the-content-a-resume-code-redit-code"><a class="link" href="#modifying-the-content-a-resume-code-redit-code">4.9. Modifying the content a resume: <code>redit</code></a></h3>
+<h3 id="modifying-the-content-a-resume-code-redit-code"><a class="link" href="#modifying-the-content-a-resume-code-redit-code">4.10. Modifying the content a resume: <code>redit</code></a></h3>
 <div class="paragraph">
 <p>Modifies the content of a <code>resume</code> to contain the items specified in the command.</p>
 </div>
@@ -1141,7 +1302,7 @@ and <code>skill</code> item at index 2. The following screenshot illustrates wha
 </div>
 </div>
 <div class="sect2">
-<h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.10. Pulling tagged items into the resume: <code>tagpull</code></a></h3>
+<h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">4.11. Pulling tagged items into the resume: <code>tagpull</code></a></h3>
 <div class="paragraph">
 <p>Pull the <code>Internship</code>, <code>Project</code> and <code>Skill</code> items with the specified tag(s) into a <code>resume</code>.</p>
 </div>
@@ -1192,7 +1353,7 @@ either the tag <code>tech</code> or <code>frontend</code> are added into the <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">4.11. Undo a command: <code>undo</code></a></h3>
+<h3 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">4.12. Undo a command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undoes the previous command and restores the state of the application to before that command is performed.</p>
 </div>
@@ -1213,13 +1374,14 @@ either the tag <code>tech</code> or <code>frontend</code> are added into the <co
 <div class="ulist">
 <ul>
 <li>
-<p>An <code>undo</code> is done per command and not change.</p>
+<p>An <code>undo</code> is done per command and not change. If you make multiple changes to your user profile,
+for instance, using a single <code>me</code> command, then <code>undo</code> will revert all the changes.</p>
 </li>
 <li>
-<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, <code>tagpull</code> and <code>me</code>.</p>
+<p>Commands that can be undone are: <code>add</code>, <code>delete</code>, <code>edit</code>, <code>sort</code>, <code>redit</code>, <code>tagpull</code> and <code>me</code>.</p>
 </li>
 <li>
-<p>Commands that make no change to the application state, like <code>list</code>, <code>view</code>, <code>find</code>, <code>rpreview</code> or <code>rgen</code>, cannot be undone.</p>
+<p>Commands that make no change to the application state, namely <code>list</code>, <code>view</code>, <code>find</code>, <code>rpreview</code> and <code>rgen</code>, cannot be undone.</p>
 </li>
 <li>
 <p>Successive <code>undo</code> commands will bring the application further back, until there is no more change to <code>undo</code>.</p>
@@ -1265,9 +1427,9 @@ Voila, Java is back, and our list box now displays skills.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">4.12. Redo a command: <code>redo</code></a></h3>
+<h3 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">4.13. Redo a command: <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Reverts the most recent undone command and brings the application state to after the (re)execution
+<p>Redoes the most recent undone command and brings the application state to after the (re)execution
 of that command.</p>
 </div>
 <div class="exampleblock">
@@ -1287,11 +1449,13 @@ of that command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A redo is done per command and not change.</p>
+<p>A <code>redo</code> is done per command and not change. If you undo a command that can make multiple changes like
+<code>redit</code>, then redoing it will resurrect all the changes. Spooky!</p>
 </li>
 <li>
-<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>redit</code>, <code>tagpull</code> or <code>me</code> command is performed after an <code>undo</code>,
-then all <code>redo</code> states will be deleted and you will not be able to go to these states.</p>
+<p>If a new <code>add</code>, <code>delete</code>, <code>edit</code>, <code>sort</code>, <code>redit</code>, <code>tagpull</code> or <code>me</code> command is performed after an <code>undo</code>,
+then all states currently available for <code>redo</code> will be erased and you will not be able to go to these states
+anymore.</p>
 </li>
 <li>
 <p>You cannot <code>redo</code> if there is no forward state to go to.</p>
@@ -1306,9 +1470,9 @@ then all <code>redo</code> states will be deleted and you will not be able to go
 <p><strong>Example:</strong></p>
 </div>
 <div class="paragraph">
-<p>After with the Java deletion incidence in the previous section (on <code>undo</code>), we decide that the merits of Java
-do not warrant the pain that comes along with it and so we want to use <code>redo</code> our original choice . Afterwards, Java is
-once again removed from our life.</p>
+<p>After the Java deletion incidence in the previous example section (for <a href="#undo-a-command-code-undo-code"><code>undo</code></a>), we
+decide that the merits of Java do not warrant the pain it wreaks so we want to <code>redo</code> our original decision to delete
+Java. Once again, Java is removed from our life.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1317,7 +1481,7 @@ once again removed from our life.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.13. Previewing a resume: <code>rpreview</code></a></h3>
+<h3 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.14. Previewing a resume: <code>rpreview</code></a></h3>
 <div class="paragraph">
 <p>Previews a <code>resume</code> in text format in a pop-up window.</p>
 </div>
@@ -1393,7 +1557,7 @@ featuring a text-based view of the content of "Software Engineering". The screen
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">4.14. Generating a resume: <code>rgen</code></a></h3>
+<h3 id="generating-a-resume-code-rgen-code"><a class="link" href="#generating-a-resume-code-rgen-code">4.15. Generating a resume: <code>rgen</code></a></h3>
 <div class="paragraph">
 <p>Generates a <code>.pdf</code> file from an existing <code>resume</code> stored inside the application at the specified index.</p>
 </div>
@@ -1471,7 +1635,7 @@ If no name is specified, the filename will be set, by default, to the name of th
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">4.15. Clearing all data: <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">4.16. Clearing all data: <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all data from <strong>ResuMe</strong>. Empties all data in the resume book, user information is replaced with default user information.</p>
 </div>
@@ -1496,7 +1660,7 @@ This command can be undone.
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.</p>
 </div>
@@ -1509,16 +1673,20 @@ This command can be undone.
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.18. Saving the data</a></h3>
 <div class="paragraph">
 <p><strong>ResuMe</strong> data is saved in the hard disk automatically after any command
 that changes the data. There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>We are currently working on a login feature that will let you set password for ResuMe. You will also be able to have
+your locally stored data encrypted, so that no one (even us) can gain access to your precious information.</p>
+</div>
+<div class="paragraph">
+<p>We value your privacy and we want you to feel safe. Stay tuned!</p>
 </div>
 </div>
 </div>
@@ -1725,4 +1893,4 @@ file created with the data file of your <strong>ResuMe</strong> folder in the cu
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:54:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:57:49 UTC</div></div></div></body></html>
