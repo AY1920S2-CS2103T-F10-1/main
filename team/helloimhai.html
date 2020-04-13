@@ -630,7 +630,7 @@ Head to <a href="#UI component">[UI component]</a> to read more.</p>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
+<p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>, <code>Note</code>
 and <code>Project</code>.</p>
 </div>
 <div class="paragraph">
@@ -685,7 +685,8 @@ The following is the activity diagram for execution of <code>AddResumeCommand</c
 </div>
 <div class="paragraph">
 <p><strong>Alternative 2:</strong> <code>ABCCommand</code> is not separated into many <code>ABCItemCommand</code>.
-The following is the activity diagram for execution of <code>AddCommand</code> when the user adds a resume.</p>
+The following is the activity diagram for execution of <code>AddCommand</code> if <code>AddCommand</code> is not separated into <code>AddResumeCommand</code>,
+<code>AddNoteCommand</code>, <code>AddInternshipCommand</code>, <code>AddProjectCommand</code>, and <code>AddSkillCommand</code> when the user adds a resume.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -703,8 +704,9 @@ Functionality of execute would vary depending on the item <code>Type</code>.</p>
 <p>Pros: Only one command is required, regardless of number of items. Low overhead.</p>
 </li>
 <li>
-<p>Cons: Long <code>execute</code> method due to the need for handling the different item types. Item <code>Type</code> would also need to be stored.
-Undesirable variable functionality of <code>execute</code> command depending on the <code>Type</code> field despite it being from the same class.
+<p>Cons: Long <code>execute</code> method due to the need for handling the different item types as seen from the logic of the activity
+diagram. Item <code>Type</code> would also need to be stored. Undesirable variable functionality of <code>execute</code> command depending on
+the <code>Type</code> field despite it being from the same class.
 ie. <code>AddItem</code> can add <code>Internship</code> to the <code>Internship</code> list, or add <code>Skill</code> to <code>Skill</code> list.</p>
 </li>
 </ul>
@@ -1019,4 +1021,4 @@ commands if you are expecting a positive test case.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:53:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:01:47 UTC</div></div></div></body></html>
