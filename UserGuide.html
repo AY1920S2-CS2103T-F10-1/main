@@ -1244,61 +1244,127 @@ If you find it a hassle to manually enter items into the <code>resume</code>, yo
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Example 1:</strong></p>
+<p><strong>Example 1: Adding items into a new resume</strong></p>
 </div>
 <div class="paragraph">
+<p>Before you try this example, ensure you have added at least one <code>internship</code>, one <code>project</code>, and two <code>skill</code> items. You may verify for their presence by using the <code>list</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Type in these commands:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ res</code></p>
+</li>
+<li>
 <p><code>redit 1 int/ 1 proj/ 1 ski/ 1 2</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
-<div class="paragraph">
-<p>The content of the <code>resume</code> at index 1 is modified. The <code>resume</code> now contains the <code>internship</code> item at index 1,
-<code>project</code> item at index 1, and <code>skill</code> items at indices 1 and 2. The following screenshot illustrates what happens in the list box:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditListRes.png" alt="List" width="442" height="337">
 </div>
+</div>
+</li>
+<li>
+<p>The second command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> now contains the <code>internship</code> item at index 1,
+<code>project</code> item at index 1, and <code>skill</code> items at indices 1 and 2. The following screenshot illustrates what happens after this command:</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ReditAddIntoResume.png" alt="AddIntoResume" width="442" height="337">
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Example 2:</strong></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p><code>redit 1 int/ proj/ ski/</code></p>
+<p><strong>Example 2: Modifying the contents of the resume</strong></p>
+</div>
+<div class="paragraph">
+<p>Following from example 1, you realise that you actually wanted to use a different set of items for your "Winter 2019" <code>resume</code>. Here is how you can rectify this!</p>
+</div>
+<div class="paragraph">
+<p>Before you try this example, ensure you have added at least one <code>internship</code> and three <code>skill</code> items. You may verify for their presence by using the <code>list</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Type in these commands:
+. <code>list i/ res</code>
+. <code>redit 1 int/ 1 proj/ ski/ 3</code></p>
 </div>
 <div class="paragraph">
 <p><strong>Outcome:</strong></p>
 </div>
-<div class="paragraph">
-<p>The content of the <code>resume</code> at index 1 is modified and now contains no <code>internship</code>, <code>project</code> or <code>skill</code> items.
-The following screenshot illustrates what happens to the list box:</p>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box. Since we are following from example 1, the "Winter 2019" <code>resume</code> would already have some items in it.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/ReditRemoveEverything.png" alt="RemoveEverything" width="442" height="337">
+<img src="images/ReditListRes2.png" alt="List" width="442" height="337">
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Example 3:</strong></p>
-</div>
-<div class="paragraph">
-<p><code>redit 1 int/ 1 proj/ ski/ 2</code></p>
-</div>
-<div class="paragraph">
-<p><strong>Outcome:</strong></p>
-</div>
-<div class="paragraph">
-<p>The content of the <code>resume</code> at index 1 is modified and now contains <code>internship</code> item at index 1, no <code>project</code> items,
-and <code>skill</code> item at index 2. The following screenshot illustrates what can happen.</p>
-</div>
-<div class="paragraph">
-<p><em>(take note that initially the <code>resume</code> may contain an entirely different set of items)</em></p>
-</div>
+</li>
+<li>
+<p>Before the second command, the <code>resume</code> contains the same set of items as the one in example 1. The command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> now still contains the <code>internship</code> item at index 1, no <code>project</code> items, and <code>skill</code> item at index 3. The following screenshot illustrates what happens after this command:</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/ReditWantSomeThings.png" alt="WantSomeThings" width="442" height="337">
 </div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can think of this command as using only the items that has been specified in the command. In this example, we no longer want the items we have previously added, and we would like the "Winter 2019" <code>resume</code> to contain only the first internship item and the third skill item.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 3: No modifications to <code>internship</code> and <code>skill</code> items</strong></p>
+</div>
+<div class="paragraph">
+<p>Following from example 2, you are now satisfied with the <code>internship</code> and <code>skill</code> items, but you would like to add a <code>project</code> item without changing the <code>internship</code> and <code>skill</code> items. Here is how you can do it!</p>
+</div>
+<div class="paragraph">
+<p>Before you try out this example, ensure you have at least two <code>project</code> items.</p>
+</div>
+<div class="paragraph">
+<p>Type in these commands:
+. <code>list i/ res</code>
+. <code>redit 1 proj/ 2</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Outcome:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box. Since we are following from example 2, the "Winter 2019" <code>resume</code> would already have some items in it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditListRes3.png" alt="List" width="442" height="337">
+</div>
+</div>
+</li>
+<li>
+<p>Before the second command, the <code>resume</code> contains the same set of items as the one in example 2. The command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> will now contain the the <code>project</code> item at index 2. The <code>internship</code> and <code>skill</code> items remain unchanged. The following screenshot illustrates what happens after this command:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReditKeepSomeThings.png" alt="KeepSomeThings" width="442" height="337">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>So by leaving out one of the prefixes (<code>TYPE/ ITEM_INDEX&#8230;&#8203;</code>) from the command, you can keep some of the items in your <code>resume</code>!</p>
 </div>
 </div>
 <div class="sect2">
@@ -1697,11 +1763,11 @@ your locally stored data encrypted, so that no one (even us) can gain access to 
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p><strong>Q:</strong> What is the difference between <code>redit</code> and <code>edit i/res</code>?<br></p>
+<p><strong>Q:</strong> What is the difference between <code>redit</code> and <code>edit i/ res</code>?<br></p>
 </div>
 <div class="paragraph">
 <p><strong>A:</strong> <code>redit</code> is used when you want to edit the content of a <code>resume</code>, in other words, add or remove certain items
-from that <code>resume</code>. Meanwhile, <code>edit i/res</code> is used when you want to edit attributes of the <code>resume</code>, like its <code>name</code> or <code>tags</code>.</p>
+from that <code>resume</code>. Meanwhile, <code>edit i/ res</code> is used when you want to edit attributes of the <code>resume</code>, like its <code>name</code> or <code>tags</code>.</p>
 </div>
 </blockquote>
 </div>
@@ -1893,4 +1959,4 @@ file created with the data file of your <strong>ResuMe</strong> folder in the cu
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:57:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:40:12 UTC</div></div></div></body></html>
