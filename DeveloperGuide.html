@@ -24,15 +24,14 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#resume-edit-feature">4.1. Resume Edit feature</a></li>
-<li><a href="#tag-pull-feature">4.2. Tag Pull feature</a></li>
-<li><a href="#implementation-of-code-command-code-classes">4.3. Implementation of <code>Command</code> classes</a></li>
-<li><a href="#usage-of-code-observable-code-and-code-observer-code">4.4. Usage of <code>Observable</code> and <code>Observer</code></a></li>
-<li><a href="#me-feature">4.5. Me feature</a></li>
-<li><a href="#export-feature">4.6. Export Feature</a></li>
-<li><a href="#undo-redo-feature">4.7. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">4.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#implementation-of-code-command-code-classes">4.2. Implementation of <code>Command</code> classes</a></li>
+<li><a href="#usage-of-code-observable-code-and-code-observer-code">4.3. Usage of <code>Observable</code> and <code>Observer</code></a></li>
+<li><a href="#me-feature">4.4. Me feature</a></li>
+<li><a href="#export-feature">4.5. Export Feature</a></li>
+<li><a href="#undo-redo-feature">4.6. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -359,6 +358,9 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
+<div class="paragraph">
+<p>{ start of Resume Edit feature implementation written by: Christian James Welly }</p>
+</div>
 <div class="sect2">
 <h3 id="resume-edit-feature"><a class="link" href="#resume-edit-feature">4.1. Resume Edit feature</a></h3>
 <div class="paragraph">
@@ -550,16 +552,18 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="tag-pull-feature"><a class="link" href="#tag-pull-feature">4.2. Tag Pull feature</a></h3>
 <div class="paragraph">
-<p>The Tag Pull feature is similar to <a href="#Resume Edit Feature">Resume Edit Feature</a> in the sense that it modifies the <a href="#content-item">content items</a> of the <code>Resume</code>. Unlike Resume Edit which modifies using the content item indices, the Tag Pull feature modifies the resume by <em>adding</em> items with the specified tags on top of existing items in the <code>Resume</code>.</p>
+<p>{ end of Resume Edit feature implementation written by: Christian James Welly }</p>
+</div>
+<div class="paragraph">
+<p>{ start of Tag Pull feature implementation written by: Christian James Welly }
+=== Tag Pull feature
+The Tag Pull feature is similar to <a href="#Resume Edit Feature">Resume Edit Feature</a> in the sense that it modifies the <a href="#content-item">content items</a> of the <code>Resume</code>. Unlike Resume Edit which modifies using the content item indices, the Tag Pull feature modifies the resume by <em>adding</em> items with the specified tags on top of existing items in the <code>Resume</code>.</p>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.1.3. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>tagpull</code> command is facilitated by <code>TagPullCommand</code>, which extends <code>Command</code>. Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
 </div>
@@ -604,7 +608,7 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.1.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-integrating-tag-pull-to-resume-edit"><a class="link" href="#aspect-integrating-tag-pull-to-resume-edit">Aspect: Integrating Tag Pull to Resume Edit</a></h5>
 <div class="ulist">
@@ -650,13 +654,16 @@ one for <code>Note</code> and one for <code>Internship</code>, <code>Project</co
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>{ end of Tag Pull feature implementation written by: Christian James Welly }</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">4.3. Implementation of <code>Command</code> classes</a></h3>
+<h3 id="implementation-of-code-command-code-classes"><a class="link" href="#implementation-of-code-command-code-classes">4.2. Implementation of <code>Command</code> classes</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Currently, there are several object <code>Type</code> which are subclasses of <code>Item</code>, namely <code>Resume</code>, <code>Internship</code>, <code>Skill</code>,
 and <code>Project</code>.</p>
@@ -685,7 +692,7 @@ classes that inherits directly from <code>Command</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code"><a class="link" href="#aspect-whether-to-separate-the-code-abccommand-code-that-is-dependent-on-type-into-many-code-abcitemcommand-code">Aspect: Whether to separate the <code>ABCCommand</code> that is dependent on type into many <code>ABCItemCommand</code></a></h5>
 <div class="paragraph">
@@ -753,9 +760,9 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="usage-of-code-observable-code-and-code-observer-code"><a class="link" href="#usage-of-code-observable-code-and-code-observer-code">4.4. Usage of <code>Observable</code> and <code>Observer</code></a></h3>
+<h3 id="usage-of-code-observable-code-and-code-observer-code"><a class="link" href="#usage-of-code-observable-code-and-code-observer-code">4.3. Usage of <code>Observable</code> and <code>Observer</code></a></h3>
 <div class="sect3">
-<h4 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">4.4.1. Reason for Implementation</a></h4>
+<h4 id="reason-for-implementation"><a class="link" href="#reason-for-implementation">4.3.1. Reason for Implementation</a></h4>
 <div class="paragraph">
 <p>ResuMe inherits a lot of implementations from AddressBook Level 3, one of which is the usage of <code>ObservableList</code> that
 allows a list of item to be automatically updated in the UI every time a change is made to the underlying model.</p>
@@ -768,7 +775,7 @@ breached many Software Engineering principles and we decided to amend it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.3.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -801,7 +808,7 @@ breached many Software Engineering principles and we decided to amend it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="conclusion"><a class="link" href="#conclusion">4.4.3. Conclusion</a></h4>
+<h4 id="conclusion"><a class="link" href="#conclusion">4.3.3. Conclusion</a></h4>
 <div class="paragraph">
 <p>After deliberation we decided to go with the first alternative, due to time constraint and to avoid the potential
 havoc that would arise from refactoring the code base. In addition, the limitations of <code>Observable</code> and <code>Observer</code> are
@@ -814,13 +821,13 @@ our application and it is not recommendable to build it on top of something that
 </div>
 </div>
 <div class="sect2">
-<h3 id="me-feature"><a class="link" href="#me-feature">4.5. Me feature</a></h3>
+<h3 id="me-feature"><a class="link" href="#me-feature">4.4. Me feature</a></h3>
 <div class="paragraph">
 <p>This feature intends to serve a single user of the application to sets and updates his/her user profile. The profile
 is then reflected in the user&#8217;s profile panel.</p>
 </div>
 <div class="sect3">
-<h4 id="code-me-code-edit-user-profile"><a class="link" href="#code-me-code-edit-user-profile">4.5.1. <code>me</code>: Edit User Profile</a></h4>
+<h4 id="code-me-code-edit-user-profile"><a class="link" href="#code-me-code-edit-user-profile">4.4.1. <code>me</code>: Edit User Profile</a></h4>
 <div class="sect4">
 <h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
 <div class="paragraph">
@@ -976,7 +983,7 @@ and to be updated with a simple and powerful command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="note-taking-feature-take-simple-notes-or-reminders"><a class="link" href="#note-taking-feature-take-simple-notes-or-reminders">4.5.2. Note taking feature: take simple notes or reminders</a></h4>
+<h4 id="note-taking-feature-take-simple-notes-or-reminders"><a class="link" href="#note-taking-feature-take-simple-notes-or-reminders">4.4.2. Note taking feature: take simple notes or reminders</a></h4>
 <div class="sect4">
 <h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
 <div class="paragraph">
@@ -1131,13 +1138,13 @@ and so this design suits our needs given the short time frame that we have.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-feature"><a class="link" href="#export-feature">4.6. Export Feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">4.5. Export Feature</a></h3>
 <div class="paragraph">
 <p>The Export Feature supports two main actions: previewing the content of a <code>Resume</code> item, and
 then generating a <code>.pdf</code> file from it.</p>
 </div>
 <div class="sect3">
-<h4 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.6.1. Previewing a resume: <code>rpreview</code></a></h4>
+<h4 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.5.1. Previewing a resume: <code>rpreview</code></a></h4>
 <div class="sect4">
 <h5 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h5>
 <div class="paragraph">
@@ -1237,7 +1244,7 @@ a clean UI outweighs the compromise made when additional action to close the pop
 </div>
 </div>
 <div class="sect3">
-<h4 id="generating-a-code-pdf-code-file-from-a-resume-code-rgen-code"><a class="link" href="#generating-a-code-pdf-code-file-from-a-resume-code-rgen-code">4.6.2. Generating a <code>.pdf</code> file from a resume: <code>rgen</code></a></h4>
+<h4 id="generating-a-code-pdf-code-file-from-a-resume-code-rgen-code"><a class="link" href="#generating-a-code-pdf-code-file-from-a-resume-code-rgen-code">4.5.2. Generating a <code>.pdf</code> file from a resume: <code>rgen</code></a></h4>
 <div class="sect4">
 <h5 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h5>
 <div class="paragraph">
@@ -1295,7 +1302,7 @@ items inside the <code>Resume</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-rgen-code-executes"><a class="link" href="#aspect-how-code-rgen-code-executes">Aspect: How <code>rgen</code> executes</a></h5>
 <div class="ulist">
@@ -1346,9 +1353,9 @@ extended features (e.g. allow user to choose from a variety of pre-defined resum
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.7. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.6. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">4.7.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedResumeBook</code>.
 It extends <code>ResumeBook</code> with an undo/redo history, stored internally as an <code>ResumeBookStateList</code> and <code>currentStatePointer</code>.
@@ -1506,7 +1513,7 @@ We designed it this way because it no longer makes sense to redo the <code>add i
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1581,7 +1588,7 @@ the old-versioned item to be stored as well so that it can be restored while <co
 </div>
 </div>
 <div class="sect3">
-<h4 id="proposed-improvements-for-undo-redo"><a class="link" href="#proposed-improvements-for-undo-redo">4.7.3. [Proposed] Improvements for Undo/Redo</a></h4>
+<h4 id="proposed-improvements-for-undo-redo"><a class="link" href="#proposed-improvements-for-undo-redo">4.6.3. [Proposed] Improvements for Undo/Redo</a></h4>
 <div class="paragraph">
 <p>A new function can be added that allows users to navigate resume book states. This is very possible because we
 can already store all these states and can map them to keys easily. This new function can let
@@ -1595,7 +1602,7 @@ worst case linear to worst case logarithmic.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>Data encryption can be implemented in the future versions.</p>
 </div>
@@ -1635,14 +1642,14 @@ is still present if we store the encryption key in the same machine.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1673,7 +1680,7 @@ is still present if we store the encryption key in the same machine.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2254,4 +2261,4 @@ commands if you are expecting a positive test case.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:09:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:20:47 UTC</div></div></div></body></html>
