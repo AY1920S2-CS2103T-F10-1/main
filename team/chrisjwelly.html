@@ -46,13 +46,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to selectively modify items in a specified resume.</p>
+<p>What it does: allows the user to selectively modify the items in a specified resume.</p>
 </li>
 <li>
 <p>Justification: This is a key feature in the application because a user would need to select existing items in the resume to be included before generating them.</p>
 </li>
 <li>
-<p>Highlights: This enhancement is particularly tricky to implement due to the various possibilities of input that a user can give. Careful parsing of the input is required before the command is processed.</p>
+<p>Highlights: This enhancement is particularly tricky to implement due to the various possibilities of input that a user can give. For example, a combination of internship and project items. Careful parsing of the input is required before the command is processed.</p>
 </li>
 </ul>
 </div>
@@ -85,7 +85,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Justification: Items such as <code>Internship</code> omit a lot of details in our list in the GUI. The <code>view</code> command helps include more details about the <code>Item</code>.</p>
+<p>Justification: Items such as <code>Project</code> omit a lot of details in our list in the GUI. The <code>view</code> command helps include more details about the <code>Item</code>.</p>
 </li>
 </ul>
 </div>
@@ -132,9 +132,9 @@
 <li>
 <p>PRs reviewed with non-trivial review comments (<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/135">#135</a>,
 <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/145">#145</a>,
-<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/159">#159</a>,
-<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/245">#245</a>,
-<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/204">#204</a>)</p>
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/159">#159</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/204">#204</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/245">#245</a>, <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/pull/326">#326</a>
+ &#8230;&#8203;)</p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/chrisjwelly/ped/issues/8">1</a>,
@@ -159,206 +159,6 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>{start of extract 1: Resume Edit}</p>
-</div>
-<div class="sect2">
-<h3 id="modifying-the-content-a-resume-code-redit-code"><a class="link" href="#modifying-the-content-a-resume-code-redit-code">Modifying the content a resume: <code>redit</code></a></h3>
-<div class="paragraph">
-<p>Modifies the content of a <code>resume</code> to contain the items specified in the command.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>redit</code> is a different command from <code>edit</code>. Please visit <a href="#FAQ">FAQ</a> for more information.
-</td>
-</tr>
-</table>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Format:</strong> <code>redit RESUME_INDEX TYPE/ [ITEM_INDEX&#8230;&#8203;] [MORE_TYPE/ [ITEM_INDEX&#8230;&#8203;]]&#8230;&#8203;</code></p>
-</div>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If you find it a hassle to manually enter items into the <code>resume</code>, you can consider using <a href="#pulling-tagged-items-into-the-resume-code-tagpull-code">tagpull</a>!
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>For each <code>TYPE</code>, existing items will be updated to the input items.</p>
-</li>
-<li>
-<p>You can add multiple items of a certain type to a <code>resume</code> by chaining
-<code>ITEM_INDEX</code> after <code>TYPE/</code>.<br>
-  For example <code>proj/ 3 6</code>, will add <code>project</code> item of indices 3 and 6 to the <code>resume</code>.</p>
-</li>
-<li>
-<p>You can remove all items of type <code>TYPE</code> by typing <code>TYPE/</code> without specifying any <code>ITEM_INDEX</code> after it.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Example 1: Adding items into a new resume</strong></p>
-</div>
-<div class="paragraph">
-<p>Before you try this example, ensure you have added at least one <code>internship</code>, one <code>project</code>, and two <code>skill</code> items. You may verify for their presence by using the <code>list</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Type in these commands:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>list i/ res</code></p>
-</li>
-<li>
-<p><code>redit 1 int/ 1 proj/ 1 ski/ 1 2</code></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Outcome:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditListRes.png" alt="ReditListRes" width="790">
-</div>
-</div>
-</li>
-<li>
-<p>The second command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> now contains the <code>internship</code> item at index 1,
-<code>project</code> item at index 1, and <code>skill</code> items at indices 1 and 2. The following screenshot illustrates what happens after this command:</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditAddIntoResume.png" alt="ReditAddIntoResume" width="790">
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Example 2: Modifying the contents of the resume</strong></p>
-</div>
-<div class="paragraph">
-<p>Following from example 1, you realise that you actually wanted to use a different set of items for your "Winter 2019" <code>resume</code>. Here is how you can rectify this!</p>
-</div>
-<div class="paragraph">
-<p>Before you try this example, ensure you have added at least one <code>internship</code> and three <code>skill</code> items. You may verify for their presence by using the <code>list</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Type in these commands:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>list i/ res</code></p>
-</li>
-<li>
-<p><code>redit 1 int/ 1 proj/ ski/ 3</code></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Outcome:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box. Since we are following from example 1, the "Winter 2019" <code>resume</code> would already have some items in it.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditListRes2.png" alt="ReditListRes2" width="790">
-</div>
-</div>
-</li>
-<li>
-<p>Before the second command, the <code>resume</code> contains the same set of items as the one in example 1. The command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> now still contains the <code>internship</code> item at index 1, no <code>project</code> items, and <code>skill</code> item at index 3. The following screenshot illustrates what happens after this command:</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditWantSomeThings.png" alt="ReditWantSomeThings" width="790">
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>You can think of this command as using only the items that has been specified in the command. In this example, we no longer want the items we have previously added, and we would like the "Winter 2019" <code>resume</code> to contain only the first internship item and the third skill item.</p>
-</div>
-<div class="paragraph">
-<p><strong>Example 3: No modifications to <code>internship</code> and <code>skill</code> items</strong></p>
-</div>
-<div class="paragraph">
-<p>Following from example 2, you are now satisfied with the <code>internship</code> and <code>skill</code> items, but you would like to add a <code>project</code> item without changing the <code>internship</code> and <code>skill</code> items. Here is how you can do it!</p>
-</div>
-<div class="paragraph">
-<p>Before you try out this example, ensure you have at least two <code>project</code> items.</p>
-</div>
-<div class="paragraph">
-<p>Type in these commands:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>list i/ res</code></p>
-</li>
-<li>
-<p><code>redit 1 proj/ 2</code></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Outcome:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The first command lists out all <code>resumes</code>. Assuming you want to modify the contents of the first <code>resume</code> in the list box. Since we are following from example 2, the "Winter 2019" <code>resume</code> would already have some items in it.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditListRes3.png" alt="ReditListRes3" width="790">
-</div>
-</div>
-</li>
-<li>
-<p>Before the second command, the <code>resume</code> contains the same set of items as the one in example 2. The command modifies the <code>resume</code> at index 1, named "Winter 2019". The <code>resume</code> will now contain the the <code>project</code> item at index 2. The <code>internship</code> and <code>skill</code> items remain unchanged. The following screenshot illustrates what happens after this command:</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ReditKeepSomeThings.png" alt="ReditKeepSomeThings" width="790">
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>So by leaving out one of the prefixes (<code>TYPE/ ITEM_INDEX&#8230;&#8203;</code>) from the command, you can keep some of the items in your <code>resume</code>!</p>
-</div>
-<div class="paragraph">
-<p>{end of extract 1}</p>
-</div>
-<div class="paragraph">
-<p>{start of extract 2: Tag Pull}</p>
-</div>
-</div>
 <div class="sect2">
 <h3 id="pulling-tagged-items-into-the-resume-code-tagpull-code"><a class="link" href="#pulling-tagged-items-into-the-resume-code-tagpull-code">Pulling tagged items into the resume: <code>tagpull</code></a></h3>
 <div class="paragraph">
@@ -467,9 +267,6 @@ This command does not remove items from the <code>resume</code> and will add ite
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>{end of extract 2}</p>
-</div>
 </div>
 </div>
 </div>
@@ -486,68 +283,6 @@ This command does not remove items from the <code>resume</code> and will add ite
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>{start of extract 1: Logic}</p>
-</div>
-<div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
-<div id="fig-LogicClassDiagram" class="imageblock">
-<div class="content">
-<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
-</div>
-<div class="title">Figure 1. Structure of the Logic Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> :
-<a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>Logic</code> uses the <code>ResumeBookParser</code> class to parse the user command.</p>
-</li>
-<li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
-</li>
-<li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a new resume).</p>
-</li>
-<li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
-</li>
-<li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1 i/ res")</code> API call.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
-</div>
-<div class="title">Figure 2. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>{end of extract 1}</p>
-</div>
-<div class="paragraph">
-<p>{start of extract 2: Resume Edit}</p>
-</div>
-</div>
 <div class="sect2">
 <h3 id="resume-edit-feature"><a class="link" href="#resume-edit-feature">Resume Edit feature</a></h3>
 <div class="paragraph">
@@ -586,7 +321,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="../images/ResumeEditSequenceDiagram.png" alt="ResumeEditSequenceDiagram">
 </div>
-<div class="title">Figure 3. Sequence diagram for ResumeEdit.</div>
+<div class="title">Figure 1. Sequence diagram for ResumeEdit.</div>
 </div>
 <div class="sect4">
 <h5 id="representation-of-indices-after-parsing"><a class="link" href="#representation-of-indices-after-parsing">Representation of indices after parsing</a></h5>
@@ -632,7 +367,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="../images/ResumeEditActivityDiagram.png" alt="ResumeEditActivityDiagram">
 </div>
-<div class="title">Figure 4. Activity Diagram for ResumeEdit.</div>
+<div class="title">Figure 2. Activity Diagram for ResumeEdit.</div>
 </div>
 </div>
 </div>
@@ -661,7 +396,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="../images/ResumeEditCommandAlt1.png" alt="ResumeEditCommandAlt1">
 </div>
-<div class="title">Figure 5. ResumeEditCommand and EditCommand extends Command.</div>
+<div class="title">Figure 3. ResumeEditCommand and EditCommand extends Command.</div>
 </div>
 <div class="ulist">
 <ul>
@@ -684,7 +419,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="../images/ResumeEditCommandAlt2.png" alt="ResumeEditCommandAlt2">
 </div>
-<div class="title">Figure 6. ResumeEditCommand extends EditCommand.</div>
+<div class="title">Figure 4. ResumeEditCommand extends EditCommand.</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -739,118 +474,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>{end of extract 2}</p>
-</div>
-<div class="paragraph">
-<p>{start of extract 3: Tag Pull}</p>
+<hr>
 </div>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="tag-pull-feature"><a class="link" href="#tag-pull-feature">Tag Pull feature</a></h3>
-<div class="paragraph">
-<p>The Tag Pull feature is similar to <a href="#Resume Edit Feature">Resume Edit Feature</a> in the sense that it modifies the <a href="#content-item">content items</a> of the <code>Resume</code>. Unlike Resume Edit which modifies using the content item indices, the Tag Pull feature modifies the resume by <em>adding</em> items with the specified tags on top of existing items in the <code>Resume</code>.</p>
-</div>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
-<div class="paragraph">
-<p>The <code>tagpull</code> command is facilitated by <code>TagPullCommand</code>, which extends <code>Command</code>. Therefore, like any other <code>Command</code> classes, it will have an <code>execute</code> method.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the <code>tagpull</code> works at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application, and uses the <code>add</code> command to add several <code>Resume</code>, <code>Internship</code>, <code>Project</code>, and <code>Skill</code> items.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>tagpull 2 #/ tech</code> command to add all items that have been tagged with <code>tech</code> to the first <code>Resume</code> in the list of <code>Resume</code> items.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. This calls <code>ResumeBookParser#parseCommand()</code>, which would create a new <code>TagPullCommandParser</code> object and call the <code>TagPullCommandParser#parse()</code> method.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. A new <code>TagPullCommand</code> object is created. It contains the index of the <code>Resume</code> that is to be modified, and the tags of the items which the user wants to add. In this example, it will only have the <code>tech</code> tag.</p>
-</div>
-<div class="paragraph">
-<p>Step 5. The <code>TagPullCommand#execute()</code> method is called with the current <code>model</code>. A copy of the <code>Resume</code> is created and all the items with matching tags are retrieved from <code>model</code>. The content of the copied <code>Resume</code> is updated to now contain all the items with matching tags, on top of existing ones.</p>
-</div>
-<div class="paragraph">
-<p>Step 6. A new <code>TagPullCommand</code> object, which contains the edited copy of the <code>Resume</code>, is created and returned.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows the process of invokation for <code>tagpull</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/TagPullSequenceDiagram.png" alt="TagPullSequenceDiagram">
-</div>
-<div class="title">Figure 7. Sequence Diagram for Tag Pull.</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarises the execution of <code>tagpull</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/TagPullActivityDiagram.png" alt="TagPullActivityDiagram">
-</div>
-<div class="title">Figure 8. Activity Diagram for Tag Pull.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-integrating-tag-pull-to-resume-edit"><a class="link" href="#aspect-integrating-tag-pull-to-resume-edit">Aspect: Integrating Tag Pull to Resume Edit</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Separating <code>redit</code> and <code>tagpull</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Separation of concerns. <code>redit</code> handles updates of <code>Resume</code> using indices and <code>tagpull</code> handles updates of <code>Resume</code> using tags.</p>
-</li>
-<li>
-<p>Cons: There is some code duplication due to similarities in behaviour.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Combine <code>redit</code> with <code>tagpull</code>, making use of <code>#/</code> as prefix for <code>redit</code> command</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: It may be intuitive for user to only have a single command that handles modification of <code>Resume</code></p>
-</li>
-<li>
-<p>Cons: The implementation of <code>redit</code> becomes much more complicated as various combinations of input has to be considered. For example, considerations of what the expected behaviour should be if both indices and tags are given as arguments.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Conclusion:</strong> We decided to separate the two commands in order to have a simpler implementation of the commands. By separating the two, there is a separation of concerns and there is no need to consider the behaviour when both indices and tags are given as arguments.</p>
-</div>
-<div class="paragraph">
-<p>It may also save the user some confusion since the <code>redit</code> feature specifically handles only updates using indices while the <code>tagpull</code> feature handles only updates using tags.</p>
-</div>
-<div class="paragraph">
-<p>As we have separated the two commands, we can then also vary the behaviour of the two commands slightly. We have implemented <code>redit</code> to be able to <em>modify</em>  (adding, changing, and removing) the <code>Resume</code> item, while <code>tagpull</code> modifies only by <em>adding</em> onto existing content items in the <code>Resume</code>.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>{end of extract 3}
----</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:55:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:03:58 UTC</div></div></div></body></html>
