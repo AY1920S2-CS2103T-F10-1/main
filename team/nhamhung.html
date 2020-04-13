@@ -181,6 +181,9 @@ as it involves most components including Ui, Logic, Model and Storage.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>{start of extract 1: me}</p>
+</div>
 <div class="sect2">
 <h3 id="editing-user-profile-code-me-code"><a class="link" href="#editing-user-profile-code-me-code">Editing user profile: <code>me</code></a></h3>
 <div class="paragraph">
@@ -258,6 +261,104 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <img src="../images/ugu.png" alt="ugu" width="450">
 </div>
 </div>
+<div class="paragraph">
+<p>{end of extract 1}</p>
+</div>
+<div class="paragraph">
+<p>{start of extract 2: find}</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-items-by-name-code-find-code"><a class="link" href="#finding-items-by-name-code-find-code">Finding items by name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Finds items of a specific <code>type</code> in the corresponding list of items whose names contain the specified keyword(s).</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The specific command syntax could be found in the table below:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 12%;">
+<col style="width: 88%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Type</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ int</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ proj</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ ski</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ res</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ note</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Example:</strong> Try typing in the command box these commands one by one!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>list i/ proj</code></p>
+</li>
+<li>
+<p><code>find Orbital i/ proj</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Outcome</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All <code>project</code> items are listed in the list box. A sample project list is shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/list-orbital.png" alt="list orbital" width="790">
+</div>
+</div>
+</li>
+<li>
+<p><code>Projects</code> whose names match keywords are listed in the list box.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/find-orbital.png" alt="find orbital" width="790">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>{end of extract 2}</p>
+</div>
+<div class="paragraph">
+<p>{start of extract 3: done}</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="mark-a-note-as-done-code-done-code"><a class="link" href="#mark-a-note-as-done-code-done-code">Mark a note as done: <code>done</code></a></h3>
@@ -316,6 +417,31 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 </div>
 </div>
 <div class="sect2">
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">Clearing all data: <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all data from <strong>ResuMe</strong>. Empties all data in the resume book, user information is replaced with default user information.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>clear</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command can be undone.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
 <h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits from <strong>ResuMe</strong>.</p>
@@ -326,6 +452,248 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 <p><strong>Format:</strong> <code>exit</code></p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p><strong>ResuMe</strong> data is saved in the hard disk automatically after any command
+that changes the data. There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>We are currently working on a login feature that will let you set password for ResuMe. You will also be able to have
+your locally stored data encrypted, so that no one (even us) can gain access to your precious information.</p>
+</div>
+<div class="paragraph">
+<p>We value your privacy and we want you to feel safe. Stay tuned!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><strong>Q:</strong> What is the difference between <code>redit</code> and <code>edit i/ res</code>?<br></p>
+</div>
+<div class="paragraph">
+<p><strong>A:</strong> <code>redit</code> is used when you want to edit the content of a <code>resume</code>, in other words, add or remove certain items
+from that <code>resume</code>. Meanwhile, <code>edit i/ res</code> is used when you want to edit attributes of the <code>resume</code>, like its <code>name</code> or <code>tags</code>.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><strong>Q:</strong> How do I transfer my data to another Computer?<br></p>
+</div>
+<div class="paragraph">
+<p><strong>A:</strong> Install the app in the other Computer and overwrite the empty data
+file created with the data file of your <strong>ResuMe</strong> folder in the current Computer.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is a summary of all available commands for your reference.</p>
+</div>
+<div class="sect2">
+<h3 id="general-commands"><a class="link" href="#general-commands">General commands</a></h3>
+<div class="paragraph">
+<p>These are commands have consistent format regardless of item type.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX i/ TYPE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Done</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>done INDEX</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203; i/ TYPE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help OPTION</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list i/ TYPE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Me</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>me [dp/ FILE_PATH] [n/ NAME] [d/ DESCRIPTION] [p/ PHONE_NUMBER] [e/ EMAIL] [g/ GITHUB] [u/ UNIVERSITY] [m/ MAJOR] [f/ FROM] [t/ TO] [c/ CURRENT_CAP MAX_CAP]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort i/ TYPE order/ SORT_WORD [reverse/ TRUE_OR_FALSE]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view INDEX i/ TYPE</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="item-specific-commands"><a class="link" href="#item-specific-commands">Item-specific commands</a></h3>
+<div class="paragraph">
+<p>These are commands whose format varies depending on item type.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 5%;">
+<col style="width: 15%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock">Add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ int n/ COMPANY_NAME r/ ROLE f/ FROM t/ TO d/ DESCRIPTION [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ proj n/ PROJECT_NAME t/ TIME w/ WEBSITE d/ DESCRIPTION [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ ski n/ SKILL_NAME l/ LEVEL [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ res n/ RESUME_NAME [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ note n/ NOTE_NAME t/ TIME [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock">Edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ int [n/ COMPANY_NAME] [r/ ROLE] [f/ FROM] [t/ TO] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ proj [n/ PROJECT_NAME] [t/ TIME] [w/ WEBSITE] [d/ DESCRIPTION] [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Skill</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ ski [n/ SKILL_NAME] [l/ LEVEL] [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit i/ res [n/ RESUME_NAME] [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add i/ note [n/ NOTE_NAME] [t/ TIME] [#/ TAG]&#8230;&#8203;</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="resume-commands"><a class="link" href="#resume-commands">Resume commands</a></h3>
+<div class="paragraph">
+<p>These are commands specific to <code>resume</code> items.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redit RESUME_INDEX TYPE/ [ITEM_ID&#8230;&#8203;] [MORE_TYPE/ [ITEM_ID&#8230;&#8203;]]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rgen RESUME_INDEX</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preview Resume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rpreview RESUME_INDEX</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag Pull</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tagpull RESUME_INDEX [#/ TAG]</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>{end of extract 3}</p>
+</div>
+<div class="paragraph">
+<p>{start of extract 4: exit}</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code-2"><a class="link" href="#exiting-the-program-code-exit-code-2">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits from <strong>ResuMe</strong>.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Format:</strong> <code>exit</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>{end of extract 4}</p>
 </div>
 <div class="sect3">
 <h4 id="contributions-to-the-developer-guide-extracts"><a class="link" href="#contributions-to-the-developer-guide-extracts">Contributions to the Developer Guide (Extracts)</a></h4>
@@ -340,8 +708,48 @@ A user profile contains the following fields: <code>Display Picture</code>, <cod
 </tbody>
 </table>
 <div class="paragraph">
-<p>{start of extract 1: Me}</p>
+<p>{start of extract 1: Ui}</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the UI Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ItemDisplayList</code>, <code>ItemListPanel</code>, <code>NoteListPanel</code>, <code>UserOverallPane</code> and <code>StatusBarFooter</code>. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+<li>
+<p>Responds to events raised by various commands and the UI can be updated accordingly.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>{end of extract 1}</p>
+</div>
+<div class="paragraph">
+<p>{start of extract 2: Me}</p>
 </div>
 </div>
 <div class="sect2">
@@ -505,10 +913,10 @@ and to be updated with a simple and powerful command.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>{end of extract 1}</p>
+<p>{end of extract 2}</p>
 </div>
 <div class="paragraph">
-<p>{start of extract 2: Note}</p>
+<p>{start of extract 3: Note}</p>
 </div>
 </div>
 </div>
@@ -665,10 +1073,10 @@ and so this design suits our needs given the short time frame that we have.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>{end of extract 2}</p>
+<p>{end of extract 3}</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:06:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:06:50 UTC</div></div></div></body></html>
