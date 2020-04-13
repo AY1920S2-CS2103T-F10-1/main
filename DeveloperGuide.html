@@ -26,7 +26,7 @@
 <li><a href="#resume-edit-feature">4.1. Resume Edit feature</a></li>
 <li><a href="#tag-pull-feature">4.2. Tag Pull feature</a></li>
 <li><a href="#implementation-of-code-command-code-classes">4.3. Implementation of <code>Command</code> classes</a></li>
-<li><a href="#me-feature">4.4. Me Feature</a></li>
+<li><a href="#me-feature">4.4. Me feature</a></li>
 <li><a href="#export-feature">4.5. Export Feature</a></li>
 <li><a href="#proposed-undo-redo-feature">4.6. [Proposed] Undo/Redo feature</a></li>
 <li><a href="#proposed-data-encryption">4.7. [Proposed] Data Encryption</a></li>
@@ -205,7 +205,7 @@ of observables and data passing through <code>commandResult</code>. Head to <a h
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ItemDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ItemDisplayList</code>, <code>ItemListPanel</code>, <code>NoteListPanel</code>, <code>UserOverallPane</code> and <code>StatusBarFooter</code>. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-F10-1/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -753,79 +753,50 @@ be switch-cased again in <code>ABCCommand</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="me-feature"><a class="link" href="#me-feature">4.4. Me Feature</a></h3>
+<h3 id="me-feature"><a class="link" href="#me-feature">4.4. Me feature</a></h3>
 <div class="paragraph">
-<p>This feature allows a user to make changes and updates his/her user profile which is reflected by the user profile panel.
-At the same time, it also allows user to personalise his/her experience using the app with certain sub-features. They are
-elaborated below:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Edit user profile image</p>
-</li>
-<li>
-<p>Edit user main data</p>
-</li>
-<li>
-<p>Input, store and generate motivational quotes</p>
-</li>
-<li>
-<p>Change background and font color</p>
-</li>
-<li>
-<p>Set reminders or take notes</p>
-</li>
-</ul>
+<p>This feature intends to serve a single user of the application to sets and updates his/her user profile. The profile
+is then reflected in the user&#8217;s profile panel.</p>
 </div>
 <div class="sect3">
-<h4 id="edit-user-profile-image"><a class="link" href="#edit-user-profile-image">4.4.1. Edit User Profile Image</a></h4>
+<h4 id="code-me-code-edit-user-profile"><a class="link" href="#code-me-code-edit-user-profile">4.4.1. <code>me</code>: Edit User Profile</a></h4>
+<div class="sect4">
+<h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
 <div class="paragraph">
-<p>This allows the specific user to input and update his/her user profile picture.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-user-main-data"><a class="link" href="#edit-user-main-data">4.4.2. Edit User Main Data</a></h4>
-<div class="paragraph">
-<p>This allows one specific user to modify and update user information that includes <code>name</code>, <code>phone</code>, <code>email1</code>, <code>github</code>,
-<code>university</code>, <code>major</code>, <code>from</code>, <code>to</code>, <code>cap</code>.</p>
+<p><code>me</code> is supported by the <code>EditUserCommand</code>, where it allows the main user to modify and update user information that
+includes <code>display picture</code>, <code>name</code>, <code>description</code>, <code>phone</code>, <code>email</code>, <code>github</code>, <code>university</code>, <code>major</code>, <code>from</code>, <code>to</code>, <code>cap</code>.</p>
 </div>
 <div class="paragraph">
-<p>Below is an example usage scenario and how the edit user data command works.</p>
+<p>Given below is an example usage scenario:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>User launches the application for the first time. The User Profile and Data will be initialized with the initial json
-data stored.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Step 1. User launches the ResuMe application for the first time. The user profile data is not yet edited and will thus be
+initialized with the initial json data stored.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-default-data.png" alt="user default data">
+<img src="images/user-default.png" alt="user default">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>User executes <code>me n/NAME p/PHONE e/EMAIL g/GITHUB u/UNIVERSITY m/MAJOR f/FROM t/TO c/CAP</code> so as to update the Person
-object currently stored in Model as well as Storage.</p>
+<div class="paragraph">
+<p>Step 2. User executes <code>me dp/ FILEPATH n/ NAME d/ DESCRIPTION p/ PHONE e/ EMAIL g/ GITHUB u/ UNIVERSITY m/ MAJOR f/ FROM t/ TO c/ CAP</code>
+so as to update the Person object currently stored in Model as well as Storage.</p>
+</div>
 <div class="literalblock">
 <div class="content">
-<pre>me n/Nham Hung p/91608840 e/nhamhung.gttn@gmail.com g/nhamhung u/NUS m/CS f/10-2020 t/11-2020 c/5.0</pre>
+<pre>me dp/ /Users/nhamquochung/Desktop/test.png n/ HUNG d/ I am an aspiring software engineer. p/ 91648888 e/ nhamhung.gttn@gmail.com g/ nhamhung u/ National University of Singapore m/ Computer Science f/ 08-2018 t/ 05-2022 c/ 4.0 5.0</pre>
 </div>
 </div>
-</li>
-<li>
-<p>The Ui User Data Table will be updated accordingly.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Step 3. The user profile panel will be updated accordingly.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/user-data.png" alt="user data">
+<img src="images/user.png" alt="user">
 </div>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong> To set customised user picture, the file path of your display picture has to be absolute and from the root directory of your computer.</p>
 </div>
 <div class="paragraph">
 <p>Command sequence:</p>
@@ -833,7 +804,7 @@ object currently stored in Model as well as Storage.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User type <code>me</code> command in the command box.</p>
+<p>User type <code>me [dp/FILEPATH] [n/NAME] &#8230;&#8203;</code> command in the command box.</p>
 </li>
 <li>
 <p>Command is executed by Logic Manager.</p>
@@ -842,25 +813,28 @@ object currently stored in Model as well as Storage.</p>
 <p>Command is parsed by <code>ResumeBookParser</code> which identifies what type of command it is. An <code>EditUserParser</code> is returned accordingly.</p>
 </li>
 <li>
-<p><code>EditUserParser</code> extracts out different components of the command into an <code>EditUserDescriptor</code> object and returns an <code>EditUserCommand</code>
-with the <code>EditUserDescriptor</code> object which contains information on which attributes of user data is updated or kept unchanged.</p>
+<p><code>EditUserParser</code> extracts out different fields specified in the command based on their prefixes and returns an <code>EditUserCommand</code> with
+an <code>EditUserDescriptor</code> object parameter which contains information on which attributes of user data is updated or kept unchanged.</p>
 </li>
 <li>
-<p><code>EditUserCommand</code> then calls <code>execute()</code> which first gets the existing user in Model as <code>userToEdit</code>. Then it creates a new
-<code>editedUser</code> based on <code>EditUserDescriptor</code>. It will then update the current <code>userToEdit</code> in Model with <code>editedUser</code>. Afterwards,
+<p><code>EditUserCommand</code> then calls <code>execute()</code> which first gets the existing <code>Person</code> in Model as the <code>userToEdit</code>. It then creates a new
+<code>editedUser</code> based on <code>EditUserDescriptor</code> and set the current <code>userToEdit</code> in Model to <code>editedUser</code>. Afterwards,
 a <code>CommandResult</code> is returned to Logic with data and feedback to be displayed to the user.</p>
 </li>
 <li>
-<p>Feedback acknowledge is displayed by <code>ResultDisplay</code>. User profile changes are displayed by JavaFx <code>TableView</code>.</p>
+<p>Feedback acknowledgement is displayed by <code>ResultDisplay</code>. User profile changes are displayed automatically as the user <code>Person</code>
+is wrapped around by a JavaFx Observable as an <code>ObservablePerson</code> so that the user profile 's display is always updated after execution of
+every command.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>me</code> feature allows user to edit the user profile:</p>
+<p>The following sequence diagram shows how the <code>me</code> feature allows user to edit his/her user profile:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/MeSequenceDiagram.png" alt="MeSequenceDiagram">
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -871,9 +845,14 @@ a <code>CommandResult</code> is returned to Logic with data and feedback to be d
 <div class="ulist">
 <ul>
 <li>
-<p><strong> Alternative 1 (current choice):</strong> <code>EditUserCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>
-This design is chosen because while <code>EditCommand</code> takes into account the item index as all items are stored in a list in Model, <code>EditUserCommand</code>
-only concerns with a single <code>Person</code> who is the sole user.</p>
+<p><strong> Alternative 1 (current choice):</strong> <code>EditUserCommand</code> does not extend <code>EditCommand</code>, but extends <code>Command</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This design is chosen because while <code>EditCommand</code> takes into account the item index as all items are stored in a list in Model, <code>EditUserCommand</code>
+only concerns with a single <code>Person</code> who is the main user.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -881,22 +860,19 @@ only concerns with a single <code>Person</code> who is the sole user.</p>
 </li>
 <li>
 <p>Cons: Unable to exploit polymorphism if there is similarity with the <code>EditCommand</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2: <code>EditUserCommand</code> extends <code>EditCommand</code></strong></p>
 </li>
 </ul>
 </div>
 </li>
-<li>
-<p><strong>Alternative 2: <code>EditUserCommand</code> extends <code>EditCommand</code></strong></p>
-<div class="ulist">
-<ul>
 <li>
 <p>Pros: Better utilise polymorphism and perhaps can be more intuitive as it is also a command to edit.</p>
 </li>
 <li>
 <p>Cons: Does not treat it as an entirely separate command with a distinct keyword <code>me</code> which is more intuitive for the user.</p>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
@@ -913,7 +889,7 @@ existing one and update the Model and Ui accordingly.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Reduces unnecessary code duplication.</p>
+<p>Pros: Reduces unnecessary code duplication with AddUserCommand is present.</p>
 </li>
 <li>
 <p>Cons: User may expect to have <code>add</code> command intuitively.</p>
@@ -936,25 +912,170 @@ existing one and update the Model and Ui accordingly.</p>
 </li>
 </ul>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> We went with our current design because it only concerns with a single target user whose usage of the application can
+help him/her manage and craft multiple resume versions. As such, only a single user profile which includes essential biography and educational
+background needs to be managed to be included in every generated resume. This user profile must thus be made clearly, constantly visible
+and to be updated with a simple and powerful command.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="store-and-display-motivational-quotes"><a class="link" href="#store-and-display-motivational-quotes">4.4.3. Store and Display Motivational Quotes</a></h4>
+<h4 id="note-taking-feature-take-simple-notes-or-reminders"><a class="link" href="#note-taking-feature-take-simple-notes-or-reminders">4.4.2. Note taking feature: take simple notes or reminders</a></h4>
+<div class="sect4">
+<h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
 <div class="paragraph">
-<p>This allows the user to input and store motivational quotes. They are then able to display them at the user profile pane.</p>
+<p>This feature utilises a <code>Note</code> class that extends <code>Item</code>. It provides necessary functionality related to note taking in order to
+support the user in his/her resume building and management.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="set-personal-reminders-and-take-notes"><a class="link" href="#set-personal-reminders-and-take-notes">4.4.4. Set Personal Reminders and Take Notes</a></h4>
 <div class="paragraph">
-<p>This allows the user to set reminders as well as taking notes for him/herself to further customize his/her interaction
-with the app.</p>
+<p>Given below is an example usage scenario:</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="change-background-and-font-color"><a class="link" href="#change-background-and-font-color">4.4.5. Change Background and Font Color</a></h4>
+<div class="sect4">
+<h5 id="scenario-1-add-a-reminder-note-code-add-i-note-code"><a class="link" href="#scenario-1-add-a-reminder-note-code-add-i-note-code">Scenario 1. Add a reminder note: <code>add i/note</code></a></h5>
 <div class="paragraph">
-<p>This allows the user to change the background and font color using rgb or hex color codes.</p>
+<p>Step 1. The user launches the ResuMe application. Data will be loaded from storage to fill the note list in model.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>add i/ note n/ NAME t/ TIME #/ TAG</code>. In <code>ResumeBook</code>, the note list is implemented as a <code>UniqueItemList</code>
+which implements an <code>add()</code> method that will always check if this note already exists in current note list. This check is done
+by iterating through every note in the list and compare to this note using an <code>isSame()</code> method that checks for the same
+note name and time. If a same note already exists, ResuMe throws a duplicate error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. If no error is thrown, the note will be created, defaulted as <code>not done</code> and added to the current note list with according <code>Ui</code> update.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="scenario-2-edit-an-existing-note-code-edit-i-note-code"><a class="link" href="#scenario-2-edit-an-existing-note-code-edit-i-note-code">Scenario 2. Edit an existing note: <code>edit i/note</code></a></h5>
+<div class="paragraph">
+<p>Step 1. Once data has been loaded from <code>storage</code> to <code>model</code>, the list of notes in the ResumeBook could either contain some
+notes, or is empty.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>edit INDEX i/ Note [n/ NAME] [t/ TIME] [#/ TAG]</code>. If the specified note index is invalid or out of bound,
+ResuMe will throw an invalid index error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. If no index error is thrown, edited values will be captured by an <code>EditNoteDescriptor</code> object and the note at the specified index
+will be extracted to be updated according to the fields captured by this descriptor. However, if this note to
+be edited becomes another similar note in the list, a duplicate item error will be thrown.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. If no duplicate error is thrown, ResuMe will replace the note at this index with its edited version.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises this process when user executes <code>edit i/note</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditNoteCommandActivityDiagram.png" alt="EditNoteCommandActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="scenario-3-mark-an-existing-note-as-done-code-done-code"><a class="link" href="#scenario-3-mark-an-existing-note-as-done-code-done-code">Scenario 3. Mark an existing note as done: <code>done</code></a></h5>
+<div class="paragraph">
+<p>Step 1. Given the currently displaying list of notes, the user executes <code>done INDEX</code>. If the specified note index is invalid
+or out of bound, ResuMe throws an error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The corresponding note at this index is marked as done with an Ui update from a <code>tick</code> to <code>cross</code>. If the note has
+already been marked as done, a user feedback message is displayed to notify the user.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
+<div class="paragraph">
+<p><strong>Aspect: Whether this feature is necessary in supporting the user</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Note taking is implemented with functionality to <code>add</code>, <code>edit</code>, <code>view</code>, <code>list</code>, <code>find</code>, <code>delete</code>, <code>sort</code> and <code>done</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This design is chosen because it can be an important part of overall user experience in managing his/her resumes. It is an enhancement
+to existing features that deal strictly with building resumes, by allowing the user to jot down short entries which can serve as
+simple reminders for them.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User may work on crafting his/her <code>Internship</code>, <code>Project</code> and <code>Skill</code> with a lot of writing and summarising past experiences. As such,
+this brainstorming process tends to be over a long time. Note taking thus makes it easier for user to resume his/her work.</p>
+</li>
+<li>
+<p>Cons: Note taking may seem like an unrelated feature to building resumes. Thus, it may be underutilised if the user only
+focuses on managing resumes.</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Remove note taking feature from the application</p>
+</li>
+<li>
+<p>Pros: Make ResuMe more inline with being a resume building application.</p>
+</li>
+<li>
+<p>Cons: May miss out on a portion of users who would appreciate this feature, especially those with a habit of jotting down notes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aspect: Whether <code>Note</code> class should extend <code>Item</code> class</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> <code>Note</code> is also an <code>Item</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This design is chosen because note taking feature is intended to have similar <code>Command</code> to a typical <code>Item</code> such as <code>AddCommand</code>, <code>EditCommand</code> and <code>SortCommand</code>.
+As such, by extending <code>Item</code>, <code>Note</code> can inherit attributes such as <code>Index</code> and <code>Tag</code> as well as being able to kept as a
+<code>UniqueItemList</code> in <code>Model</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduce code duplication in achieving the same functionality between <code>Note</code> commands and other <code>Item</code> commands. <code>Note</code> can also inherit
+important attributes such as <code>index</code> and <code>tags</code> which it intends to have.</p>
+</li>
+<li>
+<p>Cons: Right now other subclasses of <code>Item</code> are <code>Internship</code>, <code>Project</code>, <code>Skill</code>, <code>Person</code> and <code>Resume</code> which are all relevant
+to building a <code>Resume</code>. Details from these items will be included in the actual resume PDF generated. As such, <code>Note</code> as a subclass of
+<code>Item</code> can add confusion because it is not part of a resume.</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implement a <code>Note</code> class which does not inherit from <code>Item</code></p>
+</li>
+<li>
+<p>Pros: Make it more independent and do not interfere with the design considerations for other resume-related items.</p>
+</li>
+<li>
+<p>Cons: However, this would lead to a significant code duplication to achieve the same purpose. This could violate <code>Don&#8217;t Repeat Yourself</code>
+principle which increases the amount of work required to test the application.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Conclusion:</strong> We went with our current design because we feel that note taking feature is helpful for user in managing multiple resume versions
+as it allows him/her to interact in more ways with the process of logging their experiences to include in resumes. We foresee that crafting
+resumes can be prolonged and thus this helps them to resume with ease. With regards to inheritance consideration, we decided that it would be
+faster and more reliable to make <code>Note</code> an <code>Item</code> so as to minimise double work and potential bugs. This is hidden from the user&#8217;s perspective
+and so this design suits our needs given the short time frame that we have.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -967,7 +1088,7 @@ then generating a <code>.pdf</code> file from it.</p>
 <div class="sect3">
 <h4 id="previewing-a-resume-code-rpreview-code"><a class="link" href="#previewing-a-resume-code-rpreview-code">4.5.1. Previewing a resume: <code>rpreview</code></a></h4>
 <div class="sect4">
-<h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
+<h5 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h5>
 <div class="paragraph">
 <p><code>rpreview</code> is supported by the new <code>Command</code>, <code>ResumePreviewCommand</code> and the additional method <code>toPreview()</code> implemented
 in <code>Internship</code>, <code>Project</code> and <code>Skill</code>, which return the content of the item in textual format.</p>
@@ -995,7 +1116,7 @@ in <code>Internship</code>, <code>Project</code> and <code>Skill</code>, which r
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
+<h5 id="design-considerations-6"><a class="link" href="#design-considerations-6">Design Considerations</a></h5>
 
 </div>
 <div class="sect4">
@@ -1067,7 +1188,7 @@ a clean UI outweighs the compromise made when additional action to close the pop
 <div class="sect3">
 <h4 id="generating-a-code-pdf-code-file-from-a-resume-code-rgen-code"><a class="link" href="#generating-a-code-pdf-code-file-from-a-resume-code-rgen-code">4.5.2. Generating a <code>.pdf</code> file from a resume: <code>rgen</code></a></h4>
 <div class="sect4">
-<h5 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h5>
+<h5 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h5>
 <div class="paragraph">
 <p>This feature utilises the external <strong>Apache Pdf Box</strong> library. When using <code>rgen</code>, the user could specify the desired name of
 the generated file, which will be saved in the root directory of the project.</p>
@@ -1123,7 +1244,7 @@ items inside the <code>Resume</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.5.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-rgen-code-executes"><a class="link" href="#aspect-how-code-rgen-code-executes">Aspect: How <code>rgen</code> executes</a></h5>
 <div class="ulist">
@@ -1176,7 +1297,7 @@ extended features (e.g. allow user to choose from a variety of pre-defined resum
 <div class="sect2">
 <h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">4.6. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.6.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedResumeBook</code>.
 It extends <code>ResumeBook</code> with an undo/redo history, stored internally as an <code>ResumeBookStateList</code> and <code>currentStatePointer</code>.
@@ -1318,7 +1439,7 @@ If the <code>currentStatePointer</code> is at index <code>resumeBookStateList.si
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1950,4 +2071,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:56:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:19:22 UTC</div></div></div></body></html>
